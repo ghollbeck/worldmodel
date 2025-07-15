@@ -1,0 +1,74 @@
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build output
+build/
+dist/
+out/
+coverage/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.so
+*.egg-info/
+.eggs/
+.env
+.venv/
+venv/
+ENV/
+env/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Misc
+*.swp
+*.bak
+*.tmp
+
+# Local environment/config
+.env.*
+.envrc
+*.local
+
+# Test output
+htmlcov/
+.tox/
+.cache/
+.pytest_cache/
+coverage.xml
+nosetests.xml
+test-results/
+
+# Jupyter
+.ipynb_checkpoints
+
+# Project-specific
+worldmodel/backend/init_logs/
+worldmodel/backend/__pycache__/
+worldmodel/__pycache__/
+worldmodel/src/__pycache__/
+worldmodel/backend/routes/initialization_route/__pycache__/
+worldmodel/backend/llm/__pycache__/
+
+# Ignore saved simulation outputs
+*.sqlite3
+*.db
