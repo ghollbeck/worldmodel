@@ -1,0 +1,19 @@
+# Core
+pydantic>=2.0
+python-dotenv
+
+# Databases
+duckdb
+asyncpg
+
+# LLM Providers
+openai
+anthropic
+
+# Distributed Computing
+ray
+
+# Testing
+pytest
+pytest-asyncio
+pytest-cov 
