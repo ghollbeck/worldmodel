@@ -1,84 +1,137 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import './App.css';
 
-function App() {
-  const [parameters, setParameters] = useState({
-    population: 7800000000,
-    economy: 75,
-    environment: 60,
-    technology: 80,
-    health: 70,
-    education: 65,
-    governance: 55
-  });
+type InputMode = 'dropdown' | 'freetext';
+type Phase = 'initialization' | 'training';
 
-  // New state for mode selection
-  const [inputMode, setInputMode] = useState('dropdown'); // 'dropdown' or 'freetext'
-  const [freeTextInput, setFreeTextInput] = useState('');
+type ParameterId =
+  | 'population'
+  | 'economy'
+  | 'environment'
+  | 'technology'
+  | 'health'
+  | 'education'
+  | 'governance'
+  | 'climate_stability'
+  | 'resource_scarcity'
+  | 'social_cohesion'
+  | 'political_stability'
+  | 'innovation_rate'
+  | 'energy_efficiency'
+  | 'biodiversity'
+  | 'urbanization'
+  | 'inequality'
+  | 'trade_openness'
+  | 'corruption_level'
+  | 'military_spending'
+  | 'renewable_energy'
+  | 'water_security'
+  | 'food_security'
+  | 'cyber_security'
+  | 'demographic_dividend'
+  | 'global_connectivity';
 
-  // State for parameter cards
-  const [parameterCards, setParameterCards] = useState([]);
-  const [nextCardId, setNextCardId] = useState(1);
+interface ParameterCard {
+  id: number;
+  parameterId: ParameterId;
+  value: number;
+  order: number;
+}
 
-  const [depthLevel, setDepthLevel] = useState(3);
+interface WorldModelParameter {
+  id: ParameterId;
+  label: string;
+  min: number;
+  max: number;
+  step: number;
+  unit: string;
+}
 
-  // New state for active phase
-  const [activePhase, setActivePhase] = useState('initialization');
+interface LogEntry {
+  id: number;
+  timestamp: string;
+  message: string;
+  type: 'info' | 'error' | 'warning';
+}
 
-  // New state for logs
-  const [logs, setLogs] = useState([
+// Fix: Use an index signature compatible with JS/TS transpilation
+type Parameters = Partial<Record<ParameterId, number>>;
+
+const worldModelParameters: WorldModelParameter[] = [
+  { id: 'population', label: 'Population', min: 0, max: 15000000000, step: 1000000, unit: 'people' },
+  { id: 'economy', label: 'Economic Growth', min: 0, max: 100, step: 1, unit: '%' },
+  { id: 'environment', label: 'Environmental Quality', min: 0, max: 100, step: 1, unit: '%' },
+  { id: 'technology', label: 'Technology Level', min: 0, max: 100, step: 1, unit: '%' },
+  { id: 'health', label: 'Health Index', min: 0, max: 100, step: 1, unit: '%' },
+  { id: 'education', label: 'Education Level', min: 0, max: 100, step: 1, unit: '%' },
+  { id: 'governance', label: 'Governance Quality', min: 0, max: 100, step: 1, unit: '%' },
+  { id: 'climate_stability', label: 'Climate Stability', min: 0, max: 100, step: 1, unit: '%' },
+  { id: 'resource_scarcity', label: 'Resource Scarcity', min: 0, max: 100, step: 1, unit: '%' },
+  { id: 'social_cohesion', label: 'Social Cohesion', min: 0, max: 100, step: 1, unit: '%' },
+  { id: 'political_stability', label: 'Political Stability', min: 0, max: 100, step: 1, unit: '%' },
+  { id: 'innovation_rate', label: 'Innovation Rate', min: 0, max: 100, step: 1, unit: '%' },
+  { id: 'energy_efficiency', label: 'Energy Efficiency', min: 0, max: 100, step: 1, unit: '%' },
+  { id: 'biodiversity', label: 'Biodiversity Index', min: 0, max: 100, step: 1, unit: '%' },
+  { id: 'urbanization', label: 'Urbanization Level', min: 0, max: 100, step: 1, unit: '%' },
+  { id: 'inequality', label: 'Income Inequality', min: 0, max: 100, step: 1, unit: '%' },
+  { id: 'trade_openness', label: 'Trade Openness', min: 0, max: 100, step: 1, unit: '%' },
+  { id: 'corruption_level', label: 'Corruption Level', min: 0, max: 100, step: 1, unit: '%' },
+  { id: 'military_spending', label: 'Military Spending', min: 0, max: 100, step: 1, unit: '% of GDP' },
+  { id: 'renewable_energy', label: 'Renewable Energy', min: 0, max: 100, step: 1, unit: '%' },
+  { id: 'water_security', label: 'Water Security', min: 0, max: 100, step: 1, unit: '%' },
+  { id: 'food_security', label: 'Food Security', min: 0, max: 100, step: 1, unit: '%' },
+  { id: 'cyber_security', label: 'Cyber Security', min: 0, max: 100, step: 1, unit: '%' },
+  { id: 'demographic_dividend', label: 'Demographic Dividend', min: 0, max: 100, step: 1, unit: '%' },
+  { id: 'global_connectivity', label: 'Global Connectivity', min: 0, max: 100, step: 1, unit: '%' }
+];
+
+const initialParameters: Parameters = {
+  population: 7800000000,
+  economy: 75,
+  environment: 60,
+  technology: 80,
+  health: 70,
+  education: 65,
+  governance: 55
+};
+
+const App: React.FC = () => {
+  const [parameters, setParameters] = useState<Parameters>(initialParameters);
+
+  const [inputMode, setInputMode] = useState<InputMode>('dropdown');
+  const [freeTextInput, setFreeTextInput] = useState<string>('');
+
+  const [parameterCards, setParameterCards] = useState<ParameterCard[]>([]);
+  const [nextCardId, setNextCardId] = useState<number>(1);
+
+  const [depthLevel, setDepthLevel] = useState<number>(3);
+
+  const [activePhase, setActivePhase] = useState<Phase>('initialization');
+
+  const [logs, setLogs] = useState<LogEntry[]>([
     { id: 1, timestamp: new Date().toISOString(), message: 'System initialized', type: 'info' },
     { id: 2, timestamp: new Date().toISOString(), message: 'Ready for initialization phase', type: 'info' }
   ]);
 
-  // Extended list of world model parameters
-  const worldModelParameters = [
-    { id: 'population', label: 'Population', min: 0, max: 15000000000, step: 1000000, unit: 'people' },
-    { id: 'economy', label: 'Economic Growth', min: 0, max: 100, step: 1, unit: '%' },
-    { id: 'environment', label: 'Environmental Quality', min: 0, max: 100, step: 1, unit: '%' },
-    { id: 'technology', label: 'Technology Level', min: 0, max: 100, step: 1, unit: '%' },
-    { id: 'health', label: 'Health Index', min: 0, max: 100, step: 1, unit: '%' },
-    { id: 'education', label: 'Education Level', min: 0, max: 100, step: 1, unit: '%' },
-    { id: 'governance', label: 'Governance Quality', min: 0, max: 100, step: 1, unit: '%' },
-    { id: 'climate_stability', label: 'Climate Stability', min: 0, max: 100, step: 1, unit: '%' },
-    { id: 'resource_scarcity', label: 'Resource Scarcity', min: 0, max: 100, step: 1, unit: '%' },
-    { id: 'social_cohesion', label: 'Social Cohesion', min: 0, max: 100, step: 1, unit: '%' },
-    { id: 'political_stability', label: 'Political Stability', min: 0, max: 100, step: 1, unit: '%' },
-    { id: 'innovation_rate', label: 'Innovation Rate', min: 0, max: 100, step: 1, unit: '%' },
-    { id: 'energy_efficiency', label: 'Energy Efficiency', min: 0, max: 100, step: 1, unit: '%' },
-    { id: 'biodiversity', label: 'Biodiversity Index', min: 0, max: 100, step: 1, unit: '%' },
-    { id: 'urbanization', label: 'Urbanization Level', min: 0, max: 100, step: 1, unit: '%' },
-    { id: 'inequality', label: 'Income Inequality', min: 0, max: 100, step: 1, unit: '%' },
-    { id: 'trade_openness', label: 'Trade Openness', min: 0, max: 100, step: 1, unit: '%' },
-    { id: 'corruption_level', label: 'Corruption Level', min: 0, max: 100, step: 1, unit: '%' },
-    { id: 'military_spending', label: 'Military Spending', min: 0, max: 100, step: 1, unit: '% of GDP' },
-    { id: 'renewable_energy', label: 'Renewable Energy', min: 0, max: 100, step: 1, unit: '%' },
-    { id: 'water_security', label: 'Water Security', min: 0, max: 100, step: 1, unit: '%' },
-    { id: 'food_security', label: 'Food Security', min: 0, max: 100, step: 1, unit: '%' },
-    { id: 'cyber_security', label: 'Cyber Security', min: 0, max: 100, step: 1, unit: '%' },
-    { id: 'demographic_dividend', label: 'Demographic Dividend', min: 0, max: 100, step: 1, unit: '%' },
-    { id: 'global_connectivity', label: 'Global Connectivity', min: 0, max: 100, step: 1, unit: '%' }
-  ];
-
-  const handleSliderChange = (param, value) => {
+  const handleSliderChange = (param: ParameterId, value: number) => {
     setParameters(prev => ({
       ...prev,
       [param]: value
     }));
   };
 
-  const handleCardSliderChange = (cardId, value) => {
-    setParameterCards(prev => 
-      prev.map(card => 
-        card.id === cardId 
-          ? { ...card, value: value }
+  const handleCardSliderChange = (cardId: number, value: number) => {
+    setParameterCards(prev =>
+      prev.map(card =>
+        card.id === cardId
+          ? { ...card, value }
           : card
       )
     );
   };
 
   const handleAddParameterCard = () => {
-    const newCard = {
+    const newCard: ParameterCard = {
       id: nextCardId,
       parameterId: 'population',
       value: 50,
@@ -88,25 +141,25 @@ function App() {
     setNextCardId(prev => prev + 1);
   };
 
-  const handleRemoveParameterCard = (cardId) => {
+  const handleRemoveParameterCard = (cardId: number) => {
     setParameterCards(prev => prev.filter(card => card.id !== cardId));
   };
 
-  const handleParameterCardChange = (cardId, parameterId) => {
-    setParameterCards(prev => 
-      prev.map(card => 
-        card.id === cardId 
-          ? { ...card, parameterId, value: 50 }
+  const handleParameterCardChange = (cardId: number, parameterId: string) => {
+    setParameterCards(prev =>
+      prev.map(card =>
+        card.id === cardId
+          ? { ...card, parameterId: parameterId as ParameterId, value: 50 }
           : card
       )
     );
   };
 
-  const getParameterInfo = (parameterId) => {
+  const getParameterInfo = (parameterId: string): WorldModelParameter => {
     return worldModelParameters.find(p => p.id === parameterId) || worldModelParameters[0];
   };
 
-  const formatParameterValue = (value, parameterId) => {
+  const formatParameterValue = (value: number, parameterId: string): string => {
     const param = getParameterInfo(parameterId);
     if (parameterId === 'population') {
       return `${(value / 1000000000).toFixed(1)}B`;
@@ -120,24 +173,21 @@ function App() {
     console.log('Input mode:', inputMode);
     console.log('Free text input:', freeTextInput);
     console.log('Depth level:', depthLevel);
-    
-    // Add log entry
-    const newLog = {
+
+    const newLog: LogEntry = {
       id: logs.length + 1,
       timestamp: new Date().toISOString(),
       message: `Running simulation with ${parameterCards.length} parameters`,
       type: 'info'
     };
     setLogs(prev => [...prev, newLog]);
-    
     // Here you would trigger the actual simulation
   };
 
-  const handlePhaseChange = (phase) => {
+  const handlePhaseChange = (phase: Phase) => {
     setActivePhase(phase);
-    
-    // Add log entry
-    const newLog = {
+
+    const newLog: LogEntry = {
       id: logs.length + 1,
       timestamp: new Date().toISOString(),
       message: `Switched to ${phase} phase`,
@@ -146,7 +196,7 @@ function App() {
     setLogs(prev => [...prev, newLog]);
   };
 
-  const formatLogTimestamp = (timestamp) => {
+  const formatLogTimestamp = (timestamp: string): string => {
     return new Date(timestamp).toLocaleTimeString();
   };
 
@@ -161,22 +211,22 @@ function App() {
       <div className="simulation-container">
         {/* Left Panel - Controls */}
         <div className="controls-panel">
-          
+
           {/* Phase Title and Buttons */}
           <div className="phase-section">
             <h2 className="phase-title">Initialization, training, inference</h2>
             <div className="phase-buttons">
-              <button 
+              <button
                 className={`phase-btn ${activePhase === 'initialization' ? 'active' : ''}`}
                 onClick={() => handlePhaseChange('initialization')}
               >
-                Initialization
+                Run Initialization
               </button>
-              <button 
+              <button
                 className={`phase-btn ${activePhase === 'training' ? 'active' : ''}`}
                 onClick={() => handlePhaseChange('training')}
               >
-                Training
+                Run Training
               </button>
             </div>
           </div>
@@ -186,13 +236,13 @@ function App() {
             <div className="mode-selection">
               <h3>Input Mode</h3>
               <div className="mode-buttons">
-                <button 
+                <button
                   className={`mode-btn ${inputMode === 'dropdown' ? 'active' : ''}`}
                   onClick={() => setInputMode('dropdown')}
                 >
                   Drop-down
                 </button>
-                <button 
+                <button
                   className={`mode-btn ${inputMode === 'freetext' ? 'active' : ''}`}
                   onClick={() => setInputMode('freetext')}
                 >
@@ -205,7 +255,7 @@ function App() {
               <label>Depth Level</label>
               <select
                 value={depthLevel}
-                onChange={(e) => setDepthLevel(parseInt(e.target.value))}
+                onChange={(e: ChangeEvent<HTMLSelectElement>) => setDepthLevel(parseInt(e.target.value))}
                 className="depth-dropdown"
               >
                 <option value={1}>Level 1</option>
@@ -224,10 +274,10 @@ function App() {
               <div className="freetext-input-container">
                 <textarea
                   value={freeTextInput}
-                  onChange={(e) => setFreeTextInput(e.target.value)}
+                  onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setFreeTextInput(e.target.value)}
                   placeholder="Describe the scenario you want to analyze. For example: 'A world where climate change accelerates, leading to mass migration and resource conflicts..'"
                   className="freetext-input"
-                  rows="8"
+                  rows={8}
                 />
               </div>
             </div>
@@ -248,7 +298,7 @@ function App() {
                       <div className="card-header">
                         <select
                           value={card.parameterId}
-                          onChange={(e) => handleParameterCardChange(card.id, e.target.value)}
+                          onChange={(e: ChangeEvent<HTMLSelectElement>) => handleParameterCardChange(card.id, e.target.value)}
                           className="parameter-select"
                         >
                           {worldModelParameters.map(param => (
@@ -258,7 +308,7 @@ function App() {
                           ))}
                         </select>
                         <div className="card-controls">
-                          <button 
+                          <button
                             onClick={() => handleRemoveParameterCard(card.id)}
                             className="remove-card-btn"
                           >
@@ -273,7 +323,7 @@ function App() {
                           max={paramInfo.max}
                           step={paramInfo.step}
                           value={card.value}
-                          onChange={(e) => handleCardSliderChange(card.id, parseInt(e.target.value))}
+                          onChange={(e: ChangeEvent<HTMLInputElement>) => handleCardSliderChange(card.id, parseInt(e.target.value))}
                           className="slider"
                         />
                         <span className="parameter-value">
@@ -308,7 +358,7 @@ function App() {
       <div className="logs-container">
         <div className="logs-header">
           <h3>System Logs</h3>
-          <button 
+          <button
             onClick={() => setLogs([])}
             className="clear-logs-btn"
           >
@@ -326,6 +376,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
-export default App; 
+export default App;

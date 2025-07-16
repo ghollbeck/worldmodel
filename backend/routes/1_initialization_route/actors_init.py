@@ -19,7 +19,7 @@ from worldmodel.backend.llm.llm import call_llm_api
 
 def log_error(error_type, error_message, details=None, exception=None):
     """
-    Enhanced error logging function for terminal output
+    Enhanced error logging function for terminal output with red cross emoji
     
     Args:
         error_type (str): Type of error (e.g., "JSON_PARSE_ERROR", "API_ERROR")
@@ -45,9 +45,29 @@ def log_error(error_type, error_message, details=None, exception=None):
     
     print(f"{'='*60}\n")
 
+def log_success(message, details=None):
+    """
+    Success logging function with green checkmark emoji
+    
+    Args:
+        message (str): Success message
+        details (str, optional): Additional details about the success
+    """
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    
+    print(f"\n{'='*60}")
+    print(f"✅ SUCCESS - {timestamp}")
+    print(f"{'='*60}")
+    print(f"Message: {message}")
+    
+    if details:
+        print(f"Details: {details}")
+    
+    print(f"{'='*60}\n")
+
 def save_actors_to_json(actors_list: 'ActorList', model_provider: str, model_name: str, num_actors: int):
     """
-    Save the ActorList to a JSON file in the init_logs folder
+    Save the ActorList to a JSON file in the init_logs folder with date-based subfolder structure
     
     Args:
         actors_list (ActorList): The validated ActorList object
@@ -59,27 +79,45 @@ def save_actors_to_json(actors_list: 'ActorList', model_provider: str, model_nam
         str: Path to the saved file if successful, None if failed
     """
     try:
-        # Create the init_logs directory path
+        # Create the base init_logs directory path
         script_dir = Path(__file__).parent
         backend_dir = script_dir.parent.parent  # Go up to worldmodel/backend
-        init_logs_dir = backend_dir / "init_logs"
+        base_logs_dir = backend_dir / "init_logs"
         
-        # Create the directory if it doesn't exist
-        init_logs_dir.mkdir(exist_ok=True)
+        # Create the base directory if it doesn't exist
+        base_logs_dir.mkdir(parents=True, exist_ok=True)
+        
+        # Create date-based subfolder with running integer
+        current_date = datetime.now().strftime("%Y-%m-%d")
+        
+        # Find the next available run number for today
+        run_number = 1
+        while True:
+            subfolder_name = f"run_{current_date}_{run_number}"
+            subfolder_path = base_logs_dir / subfolder_name
+            
+            if not subfolder_path.exists():
+                # Create the subfolder
+                subfolder_path.mkdir(parents=True, exist_ok=True)
+                break
+            
+            run_number += 1
         
         # Create the filename
-        filename = "Features_round_0.json"
-        filepath = init_logs_dir / filename
+        filename = "Features_level_0.json"
+        filepath = subfolder_path / filename
         
         # Prepare the data to save with metadata
         output_data = {
             "metadata": {
                 "timestamp": datetime.now().isoformat(),
+                "run_folder": subfolder_name,
                 "model_provider": model_provider,
                 "model_name": model_name,
                 "num_actors_requested": num_actors,
                 "num_actors_generated": actors_list.total_count,
-                "script_version": "1.0.0"
+                "script_version": "1.0.0",
+                "generation_method": "LLM-based"
             },
             "actors": [actor.model_dump() for actor in actors_list.actors],
             "total_count": actors_list.total_count
@@ -89,7 +127,10 @@ def save_actors_to_json(actors_list: 'ActorList', model_provider: str, model_nam
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(output_data, f, indent=2, ensure_ascii=False)
         
-        print(f"💾 JSON saved successfully: {filepath}")
+        log_success(
+            "JSON file saved successfully",
+            f"File: {filepath}\nRun folder: {subfolder_name}\nProvider: {model_provider}\nModel: {model_name}\nActors: {num_actors}"
+        )
         return str(filepath)
         
     except Exception as e:
@@ -135,19 +176,19 @@ def get_worldmodel_actors_via_llm(model_provider="anthropic", model_name="claude
         # From the parent directory (58_Worldmodel):
         cd 58_Worldmodel
         source venv/bin/activate
-        python -c "from worldmodel.backend.routes.initialization_route.actors_init import get_worldmodel_actors_via_llm; get_worldmodel_actors_via_llm()"
+        python -c "from worldmodel.backend.routes.1_initialization_route.actors_init import get_worldmodel_actors_via_llm; get_worldmodel_actors_via_llm()"
         
         # With different providers/models/counts:
-        python -c "from worldmodel.backend.routes.initialization_route.actors_init import get_worldmodel_actors_via_llm; get_worldmodel_actors_via_llm('anthropic', 'claude-3-opus-20240229', 25)"
-        python -c "from worldmodel.backend.routes.initialization_route.actors_init import get_worldmodel_actors_via_llm; get_worldmodel_actors_via_llm('openai', 'gpt-4', 100)"
+        python -c "from worldmodel.backend.routes.1_initialization_route.actors_init import get_worldmodel_actors_via_llm; get_worldmodel_actors_via_llm('anthropic', 'claude-3-opus-20240229', 25)"
+        python -c "from worldmodel.backend.routes.1_initialization_route.actors_init import get_worldmodel_actors_via_llm; get_worldmodel_actors_via_llm('openai', 'gpt-4', 100)"
         
         # Or run the file directly from the worldmodel directory:
         cd worldmodel
-        python backend/routes/initialization_route/actors_init.py
+        python backend/routes/1_initialization_route/actors_init.py
         
         # With arguments for direct execution:
-        python backend/routes/initialization_route/actors_init.py anthropic claude-3-5-sonnet-latest 25
-        python backend/routes/initialization_route/actors_init.py openai gpt-4 100
+        python backend/routes/1_initialization_route/actors_init.py anthropic claude-3-5-sonnet-latest 25
+        python backend/routes/1_initialization_route/actors_init.py openai gpt-4 100
 
     Requirements:
         - For Anthropic: You must have an Anthropic API key set in your environment as ANTHROPIC_API_KEY
@@ -159,7 +200,7 @@ def get_worldmodel_actors_via_llm(model_provider="anthropic", model_name="claude
         ActorList: A Pydantic model containing the list of most influential actors with their details
     
     Output:
-        - Successful results are automatically saved to: worldmodel/backend/init_logs/Features_round_0.json
+        - Successful results are automatically saved to: worldmodel/backend/init_logs/Features_level_0.json
         - The JSON file includes metadata (timestamp, model info, etc.) and the complete actor list
         - File is created with UTF-8 encoding and proper JSON formatting
     
@@ -225,8 +266,8 @@ def get_worldmodel_actors_via_llm(model_provider="anthropic", model_name="claude
     full_prompt = system_context + user_context
 
     try:
-        print(f"Using {model_provider} with model: {model_name}")
-        print(f"Requesting {num_actors} most influential actors...")
+        print(f"🔄 Using {model_provider} with model: {model_name}")
+        print(f"📊 Requesting {num_actors} most influential actors...")
         
         # Call the abstracted LLM API
         response = call_llm_api(
@@ -242,14 +283,17 @@ def get_worldmodel_actors_via_llm(model_provider="anthropic", model_name="claude
             raw_data = json.loads(response)
             actors_list = ActorList(**raw_data)
             
-            # Pretty print the validated data
-            print(f"\n✅ Successfully generated {actors_list.total_count} influential actors:")
-            print("=" * 80)
+            # Pretty print the validated data with success logging
+            log_success(
+                f"Successfully generated {actors_list.total_count} influential actors",
+                f"Provider: {model_provider}\nModel: {model_name}\nActors requested: {num_actors}\nActors generated: {actors_list.total_count}"
+            )
             
+            print("=" * 80)
             for i, actor in enumerate(actors_list.actors, 1):
-                print(f"{i:2d}. {actor.name} ({actor.type})")
-                print(f"    Influence Score: {actor.influence_score}/100")
-                print(f"    Description: {actor.description}")
+                print(f"✅ {i:2d}. {actor.name} ({actor.type})")
+                print(f"    📊 Influence Score: {actor.influence_score}/100")
+                print(f"    📝 Description: {actor.description}")
                 print()
             
             # Save the results to JSON file
@@ -282,7 +326,7 @@ def get_worldmodel_actors_via_llm(model_provider="anthropic", model_name="claude
                 else:
                     print(f"💡 Suggestions to fix this:")
                     print(f"  1. Reduce number of actors: currently {num_actors}")
-                    print(f"  2. Try: python backend/routes/initialization_route/actors_init.py {model_provider} {model_name} 25")
+                    print(f"  2. Try: python backend/routes/1_initialization_route/actors_init.py {model_provider} {model_name} 25")
                     print(f"  3. Use a model with higher token limits (e.g., Claude Opus)")
             else:
                 log_error(
@@ -384,16 +428,19 @@ if __name__ == "__main__":
             )
     
     print(f"🌍 Running World Model Actor Analysis")
-    print(f"Provider: {provider}")
-    print(f"Model: {model}")
-    print(f"Number of actors: {num_actors}")
+    print(f"🔧 Provider: {provider}")
+    print(f"🤖 Model: {model}")
+    print(f"📊 Number of actors: {num_actors}")
     print("=" * 50)
     
     try:
         result = get_worldmodel_actors_via_llm(provider, model, num_actors)
         
         if result:
-            print(f"\n🎯 Analysis complete! Generated {result.total_count} influential actors.")
+            log_success(
+                f"Analysis complete! Generated {result.total_count} influential actors",
+                f"Provider: {provider}\nModel: {model}\nActors: {result.total_count}"
+            )
             print("Use the returned ActorList object for further processing.")
         else:
             print("\n❌ Analysis failed. See error details above.")
