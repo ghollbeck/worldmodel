@@ -2,6 +2,58 @@
 
 ## Latest Changes
 
+### 2025-01-20: Refactored Prompts - Extracted to Separate Module
+
+**Overview:** Refactored the prompt generation logic in both `actors_init.py` and `actors_leveldown.py` by extracting all prompt templates into a centralized `prompts.py` module for better code organization and maintainability.
+
+**Key Changes:**
+
+1. **New Prompts Module (`prompts.py`):**
+   - Created `generate_initial_actor_prompts(num_actors)` for Level 0 (initial actor generation)
+   - Created `generate_leveldown_prompts(actor_name, actor_description, actor_type, num_subactors, current_level)` for Levels 1-4+
+   - Centralized all prompt templates with proper level-specific customization
+   - Added comprehensive documentation and type hints
+
+2. **Updated Actors Init (`actors_init.py`):**
+   - Replaced inline prompt generation with call to `generate_initial_actor_prompts()`
+   - Removed ~50 lines of hardcoded prompt text
+   - Maintained all original functionality while improving maintainability
+
+3. **Updated Actors Leveldown (`actors_leveldown.py`):**
+   - Replaced complex level-specific prompt generation logic with single call to `generate_leveldown_prompts()`
+   - Removed ~280 lines of repetitive prompt code
+   - Maintained all 4 level-specific prompt variations (countries, companies, people, movements)
+
+**Level-Specific Prompt Templates:**
+- **Level 1**: Countries/Nations focus - governmental and institutional entities
+- **Level 2**: Companies/Corporations focus - business entities and market leaders
+- **Level 3**: Famous People/Individuals focus - leaders, celebrities, and influential figures
+- **Level 4**: Social movements, trends, and cultural phenomena focus
+
+**Benefits:**
+- **Code Organization**: All prompts centralized in one module for easy management
+- **Maintainability**: Single source of truth for prompt modifications
+- **Consistency**: Standardized prompt structure across all levels
+- **Reusability**: Prompt functions can be easily reused in other modules
+- **Testing**: Easier to unit test prompt generation logic separately
+
+**Technical Details:**
+- **Type Safety**: Added proper type hints for all function parameters and return values
+- **Error Handling**: Maintained all existing error handling while simplifying code structure
+- **Documentation**: Comprehensive docstrings for all prompt generation functions
+- **Performance**: No performance impact - same functionality with cleaner code
+
+**Files Modified:**
+- `worldmodel/backend/routes/1_initialization_route/prompts.py` - New centralized prompt module
+- `worldmodel/backend/routes/1_initialization_route/actors_init.py` - Updated to use prompts module
+- `worldmodel/backend/routes/1_initialization_route/actors_leveldown.py` - Updated to use prompts module
+
+**Migration Impact:**
+- All existing functionality preserved
+- No changes to API interfaces or JSON output formats
+- Backward compatibility maintained
+- No changes required for existing scripts or usage patterns
+
 ### 2025-01-20: Comprehensive Cost Tracking Integration in JSON Logs
 
 **Overview:** Added comprehensive cost tracking to both `actors_init.py` and `actors_leveldown.py` to log LLM API costs directly in the JSON output files for better cost analysis and audit trails.
