@@ -2,6 +2,27 @@
 
 ## Latest Changes
 
+### 2025-01-20: Fixed Cursor Git Sidebar - Removed Home Directory Git Repository
+
+**Overview:** Fixed a major issue where the home directory was accidentally set up as a git repository, causing 10,000+ cache files and personal files to show up in Cursor's git sidebar.
+
+**Problem:** 
+- Home directory (`/Users/gaborhollbeck`) was accidentally initialized as a git repository
+- Connected to Multi-Agent-Equilibria repository
+- Caused all personal files, cache files (.bun/, .npm/, .cache/, etc.) to appear in Cursor's git sidebar
+- Created confusion with "two repositories" showing up
+
+**Solution:**
+- Removed `.git` folder from home directory (`rm -rf ~/.git`)
+- Verified worldmodel repository remains unaffected
+- Cursor git sidebar now shows only relevant project files
+
+**Results:**
+- ✅ Clean Cursor git sidebar with only worldmodel project files
+- ✅ No more cache files or personal files being tracked
+- ✅ Single repository focus (worldmodel only)
+- ✅ Improved performance and clarity
+
 ### 2025-01-20: Successfully Migrated to Worldmodel Repository
 
 **Overview:** Successfully disconnected from Multi-Agent-Equilibria repository and migrated the complete worldmodel codebase to the dedicated worldmodel repository at `https://github.com/ghollbeck/worldmodel.git`.
