@@ -299,6 +299,7 @@ def get_worldmodel_actors_via_llm(model_provider="anthropic", model_name="claude
             # Save the results to JSON file
             save_actors_to_json(actors_list, model_provider, model_name, num_actors)
             
+            
             return actors_list
             
         except json.JSONDecodeError as e:

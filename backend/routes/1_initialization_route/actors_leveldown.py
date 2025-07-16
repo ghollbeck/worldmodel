@@ -118,6 +118,7 @@ def load_features_level_0() -> Dict[str, Any]:
 
 def generate_subactors_for_actor(actor_data: Dict[str, Any], model_provider: str, model_name: str, num_subactors: int = 8) -> SubActorList:
     """
+    
     Generate sub-actors for a specific main actor using LLM
     
     Args:

@@ -54,8 +54,9 @@ interface LogEntry {
   type: 'info' | 'error' | 'warning';
 }
 
-// Fix: Use an index signature compatible with JS/TS transpilation
-type Parameters = Partial<Record<ParameterId, number>>;
+type Parameters = {
+  [key in ParameterId]?: number;
+};
 
 const worldModelParameters: WorldModelParameter[] = [
   { id: 'population', label: 'Population', min: 0, max: 15000000000, step: 1000000, unit: 'people' },

@@ -2,6 +2,45 @@
 
 ## Latest Changes
 
+### 2025-01-20: Comprehensive World Model README Documentation
+
+**Overview:** Completely transformed the README from a simple React frontend description to a comprehensive world modeling system documentation.
+
+**Key Changes:**
+- **World Model Philosophy**: Added detailed explanation of World3-inspired approach with neuroscience principles
+- **Hierarchical Actor System**: Documented 4-level influence structure (World → Countries → Companies → Individuals)
+- **Actor Categories**: Comprehensive list including countries, companies, societies, celebrities, industries, activists, science, politicians
+- **Parameter Framework**: Detailed parameter types (economic, safety, well-being, influence, resources, innovation)
+- **Action System**: Documented increase/decrease/hold actions with reasoning functions
+- **System Architecture**: Complete 3-phase process (Initialization → Training → Inference)
+- **Technical Implementation**: Installation instructions, data structures, scaling considerations
+- **Cost Analysis**: Integration with existing cost tracking system
+- **Vision Statement**: Clear future goals and applications
+
+**Technical Documentation:**
+- **Initialization Phase**: Actor tree generation, parameter definition, action system extension
+- **Training Phase**: Real-world data integration, connection creation, orchestration training
+- **Inference Phase**: External parameter definition, dynamic extension, simulation execution
+- **Data Structures**: JSON format examples and schema definitions
+- **Getting Started**: Complete setup instructions with backend/frontend integration
+
+**Benefits:**
+- Provides comprehensive understanding of the world modeling approach
+- Clear documentation for developers and researchers
+- Professional presentation of complex system architecture
+- Integration with existing features (cost tracking, LLM integration)
+- Future roadmap and contribution guidelines
+
+**Files Modified:**
+- `worldmodel/README.md` - Complete rewrite from React frontend to world model documentation
+- `worldmodel/Readme_running.md` - Added this documentation entry
+
+**Impact:**
+- Transforms project from simple demo to sophisticated world modeling platform
+- Provides clear vision and technical roadmap for future development
+- Documents the theoretical foundation and practical implementation approach
+- Establishes professional documentation standards for the project
+
 ### 2025-01-20: Fixed Cursor Git Sidebar - Removed Home Directory Git Repository
 
 **Overview:** Fixed a major issue where the home directory was accidentally set up as a git repository, causing 10,000+ cache files and personal files to show up in Cursor's git sidebar.
@@ -426,96 +465,6 @@ The system creates the foundational tree structure needed for the dynamic world 
 - Detailed progress tracking and statistics
 - Automatic JSON persistence with metadata
 - Production-ready logging and monitoring
-
-### 2025-01-20: Comprehensive API Cost Tracking Implementation
-
-**Overview:** Added comprehensive inference cost tracking to the World Model system with detailed terminal reporting and session management.
-
-**Key Features:**
-- **Real-time Cost Monitoring:** Track costs per API call with detailed token usage
-- **Provider-specific Pricing:** Built-in pricing tables for OpenAI and Anthropic models
-- **Session Management:** Track cumulative costs across entire analysis sessions
-- **Visual Cost Reporting:** Emoji-based terminal display with cost summaries
-- **Multi-model Support:** Automatic cost calculation for various model configurations
-
-**Technical Implementation:**
-
-1. **Enhanced LLM Module (llm.py):**
-   - Added `PROVIDER_PRICING` dictionary with current pricing for OpenAI and Anthropic models
-   - Implemented `calculate_cost()` function for per-call cost calculation
-   - Added `cost_session` global tracking for session-wide statistics
-   - Created `update_cost_session()` for real-time cost accumulation
-   - Added `extract_usage_from_response()` for provider-specific token extraction
-   - Implemented `print_cost_summary()` for comprehensive cost reporting
-
-2. **Cost Tracking Functions:**
-   - `log_cost_info()`: Real-time cost display per API call
-   - `reset_cost_session()`: Initialize cost tracking for new sessions
-   - `print_cost_summary()`: Final cost breakdown with warnings
-
-3. **Updated Actor Generation (actors_init.py):**
-   - Integrated cost tracking with automatic session reset
-   - Added cost summary display at completion
-   - Enhanced error handling with cost-aware retry logic
-
-**Cost Display Features:**
-- 💰 Real-time cost per API call
-- 📊 Token usage breakdown (input/output)
-- 📈 Running session totals
-- 🔧 Provider-specific breakdown
-- 🤖 Model-specific cost analysis
-- ⚠️ Cost warnings for high usage
-- 📞 API call statistics
-
-**Example Terminal Output:**
-```
-✅ [14:32:15] LLM API call successful - openai:gpt-4o (Response: 1250 chars)
-💰 [14:32:15] API Cost - openai:gpt-4o
-   📊 Tokens: 450 in + 380 out = 830 total
-   💵 Cost: $0.004925
-   📈 Session Total: $0.004925 (1 calls)
-
-============================================================
-💰 INFERENCE COST SUMMARY
-============================================================
-🕐 Session Duration: 0:00:45.123456
-📞 Total API Calls: 3
-📊 Total Tokens: 2,450
-   📥 Input Tokens: 1,200
-   📤 Output Tokens: 1,250
-💵 Total Cost: $0.015750
-📈 Average Cost per Call: $0.005250
-🎯 Cost per 1K Tokens: $0.006429
-
-========================================
-📊 BREAKDOWN BY PROVIDER
-========================================
-
-🔧 OPENAI:
-   💵 Cost: $0.015750
-   📞 Calls: 3
-   📊 Tokens: 2,450 (1,200 in + 1,250 out)
-   🤖 Model: gpt-4o
-============================================================
-```
-
-**Benefits:**
-- **Cost Transparency:** Full visibility into API usage costs
-- **Budget Management:** Real-time cost tracking prevents unexpected charges
-- **Performance Optimization:** Identify expensive operations for optimization
-- **Provider Comparison:** Compare costs across different providers and models
-- **Session Awareness:** Track costs per analysis session
-
-**Pricing Coverage:**
-- **OpenAI:** GPT-4, GPT-4o, GPT-4o-mini, GPT-3.5-turbo, and variants
-- **Anthropic:** Claude 3 Opus, Sonnet, Haiku, and Claude 3.5 models
-- **Automatic Fallback:** Default pricing for unknown models
-
-**Integration Points:**
-- Automatic activation in all LLM API calls
-- Session reset on new actor generation runs
-- Cost summary display at process completion
-- Error handling with cost-aware retry logic
 
 ### 2025-01-20: Enhanced Visual Logging with Emojis
 
