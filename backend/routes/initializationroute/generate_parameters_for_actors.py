@@ -4,10 +4,21 @@ import json
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, Any, List
+from tqdm import tqdm
 
 # Add the parent of 'worldmodel' to sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../..")))
 from worldmodel.backend.llm.llm import call_llm_api
+
+def count_actors_recursively(actor: Dict[str, Any]) -> int:
+    """
+    Count the total number of actors including this one and all sub-actors recursively.
+    """
+    count = 1  # Count this actor
+    if 'sub_actors' in actor and isinstance(actor['sub_actors'], list):
+        for sub in actor['sub_actors']:
+            count += count_actors_recursively(sub)
+    return count
 
 def find_latest_features_json(init_logs_dir: Path) -> Path:
     """
@@ -72,19 +83,27 @@ Return a JSON array of exactly {num_params} objects with these fields. Example f
         print("Raw LLM output:", response)
         return []
 
-def add_parameters_recursively(actor: Dict[str, Any], num_params: int, model_provider: str, model_name: str):
+def add_parameters_recursively(actor: Dict[str, Any], num_params: int, model_provider: str, model_name: str, pbar: tqdm = None):
     """
     Add parameters to this actor and all sub-actors recursively.
     """
+    actor_name = actor.get('name', 'Unknown')
+    if pbar:
+        pbar.set_description(f"Processing: {actor_name}")
+    
     actor['parameters'] = generate_parameters_for_actor(actor, num_params, model_provider, model_name)
+    
+    if pbar:
+        pbar.update(1)
+    
     # Recursively process sub-actors if present
     if 'sub_actors' in actor and isinstance(actor['sub_actors'], list):
         for sub in actor['sub_actors']:
-            add_parameters_recursively(sub, num_params, model_provider, model_name)
+            add_parameters_recursively(sub, num_params, model_provider, model_name, pbar)
 
 def main(model_provider="anthropic", model_name="claude-3-5-sonnet-latest", num_params=20):
     # Clamp num_params
-    num_params = max(10, min(100, num_params))
+    num_params = max(1, min(100, num_params))
     script_dir = Path(__file__).parent
     backend_dir = script_dir.parent.parent
     init_logs_dir = backend_dir / "init_logs"
@@ -92,10 +111,23 @@ def main(model_provider="anthropic", model_name="claude-3-5-sonnet-latest", num_
     print(f"📄 Loading: {features_json_path}")
     with open(features_json_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
-    # Add parameters to all actors recursively
+    
+    # Count total actors first
     actors = data.get('actors', [])
-    for actor in actors:
-        add_parameters_recursively(actor, num_params, model_provider, model_name)
+    total_actors = sum(count_actors_recursively(actor) for actor in actors)
+    total_params = total_actors * num_params
+    
+    print(f"🔢 Total actors to process: {total_actors}")
+    print(f"🔢 Total parameters to generate: {total_params}")
+    print(f"🔧 Parameters per actor: {num_params}")
+    print(f"🤖 Using: {model_provider}:{model_name}")
+    print()
+    
+    # Add parameters to all actors recursively with progress bar
+    with tqdm(total=total_actors, desc="Generating parameters", unit="actor") as pbar:
+        for actor in actors:
+            add_parameters_recursively(actor, num_params, model_provider, model_name, pbar)
+    
     # Save new file
     out_path = features_json_path.parent / (features_json_path.stem + "_with_params.json")
     with open(out_path, 'w', encoding='utf-8') as f:
@@ -107,6 +139,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate parameters for all actors and sub-actors in the latest Features_level_N.json.")
     parser.add_argument('--provider', type=str, default='anthropic')
     parser.add_argument('--model', type=str, default='claude-3-5-sonnet-latest')
-    parser.add_argument('--num_params', type=int, default=20, help='Number of parameters per actor (10-100)')
+    parser.add_argument('--num_params', type=int, default=20, help='Number of parameters per actor (1-100)')
     args = parser.parse_args()
     main(args.provider, args.model, args.num_params) 

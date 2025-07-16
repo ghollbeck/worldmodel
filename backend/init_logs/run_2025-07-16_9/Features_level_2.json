@@ -1,0 +1,218 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T13:32:13.261068",
+    "run_folder": "run_2025-07-16_9",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "script_version": "3.0.0",
+    "level": 2,
+    "parent_file": "Features_level_1.json",
+    "original_metadata": {
+      "timestamp": "2025-07-16T13:32:07.683451",
+      "run_folder": "run_2025-07-16_9",
+      "model_provider": "anthropic",
+      "model_name": "claude-3-5-sonnet-latest",
+      "num_actors_requested": 4,
+      "num_actors_generated": 4,
+      "script_version": "3.0.0",
+      "generation_method": "LLM-based",
+      "level": 0,
+      "cost_tracking": {
+        "total_cost": 0.010303999999999999,
+        "api_calls": 1,
+        "providers": {
+          "anthropic": {
+            "cost": 0.010303999999999999,
+            "calls": 1,
+            "models": {
+              "claude-3-5-sonnet-latest": {
+                "cost": 0.010303999999999999,
+                "calls": 1,
+                "tokens": {
+                  "input": 448,
+                  "output": 280,
+                  "total": 728
+                }
+              }
+            },
+            "tokens": {
+              "input": 448,
+              "output": 280,
+              "total": 728
+            }
+          }
+        },
+        "session_start": "2025-07-16T13:32:01.653935",
+        "tokens_used": {
+          "input_tokens": 448,
+          "output_tokens": 280,
+          "total_tokens": 728
+        },
+        "session_duration_seconds": 6.029501,
+        "session_duration_str": "0:00:06.029501",
+        "average_cost_per_call": 0.010303999999999999,
+        "cost_per_1k_tokens": 0.014153846153846152
+      }
+    },
+    "parallelization": {
+      "enabled": true,
+      "max_concurrent_threads": 5,
+      "total_parallel_tasks": 0
+    },
+    "generation_stats": {
+      "total_main_actors": 4,
+      "total_subactors": 0,
+      "successful_actors": 0,
+      "failed_actors": 0
+    },
+    "cost_tracking": {
+      "total_cost": 0.045304,
+      "api_calls": 5,
+      "providers": {
+        "anthropic": {
+          "cost": 0.045304,
+          "calls": 5,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.045304,
+              "calls": 5,
+              "tokens": {
+                "input": 2153,
+                "output": 1170,
+                "total": 3323
+              }
+            }
+          },
+          "tokens": {
+            "input": 2153,
+            "output": 1170,
+            "total": 3323
+          }
+        }
+      },
+      "session_start": "2025-07-16T13:32:01.653935",
+      "tokens_used": {
+        "input_tokens": 2153,
+        "output_tokens": 1170,
+        "total_tokens": 3323
+      },
+      "session_duration_seconds": 11.607128,
+      "session_duration_str": "0:00:11.607128",
+      "average_cost_per_call": 0.009060799999999999,
+      "cost_per_1k_tokens": 0.013633463737586518
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with unmatched military strength, largest economy by GDP, dominant cultural influence, technological leadership, and control of global financial systems through the USD as reserve currency",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Executive Office of the President",
+          "description": "Core executive branch leadership headed by the President, wielding extensive power over federal policy, national security, foreign relations, and military command. Controls federal agencies, issues executive orders, and shapes national agenda.",
+          "type": "government",
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        },
+        {
+          "name": "Federal Reserve System",
+          "description": "Central banking system that controls US monetary policy, regulates financial institutions, manages currency stability, and influences global markets through interest rates and dollar policy. Critical to economic and financial sovereignty.",
+          "type": "institution",
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        }
+      ],
+      "sub_actors_count": 2,
+      "parameters": []
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "World's largest population, second-largest economy, rising military power, dominant manufacturing base, massive technological advancement, and growing global influence through Belt and Road Initiative",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Chinese Communist Party (CCP)",
+          "description": "The ruling and sole governing party of China, exercising comprehensive control over state apparatus, military, economy, and society. Led by the Politburo Standing Committee and Central Committee, the CCP determines national policy, ideology, and strategic direction through its vast organizational network.",
+          "type": "party",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        },
+        {
+          "name": "Central Military Commission (CMC)",
+          "description": "Supreme military command organization that controls and directs the People's Liberation Army (PLA). Oversees national defense policy, military strategy, and modernization efforts. Holds significant influence in national security decisions and foreign policy relating to territorial interests.",
+          "type": "military",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        }
+      ],
+      "sub_actors_count": 2,
+      "parameters": []
+    },
+    {
+      "name": "Big Tech Giants (FAANG + Microsoft)",
+      "description": "Collective technology companies controlling global digital infrastructure, social media, cloud computing, AI development, and having unprecedented influence over information flow and digital economy",
+      "type": "company",
+      "sub_actors": [
+        {
+          "name": "Board of Directors & Executive Leadership",
+          "description": "Collective leadership teams across major tech companies that set strategic direction, make key investment decisions, control vast financial resources, and shape corporate policies affecting billions of users globally. They exercise direct control over digital infrastructure development and technological innovation.",
+          "type": "institution",
+          "parent_actor": "Big Tech Giants (FAANG + Microsoft)",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        },
+        {
+          "name": "Corporate Policy & Government Relations Divisions",
+          "description": "Specialized departments within tech giants that manage regulatory compliance, lobby governments, shape digital policy frameworks, and negotiate with national authorities worldwide. They effectively influence legislation and regulatory frameworks affecting digital markets and technology governance.",
+          "type": "institution",
+          "parent_actor": "Big Tech Giants (FAANG + Microsoft)",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        }
+      ],
+      "sub_actors_count": 2,
+      "parameters": []
+    },
+    {
+      "name": "European Union",
+      "description": "Powerful economic bloc, largest single market, influential regulatory power, major diplomatic force, and standard-setter for global policies on climate, tech, and trade",
+      "type": "alliance",
+      "sub_actors": [
+        {
+          "name": "European Commission",
+          "description": "Executive branch of the EU that proposes legislation, implements decisions, upholds treaties, and manages day-to-day business. Led by the Commission President, it acts as the EU's primary administrative and regulatory authority, representing the interests of the Union as a whole.",
+          "type": "government",
+          "parent_actor": "European Union",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        },
+        {
+          "name": "European Central Bank",
+          "description": "Central bank for the Eurozone, controls monetary policy, manages the euro, and supervises banking systems. Has significant influence over economic policy, financial stability, and monetary decisions affecting the entire EU economy.",
+          "type": "institution",
+          "parent_actor": "European Union",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        }
+      ],
+      "sub_actors_count": 2,
+      "parameters": []
+    }
+  ],
+  "total_main_actors": 4,
+  "total_subactors": 0,
+  "level": 2
+}

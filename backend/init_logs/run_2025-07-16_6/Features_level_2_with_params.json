@@ -1,0 +1,1752 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T09:44:13.985896",
+    "run_folder": "run_2025-07-16_6",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "script_version": "2.0.0",
+    "level": 2,
+    "parent_file": "Features_level_1.json",
+    "original_metadata": {
+      "timestamp": "2025-07-16T09:42:21.626995",
+      "run_folder": "run_2025-07-16_6",
+      "model_provider": "anthropic",
+      "model_name": "claude-3-5-sonnet-latest",
+      "num_actors_requested": 5,
+      "num_actors_generated": 5,
+      "script_version": "2.0.0",
+      "generation_method": "LLM-based",
+      "level": 0,
+      "cost_tracking": {
+        "total_cost": 0.012400000000000001,
+        "api_calls": 1,
+        "providers": {
+          "anthropic": {
+            "cost": 0.012400000000000001,
+            "calls": 1,
+            "models": {
+              "claude-3-5-sonnet-latest": {
+                "cost": 0.012400000000000001,
+                "calls": 1,
+                "tokens": {
+                  "input": 491,
+                  "output": 353,
+                  "total": 844
+                }
+              }
+            },
+            "tokens": {
+              "input": 491,
+              "output": 353,
+              "total": 844
+            }
+          }
+        },
+        "session_start": "2025-07-16T09:42:12.372259",
+        "tokens_used": {
+          "input_tokens": 491,
+          "output_tokens": 353,
+          "total_tokens": 844
+        },
+        "session_duration_seconds": 9.25473,
+        "session_duration_str": "0:00:09.254730",
+        "average_cost_per_call": 0.012400000000000001,
+        "cost_per_1k_tokens": 0.014691943127962088
+      }
+    },
+    "generation_stats": {
+      "total_main_actors": 5,
+      "total_subactors": 45,
+      "actors_with_subactors": 5,
+      "avg_subactors_per_actor": 9.0,
+      "successful_actors": 15,
+      "failed_actors": 0
+    },
+    "cost_tracking": {
+      "total_cost": 0.23570400000000002,
+      "api_calls": 21,
+      "providers": {
+        "anthropic": {
+          "cost": 0.23570400000000002,
+          "calls": 21,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.23570400000000002,
+              "calls": 21,
+              "tokens": {
+                "input": 10008,
+                "output": 6485,
+                "total": 16493
+              }
+            }
+          },
+          "tokens": {
+            "input": 10008,
+            "output": 6485,
+            "total": 16493
+          }
+        }
+      },
+      "session_start": "2025-07-16T09:42:12.372259",
+      "tokens_used": {
+        "input_tokens": 10008,
+        "output_tokens": 6485,
+        "total_tokens": 16493
+      },
+      "session_duration_seconds": 121.613622,
+      "session_duration_str": "0:02:01.613622",
+      "average_cost_per_call": 0.011224000000000001,
+      "cost_per_1k_tokens": 0.014291153822833932
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with dominant military, economic, technological, and cultural influence. Controls global financial systems, leads innovation, and shapes international policy.",
+      "type": "country",
+      "influence_score": 95,
+      "sub_actors": [
+        {
+          "name": "Executive Office of the President",
+          "description": "Core executive branch led by POTUS, directs federal government, shapes foreign/domestic policy, commands military, leads national security decisions, and exercises broad executive powers through orders and administrative actions",
+          "type": "government",
+          "influence_score": 95,
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "Lockheed Martin Corporation",
+              "description": "Leading defense contractor and aerospace company providing advanced technology systems, military aircraft, missile defense systems, and cybersecurity solutions to the Executive Branch and Department of Defense. Major influence on defense policy, national security decisions, and military procurement.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Executive Office of the President",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "defense_contracts_value",
+                  "name": "Defense Contracts Value",
+                  "description": "Total annual value of defense contracts awarded by the US government, representing the company's market share and influence in the defense sector.",
+                  "type": "float",
+                  "expected_value": "30.0 - 50.0 billion USD"
+                },
+                {
+                  "code_name": "rd_investment_ratio",
+                  "name": "R&D Investment Ratio",
+                  "description": "Percentage of annual revenue invested in research and development of new defense technologies and aerospace innovations.",
+                  "type": "float",
+                  "expected_value": "0.02 - 0.15"
+                }
+              ]
+            },
+            {
+              "name": "Palantir Technologies",
+              "description": "Data analytics and software company providing critical intelligence and decision-making platforms to executive agencies, including counterterrorism operations, intelligence analysis, and pandemic response. Strong influence on federal data strategy and national security technology.",
+              "type": "corporation",
+              "influence_score": 88,
+              "parent_actor": "Executive Office of the President",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "govt_contract_value",
+                  "name": "Government Contract Value",
+                  "description": "Total annual value of active government contracts and partnerships in billions USD, indicating level of public sector influence and integration.",
+                  "type": "float",
+                  "expected_value": "0.5 - 5.0"
+                },
+                {
+                  "code_name": "data_access_level",
+                  "name": "Data Access Level",
+                  "description": "Composite score representing breadth and depth of access to sensitive government and intelligence data sources, scaled 0-100.",
+                  "type": "integer",
+                  "expected_value": "0 - 100"
+                }
+              ]
+            },
+            {
+              "name": "Amazon Web Services",
+              "description": "Leading cloud computing provider handling classified and unclassified government data infrastructure, including CIA cloud services and numerous executive agency operations. Significant influence on federal IT modernization and digital transformation initiatives.",
+              "type": "subsidiary",
+              "influence_score": 86,
+              "parent_actor": "Executive Office of the President",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "security_clearance_level",
+                  "name": "Security Clearance Level",
+                  "description": "The highest security clearance level at which the subsidiary can operate and handle government data, ranging from Unclassified to Top Secret/SCI.",
+                  "type": "string",
+                  "expected_value": [
+                    "Unclassified",
+                    "Secret",
+                    "Top Secret",
+                    "TS/SCI"
+                  ]
+                },
+                {
+                  "code_name": "govt_cloud_market_share",
+                  "name": "Government Cloud Market Share",
+                  "description": "Percentage of total U.S. federal government cloud computing infrastructure and services market controlled by AWS.",
+                  "type": "float",
+                  "expected_value": "0.30 - 0.60"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "parameters": [
+            {
+              "code_name": "executive_approval_rating",
+              "name": "Executive Approval Rating",
+              "description": "Current public approval rating of the President, indicating level of public support and political capital for implementing policies and decisions.",
+              "type": "float",
+              "expected_value": "0.0 - 100.0"
+            },
+            {
+              "code_name": "executive_orders_issued",
+              "name": "Executive Orders Issued",
+              "description": "Number of formal executive orders issued in current term, reflecting direct presidential policy actions and use of executive authority.",
+              "type": "integer",
+              "expected_value": "0 - 400"
+            }
+          ]
+        },
+        {
+          "name": "Federal Reserve System",
+          "description": "Central bank controlling monetary policy, interest rates, and financial stability. Regulates banking system, manages currency, and has enormous influence over US and global economy through monetary decisions",
+          "type": "institution",
+          "influence_score": 90,
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "JPMorgan Chase & Co.",
+              "description": "Largest U.S. bank by assets, primary dealer of U.S. Treasury securities, major participant in Federal Reserve operations, and significant influence on monetary policy implementation. Key player in Fed's payment systems and financial services.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Federal Reserve System",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "total_assets_usd",
+                  "name": "Total Assets Under Management",
+                  "description": "Total value of assets managed or owned by JPMorgan Chase in USD trillions, representing their financial scale and market influence.",
+                  "type": "float",
+                  "expected_value": "2.5 - 4.0"
+                },
+                {
+                  "code_name": "treasury_holdings_pct",
+                  "name": "U.S. Treasury Holdings Percentage",
+                  "description": "Percentage of total U.S. Treasury securities held by JPMorgan Chase as a primary dealer, indicating their role in monetary policy operations.",
+                  "type": "float",
+                  "expected_value": "2.0 - 8.0"
+                }
+              ]
+            },
+            {
+              "name": "BlackRock, Inc.",
+              "description": "World's largest asset manager, crucial Fed partner during financial crises, advisor on bond-buying programs, and major influence on market operations. Provides critical market intelligence and implementation support for Fed policies.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Federal Reserve System",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "aum_trillion_usd",
+                  "name": "Assets Under Management (Trillion USD)",
+                  "description": "Total value of assets managed by BlackRock across all investment vehicles and client portfolios, measured in trillions of USD.",
+                  "type": "float",
+                  "expected_value": "8.0 - 10.0"
+                },
+                {
+                  "code_name": "fed_market_influence_score",
+                  "name": "Federal Reserve Market Influence Score",
+                  "description": "Composite score measuring BlackRock's involvement and influence in Federal Reserve operations and policy implementation, including crisis response activities.",
+                  "type": "float",
+                  "expected_value": "0.0 - 1.0"
+                }
+              ]
+            },
+            {
+              "name": "Goldman Sachs Group",
+              "description": "Premier investment bank and primary dealer, significant role in Fed's market operations, major participant in monetary policy transmission, and key provider of financial market expertise to the Federal Reserve System.",
+              "type": "corporation",
+              "influence_score": 88,
+              "parent_actor": "Federal Reserve System",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "aum_billions",
+                  "name": "Assets Under Management",
+                  "description": "Total value of assets managed by Goldman Sachs in billions USD, reflecting their market influence and financial capacity.",
+                  "type": "float",
+                  "expected_value": "1500.0 - 3000.0"
+                },
+                {
+                  "code_name": "primary_dealer_volume",
+                  "name": "Primary Dealer Trading Volume",
+                  "description": "Daily average trading volume of Treasury securities as a primary dealer in billions USD, indicating their role in Fed operations and market liquidity.",
+                  "type": "float",
+                  "expected_value": "50.0 - 200.0"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "parameters": [
+            {
+              "code_name": "federal_funds_rate",
+              "name": "Federal Funds Rate",
+              "description": "The target interest rate at which commercial banks borrow and lend their excess reserves to each other overnight, which is the Fed's primary tool for implementing monetary policy.",
+              "type": "float",
+              "expected_value": "0.0 - 10.0"
+            },
+            {
+              "code_name": "balance_sheet_size",
+              "name": "Balance Sheet Size",
+              "description": "Total assets held by the Federal Reserve, including Treasury securities and mortgage-backed securities, reflecting quantitative easing policies and overall monetary stance.",
+              "type": "float",
+              "expected_value": "1.0 - 9.0 trillion USD"
+            }
+          ]
+        },
+        {
+          "name": "Department of Defense",
+          "description": "Controls world's most powerful military, manages largest budget, directs global military operations, oversees nuclear arsenal, and shapes international security policy through military presence and capabilities",
+          "type": "ministry",
+          "influence_score": 88,
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "Lockheed Martin Corporation",
+              "description": "Leading global defense contractor specializing in aerospace, military weapons systems, and advanced technologies. Primary supplier of F-35 fighter jets and missile systems. Largest defense contractor by revenue with extensive DoD contracts.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Department of Defense",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "defense_revenue_usd_b",
+                  "name": "Defense Revenue (USD Billions)",
+                  "description": "Annual revenue from defense contracts and military sales in billions of USD, which represents core business performance and market position.",
+                  "type": "float",
+                  "expected_value": "40.0 - 70.0"
+                },
+                {
+                  "code_name": "active_contracts_count",
+                  "name": "Active DoD Contracts",
+                  "description": "Number of current active contracts with the US Department of Defense, indicating operational scope and strategic importance.",
+                  "type": "integer",
+                  "expected_value": "500 - 2000"
+                }
+              ]
+            },
+            {
+              "name": "Raytheon Technologies",
+              "description": "Major aerospace and defense company providing advanced systems in missiles, aircraft engines, and cybersecurity. Key supplier of radar systems, guided missiles, and military electronics with significant Pentagon contracts.",
+              "type": "corporation",
+              "influence_score": 90,
+              "parent_actor": "Department of Defense",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "defense_contracts_value",
+                  "name": "Defense Contract Value",
+                  "description": "Total annual value of military/defense contracts with government entities, primarily the US Department of Defense.",
+                  "type": "float",
+                  "expected_value": "20.0 - 30.0 billion USD"
+                },
+                {
+                  "code_name": "rd_investment_ratio",
+                  "name": "R&D Investment Ratio",
+                  "description": "Percentage of annual revenue invested in research and development of new defense and aerospace technologies.",
+                  "type": "float",
+                  "expected_value": "0.04 - 0.08"
+                }
+              ]
+            },
+            {
+              "name": "Boeing Defense, Space & Security",
+              "description": "Leading manufacturer of military aircraft, satellites, missile systems, and space technology. Producer of iconic platforms like F-15, Apache helicopters, and KC-46 tankers. Critical defense industrial base partner.",
+              "type": "subsidiary",
+              "influence_score": 88,
+              "parent_actor": "Department of Defense",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "annual_defense_revenue",
+                  "name": "Annual Defense Revenue",
+                  "description": "Total yearly revenue from defense contracts and military sales in billions USD, indicating market position and production capacity.",
+                  "type": "float",
+                  "expected_value": "20.0 - 35.0"
+                },
+                {
+                  "code_name": "active_military_programs",
+                  "name": "Active Military Programs",
+                  "description": "Number of major defense programs currently in production or development phase, including aircraft, missiles, and space systems.",
+                  "type": "integer",
+                  "expected_value": "15 - 30"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "parameters": [
+            {
+              "code_name": "annual_budget_usd",
+              "name": "Annual Defense Budget",
+              "description": "Total annual fiscal budget allocation in US dollars, representing the department's spending power for military operations, personnel, equipment, and R&D.",
+              "type": "float",
+              "expected_value": "700000000000 - 850000000000"
+            },
+            {
+              "code_name": "active_military_personnel",
+              "name": "Active Military Personnel",
+              "description": "Total number of active duty service members across all military branches under DoD control.",
+              "type": "integer",
+              "expected_value": "1300000 - 1400000"
+            }
+          ]
+        }
+      ],
+      "sub_actors_count": 3,
+      "parameters": [
+        {
+          "code_name": "gdp_nominal",
+          "name": "GDP (Nominal)",
+          "description": "Annual Gross Domestic Product in nominal terms, representing the total economic output and economic power projection capability.",
+          "type": "float",
+          "expected_value": "20.0 - 25.0 trillion USD"
+        },
+        {
+          "code_name": "military_spending",
+          "name": "Military Spending",
+          "description": "Annual defense budget including all military expenditures, which reflects power projection capabilities and global military influence.",
+          "type": "float",
+          "expected_value": "700.0 - 850.0 billion USD"
+        }
+      ]
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "Rising superpower with world's largest population, second-largest economy, growing military power, and expanding global infrastructure initiatives like Belt and Road.",
+      "type": "country",
+      "influence_score": 89,
+      "sub_actors": [
+        {
+          "name": "Chinese Communist Party (CCP)",
+          "description": "The ruling political party that controls all aspects of governance, sets national policy, manages personnel appointments across state institutions, and maintains absolute leadership over state, military and society",
+          "type": "party",
+          "influence_score": 98,
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [
+            {
+              "name": "Sinopec Group",
+              "description": "China's largest oil and gas company, a state-owned enterprise that dominates the nation's petroleum and petrochemical industries. Controls crucial energy infrastructure and supply chains while implementing CCP's energy policies.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Chinese Communist Party (CCP)",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "daily_oil_production",
+                  "name": "Daily Oil Production",
+                  "description": "Total barrels of oil produced per day across all operations, a key metric for operational capacity and market influence.",
+                  "type": "integer",
+                  "expected_value": "3000000 - 5000000"
+                },
+                {
+                  "code_name": "state_alignment_score",
+                  "name": "State Policy Alignment Score",
+                  "description": "Measure of how closely company operations and decisions align with CCP energy policies and directives, affecting strategic decisions and resource allocation.",
+                  "type": "float",
+                  "expected_value": "0.0 - 1.0"
+                }
+              ]
+            },
+            {
+              "name": "China State Construction Engineering Corporation",
+              "description": "World's largest construction company and state-owned enterprise, responsible for major infrastructure projects domestically and internationally as part of Belt and Road Initiative.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Chinese Communist Party (CCP)",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "annual_construction_value",
+                  "name": "Annual Construction Value",
+                  "description": "Total monetary value of construction projects completed in a year, indicating operational scale and market impact.",
+                  "type": "float",
+                  "expected_value": "150.0 - 250.0 billion USD"
+                },
+                {
+                  "code_name": "bri_projects_count",
+                  "name": "Belt and Road Initiative Projects",
+                  "description": "Number of active infrastructure projects being executed under China's Belt and Road Initiative across different countries.",
+                  "type": "integer",
+                  "expected_value": "50 - 200"
+                }
+              ]
+            },
+            {
+              "name": "Huawei Technologies",
+              "description": "Global telecommunications giant and technology leader in 5G, smartphones, and network equipment. Though privately owned, maintains strong ties to CCP and is crucial to China's technological advancement goals.",
+              "type": "company",
+              "influence_score": 90,
+              "parent_actor": "Chinese Communist Party (CCP)",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "annual_rd_investment",
+                  "name": "Annual R&D Investment",
+                  "description": "Annual spending on research and development in billions USD, reflecting technological innovation capacity and competitive positioning in global tech markets.",
+                  "type": "float",
+                  "expected_value": "15.0 - 25.0"
+                },
+                {
+                  "code_name": "govt_influence_level",
+                  "name": "Government Influence Level",
+                  "description": "Metric indicating degree of state/CCP influence on company operations and strategic decisions, crucial for risk assessment and geopolitical analysis.",
+                  "type": "float",
+                  "expected_value": "0.0 - 1.0"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "parameters": [
+            {
+              "code_name": "party_loyalty_index",
+              "name": "Party Loyalty Index",
+              "description": "Measure of ideological conformity and loyalty to party leadership among party members and officials, affecting policy implementation and internal cohesion.",
+              "type": "float",
+              "expected_value": "0.0 - 1.0"
+            },
+            {
+              "code_name": "institutional_control_ratio",
+              "name": "Institutional Control Ratio",
+              "description": "Percentage of key state, military, and social institutions effectively under direct CCP control or influence through appointed party members.",
+              "type": "float",
+              "expected_value": "0.75 - 1.0"
+            }
+          ]
+        },
+        {
+          "name": "Central Military Commission (CMC)",
+          "description": "Supreme military command body that controls the People's Liberation Army, sets defense policy, and oversees military modernization and strategy. Reports directly to CCP leadership",
+          "type": "military",
+          "influence_score": 90,
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [
+            {
+              "name": "China North Industries Group Corporation (Norinco)",
+              "description": "State-owned defense corporation and China's largest arms manufacturer, producing military equipment, vehicles, and weapons systems. Key supplier to PLA and major defense exporter internationally.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Central Military Commission (CMC)",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "annual_defense_revenue",
+                  "name": "Annual Defense Revenue",
+                  "description": "Total annual revenue from defense-related sales and exports in billions of USD, indicating the corporation's market presence and production capacity.",
+                  "type": "float",
+                  "expected_value": "15.0 - 30.0"
+                },
+                {
+                  "code_name": "pla_supply_percentage",
+                  "name": "PLA Supply Percentage",
+                  "description": "Percentage of total production capacity dedicated to supplying the People's Liberation Army, representing domestic military supply commitment versus export focus.",
+                  "type": "float",
+                  "expected_value": "40.0 - 70.0"
+                }
+              ]
+            },
+            {
+              "name": "Aviation Industry Corporation of China (AVIC)",
+              "description": "State-owned aerospace and defense conglomerate developing military aircraft, avionics, and defense systems. Primary supplier of aircraft to PLA Air Force and key player in military modernization.",
+              "type": "conglomerate",
+              "influence_score": 92,
+              "parent_actor": "Central Military Commission (CMC)",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "military_aircraft_production",
+                  "name": "Annual Military Aircraft Production",
+                  "description": "Number of military aircraft units produced per year across all models, indicating manufacturing capacity and force modernization rate.",
+                  "type": "integer",
+                  "expected_value": "100-300"
+                },
+                {
+                  "code_name": "rd_investment_ratio",
+                  "name": "R&D Investment Ratio",
+                  "description": "Percentage of annual revenue invested in research and development of new military aerospace technologies and platforms.",
+                  "type": "float",
+                  "expected_value": "0.15-0.25"
+                }
+              ]
+            },
+            {
+              "name": "China Electronics Technology Group Corporation (CETC)",
+              "description": "State-owned enterprise specializing in electronic and information technology systems for military use, including radar, communications, and cybersecurity solutions.",
+              "type": "enterprise",
+              "influence_score": 88,
+              "parent_actor": "Central Military Commission (CMC)",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "rd_investment_bn",
+                  "name": "Annual R&D Investment",
+                  "description": "Annual research and development spending in billions of USD, reflecting technological innovation capacity and development of military electronics systems.",
+                  "type": "float",
+                  "expected_value": "5.0 - 15.0"
+                },
+                {
+                  "code_name": "military_contracts_share",
+                  "name": "Military Contracts Percentage",
+                  "description": "Percentage of total revenue derived from military and defense-related contracts, indicating strategic focus and relationship with PLA.",
+                  "type": "float",
+                  "expected_value": "60.0 - 85.0"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "parameters": [
+            {
+              "code_name": "defense_budget_pct_gdp",
+              "name": "Defense Budget as % of GDP",
+              "description": "Annual military spending as a percentage of national GDP, indicating resource allocation and military modernization priorities.",
+              "type": "float",
+              "expected_value": "1.5 - 3.0"
+            },
+            {
+              "code_name": "strategic_readiness_level",
+              "name": "Strategic Readiness Level",
+              "description": "Composite score representing overall military preparedness, incorporating factors like equipment modernization, troop readiness, and command effectiveness.",
+              "type": "integer",
+              "expected_value": "1 - 10"
+            }
+          ]
+        },
+        {
+          "name": "State Council",
+          "description": "Chief administrative authority of China, serves as the executive branch, manages state bureaucracy, implements national policies, and oversees economic planning and regulation",
+          "type": "government",
+          "influence_score": 85,
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [
+            {
+              "name": "China National Petroleum Corporation (CNPC)",
+              "description": "China's largest state-owned oil and gas corporation, controlling majority of domestic petroleum resources and operations. Critical to national energy security and economic development, with extensive international operations and strategic partnerships.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "State Council",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "daily_oil_production",
+                  "name": "Daily Oil Production",
+                  "description": "Total barrels of oil produced per day across all operations, both domestic and international. Key indicator of operational capacity and market influence.",
+                  "type": "integer",
+                  "expected_value": "3000000 - 4500000"
+                },
+                {
+                  "code_name": "state_ownership_percentage",
+                  "name": "State Ownership Percentage",
+                  "description": "Percentage of company owned by Chinese government, reflecting degree of state control and alignment with national strategic interests.",
+                  "type": "float",
+                  "expected_value": "80.0 - 100.0"
+                }
+              ]
+            },
+            {
+              "name": "State Grid Corporation of China",
+              "description": "World's largest utility company, monopolizing China's power distribution and transmission. Controls national electricity infrastructure and drives energy policy implementation across most provinces.",
+              "type": "corporation",
+              "influence_score": 93,
+              "parent_actor": "State Council",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "power_transmission_capacity",
+                  "name": "Power Transmission Capacity",
+                  "description": "Total electrical power transmission capacity across all networks in gigawatts, indicating infrastructure scale and delivery capability.",
+                  "type": "float",
+                  "expected_value": "1000.0 - 2000.0"
+                },
+                {
+                  "code_name": "market_coverage_ratio",
+                  "name": "Market Coverage Ratio",
+                  "description": "Percentage of China's population served by SGCC's power distribution network, representing monopolistic market control and influence.",
+                  "type": "float",
+                  "expected_value": "0.80 - 0.90"
+                }
+              ]
+            },
+            {
+              "name": "China State Construction Engineering Corporation (CSCEC)",
+              "description": "Largest construction and real estate conglomerate in China, leading infrastructure development domestically and internationally. Key executor of national construction projects and Belt and Road Initiative.",
+              "type": "corporation",
+              "influence_score": 89,
+              "parent_actor": "State Council",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "annual_construction_revenue",
+                  "name": "Annual Construction Revenue",
+                  "description": "Total yearly revenue from construction projects in billions of USD, reflecting the corporation's market presence and project volume.",
+                  "type": "float",
+                  "expected_value": "150.0 - 250.0"
+                },
+                {
+                  "code_name": "international_projects_count",
+                  "name": "Active International Projects",
+                  "description": "Number of ongoing construction and infrastructure projects outside of China, particularly focusing on Belt and Road Initiative projects.",
+                  "type": "integer",
+                  "expected_value": "200 - 500"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "parameters": [
+            {
+              "code_name": "policy_approval_rate",
+              "name": "Policy Approval Rate",
+              "description": "Percentage of proposed policies and regulations that are successfully approved and implemented by the State Council, indicating administrative effectiveness and decision-making efficiency.",
+              "type": "float",
+              "expected_value": "0.0 - 1.0"
+            },
+            {
+              "code_name": "gdp_growth_target",
+              "name": "GDP Growth Target",
+              "description": "Annual economic growth target set by the State Council as part of their economic planning, serving as a key benchmark for policy-making and economic regulation.",
+              "type": "float",
+              "expected_value": "0.04 - 0.08"
+            }
+          ]
+        }
+      ],
+      "sub_actors_count": 3,
+      "parameters": [
+        {
+          "code_name": "gdp_nominal_usd",
+          "name": "GDP in USD",
+          "description": "Annual Gross Domestic Product in US dollars, a key measure of economic power and global influence.",
+          "type": "float",
+          "expected_value": "14-18 trillion"
+        },
+        {
+          "code_name": "global_trade_share",
+          "name": "Global Trade Share",
+          "description": "Percentage of global trade volume (imports + exports) controlled by China, reflecting its economic interconnectedness and leverage in international markets.",
+          "type": "float",
+          "expected_value": "0.12 - 0.15"
+        }
+      ]
+    },
+    {
+      "name": "European Union",
+      "description": "Powerful economic and political alliance of 27 states, representing significant trade bloc, regulatory influence, and diplomatic power.",
+      "type": "alliance",
+      "influence_score": 82,
+      "sub_actors": [
+        {
+          "name": "European Commission",
+          "description": "Executive branch of the EU, responsible for proposing legislation, implementing decisions, upholding treaties, and managing day-to-day business. Holds significant power in policy initiation and enforcement.",
+          "type": "government",
+          "influence_score": 95,
+          "parent_actor": "European Union",
+          "sub_actors": [
+            {
+              "name": "Airbus SE",
+              "description": "Major European multinational aerospace corporation, leading manufacturer of commercial aircraft, defense systems, and space technology. Key strategic partner in EU aviation and defense initiatives, employing over 130,000 people across Europe.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "European Commission",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "aircraft_production_rate",
+                  "name": "Aircraft Production Rate",
+                  "description": "Number of commercial aircraft manufactured per month across all facilities, indicating production capacity and market delivery capabilities.",
+                  "type": "integer",
+                  "expected_value": "50-70"
+                },
+                {
+                  "code_name": "rd_investment_percentage",
+                  "name": "R&D Investment Percentage",
+                  "description": "Percentage of annual revenue invested in research and development for aerospace innovation and new technologies.",
+                  "type": "float",
+                  "expected_value": "5.0 - 8.0"
+                }
+              ]
+            },
+            {
+              "name": "TotalEnergies SE",
+              "description": "French multinational integrated energy company, major player in EU energy policy and transition, significant influence on European climate and energy regulations, operates in over 130 countries.",
+              "type": "corporation",
+              "influence_score": 88,
+              "parent_actor": "European Commission",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "renewable_energy_ratio",
+                  "name": "Renewable Energy Portfolio Ratio",
+                  "description": "Percentage of company's total energy production from renewable sources, reflecting their energy transition progress and commitment to climate goals.",
+                  "type": "float",
+                  "expected_value": "0.0 - 1.0"
+                },
+                {
+                  "code_name": "eu_policy_influence_score",
+                  "name": "EU Policy Influence Score",
+                  "description": "Quantified measure of the company's influence on EU energy policy decisions through lobbying, partnerships, and regulatory engagement.",
+                  "type": "float",
+                  "expected_value": "0.0 - 10.0"
+                }
+              ]
+            },
+            {
+              "name": "Deutsche Bank AG",
+              "description": "Germany's largest banking institution, crucial player in EU financial markets, significant influence on European monetary policy and financial regulations, major provider of corporate and investment banking services.",
+              "type": "corporation",
+              "influence_score": 85,
+              "parent_actor": "European Commission",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "total_assets_eur",
+                  "name": "Total Assets in EUR",
+                  "description": "Total value of all assets held by Deutsche Bank in billions of euros, a key indicator of bank size and financial strength.",
+                  "type": "float",
+                  "expected_value": "1000.0 - 2000.0"
+                },
+                {
+                  "code_name": "tier1_capital_ratio",
+                  "name": "Tier 1 Capital Ratio",
+                  "description": "Core capital ratio measuring bank's financial health and stability as per Basel III requirements, expressed as percentage.",
+                  "type": "float",
+                  "expected_value": "10.0 - 15.0"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "parameters": [
+            {
+              "code_name": "policy_influence_score",
+              "name": "Policy Influence Score",
+              "description": "Measure of the Commission's current effectiveness in getting proposed legislation adopted and implemented across member states. Reflects political capital and negotiation success rate.",
+              "type": "float",
+              "expected_value": "0.0 - 1.0"
+            },
+            {
+              "code_name": "regulatory_enforcement_capacity",
+              "name": "Regulatory Enforcement Capacity",
+              "description": "The Commission's current resources and capability to investigate and enforce EU regulations and treaties across member states. Combines staffing levels, budget, and institutional authority.",
+              "type": "integer",
+              "expected_value": "1000 - 10000"
+            }
+          ]
+        },
+        {
+          "name": "European Central Bank",
+          "description": "Controls EU monetary policy, manages the euro, and supervises banking system. Has tremendous influence over Eurozone economic policy and financial stability.",
+          "type": "institution",
+          "influence_score": 90,
+          "parent_actor": "European Union",
+          "sub_actors": [
+            {
+              "name": "Deutsche Bank AG",
+              "description": "Germany's largest bank and one of Europe's most systemically important financial institutions. Key ECB monetary policy transmission channel and major participant in ECB operations. Significant influence on Eurozone financial markets.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "European Central Bank",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "total_assets_eur",
+                  "name": "Total Assets in EUR",
+                  "description": "Total value of all assets held by Deutsche Bank in billions of euros, a key measure of bank size and systemic importance.",
+                  "type": "float",
+                  "expected_value": "1000.0 - 2000.0"
+                },
+                {
+                  "code_name": "tier1_capital_ratio",
+                  "name": "Tier 1 Capital Ratio",
+                  "description": "Core capital ratio that measures bank's financial strength and stability as required by Basel regulations.",
+                  "type": "float",
+                  "expected_value": "0.12 - 0.16"
+                }
+              ]
+            },
+            {
+              "name": "BNP Paribas",
+              "description": "Largest bank in the Eurozone by assets. Critical partner in ECB's monetary operations and major provider of financial services across EU. Key player in implementing ECB policies and financial stability measures.",
+              "type": "corporation",
+              "influence_score": 89,
+              "parent_actor": "European Central Bank",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "total_assets_eur",
+                  "name": "Total Assets in EUR",
+                  "description": "Total value of all assets held by BNP Paribas in billions of euros, which is a key indicator of the bank's size and systemic importance in the Eurozone.",
+                  "type": "float",
+                  "expected_value": "2000.0 - 3000.0"
+                },
+                {
+                  "code_name": "ecb_liquidity_provision",
+                  "name": "ECB Liquidity Provision Share",
+                  "description": "Percentage share of ECB's total liquidity operations conducted through BNP Paribas, indicating the bank's importance in monetary policy transmission.",
+                  "type": "float",
+                  "expected_value": "0.05 - 0.20"
+                }
+              ]
+            },
+            {
+              "name": "Clearstream Banking S.A.",
+              "description": "Leading European post-trade services provider and securities depository. Critical infrastructure provider for ECB operations and Euro-denominated securities settlement. Essential for ECB monetary policy implementation.",
+              "type": "corporation",
+              "influence_score": 85,
+              "parent_actor": "European Central Bank",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "securities_under_custody",
+                  "name": "Securities Under Custody",
+                  "description": "Total value of securities held under custody by Clearstream in EUR, indicating the scale of assets managed and systemic importance.",
+                  "type": "float",
+                  "expected_value": "10.0e12 - 15.0e12"
+                },
+                {
+                  "code_name": "settlement_volume_daily",
+                  "name": "Daily Settlement Volume",
+                  "description": "Average daily value of securities settlements processed through Clearstream's platform in EUR, reflecting operational activity and market liquidity.",
+                  "type": "float",
+                  "expected_value": "200.0e9 - 400.0e9"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "parameters": [
+            {
+              "code_name": "interest_rate",
+              "name": "Key Interest Rate",
+              "description": "The main refinancing operations rate that determines borrowing costs across the Eurozone and is the ECB's primary monetary policy tool.",
+              "type": "float",
+              "expected_value": "0.0 - 5.0"
+            },
+            {
+              "code_name": "balance_sheet_size",
+              "name": "Balance Sheet Total",
+              "description": "Total size of ECB's balance sheet in billions of euros, reflecting quantitative easing policies and overall monetary stance.",
+              "type": "float",
+              "expected_value": "4000.0 - 9000.0"
+            }
+          ]
+        },
+        {
+          "name": "European Parliament",
+          "description": "Directly elected legislative body that passes EU laws jointly with Council, approves EU budget, and provides democratic oversight. Key institution in EU decision-making process.",
+          "type": "government",
+          "influence_score": 85,
+          "parent_actor": "European Union",
+          "sub_actors": [
+            {
+              "name": "TotalEnergies SE",
+              "description": "Major French multinational energy corporation with significant lobbying influence on EU energy policy, climate regulations, and infrastructure projects. Key player in European energy security discussions and green transition initiatives.",
+              "type": "corporation",
+              "influence_score": 89,
+              "parent_actor": "European Parliament",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "lobbying_spend_eur",
+                  "name": "Annual EU Lobbying Expenditure",
+                  "description": "Total annual spending on lobbying activities and policy influence at EU level, indicating political influence capacity.",
+                  "type": "float",
+                  "expected_value": "3000000.0 - 10000000.0"
+                },
+                {
+                  "code_name": "renewable_portfolio_pct",
+                  "name": "Renewable Energy Portfolio Percentage",
+                  "description": "Percentage of company's total energy production/investment portfolio dedicated to renewable energy sources, reflecting commitment to energy transition.",
+                  "type": "float",
+                  "expected_value": "0.0 - 100.0"
+                }
+              ]
+            },
+            {
+              "name": "Volkswagen Group",
+              "description": "Leading European automotive manufacturer heavily involved in EU industrial policy, emissions standards, and electric vehicle legislation. Major employer and influential voice in trade, manufacturing, and environmental regulations.",
+              "type": "corporation",
+              "influence_score": 86,
+              "parent_actor": "European Parliament",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "annual_vehicle_production",
+                  "name": "Annual Vehicle Production Volume",
+                  "description": "Total number of vehicles manufactured across all brands and facilities globally per year, a key indicator of industrial capacity and market influence.",
+                  "type": "integer",
+                  "expected_value": "8000000 - 11000000"
+                },
+                {
+                  "code_name": "ev_portfolio_percentage",
+                  "name": "Electric Vehicle Portfolio Percentage",
+                  "description": "Percentage of total vehicle models offered that are fully electric, reflecting commitment to sustainability transitions and compliance with EU emissions regulations.",
+                  "type": "float",
+                  "expected_value": "0.0 - 100.0"
+                }
+              ]
+            },
+            {
+              "name": "Deutsche Bank AG",
+              "description": "Prominent financial institution with substantial influence on EU financial regulations, banking policies, and economic decisions. Key stakeholder in European financial markets and banking union discussions.",
+              "type": "corporation",
+              "influence_score": 82,
+              "parent_actor": "European Parliament",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "total_assets_eur",
+                  "name": "Total Assets in EUR",
+                  "description": "Total value of assets under management and control by Deutsche Bank, a key indicator of the bank's size and market influence.",
+                  "type": "float",
+                  "expected_value": "1.0e12 - 2.0e12"
+                },
+                {
+                  "code_name": "regulatory_capital_ratio",
+                  "name": "Regulatory Capital Ratio",
+                  "description": "Core Tier 1 capital ratio indicating the bank's financial stability and compliance with EU banking regulations.",
+                  "type": "float",
+                  "expected_value": "0.11 - 0.15"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "parameters": [
+            {
+              "code_name": "voting_power_index",
+              "name": "Voting Power Index",
+              "description": "Measure of the Parliament's collective voting strength and influence in passing legislation, based on number of MEPs and voting rules.",
+              "type": "float",
+              "expected_value": "0.0 - 1.0"
+            },
+            {
+              "code_name": "political_group_distribution",
+              "name": "Political Group Distribution",
+              "description": "Distribution of seats among different political groups/parties in the Parliament, represented as a document with percentages or seat counts.",
+              "type": "document",
+              "expected_value": "{\"EPP\": 0.24, \"S&D\": 0.21, \"Renew\": 0.15, ...}"
+            }
+          ]
+        }
+      ],
+      "sub_actors_count": 3,
+      "parameters": [
+        {
+          "code_name": "gdp_total_trillion",
+          "name": "Total GDP in Trillion EUR",
+          "description": "Combined gross domestic product of all EU member states in trillion euros, representing the alliance's total economic power.",
+          "type": "float",
+          "expected_value": "15.0 - 20.0"
+        },
+        {
+          "code_name": "member_state_count",
+          "name": "Number of Member States",
+          "description": "Current number of sovereign states that are full members of the European Union, affecting voting power and policy decisions.",
+          "type": "integer",
+          "expected_value": "27"
+        }
+      ]
+    },
+    {
+      "name": "Big Tech Consortium (Meta, Apple, Microsoft, Google, Amazon)",
+      "description": "Collective tech giants controlling global digital infrastructure, data, AI development, and online platforms that shape modern society.",
+      "type": "company",
+      "influence_score": 78,
+      "sub_actors": [
+        {
+          "name": "Industry Standards Coalition",
+          "description": "Joint technical standards body comprising representatives from major tech companies that establishes protocols, interoperability standards, and development frameworks that become de facto global digital infrastructure standards",
+          "type": "institution",
+          "influence_score": 95,
+          "parent_actor": "Big Tech Consortium (Meta, Apple, Microsoft, Google, Amazon)",
+          "sub_actors": [
+            {
+              "name": "Microsoft Corporation",
+              "description": "Global technology leader with significant influence in setting industry standards for operating systems, cloud computing, and enterprise software. Major contributor to web standards, programming frameworks, and cloud infrastructure protocols.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Industry Standards Coalition",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "market_share_os",
+                  "name": "Operating System Market Share",
+                  "description": "Percentage of global desktop/laptop computers running Microsoft Windows operating systems, indicating market dominance and platform influence.",
+                  "type": "float",
+                  "expected_value": "70.0 - 90.0"
+                },
+                {
+                  "code_name": "cloud_revenue_billions",
+                  "name": "Cloud Services Revenue",
+                  "description": "Annual revenue in billions USD from Microsoft Azure and related cloud services, representing cloud market position and enterprise adoption.",
+                  "type": "float",
+                  "expected_value": "50.0 - 100.0"
+                }
+              ]
+            },
+            {
+              "name": "Apple Inc.",
+              "description": "Influential tech company that shapes mobile technology standards, app development frameworks, and hardware interface protocols. Their decisions on support for technologies often determine industry-wide adoption.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Industry Standards Coalition",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "market_capitalization",
+                  "name": "Market Capitalization",
+                  "description": "Total market value of Apple's outstanding shares, indicating company size and market influence.",
+                  "type": "float",
+                  "expected_value": "2.0T - 3.0T USD"
+                },
+                {
+                  "code_name": "ios_market_share",
+                  "name": "iOS Market Share",
+                  "description": "Percentage of global mobile operating system market controlled by iOS, reflecting Apple's influence on mobile standards.",
+                  "type": "float",
+                  "expected_value": "15.0 - 30.0"
+                }
+              ]
+            },
+            {
+              "name": "Google LLC",
+              "description": "Leading force in web standards, browser technologies, and mobile platforms. Major influence on internet protocols, web development standards, and AI frameworks through active participation in standards bodies.",
+              "type": "corporation",
+              "influence_score": 90,
+              "parent_actor": "Industry Standards Coalition",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "market_share_browsers",
+                  "name": "Browser Market Share",
+                  "description": "Percentage of global web browser usage controlled through Chrome and derivatives, indicating influence over web standards adoption.",
+                  "type": "float",
+                  "expected_value": "60.0 - 70.0"
+                },
+                {
+                  "code_name": "web_standards_contributions",
+                  "name": "Web Standards Contributions",
+                  "description": "Number of active proposals and specifications contributed to W3C and other web standards bodies annually.",
+                  "type": "integer",
+                  "expected_value": "50 - 200"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "parameters": [
+            {
+              "code_name": "member_count",
+              "name": "Member Organizations Count",
+              "description": "Number of active member organizations/companies participating in the standards development process, which indicates the coalition's reach and influence.",
+              "type": "integer",
+              "expected_value": "50-500"
+            },
+            {
+              "code_name": "standards_adoption_rate",
+              "name": "Standards Adoption Rate",
+              "description": "Percentage of industry players that have implemented the coalition's most recent major technical standard, measuring its effectiveness in setting industry norms.",
+              "type": "float",
+              "expected_value": "0.0 - 1.0"
+            }
+          ]
+        },
+        {
+          "name": "Digital Policy Council",
+          "description": "Cross-company executive committee that coordinates shared policy positions, lobbying efforts, and strategic responses to regulatory challenges across global markets",
+          "type": "agency",
+          "influence_score": 90,
+          "parent_actor": "Big Tech Consortium (Meta, Apple, Microsoft, Google, Amazon)",
+          "sub_actors": [
+            {
+              "name": "Meta Platforms, Inc.",
+              "description": "Leading social media conglomerate and key digital policy influencer, actively shapes regulatory frameworks for data privacy, content moderation, and digital market competition through significant policy advocacy and industry coordination",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Digital Policy Council",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "user_base_millions",
+                  "name": "Monthly Active Users (Millions)",
+                  "description": "Total monthly active users across all Meta platforms (Facebook, Instagram, WhatsApp) in millions, representing the company's reach and market influence.",
+                  "type": "integer",
+                  "expected_value": "2000-4000"
+                },
+                {
+                  "code_name": "privacy_compliance_score",
+                  "name": "Privacy Compliance Rating",
+                  "description": "Composite score measuring adherence to global privacy regulations and data protection standards, including GDPR and CCPA compliance.",
+                  "type": "float",
+                  "expected_value": "0.0-10.0"
+                }
+              ]
+            },
+            {
+              "name": "Microsoft Corporation",
+              "description": "Major technology company with substantial influence in cloud computing, enterprise software, and AI policy development, particularly active in cybersecurity standards and digital infrastructure regulation",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Digital Policy Council",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "cloud_market_share",
+                  "name": "Cloud Market Share",
+                  "description": "Percentage of global cloud infrastructure market controlled by Microsoft Azure, a key indicator of the company's influence in digital infrastructure.",
+                  "type": "float",
+                  "expected_value": "0.15 - 0.25"
+                },
+                {
+                  "code_name": "cybersecurity_investment",
+                  "name": "Annual Cybersecurity Investment",
+                  "description": "Annual spending in billions USD on cybersecurity research, development, and implementation across Microsoft's products and services.",
+                  "type": "float",
+                  "expected_value": "2.0 - 5.0"
+                }
+              ]
+            },
+            {
+              "name": "Alphabet Inc.",
+              "description": "Tech giant with dominant market position in search, digital advertising, and emerging technologies, exercises significant influence over internet policy, data protection standards, and AI governance frameworks",
+              "type": "corporation",
+              "influence_score": 90,
+              "parent_actor": "Digital Policy Council",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "market_cap_usd",
+                  "name": "Market Capitalization",
+                  "description": "Total market value of outstanding shares in USD, reflecting company's overall financial strength and market influence.",
+                  "type": "float",
+                  "expected_value": "1.5e12 - 2.5e12"
+                },
+                {
+                  "code_name": "search_market_share",
+                  "name": "Global Search Engine Market Share",
+                  "description": "Percentage of global search engine queries handled by Google, indicating dominance in information access and digital advertising reach.",
+                  "type": "float",
+                  "expected_value": "80.0 - 95.0"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "parameters": [
+            {
+              "code_name": "policy_alignment_score",
+              "name": "Policy Alignment Score",
+              "description": "Measure of consensus/agreement level among member companies on shared policy positions, indicating how unified the council's stance is on key issues.",
+              "type": "float",
+              "expected_value": "0.0 - 1.0"
+            },
+            {
+              "code_name": "regulatory_response_time",
+              "name": "Regulatory Response Time",
+              "description": "Average time in days taken by the council to formulate and deploy coordinated responses to new regulatory challenges or policy changes.",
+              "type": "integer",
+              "expected_value": "1 - 90"
+            }
+          ]
+        },
+        {
+          "name": "AI Ethics Board",
+          "description": "Joint oversight body responsible for establishing ethical guidelines, safety protocols, and governance frameworks for artificial intelligence development across member companies",
+          "type": "institution",
+          "influence_score": 88,
+          "parent_actor": "Big Tech Consortium (Meta, Apple, Microsoft, Google, Amazon)",
+          "sub_actors": [
+            {
+              "name": "DeepMind Technologies",
+              "description": "Leading AI research company and pioneer in ethical AI development, heavily influences AI safety standards and governance frameworks through research publications and technical implementations",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "AI Ethics Board",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "research_impact_score",
+                  "name": "Research Impact Score",
+                  "description": "Composite metric measuring the influence and citation impact of DeepMind's AI research publications and technical breakthroughs in the field.",
+                  "type": "float",
+                  "expected_value": "0.0 - 100.0"
+                },
+                {
+                  "code_name": "safety_compliance_rating",
+                  "name": "AI Safety Compliance Rating",
+                  "description": "Assessment of how well DeepMind's AI systems and development practices align with established safety standards and ethical guidelines.",
+                  "type": "float",
+                  "expected_value": "0.0 - 1.0"
+                }
+              ]
+            },
+            {
+              "name": "OpenAI",
+              "description": "Major AI research organization developing large language models and advocating for responsible AI development, significantly shapes ethical guidelines and safety protocols",
+              "type": "company",
+              "influence_score": 92,
+              "parent_actor": "AI Ethics Board",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "research_budget",
+                  "name": "Annual Research Budget",
+                  "description": "Total annual financial resources allocated to AI research and development, indicating organizational capacity and scale of operations.",
+                  "type": "float",
+                  "expected_value": "100000000.0 - 1000000000.0"
+                },
+                {
+                  "code_name": "safety_compliance_score",
+                  "name": "AI Safety Compliance Score",
+                  "description": "Composite metric measuring adherence to ethical AI guidelines and implementation of safety protocols in model development.",
+                  "type": "float",
+                  "expected_value": "0.0 - 1.0"
+                }
+              ]
+            },
+            {
+              "name": "Microsoft Research",
+              "description": "Corporate research division leading ethical AI initiatives and implementing governance frameworks across enterprise AI applications, major contributor to AI safety standards",
+              "type": "subsidiary",
+              "influence_score": 88,
+              "parent_actor": "AI Ethics Board",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "safety_compliance_score",
+                  "name": "AI Safety Compliance Score",
+                  "description": "Aggregate measure of how well the division's AI projects comply with established safety standards and ethical guidelines.",
+                  "type": "float",
+                  "expected_value": "0.0 - 1.0"
+                },
+                {
+                  "code_name": "active_research_initiatives",
+                  "name": "Active Research Initiatives",
+                  "description": "Number of current research projects focused on AI safety, ethics, and governance being conducted by the division.",
+                  "type": "integer",
+                  "expected_value": "10 - 100"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "parameters": [
+            {
+              "code_name": "enforcement_authority_level",
+              "name": "Enforcement Authority Level",
+              "description": "The degree of power the board has to enforce its decisions, from advisory-only (0) to legally binding (10).",
+              "type": "integer",
+              "expected_value": "0-10"
+            },
+            {
+              "code_name": "ethics_framework_version",
+              "name": "Ethics Framework Version",
+              "description": "The current version identifier of the board's ethical guidelines and safety protocols document that member companies must follow.",
+              "type": "string",
+              "expected_value": "v2.3.1"
+            }
+          ]
+        }
+      ],
+      "sub_actors_count": 3,
+      "parameters": [
+        {
+          "code_name": "market_cap_usd",
+          "name": "Market Capitalization",
+          "description": "Total market value of the company's outstanding shares in USD, indicating financial power and market influence.",
+          "type": "float",
+          "expected_value": "500000000000.0 - 3000000000000.0"
+        },
+        {
+          "code_name": "active_users_monthly",
+          "name": "Monthly Active Users",
+          "description": "Number of unique users accessing the company's primary services/platforms within a month, representing global reach and user engagement.",
+          "type": "integer",
+          "expected_value": "1000000000 - 4000000000"
+        }
+      ]
+    },
+    {
+      "name": "Federal Reserve System",
+      "description": "US central bank with enormous influence over global financial markets, monetary policy, and international economic stability.",
+      "type": "organization",
+      "influence_score": 75,
+      "sub_actors": [
+        {
+          "name": "Federal Open Market Committee (FOMC)",
+          "description": "Principal monetary policymaking body of the Federal Reserve that sets key interest rates, manages open market operations, and directs U.S. monetary policy implementation",
+          "type": "institution",
+          "influence_score": 95,
+          "parent_actor": "Federal Reserve System",
+          "sub_actors": [
+            {
+              "name": "BlackRock Inc.",
+              "description": "World's largest asset management firm with significant influence on monetary policy through its massive holdings of Treasury securities and regular consultation with the Fed on market operations",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Federal Open Market Committee (FOMC)",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "aum_total",
+                  "name": "Assets Under Management",
+                  "description": "Total value of assets managed by BlackRock across all investment vehicles and asset classes, a key indicator of market influence and operational scale.",
+                  "type": "float",
+                  "expected_value": "8.0e12 - 10.0e12"
+                },
+                {
+                  "code_name": "treasury_holdings_pct",
+                  "name": "Treasury Securities Holdings Percentage",
+                  "description": "Percentage of total US Treasury securities market held by BlackRock, indicating their influence on government debt markets and monetary policy.",
+                  "type": "float",
+                  "expected_value": "0.02 - 0.08"
+                }
+              ]
+            },
+            {
+              "name": "JPMorgan Chase & Co.",
+              "description": "Largest U.S. bank and primary dealer in U.S. Treasury securities, providing crucial market intelligence and execution services for FOMC operations",
+              "type": "corporation",
+              "influence_score": 89,
+              "parent_actor": "Federal Open Market Committee (FOMC)",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "assets_under_management",
+                  "name": "Total Assets Under Management",
+                  "description": "The total value of assets managed by JPMorgan Chase, including loans, securities, and other financial instruments. This is a key indicator of the bank's market presence and financial capacity.",
+                  "type": "float",
+                  "expected_value": "2.0e12 - 4.0e12"
+                },
+                {
+                  "code_name": "treasury_market_share",
+                  "name": "U.S. Treasury Market Share",
+                  "description": "Percentage of total U.S. Treasury securities market volume handled by JPMorgan Chase as a primary dealer. This metric reflects their influence in government securities markets and monetary policy implementation.",
+                  "type": "float",
+                  "expected_value": "0.15 - 0.25"
+                }
+              ]
+            },
+            {
+              "name": "Goldman Sachs Group",
+              "description": "Leading investment bank and primary dealer that plays a key role in implementing FOMC monetary policy decisions and providing market analysis",
+              "type": "corporation",
+              "influence_score": 85,
+              "parent_actor": "Federal Open Market Committee (FOMC)",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "trading_volume_daily",
+                  "name": "Daily Trading Volume",
+                  "description": "Total daily trading volume across all markets and instruments in billions USD, indicating market activity and liquidity provision capacity.",
+                  "type": "float",
+                  "expected_value": "50.0 - 200.0"
+                },
+                {
+                  "code_name": "tier1_capital_ratio",
+                  "name": "Tier 1 Capital Ratio",
+                  "description": "Core measure of bank's financial strength expressed as percentage of risk-weighted assets, crucial for stability assessment and regulatory compliance.",
+                  "type": "float",
+                  "expected_value": "12.0 - 15.0"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "parameters": [
+            {
+              "code_name": "fed_funds_rate",
+              "name": "Federal Funds Rate Target",
+              "description": "The FOMC's target for the interest rate at which banks lend reserves to other banks overnight, which is the key policy rate affecting the U.S. economy.",
+              "type": "float",
+              "expected_value": "0.0 - 8.0"
+            },
+            {
+              "code_name": "monthly_asset_purchases",
+              "name": "Monthly Asset Purchase Volume",
+              "description": "The monthly volume of Treasury securities and mortgage-backed securities purchased by the Fed as part of its open market operations and quantitative easing programs.",
+              "type": "integer",
+              "expected_value": "0 - 120000000000"
+            }
+          ]
+        },
+        {
+          "name": "Board of Governors",
+          "description": "Seven-member governing board that guides overall Fed policy, sets bank regulations, and oversees the 12 Federal Reserve Banks, appointed by the President and confirmed by Senate",
+          "type": "institution",
+          "influence_score": 90,
+          "parent_actor": "Federal Reserve System",
+          "sub_actors": [
+            {
+              "name": "JPMorgan Chase & Co.",
+              "description": "Largest U.S. bank by assets, significant participant in Federal Reserve operations, major primary dealer of U.S. Treasury securities, and key stakeholder in Fed policy implementation",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Board of Governors",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "total_assets_usd",
+                  "name": "Total Assets Under Management",
+                  "description": "Total value of assets controlled by JPMorgan Chase, a key indicator of the bank's size and market influence in the financial system.",
+                  "type": "float",
+                  "expected_value": "2.5e12 - 4.0e12"
+                },
+                {
+                  "code_name": "treasury_holdings_pct",
+                  "name": "U.S. Treasury Securities Holdings Percentage",
+                  "description": "Percentage of total U.S. Treasury securities held by JPMorgan Chase as a primary dealer, reflecting their role in monetary policy implementation.",
+                  "type": "float",
+                  "expected_value": "2.0 - 8.0"
+                }
+              ]
+            },
+            {
+              "name": "BlackRock Financial Management",
+              "description": "World's largest asset manager, selected by Fed for managing bond-buying programs, crucial advisor on market operations and monetary policy implementation",
+              "type": "corporation",
+              "influence_score": 89,
+              "parent_actor": "Board of Governors",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "aum_total",
+                  "name": "Assets Under Management",
+                  "description": "Total value of assets managed by BlackRock across all portfolios and investment vehicles, a key indicator of market influence and financial capacity.",
+                  "type": "float",
+                  "expected_value": "8000000000000.0 - 10000000000000.0"
+                },
+                {
+                  "code_name": "market_share_percent",
+                  "name": "Global Asset Management Market Share",
+                  "description": "BlackRock's percentage share of the total global asset management market, reflecting its dominance and systemic importance.",
+                  "type": "float",
+                  "expected_value": "5.0 - 10.0"
+                }
+              ]
+            },
+            {
+              "name": "Goldman Sachs Group",
+              "description": "Leading global investment bank, primary dealer of U.S. government securities, significant influence on monetary policy through market operations and research",
+              "type": "corporation",
+              "influence_score": 85,
+              "parent_actor": "Board of Governors",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "aum_billions",
+                  "name": "Assets Under Management",
+                  "description": "Total value of assets managed by Goldman Sachs in billions of USD, indicating their market influence and financial capacity.",
+                  "type": "float",
+                  "expected_value": "1000.0 - 3000.0"
+                },
+                {
+                  "code_name": "market_making_volume",
+                  "name": "Daily Market Making Volume",
+                  "description": "Average daily trading volume in billions USD for market making activities, particularly in U.S. Treasury securities.",
+                  "type": "float",
+                  "expected_value": "50.0 - 200.0"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "parameters": [
+            {
+              "code_name": "voting_stance",
+              "name": "Policy Voting Stance",
+              "description": "The board member's typical monetary policy stance on a spectrum from dovish (favoring accommodative policy) to hawkish (favoring restrictive policy).",
+              "type": "float",
+              "expected_value": "-1.0 to 1.0 (-1 = most dovish, 1 = most hawkish)"
+            },
+            {
+              "code_name": "years_served",
+              "name": "Years of Board Service",
+              "description": "Number of years the member has served on the Board of Governors, which influences their experience and institutional knowledge.",
+              "type": "integer",
+              "expected_value": "0-14 (14-year maximum term)"
+            }
+          ]
+        },
+        {
+          "name": "Federal Reserve Bank of New York",
+          "description": "Most influential of the 12 Reserve Banks, implements monetary policy through market operations, supervises major financial institutions, and manages international relations",
+          "type": "institution",
+          "influence_score": 85,
+          "parent_actor": "Federal Reserve System",
+          "sub_actors": [
+            {
+              "name": "JPMorgan Chase & Co.",
+              "description": "Largest U.S. bank and key primary dealer in Fed operations, heavily involved in monetary policy implementation and securities transactions with the NY Fed, major participant in Federal funds market",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Federal Reserve Bank of New York",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "federal_funds_volume",
+                  "name": "Federal Funds Trading Volume",
+                  "description": "Daily trading volume in billions USD in the Federal funds market, representing the bank's significance in overnight lending between institutions.",
+                  "type": "float",
+                  "expected_value": "50.0 - 300.0"
+                },
+                {
+                  "code_name": "primary_dealer_treasury_holdings",
+                  "name": "Treasury Securities Holdings",
+                  "description": "Total value of U.S. Treasury securities held as a primary dealer in billions USD, indicating capacity to participate in Fed operations and influence monetary policy transmission.",
+                  "type": "float",
+                  "expected_value": "100.0 - 500.0"
+                }
+              ]
+            },
+            {
+              "name": "Goldman Sachs Group",
+              "description": "Premier investment bank and primary dealer, crucial role in Fed's market operations, significant influence in financial markets and monetary policy transmission, key participant in Fed's regulatory discussions",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Federal Reserve Bank of New York",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "market_liquidity_provision",
+                  "name": "Market Liquidity Provision Volume",
+                  "description": "Daily volume of market-making and liquidity provision activities in billions USD, indicating the bank's role in maintaining market function.",
+                  "type": "float",
+                  "expected_value": "50.0 - 500.0"
+                },
+                {
+                  "code_name": "tier1_capital_ratio",
+                  "name": "Tier 1 Capital Ratio",
+                  "description": "Core measure of bank's financial strength expressed as percentage of risk-weighted assets, crucial for regulatory compliance and stability assessment.",
+                  "type": "float",
+                  "expected_value": "12.0 - 15.0"
+                }
+              ]
+            },
+            {
+              "name": "Citigroup Inc.",
+              "description": "Global financial services corporation, major primary dealer, essential partner in international dollar clearing operations, significant participant in Fed's market operations and regulatory framework",
+              "type": "corporation",
+              "influence_score": 90,
+              "parent_actor": "Federal Reserve Bank of New York",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "parameters": [
+                {
+                  "code_name": "total_assets_usd",
+                  "name": "Total Assets Under Management",
+                  "description": "Total value of assets under management/control by Citigroup, a key indicator of the bank's size and systemic importance in the financial system.",
+                  "type": "float",
+                  "expected_value": "1.5e12 - 2.5e12"
+                },
+                {
+                  "code_name": "tier1_capital_ratio",
+                  "name": "Tier 1 Capital Ratio",
+                  "description": "Core measure of bank's financial strength from a regulatory perspective, expressing the ratio of core capital to risk-weighted assets.",
+                  "type": "float",
+                  "expected_value": "0.11 - 0.15"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "parameters": [
+            {
+              "code_name": "fed_funds_rate_target",
+              "name": "Federal Funds Rate Target",
+              "description": "The target interest rate set by the Fed for overnight lending between banks, which is a key tool for implementing monetary policy.",
+              "type": "float",
+              "expected_value": "0.0 - 10.0"
+            },
+            {
+              "code_name": "securities_holdings",
+              "name": "Securities Holdings",
+              "description": "Total value of securities held by the NY Fed as part of its open market operations and quantitative easing programs, in billions of USD.",
+              "type": "float",
+              "expected_value": "1000.0 - 9000.0"
+            }
+          ]
+        }
+      ],
+      "sub_actors_count": 3,
+      "parameters": [
+        {
+          "code_name": "interest_rate",
+          "name": "Federal Funds Rate",
+          "description": "The target interest rate set by the Federal Reserve that banks charge each other for overnight loans, which influences broader economic activity and monetary policy.",
+          "type": "float",
+          "expected_value": "0.0 - 10.0"
+        },
+        {
+          "code_name": "balance_sheet_size",
+          "name": "Balance Sheet Total Assets",
+          "description": "The total value of assets held by the Federal Reserve, including Treasury securities and mortgage-backed securities, which indicates the scale of monetary intervention.",
+          "type": "float",
+          "expected_value": "1000000000000 - 9000000000000"
+        }
+      ]
+    }
+  ],
+  "total_main_actors": 5,
+  "total_subactors": 45,
+  "level": 2
+}

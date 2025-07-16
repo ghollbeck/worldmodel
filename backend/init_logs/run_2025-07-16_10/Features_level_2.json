@@ -1,0 +1,218 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T13:33:17.143677",
+    "run_folder": "run_2025-07-16_10",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "script_version": "3.0.0",
+    "level": 2,
+    "parent_file": "Features_level_1.json",
+    "original_metadata": {
+      "timestamp": "2025-07-16T13:33:09.927724",
+      "run_folder": "run_2025-07-16_10",
+      "model_provider": "anthropic",
+      "model_name": "claude-3-5-sonnet-latest",
+      "num_actors_requested": 3,
+      "num_actors_generated": 3,
+      "script_version": "3.0.0",
+      "generation_method": "LLM-based",
+      "level": 0,
+      "cost_tracking": {
+        "total_cost": 0.008936,
+        "api_calls": 1,
+        "providers": {
+          "anthropic": {
+            "cost": 0.008936,
+            "calls": 1,
+            "models": {
+              "claude-3-5-sonnet-latest": {
+                "cost": 0.008936,
+                "calls": 1,
+                "tokens": {
+                  "input": 448,
+                  "output": 223,
+                  "total": 671
+                }
+              }
+            },
+            "tokens": {
+              "input": 448,
+              "output": 223,
+              "total": 671
+            }
+          }
+        },
+        "session_start": "2025-07-16T13:33:04.850249",
+        "tokens_used": {
+          "input_tokens": 448,
+          "output_tokens": 223,
+          "total_tokens": 671
+        },
+        "session_duration_seconds": 5.07747,
+        "session_duration_str": "0:00:05.077470",
+        "average_cost_per_call": 0.008936,
+        "cost_per_1k_tokens": 0.013317436661698955
+      }
+    },
+    "parallelization": {
+      "enabled": true,
+      "max_concurrent_threads": 5,
+      "total_parallel_tasks": 0
+    },
+    "generation_stats": {
+      "total_main_actors": 3,
+      "total_subactors": 0,
+      "successful_actors": 0,
+      "failed_actors": 0
+    },
+    "cost_tracking": {
+      "total_cost": 0.040448,
+      "api_calls": 4,
+      "providers": {
+        "anthropic": {
+          "cost": 0.040448,
+          "calls": 4,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.040448,
+              "calls": 4,
+              "tokens": {
+                "input": 1738,
+                "output": 1106,
+                "total": 2844
+              }
+            }
+          },
+          "tokens": {
+            "input": 1738,
+            "output": 1106,
+            "total": 2844
+          }
+        }
+      },
+      "session_start": "2025-07-16T13:33:04.850249",
+      "tokens_used": {
+        "input_tokens": 1738,
+        "output_tokens": 1106,
+        "total_tokens": 2844
+      },
+      "session_duration_seconds": 12.293423,
+      "session_duration_str": "0:00:12.293423",
+      "average_cost_per_call": 0.010112,
+      "cost_per_1k_tokens": 0.014222222222222223
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with unmatched military strength, largest economy by GDP, dominant financial system (USD), technological leadership, and extensive diplomatic influence across all continents",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Executive Office of the President",
+          "description": "Central hub of federal executive power, headed by the President as head of state and government. Controls federal agencies, shapes foreign policy, serves as Commander-in-Chief, and drives national agenda through executive orders and policy initiatives.",
+          "type": "government",
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        },
+        {
+          "name": "Federal Reserve System",
+          "description": "Central banking system that controls US monetary policy, regulates financial institutions, maintains stability of financial system, and manages the world's dominant reserve currency (USD). Significant influence on global markets.",
+          "type": "institution",
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        },
+        {
+          "name": "Department of Defense",
+          "description": "Manages world's largest military force, oversees national security strategy, controls nuclear arsenal, and administers enormous defense budget. Includes Army, Navy, Air Force, Marines, and Space Force.",
+          "type": "ministry",
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        }
+      ],
+      "sub_actors_count": 3,
+      "parameters": []
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "World's second-largest economy, largest population, rising military power, dominant manufacturing base, increasing technological capabilities, and growing global diplomatic presence through Belt and Road Initiative",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Chinese Communist Party (CCP)",
+          "description": "The ruling political party that maintains paramount authority over all state institutions and government bodies. Controls personnel appointments, policy direction, and strategic decision-making across military, economic, and social spheres.",
+          "type": "party",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        },
+        {
+          "name": "State Council",
+          "description": "China's chief administrative authority and highest executive body of state power. Implements CCP policies, manages economy, oversees state bureaucracy, and coordinates between ministries and provincial governments.",
+          "type": "government",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        },
+        {
+          "name": "Central Military Commission (CMC)",
+          "description": "Supreme military command organization that controls and directs the People's Liberation Army (PLA). Oversees military strategy, modernization, and defense policy. Direct authority over all armed forces.",
+          "type": "military",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        }
+      ],
+      "sub_actors_count": 3,
+      "parameters": []
+    },
+    {
+      "name": "Big Tech Alliance (GAFAM)",
+      "description": "Collective influence of Google, Apple, Facebook, Amazon, and Microsoft, controlling global digital infrastructure, data, AI development, cloud computing, and shaping technological standards worldwide",
+      "type": "alliance",
+      "sub_actors": [
+        {
+          "name": "GAFAM Policy Coalition",
+          "description": "Joint lobbying and policy coordination body representing collective interests of major tech companies in regulatory affairs, digital policy, and government relations. Wields significant influence over tech legislation and digital governance standards globally.",
+          "type": "institution",
+          "parent_actor": "Big Tech Alliance (GAFAM)",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        },
+        {
+          "name": "Digital Standards Council",
+          "description": "Cross-company technical standards committee that establishes protocols, interoperability frameworks, and development guidelines adopted across the alliance. Sets de facto global standards for digital infrastructure and platforms.",
+          "type": "agency",
+          "parent_actor": "Big Tech Alliance (GAFAM)",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        },
+        {
+          "name": "Advanced Technology Research Consortium",
+          "description": "Collaborative R&D entity coordinating AI, quantum computing, and emerging tech development across member companies. Shapes technological trajectory and maintains competitive advantage in critical future technologies.",
+          "type": "institution",
+          "parent_actor": "Big Tech Alliance (GAFAM)",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        }
+      ],
+      "sub_actors_count": 3,
+      "parameters": []
+    }
+  ],
+  "total_main_actors": 3,
+  "total_subactors": 0,
+  "level": 2
+}

@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import './App.css';
 
 type InputMode = 'dropdown' | 'freetext';
@@ -54,6 +54,35 @@ interface LogEntry {
   type: 'info' | 'error' | 'warning';
 }
 
+interface GenerationConfig {
+  provider: string;
+  model: string;
+  num_actors: number;
+  num_subactors: number;
+  target_depth: number;
+  skip_on_error: boolean;
+  num_params: number;
+}
+
+interface GenerationStatus {
+  status: 'idle' | 'running' | 'completed' | 'failed';
+  message: string;
+  progress?: number;
+  details?: any;
+}
+
+interface RunInfo {
+  status: string;
+  run_folder?: string;
+  level_files?: Array<{
+    level: number;
+    file: string;
+    size: number;
+    modified: number;
+  }>;
+  total_levels?: number;
+}
+
 type Parameters = {
   [key in ParameterId]?: number;
 };
@@ -96,23 +125,225 @@ const initialParameters: Parameters = {
   governance: 55
 };
 
+const providerOptions = [
+  { value: 'anthropic', label: 'Anthropic' },
+  { value: 'openai', label: 'OpenAI' }
+];
+
+const modelOptions = {
+  anthropic: [
+    { value: 'claude-3-5-sonnet-latest', label: 'Claude 3.5 Sonnet (Latest)' },
+    { value: 'claude-3-5-sonnet-20241022', label: 'Claude 3.5 Sonnet (Oct 2024)' },
+    { value: 'claude-3-5-haiku-20241022', label: 'Claude 3.5 Haiku (Oct 2024)' },
+    { value: 'claude-3-sonnet-20240229', label: 'Claude 3 Sonnet' },
+    { value: 'claude-3-haiku-20240307', label: 'Claude 3 Haiku' },
+    { value: 'claude-3-opus-20240229', label: 'Claude 3 Opus' }
+  ],
+  openai: [
+    { value: 'gpt-4o', label: 'GPT-4o' },
+    { value: 'gpt-4o-mini', label: 'GPT-4o Mini' },
+    { value: 'gpt-4', label: 'GPT-4' },
+    { value: 'gpt-4-turbo', label: 'GPT-4 Turbo' },
+    { value: 'gpt-3.5-turbo', label: 'GPT-3.5 Turbo' }
+  ]
+};
+
 const App: React.FC = () => {
   const [parameters, setParameters] = useState<Parameters>(initialParameters);
-
   const [inputMode, setInputMode] = useState<InputMode>('dropdown');
   const [freeTextInput, setFreeTextInput] = useState<string>('');
-
   const [parameterCards, setParameterCards] = useState<ParameterCard[]>([]);
   const [nextCardId, setNextCardId] = useState<number>(1);
-
   const [depthLevel, setDepthLevel] = useState<number>(3);
-
   const [activePhase, setActivePhase] = useState<Phase>('initialization');
-
   const [logs, setLogs] = useState<LogEntry[]>([
     { id: 1, timestamp: new Date().toISOString(), message: 'System initialized', type: 'info' },
     { id: 2, timestamp: new Date().toISOString(), message: 'Ready for initialization phase', type: 'info' }
   ]);
+  const [nextLogId, setNextLogId] = useState<number>(3);
+
+  // New state for generation controls
+  const [generationConfig, setGenerationConfig] = useState<GenerationConfig>({
+    provider: 'anthropic',
+    model: 'claude-3-5-sonnet-latest',
+    num_actors: 4, // changed from 10 to 4
+    num_subactors: 4, // changed from 8 to 4
+    target_depth: 3, // changed from 2 to 3
+    skip_on_error: true, // unchanged
+    num_params: 20
+  });
+
+  const [generationStatus, setGenerationStatus] = useState<{
+    actors: GenerationStatus;
+    parameters: GenerationStatus;
+  }>({
+    actors: { status: 'idle', message: 'Ready to generate actors' },
+    parameters: { status: 'idle', message: 'Ready to generate parameters' }
+  });
+
+  const [runInfo, setRunInfo] = useState<RunInfo>({ status: 'no_runs' });
+  const [actorData, setActorData] = useState<any>(null);
+
+  // Poll for status updates
+  // useEffect(() => {
+  //   const pollStatus = async () => {
+  //     try {
+  //       const response = await fetch('http://localhost:8000/api/status');
+  //       const status = await response.json();
+  //       setGenerationStatus(status);
+        
+  //       // Update logs with status changes
+  //       if (status.actors.status === 'completed' && generationStatus.actors.status === 'running') {
+  //         addLog('Actor generation completed successfully', 'info');
+  //         fetchRunInfo();
+  //       } else if (status.actors.status === 'failed' && generationStatus.actors.status === 'running') {
+  //         addLog('Actor generation failed', 'error');
+  //       }
+        
+  //       if (status.parameters.status === 'completed' && generationStatus.parameters.status === 'running') {
+  //         addLog('Parameter generation completed successfully', 'info');
+  //         fetchRunInfo();
+  //       } else if (status.parameters.status === 'failed' && generationStatus.parameters.status === 'running') {
+  //         addLog('Parameter generation failed', 'error');
+  //       }
+  //     } catch (error) {
+  //       console.error('Failed to fetch status:', error);
+  //     }
+  //   };
+
+  //   const interval = setInterval(pollStatus, 2000);
+  //   return () => clearInterval(interval);
+  // }, [generationStatus.actors.status, generationStatus.parameters.status]);
+
+  // Fetch run info on component mount
+  useEffect(() => {
+    fetchRunInfo();
+  }, []);
+
+  const fetchRunInfo = async () => {
+    try {
+      const response = await fetch('http://localhost:8000/api/runs/latest');
+      const info = await response.json();
+      setRunInfo(info);
+      
+      // Fetch actor data if available
+      if (info.status === 'found' && info.total_levels > 0) {
+        const dataResponse = await fetch('http://localhost:8000/api/runs/data/0');
+        const data = await dataResponse.json();
+        setActorData(data);
+      }
+    } catch (error) {
+      console.error('Failed to fetch run info:', error);
+    }
+  };
+
+  const addLog = (message: string, type: 'info' | 'error' | 'warning') => {
+    const newLog: LogEntry = {
+      id: nextLogId,
+      timestamp: new Date().toISOString(),
+      message,
+      type
+    };
+    setLogs(prev => [...prev, newLog]);
+    setNextLogId(prev => prev + 1);
+  };
+
+  const handleGenerationConfigChange = (key: keyof GenerationConfig, value: any) => {
+    setGenerationConfig(prev => ({
+      ...prev,
+      [key]: value
+    }));
+  };
+
+  const handleGenerateActors = async () => {
+    if (generationStatus.actors.status === 'running') {
+      addLog('Actor generation is already running', 'warning');
+      return;
+    }
+
+    try {
+      addLog(`Starting actor generation with ${generationConfig.num_actors} actors`, 'info');
+      
+      const response = await fetch('http://localhost:8000/api/generate/actors', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          provider: generationConfig.provider,
+          model: generationConfig.model,
+          num_actors: generationConfig.num_actors,
+          num_subactors: generationConfig.num_subactors,
+          target_depth: generationConfig.target_depth,
+          skip_on_error: generationConfig.skip_on_error
+        })
+      });
+
+      if (response.ok) {
+        addLog('Actor generation started successfully', 'info');
+      } else {
+        const error = await response.json();
+        addLog(`Failed to start actor generation: ${error.detail}`, 'error');
+      }
+    } catch (error) {
+      addLog(`Error starting actor generation: ${error}`, 'error');
+    }
+  };
+
+  const handleGenerateParameters = async () => {
+    if (generationStatus.parameters.status === 'running') {
+      addLog('Parameter generation is already running', 'warning');
+      return;
+    }
+
+    if (runInfo.status === 'no_runs') {
+      addLog('No actor data found. Please generate actors first.', 'warning');
+      return;
+    }
+
+    try {
+      addLog(`Starting parameter generation with ${generationConfig.num_params} parameters per actor`, 'info');
+      
+      const response = await fetch('http://localhost:8000/api/generate/parameters', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          provider: generationConfig.provider,
+          model: generationConfig.model,
+          num_params: generationConfig.num_params
+        })
+      });
+
+      if (response.ok) {
+        addLog('Parameter generation started successfully', 'info');
+      } else {
+        const error = await response.json();
+        addLog(`Failed to start parameter generation: ${error.detail}`, 'error');
+      }
+    } catch (error) {
+      addLog(`Error starting parameter generation: ${error}`, 'error');
+    }
+  };
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'running': return '#ffa500';
+      case 'completed': return '#4caf50';
+      case 'failed': return '#f44336';
+      default: return '#2196f3';
+    }
+  };
+
+  const getStatusIcon = (status: string) => {
+    switch (status) {
+      case 'running': return '🔄';
+      case 'completed': return '✅';
+      case 'failed': return '❌';
+      default: return '⚪';
+    }
+  };
 
   const handleSliderChange = (param: ParameterId, value: number) => {
     setParameters(prev => ({
@@ -175,26 +406,13 @@ const App: React.FC = () => {
     console.log('Free text input:', freeTextInput);
     console.log('Depth level:', depthLevel);
 
-    const newLog: LogEntry = {
-      id: logs.length + 1,
-      timestamp: new Date().toISOString(),
-      message: `Running simulation with ${parameterCards.length} parameters`,
-      type: 'info'
-    };
-    setLogs(prev => [...prev, newLog]);
+    addLog(`Running simulation with ${parameterCards.length} parameters`, 'info');
     // Here you would trigger the actual simulation
   };
 
   const handlePhaseChange = (phase: Phase) => {
     setActivePhase(phase);
-
-    const newLog: LogEntry = {
-      id: logs.length + 1,
-      timestamp: new Date().toISOString(),
-      message: `Switched to ${phase} phase`,
-      type: 'info'
-    };
-    setLogs(prev => [...prev, newLog]);
+    addLog(`Switched to ${phase} phase`, 'info');
   };
 
   const formatLogTimestamp = (timestamp: string): string => {
@@ -212,6 +430,164 @@ const App: React.FC = () => {
       <div className="simulation-container">
         {/* Left Panel - Controls */}
         <div className="controls-panel">
+
+          {/* Generation Controls Section */}
+          <div className="generation-section">
+            <h2 className="section-title">🤖 LLM Generation Controls</h2>
+            
+            {/* Provider & Model Selection */}
+            <div className="generation-config">
+              <div className="config-row">
+                <div className="config-item">
+                  <label>Provider</label>
+                  <select
+                    value={generationConfig.provider}
+                    onChange={(e) => handleGenerationConfigChange('provider', e.target.value)}
+                    className="config-select"
+                  >
+                    {providerOptions.map(option => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="config-item">
+                  <label>Model</label>
+                  <select
+                    value={generationConfig.model}
+                    onChange={(e) => handleGenerationConfigChange('model', e.target.value)}
+                    className="config-select"
+                  >
+                    {modelOptions[generationConfig.provider as keyof typeof modelOptions].map(option => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              {/* Actor Generation Controls */}
+              <div className="config-group">
+                <h3>🎭 Actor Generation</h3>
+                <div className="config-row">
+                  <div className="config-item">
+                    <label>Number of Actors (1-200)</label>
+                    <input
+                      type="range"
+                      min="1"
+                      max="200"
+                      value={generationConfig.num_actors}
+                      onChange={(e) => handleGenerationConfigChange('num_actors', parseInt(e.target.value))}
+                      className="slider"
+                    />
+                    <span className="slider-value">{generationConfig.num_actors}</span>
+                  </div>
+                  <div className="config-item">
+                    <label>Sub-actors per Actor (1-20)</label>
+                    <input
+                      type="range"
+                      min="1"
+                      max="20"
+                      value={generationConfig.num_subactors}
+                      onChange={(e) => handleGenerationConfigChange('num_subactors', parseInt(e.target.value))}
+                      className="slider"
+                    />
+                    <span className="slider-value">{generationConfig.num_subactors}</span>
+                  </div>
+                </div>
+                <div className="config-row">
+                  <div className="config-item">
+                    <label>Target Depth (0-10)</label>
+                    <input
+                      type="range"
+                      min="0"
+                      max="10"
+                      value={generationConfig.target_depth}
+                      onChange={(e) => handleGenerationConfigChange('target_depth', parseInt(e.target.value))}
+                      className="slider"
+                    />
+                    <span className="slider-value">{generationConfig.target_depth}</span>
+                  </div>
+                  <div className="config-item">
+                    <label>Skip on Error</label>
+                    <input
+                      type="checkbox"
+                      checked={generationConfig.skip_on_error}
+                      onChange={(e) => handleGenerationConfigChange('skip_on_error', e.target.checked)}
+                      className="checkbox"
+                    />
+                  </div>
+                </div>
+                
+                <div className="generation-button-row">
+                  <button
+                    onClick={handleGenerateActors}
+                    disabled={generationStatus.actors.status === 'running'}
+                    className={`generation-btn ${generationStatus.actors.status === 'running' ? 'running' : ''}`}
+                  >
+                    {getStatusIcon(generationStatus.actors.status)} Generate Actors
+                  </button>
+                  <div className="status-info">
+                    <span style={{ color: getStatusColor(generationStatus.actors.status) }}>
+                      {generationStatus.actors.message}
+                    </span>
+                    {generationStatus.actors.progress !== null && (
+                      <div className="progress-bar">
+                        <div 
+                          className="progress-fill" 
+                          style={{ width: `${generationStatus.actors.progress}%` }}
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Parameter Generation Controls */}
+              <div className="config-group">
+                <h3>📊 Parameter Generation</h3>
+                <div className="config-row">
+                  <div className="config-item">
+                    <label>Parameters per Actor (10-100)</label>
+                    <input
+                      type="range"
+                      min="10"
+                      max="100"
+                      value={generationConfig.num_params}
+                      onChange={(e) => handleGenerationConfigChange('num_params', parseInt(e.target.value))}
+                      className="slider"
+                    />
+                    <span className="slider-value">{generationConfig.num_params}</span>
+                  </div>
+                </div>
+                
+                <div className="generation-button-row">
+                  <button
+                    onClick={handleGenerateParameters}
+                    disabled={generationStatus.parameters.status === 'running' || runInfo.status === 'no_runs'}
+                    className={`generation-btn ${generationStatus.parameters.status === 'running' ? 'running' : ''}`}
+                  >
+                    {getStatusIcon(generationStatus.parameters.status)} Generate Parameters
+                  </button>
+                  <div className="status-info">
+                    <span style={{ color: getStatusColor(generationStatus.parameters.status) }}>
+                      {generationStatus.parameters.message}
+                    </span>
+                    {generationStatus.parameters.progress !== null && (
+                      <div className="progress-bar">
+                        <div 
+                          className="progress-fill" 
+                          style={{ width: `${generationStatus.parameters.progress}%` }}
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* Phase Title and Buttons */}
           <div className="phase-section">
@@ -346,11 +722,49 @@ const App: React.FC = () => {
 
         {/* Right Panel - Results */}
         <div className="results-panel">
-          <h2>Simulation Results</h2>
+          <h2>Generation Results</h2>
           <div className="results-content">
-            <div className="simple-placeholder">
-              <p>Mock results will be shown here soon.</p>
-            </div>
+            {runInfo.status === 'found' ? (
+              <div className="results-data">
+                <div className="run-info">
+                  <h3>📁 Latest Run: {runInfo.run_folder}</h3>
+                  <p>Total Levels: {runInfo.total_levels}</p>
+                  {runInfo.level_files && runInfo.level_files.map(file => (
+                    <div key={file.level} className="level-info">
+                      <strong>Level {file.level}:</strong> {file.file} ({(file.size / 1024).toFixed(1)} KB)
+                    </div>
+                  ))}
+                </div>
+                
+                {actorData && actorData.actors && (
+                  <div className="actor-preview">
+                    <h3>🎭 Generated Actors ({actorData.actors.length})</h3>
+                    <div className="actor-list">
+                      {actorData.actors.slice(0, 5).map((actor: any, index: number) => (
+                        <div key={index} className="actor-item">
+                          <strong>{actor.name}</strong> ({actor.type})
+                          <p className="actor-description">{actor.description}</p>
+                          {actor.sub_actors && actor.sub_actors.length > 0 && (
+                            <p className="sub-actors-count">
+                              Sub-actors: {actor.sub_actors.length}
+                            </p>
+                          )}
+                        </div>
+                      ))}
+                      {actorData.actors.length > 5 && (
+                        <div className="actor-item">
+                          <strong>... and {actorData.actors.length - 5} more actors</strong>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className="no-results">
+                <p>No generation results yet. Use the controls above to generate actors and parameters.</p>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -360,7 +774,10 @@ const App: React.FC = () => {
         <div className="logs-header">
           <h3>System Logs</h3>
           <button
-            onClick={() => setLogs([])}
+            onClick={() => {
+              setLogs([]);
+              setNextLogId(1);
+            }}
             className="clear-logs-btn"
           >
             Clear Logs

@@ -2,6 +2,10 @@
 pydantic>=2.0
 python-dotenv
 
+# Web API
+fastapi>=0.104.0
+uvicorn>=0.24.0
+
 # Databases
 duckdb
 asyncpg

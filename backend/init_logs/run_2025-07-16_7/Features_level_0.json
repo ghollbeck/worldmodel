@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T13:30:18.325300",
+    "run_folder": "run_2025-07-16_7",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "num_actors_requested": 6,
+    "num_actors_generated": 6,
+    "script_version": "3.0.0",
+    "generation_method": "LLM-based",
+    "level": 0,
+    "cost_tracking": {
+      "total_cost": 0.012968,
+      "api_calls": 1,
+      "providers": {
+        "anthropic": {
+          "cost": 0.012968,
+          "calls": 1,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.012968,
+              "calls": 1,
+              "tokens": {
+                "input": 448,
+                "output": 391,
+                "total": 839
+              }
+            }
+          },
+          "tokens": {
+            "input": 448,
+            "output": 391,
+            "total": 839
+          }
+        }
+      },
+      "session_start": "2025-07-16T13:30:11.317791",
+      "tokens_used": {
+        "input_tokens": 448,
+        "output_tokens": 391,
+        "total_tokens": 839
+      },
+      "session_duration_seconds": 7.007499,
+      "session_duration_str": "0:00:07.007499",
+      "average_cost_per_call": 0.012968,
+      "cost_per_1k_tokens": 0.015456495828367105
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with unmatched military, economic, technological, and cultural influence. Leading role in international institutions, global finance (USD dominance), and technological innovation.",
+      "type": "country"
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "World's largest population, second-largest economy, rising military power. Dominant in global supply chains, technology manufacturing, and increasing influence through Belt and Road Initiative.",
+      "type": "country"
+    },
+    {
+      "name": "European Union",
+      "description": "Largest trading bloc, significant regulatory power ('Brussels Effect'), major diplomatic force. Combined economic might of 27 nations with substantial influence on global standards and trade.",
+      "type": "alliance"
+    },
+    {
+      "name": "Apple Inc.",
+      "description": "World's most valuable company, enormous influence on global technology standards, consumer behavior, and digital ecosystems. Major impact on privacy standards and digital economy.",
+      "type": "company"
+    },
+    {
+      "name": "Federal Reserve System",
+      "description": "US central bank with extraordinary influence over global financial markets, international monetary policy, and world economy through dollar hegemony and interest rate decisions.",
+      "type": "organization"
+    },
+    {
+      "name": "NATO",
+      "description": "Most powerful military alliance in history, combining forces of 31 nations. Crucial role in global security architecture and geopolitical balance of power.",
+      "type": "alliance"
+    }
+  ],
+  "total_count": 6
+}

@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T13:33:09.927724",
+    "run_folder": "run_2025-07-16_10",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "num_actors_requested": 3,
+    "num_actors_generated": 3,
+    "script_version": "3.0.0",
+    "generation_method": "LLM-based",
+    "level": 0,
+    "cost_tracking": {
+      "total_cost": 0.008936,
+      "api_calls": 1,
+      "providers": {
+        "anthropic": {
+          "cost": 0.008936,
+          "calls": 1,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.008936,
+              "calls": 1,
+              "tokens": {
+                "input": 448,
+                "output": 223,
+                "total": 671
+              }
+            }
+          },
+          "tokens": {
+            "input": 448,
+            "output": 223,
+            "total": 671
+          }
+        }
+      },
+      "session_start": "2025-07-16T13:33:04.850249",
+      "tokens_used": {
+        "input_tokens": 448,
+        "output_tokens": 223,
+        "total_tokens": 671
+      },
+      "session_duration_seconds": 5.07747,
+      "session_duration_str": "0:00:05.077470",
+      "average_cost_per_call": 0.008936,
+      "cost_per_1k_tokens": 0.013317436661698955
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with unmatched military strength, largest economy by GDP, dominant financial system (USD), technological leadership, and extensive diplomatic influence across all continents",
+      "type": "country"
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "World's second-largest economy, largest population, rising military power, dominant manufacturing base, increasing technological capabilities, and growing global diplomatic presence through Belt and Road Initiative",
+      "type": "country"
+    },
+    {
+      "name": "Big Tech Alliance (GAFAM)",
+      "description": "Collective influence of Google, Apple, Facebook, Amazon, and Microsoft, controlling global digital infrastructure, data, AI development, cloud computing, and shaping technological standards worldwide",
+      "type": "alliance"
+    }
+  ],
+  "total_count": 3
+}
