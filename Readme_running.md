@@ -2,6 +2,79 @@
 
 ## Latest Changes
 
+### 2025-01-20: Comprehensive Cost Tracking Integration in JSON Logs
+
+**Overview:** Added comprehensive cost tracking to both `actors_init.py` and `actors_leveldown.py` to log LLM API costs directly in the JSON output files for better cost analysis and audit trails.
+
+**Key Changes:**
+
+1. **Enhanced LLM Module (`llm.py`):**
+   - Added `get_cost_session()` function to export cost data for JSON logging
+   - Cost session data is now JSON-serializable with proper datetime handling
+   - Computed fields include session duration, average cost per call, and cost per 1K tokens
+
+2. **Updated Actor Initialization (`actors_init.py`):**
+   - Added `reset_cost_session()` at the start of each run to ensure clean cost tracking
+   - Integrated `get_cost_session()` to capture cost data in JSON metadata
+   - Added `print_cost_summary()` to display comprehensive cost breakdown at completion
+   - JSON now includes complete cost tracking under `metadata.cost_tracking`
+
+3. **Updated Actor Leveldown (`actors_leveldown.py`):**
+   - Added cost session reset at the start of level-down analysis
+   - Integrated cost data capture for Features_level_1.json
+   - Added cost summary display at completion
+   - JSON includes cost tracking data for sub-actor generation
+
+**JSON Structure Enhancement:**
+```json
+{
+  "metadata": {
+    "timestamp": "2025-01-20T14:30:00.000Z",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "cost_tracking": {
+      "total_cost": 0.025750,
+      "api_calls": 3,
+      "session_duration_seconds": 45.123,
+      "session_duration_str": "0:00:45.123456",
+      "average_cost_per_call": 0.008583,
+      "cost_per_1k_tokens": 0.006429,
+      "tokens_used": {
+        "input_tokens": 1200,
+        "output_tokens": 1250,
+        "total_tokens": 2450
+      },
+      "providers": {
+        "anthropic": {
+          "cost": 0.025750,
+          "calls": 3,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.025750,
+              "calls": 3,
+              "tokens": {"input": 1200, "output": 1250, "total": 2450}
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+**Benefits:**
+- **Audit Trail:** Complete cost tracking in JSON files for accountability
+- **Cost Analysis:** Detailed breakdown by provider, model, and call statistics
+- **Performance Metrics:** Session duration and efficiency measurements
+- **Historical Tracking:** Cost data preserved with each actor generation run
+- **Budget Management:** Easy identification of expensive operations
+
+**Integration Points:**
+- Automatic cost session reset at the start of each script run
+- Real-time cost accumulation during LLM API calls
+- Cost summary display at completion with visual feedback
+- JSON persistence for long-term cost analysis
+
 ### 2025-01-20: Comprehensive World Model README Documentation
 
 **Overview:** Completely transformed the README from a simple React frontend description to a comprehensive world modeling system documentation.
