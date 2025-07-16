@@ -6,6 +6,8 @@
 
 **Overview:** Completely transformed the README from a simple React frontend description to a comprehensive world modeling system documentation.
 
+
+
 **Key Changes:**
 - **World Model Philosophy**: Added detailed explanation of World3-inspired approach with neuroscience principles
 - **Hierarchical Actor System**: Documented 4-level influence structure (World → Countries → Companies → Individuals)

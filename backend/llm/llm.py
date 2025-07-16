@@ -207,6 +207,29 @@ def reset_cost_session():
         }
     }
 
+def get_cost_session() -> Dict[str, Any]:
+    """Get the current cost session data for logging"""
+    global cost_session
+    
+    # Create a copy to avoid modifying the original
+    session_copy = cost_session.copy()
+    
+    # Convert datetime to string for JSON serialization
+    session_copy["session_start"] = cost_session["session_start"].isoformat()
+    
+    # Add computed fields
+    session_duration = datetime.now() - cost_session["session_start"]
+    session_copy["session_duration_seconds"] = session_duration.total_seconds()
+    session_copy["session_duration_str"] = str(session_duration)
+    
+    # Add average costs if we have data
+    if cost_session["api_calls"] > 0:
+        session_copy["average_cost_per_call"] = cost_session["total_cost"] / cost_session["api_calls"]
+        if cost_session["tokens_used"]["total_tokens"] > 0:
+            session_copy["cost_per_1k_tokens"] = cost_session["total_cost"] / (cost_session["tokens_used"]["total_tokens"] / 1000)
+    
+    return session_copy
+
 def log_llm_success(provider, model, response_length, input_tokens=0, output_tokens=0, cost=0.0):
     """Log successful LLM API call with green checkmark and cost info"""
     timestamp = datetime.now().strftime("%H:%M:%S")

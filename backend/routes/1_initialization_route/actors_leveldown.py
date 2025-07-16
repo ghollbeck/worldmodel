@@ -15,7 +15,7 @@ if __name__ == "__main__":
     parent_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(script_dir))))
     sys.path.insert(0, parent_dir)
 
-from worldmodel.backend.llm.llm import call_llm_api
+from worldmodel.backend.llm.llm import call_llm_api, get_cost_session, reset_cost_session, print_cost_summary
 
 def log_error(error_type, error_message, details=None, exception=None):
     """
@@ -281,6 +281,9 @@ def save_enhanced_actors_to_json(enhanced_actors: List[EnhancedActor], original_
         actors_with_subactors = sum(1 for actor in enhanced_actors if actor.sub_actors_count > 0)
         avg_subactors_per_actor = total_subactors / total_main_actors if total_main_actors > 0 else 0
         
+        # Get current cost session data
+        cost_data = get_cost_session()
+        
         # Prepare the enhanced data structure
         output_data = {
             "metadata": {
@@ -297,7 +300,8 @@ def save_enhanced_actors_to_json(enhanced_actors: List[EnhancedActor], original_
                     "total_subactors": total_subactors,
                     "actors_with_subactors": actors_with_subactors,
                     "avg_subactors_per_actor": round(avg_subactors_per_actor, 2)
-                }
+                },
+                "cost_tracking": cost_data
             },
             "actors": [actor.model_dump() for actor in enhanced_actors],
             "total_main_actors": total_main_actors,
@@ -343,6 +347,9 @@ def generate_actor_leveldown(model_provider="anthropic", model_name="claude-3-5-
     print(f"Sub-actors per actor: {num_subactors_per_actor}")
     print(f"Skip on error: {skip_on_error}")
     print("=" * 60)
+    
+    # Reset cost session at the start of a new run
+    reset_cost_session()
     
     # Load the original data
     try:
@@ -429,6 +436,9 @@ def generate_actor_leveldown(model_provider="anthropic", model_name="claude-3-5-
         print(f"✅ Enhanced data saved to Features_level_1.json")
     except Exception as e:
         print(f"⚠️  Failed to save enhanced data: {e}")
+    
+    # Print cost summary
+    print_cost_summary()
     
     return enhanced_actors
 

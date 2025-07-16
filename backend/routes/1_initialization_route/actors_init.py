@@ -15,7 +15,7 @@ if __name__ == "__main__":
     parent_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(script_dir))))
     sys.path.insert(0, parent_dir)
 
-from worldmodel.backend.llm.llm import call_llm_api
+from worldmodel.backend.llm.llm import call_llm_api, get_cost_session, reset_cost_session, print_cost_summary
 
 def log_error(error_type, error_message, details=None, exception=None):
     """
@@ -107,6 +107,9 @@ def save_actors_to_json(actors_list: 'ActorList', model_provider: str, model_nam
         filename = "Features_level_0.json"
         filepath = subfolder_path / filename
         
+        # Get current cost session data
+        cost_data = get_cost_session()
+        
         # Prepare the data to save with metadata
         output_data = {
             "metadata": {
@@ -117,7 +120,8 @@ def save_actors_to_json(actors_list: 'ActorList', model_provider: str, model_nam
                 "num_actors_requested": num_actors,
                 "num_actors_generated": actors_list.total_count,
                 "script_version": "1.0.0",
-                "generation_method": "LLM-based"
+                "generation_method": "LLM-based",
+                "cost_tracking": cost_data
             },
             "actors": [actor.model_dump() for actor in actors_list.actors],
             "total_count": actors_list.total_count
@@ -266,6 +270,10 @@ def get_worldmodel_actors_via_llm(model_provider="anthropic", model_name="claude
     full_prompt = system_context + user_context
 
     try:
+        # Reset cost session at the start of a new run
+        if _retry_count == 0:
+            reset_cost_session()
+        
         print(f"🔄 Using {model_provider} with model: {model_name}")
         print(f"📊 Requesting {num_actors} most influential actors...")
         
@@ -299,6 +307,8 @@ def get_worldmodel_actors_via_llm(model_provider="anthropic", model_name="claude
             # Save the results to JSON file
             save_actors_to_json(actors_list, model_provider, model_name, num_actors)
             
+            # Print cost summary
+            print_cost_summary()
             
             return actors_list
             
