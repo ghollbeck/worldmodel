@@ -16,7 +16,7 @@ if __name__ == "__main__":
     sys.path.insert(0, parent_dir)
 
 from worldmodel.backend.llm.llm import call_llm_api, get_cost_session, reset_cost_session, print_cost_summary
-from worldmodel.backend.routes.1_initialization_route.prompts import generate_initial_actor_prompts
+from .prompts import generate_initial_actor_prompts
 
 def log_error(error_type, error_message, details=None, exception=None):
     """
@@ -154,7 +154,6 @@ class Actor(BaseModel):
     name: str = Field(..., description="The name of the actor (country, company, organization, etc.)")
     description: str = Field(..., description="A short description of the actor's role and influence")
     type: str = Field(..., description="The type of actor (country, company, organization, individual, etc.)")
-    influence_score: int = Field(..., ge=1, le=100, description="Influence score from 1-100 based on global impact")
 
 class ActorList(BaseModel):
     """Container for a list of actors"""
@@ -253,7 +252,6 @@ def get_worldmodel_actors_via_llm(model_provider="anthropic", model_name="claude
             print("=" * 80)
             for i, actor in enumerate(actors_list.actors, 1):
                 print(f"✅ {i:2d}. {actor.name} ({actor.type})")
-                print(f"    📊 Influence Score: {actor.influence_score}/100")
                 print(f"    📝 Description: {actor.description}")
                 print()
             

@@ -15,8 +15,11 @@ if __name__ == "__main__":
     parent_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(script_dir))))
     sys.path.insert(0, parent_dir)
 
-from worldmodel.backend.llm.llm import call_llm_api, get_cost_session, reset_cost_session, print_cost_summary
-from worldmodel.backend.routes.1_initialization_route.prompts import generate_leveldown_prompts
+from worldmodel.backend.llm.llm import call_llm_api
+from worldmodel.backend.llm.llm import get_cost_session
+from worldmodel.backend.llm.llm import reset_cost_session
+from worldmodel.backend.llm.llm import print_cost_summary
+from worldmodel.backend.routes.initializationroute.prompts import generate_leveldown_prompts
 
 def log_error(error_type, error_message, details=None, exception=None):
     """
@@ -51,8 +54,9 @@ class SubActor(BaseModel):
     name: str = Field(..., description="The name of the sub-actor")
     description: str = Field(..., description="A detailed description of the sub-actor's role and influence")
     type: str = Field(..., description="The type of sub-actor (e.g., administration, company, movement, individual)")
-    influence_score: int = Field(..., ge=1, le=100, description="Influence score from 1-100 within the parent actor's context")
     parent_actor: str = Field(..., description="The name of the parent actor this sub-actor belongs to")
+    sub_actors: List['SubActor'] = Field(default=[], description="List of nested sub-actors within this sub-actor")
+    sub_actors_count: int = Field(default=0, description="Number of nested sub-actors")
 
 class SubActorList(BaseModel):
     """Container for a list of sub-actors for a specific parent actor"""
@@ -65,9 +69,11 @@ class EnhancedActor(BaseModel):
     name: str = Field(..., description="The name of the actor")
     description: str = Field(..., description="A short description of the actor's role and influence")
     type: str = Field(..., description="The type of actor")
-    influence_score: int = Field(..., ge=1, le=100, description="Influence score from 1-100")
     sub_actors: List[SubActor] = Field(default=[], description="List of sub-actors within this actor")
     sub_actors_count: int = Field(default=0, description="Number of sub-actors")
+
+# Resolve forward reference for recursive SubActor model
+SubActor.model_rebuild()
 
 def load_features_level_0() -> Dict[str, Any]:
     """
@@ -360,8 +366,19 @@ def generate_actor_leveldown(model_provider: str = "anthropic",
 
         parent_actors = parent_data.get("actors", [])
 
-        # Safety: ensure there are actors that can still expand
-        expandable = [a for a in parent_actors if not a.get("sub_actors")]
+        # For level 0->1: expand main actors without sub-actors
+        # For level 1->2: expand sub-actors from level 1
+        # For level 2->3: expand sub-actors from level 2, etc.
+        if current_level == 0:
+            # Level 0->1: expand main actors without sub-actors
+            expandable = [a for a in parent_actors if not a.get("sub_actors")]
+        else:
+            # Level 1->2, 2->3, etc.: expand sub-actors from previous level
+            expandable = []
+            for actor in parent_actors:
+                if actor.get("sub_actors"):
+                    expandable.extend(actor["sub_actors"])
+                    
         if not expandable:
             print(f"⚠️  No expandable actors found in level {current_level}. Stopping generation.")
             break
@@ -372,38 +389,79 @@ def generate_actor_leveldown(model_provider: str = "anthropic",
         # Load original_metadata only once (from level 0)
         if current_level == 0:
             original_metadata = parent_data.get("metadata", {})
+        else:
+            # For level 1+, try to get original_metadata from the parent data
+            original_metadata = parent_data.get("metadata", {}).get("original_metadata", parent_data.get("metadata", {}))
 
-        # Adapt main_actors variable for existing generation code
-        main_actors = parent_actors
+        # Process expandable actors (main actors for level 0->1, sub-actors for level 1->2+)
         total_subactors = 0
         enhanced_actors = []
         successful_actors = failed_actors = 0
 
-        for actor_data in main_actors:
-            actor_name = actor_data["name"]
-            if actor_data.get("sub_actors"):
-                # Already has sub-actors – keep them
-                enhanced_actors.append(EnhancedActor(**actor_data))
-                continue
-
-            try:
-                sub_list = generate_subactors_for_actor(actor_data, model_provider, model_name, num_subactors_per_actor, current_level + 1)
-                enhanced_actors.append(EnhancedActor(
-                    name=actor_data["name"],
-                    description=actor_data["description"],
-                    type=actor_data["type"],
-                    influence_score=actor_data["influence_score"],
-                    sub_actors=sub_list.sub_actors,
-                    sub_actors_count=sub_list.total_count,
-                ))
-                total_subactors += sub_list.total_count
-                successful_actors += 1
-            except Exception as e:
-                failed_actors += 1
-                if skip_on_error:
+        if current_level == 0:
+            # Level 0->1: Process main actors
+            for actor_data in parent_actors:
+                actor_name = actor_data["name"]
+                if actor_data.get("sub_actors"):
+                    # Already has sub-actors – keep them
                     enhanced_actors.append(EnhancedActor(**actor_data))
-                else:
-                    raise
+                    continue
+
+                try:
+                    sub_list = generate_subactors_for_actor(actor_data, model_provider, model_name, num_subactors_per_actor, current_level + 1)
+                    enhanced_actors.append(EnhancedActor(
+                        name=actor_data["name"],
+                        description=actor_data["description"],
+                        type=actor_data["type"],
+                        sub_actors=sub_list.sub_actors,
+                        sub_actors_count=sub_list.total_count,
+                    ))
+                    total_subactors += sub_list.total_count
+                    successful_actors += 1
+                except Exception as e:
+                    failed_actors += 1
+                    if skip_on_error:
+                        enhanced_actors.append(EnhancedActor(**actor_data))
+                    else:
+                        raise
+        else:
+            # Level 1->2+: Process sub-actors from previous level
+            for main_actor in parent_actors:
+                updated_sub_actors = []
+                for sub_actor in main_actor.get("sub_actors", []):
+                    if sub_actor.get("sub_actors"):
+                        # Sub-actor already has sub-actors – keep them
+                        updated_sub_actors.append(SubActor(**sub_actor))
+                        continue
+                    
+                    try:
+                        sub_list = generate_subactors_for_actor(sub_actor, model_provider, model_name, num_subactors_per_actor, current_level + 1)
+                        updated_sub_actor = SubActor(
+                            name=sub_actor["name"],
+                            description=sub_actor["description"],
+                            type=sub_actor["type"],
+                            parent_actor=sub_actor["parent_actor"],
+                            sub_actors=sub_list.sub_actors,
+                            sub_actors_count=sub_list.total_count
+                        )
+                        updated_sub_actors.append(updated_sub_actor)
+                        total_subactors += sub_list.total_count
+                        successful_actors += 1
+                    except Exception as e:
+                        failed_actors += 1
+                        if skip_on_error:
+                            updated_sub_actors.append(SubActor(**sub_actor))
+                        else:
+                            raise
+                
+                # Create enhanced main actor with updated sub-actors
+                enhanced_actors.append(EnhancedActor(
+                    name=main_actor["name"],
+                    description=main_actor["description"],
+                    type=main_actor["type"],
+                    sub_actors=updated_sub_actors,
+                    sub_actors_count=len(updated_sub_actors)
+                ))
 
         # Save the current level file using existing helper
         save_enhanced_actors_to_json(
@@ -428,6 +486,7 @@ if __name__ == "__main__":
     model = "claude-3-5-sonnet-latest"
     num_subactors = 8
     skip_errors = True
+
     
     # Parse command line arguments
     if len(sys.argv) > 1:

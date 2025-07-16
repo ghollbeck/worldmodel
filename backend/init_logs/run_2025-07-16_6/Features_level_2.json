@@ -1,0 +1,707 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T09:44:13.985896",
+    "run_folder": "run_2025-07-16_6",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "script_version": "2.0.0",
+    "level": 2,
+    "parent_file": "Features_level_1.json",
+    "original_metadata": {
+      "timestamp": "2025-07-16T09:42:21.626995",
+      "run_folder": "run_2025-07-16_6",
+      "model_provider": "anthropic",
+      "model_name": "claude-3-5-sonnet-latest",
+      "num_actors_requested": 5,
+      "num_actors_generated": 5,
+      "script_version": "2.0.0",
+      "generation_method": "LLM-based",
+      "level": 0,
+      "cost_tracking": {
+        "total_cost": 0.012400000000000001,
+        "api_calls": 1,
+        "providers": {
+          "anthropic": {
+            "cost": 0.012400000000000001,
+            "calls": 1,
+            "models": {
+              "claude-3-5-sonnet-latest": {
+                "cost": 0.012400000000000001,
+                "calls": 1,
+                "tokens": {
+                  "input": 491,
+                  "output": 353,
+                  "total": 844
+                }
+              }
+            },
+            "tokens": {
+              "input": 491,
+              "output": 353,
+              "total": 844
+            }
+          }
+        },
+        "session_start": "2025-07-16T09:42:12.372259",
+        "tokens_used": {
+          "input_tokens": 491,
+          "output_tokens": 353,
+          "total_tokens": 844
+        },
+        "session_duration_seconds": 9.25473,
+        "session_duration_str": "0:00:09.254730",
+        "average_cost_per_call": 0.012400000000000001,
+        "cost_per_1k_tokens": 0.014691943127962088
+      }
+    },
+    "generation_stats": {
+      "total_main_actors": 5,
+      "total_subactors": 45,
+      "actors_with_subactors": 5,
+      "avg_subactors_per_actor": 9.0,
+      "successful_actors": 15,
+      "failed_actors": 0
+    },
+    "cost_tracking": {
+      "total_cost": 0.23570400000000002,
+      "api_calls": 21,
+      "providers": {
+        "anthropic": {
+          "cost": 0.23570400000000002,
+          "calls": 21,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.23570400000000002,
+              "calls": 21,
+              "tokens": {
+                "input": 10008,
+                "output": 6485,
+                "total": 16493
+              }
+            }
+          },
+          "tokens": {
+            "input": 10008,
+            "output": 6485,
+            "total": 16493
+          }
+        }
+      },
+      "session_start": "2025-07-16T09:42:12.372259",
+      "tokens_used": {
+        "input_tokens": 10008,
+        "output_tokens": 6485,
+        "total_tokens": 16493
+      },
+      "session_duration_seconds": 121.613622,
+      "session_duration_str": "0:02:01.613622",
+      "average_cost_per_call": 0.011224000000000001,
+      "cost_per_1k_tokens": 0.014291153822833932
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with dominant military, economic, technological, and cultural influence. Controls global financial systems, leads innovation, and shapes international policy.",
+      "type": "country",
+      "influence_score": 95,
+      "sub_actors": [
+        {
+          "name": "Executive Office of the President",
+          "description": "Core executive branch led by POTUS, directs federal government, shapes foreign/domestic policy, commands military, leads national security decisions, and exercises broad executive powers through orders and administrative actions",
+          "type": "government",
+          "influence_score": 95,
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "Lockheed Martin Corporation",
+              "description": "Leading defense contractor and aerospace company providing advanced technology systems, military aircraft, missile defense systems, and cybersecurity solutions to the Executive Branch and Department of Defense. Major influence on defense policy, national security decisions, and military procurement.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Executive Office of the President",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Palantir Technologies",
+              "description": "Data analytics and software company providing critical intelligence and decision-making platforms to executive agencies, including counterterrorism operations, intelligence analysis, and pandemic response. Strong influence on federal data strategy and national security technology.",
+              "type": "corporation",
+              "influence_score": 88,
+              "parent_actor": "Executive Office of the President",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Amazon Web Services",
+              "description": "Leading cloud computing provider handling classified and unclassified government data infrastructure, including CIA cloud services and numerous executive agency operations. Significant influence on federal IT modernization and digital transformation initiatives.",
+              "type": "subsidiary",
+              "influence_score": 86,
+              "parent_actor": "Executive Office of the President",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 3
+        },
+        {
+          "name": "Federal Reserve System",
+          "description": "Central bank controlling monetary policy, interest rates, and financial stability. Regulates banking system, manages currency, and has enormous influence over US and global economy through monetary decisions",
+          "type": "institution",
+          "influence_score": 90,
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "JPMorgan Chase & Co.",
+              "description": "Largest U.S. bank by assets, primary dealer of U.S. Treasury securities, major participant in Federal Reserve operations, and significant influence on monetary policy implementation. Key player in Fed's payment systems and financial services.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Federal Reserve System",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "BlackRock, Inc.",
+              "description": "World's largest asset manager, crucial Fed partner during financial crises, advisor on bond-buying programs, and major influence on market operations. Provides critical market intelligence and implementation support for Fed policies.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Federal Reserve System",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Goldman Sachs Group",
+              "description": "Premier investment bank and primary dealer, significant role in Fed's market operations, major participant in monetary policy transmission, and key provider of financial market expertise to the Federal Reserve System.",
+              "type": "corporation",
+              "influence_score": 88,
+              "parent_actor": "Federal Reserve System",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 3
+        },
+        {
+          "name": "Department of Defense",
+          "description": "Controls world's most powerful military, manages largest budget, directs global military operations, oversees nuclear arsenal, and shapes international security policy through military presence and capabilities",
+          "type": "ministry",
+          "influence_score": 88,
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "Lockheed Martin Corporation",
+              "description": "Leading global defense contractor specializing in aerospace, military weapons systems, and advanced technologies. Primary supplier of F-35 fighter jets and missile systems. Largest defense contractor by revenue with extensive DoD contracts.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Department of Defense",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Raytheon Technologies",
+              "description": "Major aerospace and defense company providing advanced systems in missiles, aircraft engines, and cybersecurity. Key supplier of radar systems, guided missiles, and military electronics with significant Pentagon contracts.",
+              "type": "corporation",
+              "influence_score": 90,
+              "parent_actor": "Department of Defense",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Boeing Defense, Space & Security",
+              "description": "Leading manufacturer of military aircraft, satellites, missile systems, and space technology. Producer of iconic platforms like F-15, Apache helicopters, and KC-46 tankers. Critical defense industrial base partner.",
+              "type": "subsidiary",
+              "influence_score": 88,
+              "parent_actor": "Department of Defense",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 3
+        }
+      ],
+      "sub_actors_count": 3
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "Rising superpower with world's largest population, second-largest economy, growing military power, and expanding global infrastructure initiatives like Belt and Road.",
+      "type": "country",
+      "influence_score": 89,
+      "sub_actors": [
+        {
+          "name": "Chinese Communist Party (CCP)",
+          "description": "The ruling political party that controls all aspects of governance, sets national policy, manages personnel appointments across state institutions, and maintains absolute leadership over state, military and society",
+          "type": "party",
+          "influence_score": 98,
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [
+            {
+              "name": "Sinopec Group",
+              "description": "China's largest oil and gas company, a state-owned enterprise that dominates the nation's petroleum and petrochemical industries. Controls crucial energy infrastructure and supply chains while implementing CCP's energy policies.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Chinese Communist Party (CCP)",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "China State Construction Engineering Corporation",
+              "description": "World's largest construction company and state-owned enterprise, responsible for major infrastructure projects domestically and internationally as part of Belt and Road Initiative.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Chinese Communist Party (CCP)",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Huawei Technologies",
+              "description": "Global telecommunications giant and technology leader in 5G, smartphones, and network equipment. Though privately owned, maintains strong ties to CCP and is crucial to China's technological advancement goals.",
+              "type": "company",
+              "influence_score": 90,
+              "parent_actor": "Chinese Communist Party (CCP)",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 3
+        },
+        {
+          "name": "Central Military Commission (CMC)",
+          "description": "Supreme military command body that controls the People's Liberation Army, sets defense policy, and oversees military modernization and strategy. Reports directly to CCP leadership",
+          "type": "military",
+          "influence_score": 90,
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [
+            {
+              "name": "China North Industries Group Corporation (Norinco)",
+              "description": "State-owned defense corporation and China's largest arms manufacturer, producing military equipment, vehicles, and weapons systems. Key supplier to PLA and major defense exporter internationally.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Central Military Commission (CMC)",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Aviation Industry Corporation of China (AVIC)",
+              "description": "State-owned aerospace and defense conglomerate developing military aircraft, avionics, and defense systems. Primary supplier of aircraft to PLA Air Force and key player in military modernization.",
+              "type": "conglomerate",
+              "influence_score": 92,
+              "parent_actor": "Central Military Commission (CMC)",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "China Electronics Technology Group Corporation (CETC)",
+              "description": "State-owned enterprise specializing in electronic and information technology systems for military use, including radar, communications, and cybersecurity solutions.",
+              "type": "enterprise",
+              "influence_score": 88,
+              "parent_actor": "Central Military Commission (CMC)",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 3
+        },
+        {
+          "name": "State Council",
+          "description": "Chief administrative authority of China, serves as the executive branch, manages state bureaucracy, implements national policies, and oversees economic planning and regulation",
+          "type": "government",
+          "influence_score": 85,
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [
+            {
+              "name": "China National Petroleum Corporation (CNPC)",
+              "description": "China's largest state-owned oil and gas corporation, controlling majority of domestic petroleum resources and operations. Critical to national energy security and economic development, with extensive international operations and strategic partnerships.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "State Council",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "State Grid Corporation of China",
+              "description": "World's largest utility company, monopolizing China's power distribution and transmission. Controls national electricity infrastructure and drives energy policy implementation across most provinces.",
+              "type": "corporation",
+              "influence_score": 93,
+              "parent_actor": "State Council",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "China State Construction Engineering Corporation (CSCEC)",
+              "description": "Largest construction and real estate conglomerate in China, leading infrastructure development domestically and internationally. Key executor of national construction projects and Belt and Road Initiative.",
+              "type": "corporation",
+              "influence_score": 89,
+              "parent_actor": "State Council",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 3
+        }
+      ],
+      "sub_actors_count": 3
+    },
+    {
+      "name": "European Union",
+      "description": "Powerful economic and political alliance of 27 states, representing significant trade bloc, regulatory influence, and diplomatic power.",
+      "type": "alliance",
+      "influence_score": 82,
+      "sub_actors": [
+        {
+          "name": "European Commission",
+          "description": "Executive branch of the EU, responsible for proposing legislation, implementing decisions, upholding treaties, and managing day-to-day business. Holds significant power in policy initiation and enforcement.",
+          "type": "government",
+          "influence_score": 95,
+          "parent_actor": "European Union",
+          "sub_actors": [
+            {
+              "name": "Airbus SE",
+              "description": "Major European multinational aerospace corporation, leading manufacturer of commercial aircraft, defense systems, and space technology. Key strategic partner in EU aviation and defense initiatives, employing over 130,000 people across Europe.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "European Commission",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "TotalEnergies SE",
+              "description": "French multinational integrated energy company, major player in EU energy policy and transition, significant influence on European climate and energy regulations, operates in over 130 countries.",
+              "type": "corporation",
+              "influence_score": 88,
+              "parent_actor": "European Commission",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Deutsche Bank AG",
+              "description": "Germany's largest banking institution, crucial player in EU financial markets, significant influence on European monetary policy and financial regulations, major provider of corporate and investment banking services.",
+              "type": "corporation",
+              "influence_score": 85,
+              "parent_actor": "European Commission",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 3
+        },
+        {
+          "name": "European Central Bank",
+          "description": "Controls EU monetary policy, manages the euro, and supervises banking system. Has tremendous influence over Eurozone economic policy and financial stability.",
+          "type": "institution",
+          "influence_score": 90,
+          "parent_actor": "European Union",
+          "sub_actors": [
+            {
+              "name": "Deutsche Bank AG",
+              "description": "Germany's largest bank and one of Europe's most systemically important financial institutions. Key ECB monetary policy transmission channel and major participant in ECB operations. Significant influence on Eurozone financial markets.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "European Central Bank",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "BNP Paribas",
+              "description": "Largest bank in the Eurozone by assets. Critical partner in ECB's monetary operations and major provider of financial services across EU. Key player in implementing ECB policies and financial stability measures.",
+              "type": "corporation",
+              "influence_score": 89,
+              "parent_actor": "European Central Bank",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Clearstream Banking S.A.",
+              "description": "Leading European post-trade services provider and securities depository. Critical infrastructure provider for ECB operations and Euro-denominated securities settlement. Essential for ECB monetary policy implementation.",
+              "type": "corporation",
+              "influence_score": 85,
+              "parent_actor": "European Central Bank",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 3
+        },
+        {
+          "name": "European Parliament",
+          "description": "Directly elected legislative body that passes EU laws jointly with Council, approves EU budget, and provides democratic oversight. Key institution in EU decision-making process.",
+          "type": "government",
+          "influence_score": 85,
+          "parent_actor": "European Union",
+          "sub_actors": [
+            {
+              "name": "TotalEnergies SE",
+              "description": "Major French multinational energy corporation with significant lobbying influence on EU energy policy, climate regulations, and infrastructure projects. Key player in European energy security discussions and green transition initiatives.",
+              "type": "corporation",
+              "influence_score": 89,
+              "parent_actor": "European Parliament",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Volkswagen Group",
+              "description": "Leading European automotive manufacturer heavily involved in EU industrial policy, emissions standards, and electric vehicle legislation. Major employer and influential voice in trade, manufacturing, and environmental regulations.",
+              "type": "corporation",
+              "influence_score": 86,
+              "parent_actor": "European Parliament",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Deutsche Bank AG",
+              "description": "Prominent financial institution with substantial influence on EU financial regulations, banking policies, and economic decisions. Key stakeholder in European financial markets and banking union discussions.",
+              "type": "corporation",
+              "influence_score": 82,
+              "parent_actor": "European Parliament",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 3
+        }
+      ],
+      "sub_actors_count": 3
+    },
+    {
+      "name": "Big Tech Consortium (Meta, Apple, Microsoft, Google, Amazon)",
+      "description": "Collective tech giants controlling global digital infrastructure, data, AI development, and online platforms that shape modern society.",
+      "type": "company",
+      "influence_score": 78,
+      "sub_actors": [
+        {
+          "name": "Industry Standards Coalition",
+          "description": "Joint technical standards body comprising representatives from major tech companies that establishes protocols, interoperability standards, and development frameworks that become de facto global digital infrastructure standards",
+          "type": "institution",
+          "influence_score": 95,
+          "parent_actor": "Big Tech Consortium (Meta, Apple, Microsoft, Google, Amazon)",
+          "sub_actors": [
+            {
+              "name": "Microsoft Corporation",
+              "description": "Global technology leader with significant influence in setting industry standards for operating systems, cloud computing, and enterprise software. Major contributor to web standards, programming frameworks, and cloud infrastructure protocols.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Industry Standards Coalition",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Apple Inc.",
+              "description": "Influential tech company that shapes mobile technology standards, app development frameworks, and hardware interface protocols. Their decisions on support for technologies often determine industry-wide adoption.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Industry Standards Coalition",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Google LLC",
+              "description": "Leading force in web standards, browser technologies, and mobile platforms. Major influence on internet protocols, web development standards, and AI frameworks through active participation in standards bodies.",
+              "type": "corporation",
+              "influence_score": 90,
+              "parent_actor": "Industry Standards Coalition",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 3
+        },
+        {
+          "name": "Digital Policy Council",
+          "description": "Cross-company executive committee that coordinates shared policy positions, lobbying efforts, and strategic responses to regulatory challenges across global markets",
+          "type": "agency",
+          "influence_score": 90,
+          "parent_actor": "Big Tech Consortium (Meta, Apple, Microsoft, Google, Amazon)",
+          "sub_actors": [
+            {
+              "name": "Meta Platforms, Inc.",
+              "description": "Leading social media conglomerate and key digital policy influencer, actively shapes regulatory frameworks for data privacy, content moderation, and digital market competition through significant policy advocacy and industry coordination",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Digital Policy Council",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Microsoft Corporation",
+              "description": "Major technology company with substantial influence in cloud computing, enterprise software, and AI policy development, particularly active in cybersecurity standards and digital infrastructure regulation",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Digital Policy Council",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Alphabet Inc.",
+              "description": "Tech giant with dominant market position in search, digital advertising, and emerging technologies, exercises significant influence over internet policy, data protection standards, and AI governance frameworks",
+              "type": "corporation",
+              "influence_score": 90,
+              "parent_actor": "Digital Policy Council",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 3
+        },
+        {
+          "name": "AI Ethics Board",
+          "description": "Joint oversight body responsible for establishing ethical guidelines, safety protocols, and governance frameworks for artificial intelligence development across member companies",
+          "type": "institution",
+          "influence_score": 88,
+          "parent_actor": "Big Tech Consortium (Meta, Apple, Microsoft, Google, Amazon)",
+          "sub_actors": [
+            {
+              "name": "DeepMind Technologies",
+              "description": "Leading AI research company and pioneer in ethical AI development, heavily influences AI safety standards and governance frameworks through research publications and technical implementations",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "AI Ethics Board",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "OpenAI",
+              "description": "Major AI research organization developing large language models and advocating for responsible AI development, significantly shapes ethical guidelines and safety protocols",
+              "type": "company",
+              "influence_score": 92,
+              "parent_actor": "AI Ethics Board",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Microsoft Research",
+              "description": "Corporate research division leading ethical AI initiatives and implementing governance frameworks across enterprise AI applications, major contributor to AI safety standards",
+              "type": "subsidiary",
+              "influence_score": 88,
+              "parent_actor": "AI Ethics Board",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 3
+        }
+      ],
+      "sub_actors_count": 3
+    },
+    {
+      "name": "Federal Reserve System",
+      "description": "US central bank with enormous influence over global financial markets, monetary policy, and international economic stability.",
+      "type": "organization",
+      "influence_score": 75,
+      "sub_actors": [
+        {
+          "name": "Federal Open Market Committee (FOMC)",
+          "description": "Principal monetary policymaking body of the Federal Reserve that sets key interest rates, manages open market operations, and directs U.S. monetary policy implementation",
+          "type": "institution",
+          "influence_score": 95,
+          "parent_actor": "Federal Reserve System",
+          "sub_actors": [
+            {
+              "name": "BlackRock Inc.",
+              "description": "World's largest asset management firm with significant influence on monetary policy through its massive holdings of Treasury securities and regular consultation with the Fed on market operations",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Federal Open Market Committee (FOMC)",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "JPMorgan Chase & Co.",
+              "description": "Largest U.S. bank and primary dealer in U.S. Treasury securities, providing crucial market intelligence and execution services for FOMC operations",
+              "type": "corporation",
+              "influence_score": 89,
+              "parent_actor": "Federal Open Market Committee (FOMC)",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Goldman Sachs Group",
+              "description": "Leading investment bank and primary dealer that plays a key role in implementing FOMC monetary policy decisions and providing market analysis",
+              "type": "corporation",
+              "influence_score": 85,
+              "parent_actor": "Federal Open Market Committee (FOMC)",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 3
+        },
+        {
+          "name": "Board of Governors",
+          "description": "Seven-member governing board that guides overall Fed policy, sets bank regulations, and oversees the 12 Federal Reserve Banks, appointed by the President and confirmed by Senate",
+          "type": "institution",
+          "influence_score": 90,
+          "parent_actor": "Federal Reserve System",
+          "sub_actors": [
+            {
+              "name": "JPMorgan Chase & Co.",
+              "description": "Largest U.S. bank by assets, significant participant in Federal Reserve operations, major primary dealer of U.S. Treasury securities, and key stakeholder in Fed policy implementation",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Board of Governors",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "BlackRock Financial Management",
+              "description": "World's largest asset manager, selected by Fed for managing bond-buying programs, crucial advisor on market operations and monetary policy implementation",
+              "type": "corporation",
+              "influence_score": 89,
+              "parent_actor": "Board of Governors",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Goldman Sachs Group",
+              "description": "Leading global investment bank, primary dealer of U.S. government securities, significant influence on monetary policy through market operations and research",
+              "type": "corporation",
+              "influence_score": 85,
+              "parent_actor": "Board of Governors",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 3
+        },
+        {
+          "name": "Federal Reserve Bank of New York",
+          "description": "Most influential of the 12 Reserve Banks, implements monetary policy through market operations, supervises major financial institutions, and manages international relations",
+          "type": "institution",
+          "influence_score": 85,
+          "parent_actor": "Federal Reserve System",
+          "sub_actors": [
+            {
+              "name": "JPMorgan Chase & Co.",
+              "description": "Largest U.S. bank and key primary dealer in Fed operations, heavily involved in monetary policy implementation and securities transactions with the NY Fed, major participant in Federal funds market",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Federal Reserve Bank of New York",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Goldman Sachs Group",
+              "description": "Premier investment bank and primary dealer, crucial role in Fed's market operations, significant influence in financial markets and monetary policy transmission, key participant in Fed's regulatory discussions",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Federal Reserve Bank of New York",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Citigroup Inc.",
+              "description": "Global financial services corporation, major primary dealer, essential partner in international dollar clearing operations, significant participant in Fed's market operations and regulatory framework",
+              "type": "corporation",
+              "influence_score": 90,
+              "parent_actor": "Federal Reserve Bank of New York",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 3
+        }
+      ],
+      "sub_actors_count": 3
+    }
+  ],
+  "total_main_actors": 5,
+  "total_subactors": 45,
+  "level": 2
+}

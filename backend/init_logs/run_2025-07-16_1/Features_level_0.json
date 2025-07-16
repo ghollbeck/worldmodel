@@ -1,0 +1,111 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T02:41:40.492382",
+    "run_folder": "run_2025-07-16_1",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "num_actors_requested": 10,
+    "num_actors_generated": 10,
+    "script_version": "1.0.0",
+    "generation_method": "LLM-based",
+    "cost_tracking": {
+      "total_cost": 0.018472,
+      "api_calls": 1,
+      "providers": {
+        "anthropic": {
+          "cost": 0.018472,
+          "calls": 1,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.018472,
+              "calls": 1,
+              "tokens": {
+                "input": 491,
+                "output": 606,
+                "total": 1097
+              }
+            }
+          },
+          "tokens": {
+            "input": 491,
+            "output": 606,
+            "total": 1097
+          }
+        }
+      },
+      "session_start": "2025-07-16T02:41:31.542197",
+      "tokens_used": {
+        "input_tokens": 491,
+        "output_tokens": 606,
+        "total_tokens": 1097
+      },
+      "session_duration_seconds": 8.95018,
+      "session_duration_str": "0:00:08.950180",
+      "average_cost_per_call": 0.018472,
+      "cost_per_1k_tokens": 0.016838650865998176
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with dominant military, economic, technological, and cultural influence. Leader in innovation, finance, and international diplomacy.",
+      "type": "country",
+      "influence_score": 95
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "Rising superpower with world's largest population, second-largest economy, growing military capabilities, and extensive global infrastructure initiatives.",
+      "type": "country",
+      "influence_score": 90
+    },
+    {
+      "name": "European Union",
+      "description": "Powerful economic and political union of 27 states, representing significant trade bloc and regulatory influence.",
+      "type": "alliance",
+      "influence_score": 85
+    },
+    {
+      "name": "Meta Platforms",
+      "description": "Controls dominant social media platforms affecting global communication, information flow, and public discourse for billions.",
+      "type": "company",
+      "influence_score": 82
+    },
+    {
+      "name": "United Nations",
+      "description": "Primary international organization for global governance, peace-keeping, and humanitarian coordination.",
+      "type": "organization",
+      "influence_score": 80
+    },
+    {
+      "name": "NATO",
+      "description": "Powerful military alliance ensuring collective defense and security cooperation among 31 North American and European nations.",
+      "type": "organization",
+      "influence_score": 78
+    },
+    {
+      "name": "Apple Inc.",
+      "description": "Tech giant with massive market influence, setting global standards in technology, consumer behavior, and digital ecosystems.",
+      "type": "company",
+      "influence_score": 77
+    },
+    {
+      "name": "Russian Federation",
+      "description": "Major military power with significant energy resources, nuclear capabilities, and geopolitical influence.",
+      "type": "country",
+      "influence_score": 75
+    },
+    {
+      "name": "International Monetary Fund",
+      "description": "Key institution in global financial system, influencing international monetary policies and economic stability.",
+      "type": "organization",
+      "influence_score": 73
+    },
+    {
+      "name": "Alphabet Inc.",
+      "description": "Parent company of Google, controlling crucial digital infrastructure, information access, and technological innovation.",
+      "type": "company",
+      "influence_score": 72
+    }
+  ],
+  "total_count": 10
+}

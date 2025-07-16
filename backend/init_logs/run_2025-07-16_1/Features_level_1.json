@@ -1,0 +1,754 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T02:43:30.472023",
+    "run_folder": "run_2025-07-16_1",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "script_version": "1.0.0",
+    "level": 1,
+    "parent_file": "Features_level_0.json",
+    "original_metadata": {
+      "timestamp": "2025-07-16T02:41:40.492382",
+      "run_folder": "run_2025-07-16_1",
+      "model_provider": "anthropic",
+      "model_name": "claude-3-5-sonnet-latest",
+      "num_actors_requested": 10,
+      "num_actors_generated": 10,
+      "script_version": "1.0.0",
+      "generation_method": "LLM-based",
+      "cost_tracking": {
+        "total_cost": 0.018472,
+        "api_calls": 1,
+        "providers": {
+          "anthropic": {
+            "cost": 0.018472,
+            "calls": 1,
+            "models": {
+              "claude-3-5-sonnet-latest": {
+                "cost": 0.018472,
+                "calls": 1,
+                "tokens": {
+                  "input": 491,
+                  "output": 606,
+                  "total": 1097
+                }
+              }
+            },
+            "tokens": {
+              "input": 491,
+              "output": 606,
+              "total": 1097
+            }
+          }
+        },
+        "session_start": "2025-07-16T02:41:31.542197",
+        "tokens_used": {
+          "input_tokens": 491,
+          "output_tokens": 606,
+          "total_tokens": 1097
+        },
+        "session_duration_seconds": 8.95018,
+        "session_duration_str": "0:00:08.950180",
+        "average_cost_per_call": 0.018472,
+        "cost_per_1k_tokens": 0.016838650865998176
+      }
+    },
+    "generation_stats": {
+      "total_main_actors": 10,
+      "total_subactors": 80,
+      "actors_with_subactors": 10,
+      "avg_subactors_per_actor": 8.0
+    },
+    "cost_tracking": {
+      "total_cost": 0.18412,
+      "api_calls": 10,
+      "providers": {
+        "anthropic": {
+          "cost": 0.18412,
+          "calls": 10,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.18412,
+              "calls": 10,
+              "tokens": {
+                "input": 4598,
+                "output": 6139,
+                "total": 10737
+              }
+            }
+          },
+          "tokens": {
+            "input": 4598,
+            "output": 6139,
+            "total": 10737
+          }
+        }
+      },
+      "session_start": "2025-07-16T02:42:02.155733",
+      "tokens_used": {
+        "input_tokens": 4598,
+        "output_tokens": 6139,
+        "total_tokens": 10737
+      },
+      "session_duration_seconds": 88.316283,
+      "session_duration_str": "0:01:28.316283",
+      "average_cost_per_call": 0.018412,
+      "cost_per_1k_tokens": 0.017148179193443233
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with dominant military, economic, technological, and cultural influence. Leader in innovation, finance, and international diplomacy.",
+      "type": "country",
+      "influence_score": 95,
+      "sub_actors": [
+        {
+          "name": "Executive Office of the President",
+          "description": "Core executive branch leadership including the President, cabinet, and key advisors. Primary source of national policy direction and federal executive authority.",
+          "type": "government",
+          "influence_score": 95,
+          "parent_actor": "United States of America"
+        },
+        {
+          "name": "United States Congress",
+          "description": "Federal legislative branch comprising Senate and House of Representatives. Controls federal budget, legislation, and oversight of executive branch.",
+          "type": "government",
+          "influence_score": 90,
+          "parent_actor": "United States of America"
+        },
+        {
+          "name": "Federal Reserve System",
+          "description": "Central bank managing national monetary policy, banking supervision, and financial stability. Controls interest rates and money supply.",
+          "type": "institution",
+          "influence_score": 88,
+          "parent_actor": "United States of America"
+        },
+        {
+          "name": "Department of Defense",
+          "description": "Manages all military forces and national defense policy. Largest department by budget with extensive global presence and strategic influence.",
+          "type": "ministry",
+          "influence_score": 85,
+          "parent_actor": "United States of America"
+        },
+        {
+          "name": "Supreme Court of the United States",
+          "description": "Highest federal court and constitutional interpreter. Final arbiter of federal law and constitutional questions.",
+          "type": "government",
+          "influence_score": 82,
+          "parent_actor": "United States of America"
+        },
+        {
+          "name": "Department of State",
+          "description": "Lead foreign affairs agency conducting diplomacy and international relations. Shapes global policy and manages foreign service.",
+          "type": "ministry",
+          "influence_score": 80,
+          "parent_actor": "United States of America"
+        },
+        {
+          "name": "National Security Council",
+          "description": "Principal forum for national security policy decisions and coordination between military, intelligence, and diplomatic agencies.",
+          "type": "agency",
+          "influence_score": 78,
+          "parent_actor": "United States of America"
+        },
+        {
+          "name": "Department of the Treasury",
+          "description": "Manages federal finances, tax collection, public debt, and financial intelligence. Key economic policy advisor to President.",
+          "type": "ministry",
+          "influence_score": 75,
+          "parent_actor": "United States of America"
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "Rising superpower with world's largest population, second-largest economy, growing military capabilities, and extensive global infrastructure initiatives.",
+      "type": "country",
+      "influence_score": 90,
+      "sub_actors": [
+        {
+          "name": "Chinese Communist Party (CCP)",
+          "description": "Ruling political party that controls all aspects of governance, sets national policy, and maintains absolute leadership over state, military, and society",
+          "type": "party",
+          "influence_score": 100,
+          "parent_actor": "People's Republic of China"
+        },
+        {
+          "name": "Central Military Commission",
+          "description": "Supreme military command organization that controls the People's Liberation Army, nuclear forces, and military policy",
+          "type": "military",
+          "influence_score": 95,
+          "parent_actor": "People's Republic of China"
+        },
+        {
+          "name": "State Council",
+          "description": "Chief administrative authority of China, executing laws and managing daily governance of the nation",
+          "type": "government",
+          "influence_score": 90,
+          "parent_actor": "People's Republic of China"
+        },
+        {
+          "name": "Politburo Standing Committee",
+          "description": "Top decision-making body within the CCP, comprising 7 most powerful leaders who shape all major national policies",
+          "type": "party",
+          "influence_score": 88,
+          "parent_actor": "People's Republic of China"
+        },
+        {
+          "name": "People's Bank of China",
+          "description": "Central bank controlling monetary policy, currency management, and financial system regulation",
+          "type": "institution",
+          "influence_score": 85,
+          "parent_actor": "People's Republic of China"
+        },
+        {
+          "name": "Ministry of State Security",
+          "description": "Principal intelligence and security agency handling domestic and foreign intelligence operations",
+          "type": "agency",
+          "influence_score": 82,
+          "parent_actor": "People's Republic of China"
+        },
+        {
+          "name": "National Development and Reform Commission",
+          "description": "Macroeconomic management agency that controls economic planning, reforms, and strategic projects",
+          "type": "agency",
+          "influence_score": 80,
+          "parent_actor": "People's Republic of China"
+        },
+        {
+          "name": "Central Commission for Discipline Inspection",
+          "description": "Chief anti-corruption agency with broad powers to investigate party members and government officials",
+          "type": "agency",
+          "influence_score": 78,
+          "parent_actor": "People's Republic of China"
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "European Union",
+      "description": "Powerful economic and political union of 27 states, representing significant trade bloc and regulatory influence.",
+      "type": "alliance",
+      "influence_score": 85,
+      "sub_actors": [
+        {
+          "name": "European Commission",
+          "description": "Executive branch of the EU, proposes legislation, implements decisions, upholds treaties, and represents EU internationally. Led by Commission President.",
+          "type": "government",
+          "influence_score": 95,
+          "parent_actor": "European Union"
+        },
+        {
+          "name": "European Council",
+          "description": "Comprises heads of state/government of member states, sets EU's political direction and priorities at highest level.",
+          "type": "government",
+          "influence_score": 90,
+          "parent_actor": "European Union"
+        },
+        {
+          "name": "European Parliament",
+          "description": "Directly elected legislative body that passes EU laws jointly with Council, supervises institutions, and adopts EU budgets.",
+          "type": "government",
+          "influence_score": 85,
+          "parent_actor": "European Union"
+        },
+        {
+          "name": "European Central Bank",
+          "description": "Controls EU monetary policy, manages euro, and supervises banking system across eurozone.",
+          "type": "institution",
+          "influence_score": 82,
+          "parent_actor": "European Union"
+        },
+        {
+          "name": "Council of the European Union",
+          "description": "Voice of EU member governments, adopts laws and coordinates policies. Different ministers meet based on policy area.",
+          "type": "government",
+          "influence_score": 80,
+          "parent_actor": "European Union"
+        },
+        {
+          "name": "Court of Justice of the European Union",
+          "description": "Ensures EU law is interpreted and applied uniformly across member states, resolves legal disputes.",
+          "type": "institution",
+          "influence_score": 75,
+          "parent_actor": "European Union"
+        },
+        {
+          "name": "European External Action Service",
+          "description": "EU's diplomatic service, implements foreign and security policy, manages diplomatic relations and strategic partnerships.",
+          "type": "agency",
+          "influence_score": 70,
+          "parent_actor": "European Union"
+        },
+        {
+          "name": "European Banking Authority",
+          "description": "Regulatory agency ensuring effective banking supervision across EU, creates banking standards and stress tests.",
+          "type": "agency",
+          "influence_score": 65,
+          "parent_actor": "European Union"
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "Meta Platforms",
+      "description": "Controls dominant social media platforms affecting global communication, information flow, and public discourse for billions.",
+      "type": "company",
+      "influence_score": 82,
+      "sub_actors": [
+        {
+          "name": "Meta Board of Directors",
+          "description": "Highest governing body providing strategic oversight, major policy decisions, and corporate governance. Controls company direction and executive accountability.",
+          "type": "government",
+          "influence_score": 95,
+          "parent_actor": "Meta Platforms"
+        },
+        {
+          "name": "Meta Executive Leadership Team",
+          "description": "C-suite executives led by CEO Mark Zuckerberg, responsible for day-to-day operations, product strategy, and company-wide policy implementation.",
+          "type": "government",
+          "influence_score": 90,
+          "parent_actor": "Meta Platforms"
+        },
+        {
+          "name": "Meta Oversight Board",
+          "description": "Independent content moderation body making binding decisions on platform governance, content policies, and user appeals.",
+          "type": "institution",
+          "influence_score": 85,
+          "parent_actor": "Meta Platforms"
+        },
+        {
+          "name": "Meta Policy and Communications",
+          "description": "Division managing regulatory affairs, public policy, government relations, and external communications strategy globally.",
+          "type": "agency",
+          "influence_score": 80,
+          "parent_actor": "Meta Platforms"
+        },
+        {
+          "name": "Meta Security Operations",
+          "description": "Department responsible for platform integrity, security protocols, and protecting against threats to company infrastructure and user data.",
+          "type": "agency",
+          "influence_score": 75,
+          "parent_actor": "Meta Platforms"
+        },
+        {
+          "name": "Meta Product Development",
+          "description": "Division controlling product roadmap, feature development, and technical implementation across all Meta platforms.",
+          "type": "institution",
+          "influence_score": 70,
+          "parent_actor": "Meta Platforms"
+        },
+        {
+          "name": "Meta AI Research (FAIR)",
+          "description": "Research division developing artificial intelligence technologies that influence platform algorithms and future capabilities.",
+          "type": "institution",
+          "influence_score": 65,
+          "parent_actor": "Meta Platforms"
+        },
+        {
+          "name": "Meta Reality Labs",
+          "description": "Division focusing on metaverse development, VR/AR technologies, and next-generation platform evolution.",
+          "type": "institution",
+          "influence_score": 60,
+          "parent_actor": "Meta Platforms"
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "United Nations",
+      "description": "Primary international organization for global governance, peace-keeping, and humanitarian coordination.",
+      "type": "organization",
+      "influence_score": 80,
+      "sub_actors": [
+        {
+          "name": "UN Security Council",
+          "description": "Primary decision-making body for international peace and security, with power to issue binding resolutions and authorize military action",
+          "type": "government",
+          "influence_score": 95,
+          "parent_actor": "United Nations"
+        },
+        {
+          "name": "UN General Assembly",
+          "description": "Main deliberative body where all member states have equal representation, sets policies and budget",
+          "type": "government",
+          "influence_score": 85,
+          "parent_actor": "United Nations"
+        },
+        {
+          "name": "UN Secretariat",
+          "description": "Executive arm led by Secretary-General, manages operations and implements policies",
+          "type": "institution",
+          "influence_score": 80,
+          "parent_actor": "United Nations"
+        },
+        {
+          "name": "UN Economic and Social Council",
+          "description": "Coordinates economic, social, and environmental work of UN agencies and bodies",
+          "type": "institution",
+          "influence_score": 75,
+          "parent_actor": "United Nations"
+        },
+        {
+          "name": "UN Department of Peacekeeping Operations",
+          "description": "Plans, prepares, manages, and directs UN peacekeeping operations worldwide",
+          "type": "agency",
+          "influence_score": 70,
+          "parent_actor": "United Nations"
+        },
+        {
+          "name": "International Court of Justice",
+          "description": "Principal judicial organ of the UN, settles legal disputes between states",
+          "type": "institution",
+          "influence_score": 65,
+          "parent_actor": "United Nations"
+        },
+        {
+          "name": "UN Human Rights Council",
+          "description": "Inter-governmental body responsible for promoting and protecting human rights worldwide",
+          "type": "agency",
+          "influence_score": 60,
+          "parent_actor": "United Nations"
+        },
+        {
+          "name": "UN Development Programme",
+          "description": "Global development network focusing on poverty reduction and sustainable development",
+          "type": "agency",
+          "influence_score": 55,
+          "parent_actor": "United Nations"
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "NATO",
+      "description": "Powerful military alliance ensuring collective defense and security cooperation among 31 North American and European nations.",
+      "type": "organization",
+      "influence_score": 78,
+      "sub_actors": [
+        {
+          "name": "North Atlantic Council (NAC)",
+          "description": "Principal political decision-making body of NATO where each member nation has a seat. Makes major strategic and policy decisions requiring unanimous consent.",
+          "type": "government",
+          "influence_score": 95,
+          "parent_actor": "NATO"
+        },
+        {
+          "name": "Military Committee (MC)",
+          "description": "Senior military authority providing strategic advice to NAC and directing NATO's military operations through Strategic Commands.",
+          "type": "military",
+          "influence_score": 90,
+          "parent_actor": "NATO"
+        },
+        {
+          "name": "Supreme Allied Commander Europe (SACEUR)",
+          "description": "Commands all NATO military operations and oversees strategic planning for Alliance military activities.",
+          "type": "military",
+          "influence_score": 85,
+          "parent_actor": "NATO"
+        },
+        {
+          "name": "NATO Secretary General Office",
+          "description": "Chief spokesperson and principal political leader of NATO, chairs the NAC and oversees strategic direction.",
+          "type": "government",
+          "influence_score": 82,
+          "parent_actor": "NATO"
+        },
+        {
+          "name": "Allied Command Operations (ACO)",
+          "description": "Responsible for planning and executing all NATO military operations, headquartered at SHAPE in Belgium.",
+          "type": "military",
+          "influence_score": 80,
+          "parent_actor": "NATO"
+        },
+        {
+          "name": "NATO Intelligence and Security Division",
+          "description": "Provides strategic intelligence analysis and security risk assessments to support NATO decision-making.",
+          "type": "agency",
+          "influence_score": 75,
+          "parent_actor": "NATO"
+        },
+        {
+          "name": "Nuclear Planning Group (NPG)",
+          "description": "High-level body responsible for nuclear policy and planning within the Alliance framework.",
+          "type": "government",
+          "influence_score": 70,
+          "parent_actor": "NATO"
+        },
+        {
+          "name": "Science and Technology Organization (STO)",
+          "description": "NATO's principal organization for science and technology research, fostering innovation in defense capabilities.",
+          "type": "institution",
+          "influence_score": 65,
+          "parent_actor": "NATO"
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "Apple Inc.",
+      "description": "Tech giant with massive market influence, setting global standards in technology, consumer behavior, and digital ecosystems.",
+      "type": "company",
+      "influence_score": 77,
+      "sub_actors": [
+        {
+          "name": "Apple Executive Team",
+          "description": "Top-level leadership team headed by CEO, making strategic decisions and setting company direction across all divisions and products",
+          "type": "institution",
+          "influence_score": 95,
+          "parent_actor": "Apple Inc."
+        },
+        {
+          "name": "Board of Directors",
+          "description": "Governing body providing oversight, strategic guidance, and major corporate decisions approval",
+          "type": "institution",
+          "influence_score": 90,
+          "parent_actor": "Apple Inc."
+        },
+        {
+          "name": "Product Development Division",
+          "description": "Core division responsible for iPhone, iPad, Mac and other flagship product development and innovation",
+          "type": "agency",
+          "influence_score": 85,
+          "parent_actor": "Apple Inc."
+        },
+        {
+          "name": "Software Engineering Division",
+          "description": "Controls iOS, macOS development and ecosystem integration, critical for product functionality and user experience",
+          "type": "agency",
+          "influence_score": 80,
+          "parent_actor": "Apple Inc."
+        },
+        {
+          "name": "Operations and Supply Chain",
+          "description": "Manages global manufacturing, logistics, and supply chain operations essential for product delivery",
+          "type": "agency",
+          "influence_score": 75,
+          "parent_actor": "Apple Inc."
+        },
+        {
+          "name": "Services Division",
+          "description": "Manages Apple's growing services ecosystem including App Store, Apple Music, iCloud, and other digital services",
+          "type": "agency",
+          "influence_score": 70,
+          "parent_actor": "Apple Inc."
+        },
+        {
+          "name": "Legal and Global Security",
+          "description": "Handles legal compliance, intellectual property, security, and regulatory affairs worldwide",
+          "type": "agency",
+          "influence_score": 65,
+          "parent_actor": "Apple Inc."
+        },
+        {
+          "name": "Marketing and Communications",
+          "description": "Controls brand messaging, product launches, and global marketing strategies",
+          "type": "agency",
+          "influence_score": 60,
+          "parent_actor": "Apple Inc."
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "Russian Federation",
+      "description": "Major military power with significant energy resources, nuclear capabilities, and geopolitical influence.",
+      "type": "country",
+      "influence_score": 75,
+      "sub_actors": [
+        {
+          "name": "Office of the President",
+          "description": "Executive office holding supreme authority over state affairs, military command, and foreign policy, with extensive constitutional powers and direct control over security services",
+          "type": "government",
+          "influence_score": 98,
+          "parent_actor": "Russian Federation"
+        },
+        {
+          "name": "Security Council of Russia",
+          "description": "Presidential advisory body coordinating national security policy, military doctrine, and strategic planning with key government and security leaders",
+          "type": "government",
+          "influence_score": 90,
+          "parent_actor": "Russian Federation"
+        },
+        {
+          "name": "Federal Security Service (FSB)",
+          "description": "Primary security agency handling counter-intelligence, internal security, and border protection with extensive domestic surveillance capabilities",
+          "type": "agency",
+          "influence_score": 87,
+          "parent_actor": "Russian Federation"
+        },
+        {
+          "name": "Russian Armed Forces",
+          "description": "Unified military command structure controlling all military branches, nuclear forces, and conducting military operations domestically and abroad",
+          "type": "military",
+          "influence_score": 85,
+          "parent_actor": "Russian Federation"
+        },
+        {
+          "name": "United Russia Party",
+          "description": "Dominant political party holding constitutional majority in parliament, implementing presidential policies and maintaining political control",
+          "type": "party",
+          "influence_score": 82,
+          "parent_actor": "Russian Federation"
+        },
+        {
+          "name": "Ministry of Defense",
+          "description": "Controls military budget, defense procurement, and military strategy implementation, directly oversees armed forces operations",
+          "type": "ministry",
+          "influence_score": 80,
+          "parent_actor": "Russian Federation"
+        },
+        {
+          "name": "Central Bank of Russia",
+          "description": "National financial regulator controlling monetary policy, currency operations, and banking sector oversight",
+          "type": "institution",
+          "influence_score": 75,
+          "parent_actor": "Russian Federation"
+        },
+        {
+          "name": "Gazprom",
+          "description": "State-controlled energy corporation wielding significant economic influence through control of natural gas resources and export infrastructure",
+          "type": "other",
+          "influence_score": 73,
+          "parent_actor": "Russian Federation"
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "International Monetary Fund",
+      "description": "Key institution in global financial system, influencing international monetary policies and economic stability.",
+      "type": "organization",
+      "influence_score": 73,
+      "sub_actors": [
+        {
+          "name": "Executive Board",
+          "description": "Primary decision-making body that exercises most powers of the IMF Board of Governors, consisting of 24 Directors representing member countries or groups of countries",
+          "type": "institution",
+          "influence_score": 95,
+          "parent_actor": "International Monetary Fund"
+        },
+        {
+          "name": "Board of Governors",
+          "description": "Highest decision-making body consisting of one governor and one alternate governor for each member country, typically finance ministers or central bank heads",
+          "type": "institution",
+          "influence_score": 90,
+          "parent_actor": "International Monetary Fund"
+        },
+        {
+          "name": "Managing Director's Office",
+          "description": "Leadership office headed by the Managing Director who oversees the IMF's operations, policy direction, and serves as chair of the Executive Board",
+          "type": "institution",
+          "influence_score": 88,
+          "parent_actor": "International Monetary Fund"
+        },
+        {
+          "name": "Strategy, Policy, and Review Department",
+          "description": "Central department responsible for developing IMF policies and ensuring consistency in IMF policy advice and lending practices",
+          "type": "department",
+          "influence_score": 85,
+          "parent_actor": "International Monetary Fund"
+        },
+        {
+          "name": "Research Department",
+          "description": "Produces key economic analysis and research that underpins IMF policy advice and global economic surveillance",
+          "type": "department",
+          "influence_score": 82,
+          "parent_actor": "International Monetary Fund"
+        },
+        {
+          "name": "International Monetary and Financial Committee",
+          "description": "Advisory body that provides strategic direction to the work and policies of the IMF",
+          "type": "institution",
+          "influence_score": 80,
+          "parent_actor": "International Monetary Fund"
+        },
+        {
+          "name": "Area Departments",
+          "description": "Regional divisions responsible for country-specific policy implementation and monitoring across different geographical regions",
+          "type": "department",
+          "influence_score": 78,
+          "parent_actor": "International Monetary Fund"
+        },
+        {
+          "name": "Finance Department",
+          "description": "Manages the IMF's financial resources and operations, including lending policies and quota system",
+          "type": "department",
+          "influence_score": 75,
+          "parent_actor": "International Monetary Fund"
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "Alphabet Inc.",
+      "description": "Parent company of Google, controlling crucial digital infrastructure, information access, and technological innovation.",
+      "type": "company",
+      "influence_score": 72,
+      "sub_actors": [
+        {
+          "name": "Google LLC",
+          "description": "Core subsidiary managing search, advertising, cloud services, and primary revenue streams. Controls key digital infrastructure and technology development.",
+          "type": "institution",
+          "influence_score": 95,
+          "parent_actor": "Alphabet Inc."
+        },
+        {
+          "name": "Alphabet Board of Directors",
+          "description": "Supreme governing body making final decisions on company strategy, acquisitions, and leadership appointments.",
+          "type": "government",
+          "influence_score": 90,
+          "parent_actor": "Alphabet Inc."
+        },
+        {
+          "name": "Google AI/DeepMind",
+          "description": "Leads artificial intelligence research and development, shaping future technology capabilities and strategic direction.",
+          "type": "institution",
+          "influence_score": 85,
+          "parent_actor": "Alphabet Inc."
+        },
+        {
+          "name": "Google Cloud",
+          "description": "Manages cloud computing infrastructure and enterprise services, critical for revenue growth and market expansion.",
+          "type": "institution",
+          "influence_score": 80,
+          "parent_actor": "Alphabet Inc."
+        },
+        {
+          "name": "YouTube",
+          "description": "Controls global video distribution platform, influencing content policies and digital advertising.",
+          "type": "institution",
+          "influence_score": 75,
+          "parent_actor": "Alphabet Inc."
+        },
+        {
+          "name": "X Development LLC",
+          "description": "Research facility for moonshot technologies, directing long-term innovation strategy and future ventures.",
+          "type": "institution",
+          "influence_score": 70,
+          "parent_actor": "Alphabet Inc."
+        },
+        {
+          "name": "Android Division",
+          "description": "Manages mobile operating system development, controlling smartphone ecosystem and app distribution.",
+          "type": "institution",
+          "influence_score": 65,
+          "parent_actor": "Alphabet Inc."
+        },
+        {
+          "name": "Waymo",
+          "description": "Autonomous vehicle technology division, leading development in self-driving transportation systems.",
+          "type": "institution",
+          "influence_score": 60,
+          "parent_actor": "Alphabet Inc."
+        }
+      ],
+      "sub_actors_count": 8
+    }
+  ],
+  "total_main_actors": 10,
+  "total_subactors": 80,
+  "level": 1
+}

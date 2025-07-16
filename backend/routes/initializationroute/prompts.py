@@ -33,8 +33,7 @@ def generate_initial_actor_prompts(num_actors: int) -> Tuple[str, str]:
         '    {\n'
         '      "name": "Actor Name",\n'
         '      "description": "Brief description of their influence and role",\n'
-        '      "type": "country|company|organization|individual|alliance",\n'
-        '      "influence_score": 1-100 (integer)\n'
+        '      "type": "country|company|organization|individual|alliance"\n'
         '    }\n'
         '  ],\n'
         '  "total_count": number_of_actors\n'
@@ -57,7 +56,6 @@ def generate_initial_actor_prompts(num_actors: int) -> Tuple[str, str]:
         "- **name**: The official name of the actor\n"
         "- **description**: A concise explanation of their influence and global impact\n"
         "- **type**: One of: country, company, organization, individual, alliance\n"
-        "- **influence_score**: A score from 1-100 based on their global influence (100 = maximum global impact)\n\n"
         
         "Rank them by influence score (highest first). Consider factors like:\n"
         "- Economic power and market capitalization\n"
@@ -104,7 +102,6 @@ def generate_leveldown_prompts(actor_name: str, actor_description: str, actor_ty
             '      "name": "Sub-Actor Name",\n'
             '      "description": "Detailed description of their governmental role and national influence",\n'
             '      "type": "government|ministry|agency|party|military|institution|other",\n'
-            '      "influence_score": 1-100 (integer),\n'
             '      "parent_actor": "' + actor_name + '"\n'
             '    }\n'
             '  ],\n'
@@ -128,8 +125,6 @@ def generate_leveldown_prompts(actor_name: str, actor_description: str, actor_ty
             "- **name**: The official name of the governmental/institutional entity\n"
             "- **description**: Their specific role in national governance and policy influence\n"
             "- **type**: Category (government, ministry, agency, party, military, institution, etc.)\n"
-            "- **influence_score**: Score 1-100 based on their power within the national structure\n"
-            f"- **parent_actor**: Must be exactly '{actor_name}'\n\n"
             
             "Rank by influence score (highest first). Focus on entities that directly shape national policy, "
             "governance, and strategic decisions.\n\n"
@@ -151,7 +146,6 @@ def generate_leveldown_prompts(actor_name: str, actor_description: str, actor_ty
             '      "name": "Company/Corporation Name",\n'
             '      "description": "Detailed description of their business role and market influence",\n'
             '      "type": "corporation|company|enterprise|conglomerate|startup|subsidiary|other",\n'
-            '      "influence_score": 1-100 (integer),\n'
             '      "parent_actor": "' + actor_name + '"\n'
             '    }\n'
             '  ],\n'
@@ -176,8 +170,6 @@ def generate_leveldown_prompts(actor_name: str, actor_description: str, actor_ty
             "- **name**: The official company/corporation name\n"
             "- **description**: Their business focus, market position, and influence within the parent entity\n"
             "- **type**: Category (corporation, company, enterprise, conglomerate, startup, subsidiary, etc.)\n"
-            "- **influence_score**: Score 1-100 based on their economic and strategic influence\n"
-            f"- **parent_actor**: Must be exactly '{actor_name}'\n\n"
             
             "Rank by influence score (highest first). Focus on entities that drive economic activity, "
             "innovation, employment, and strategic business influence.\n\n"
@@ -199,7 +191,6 @@ def generate_leveldown_prompts(actor_name: str, actor_description: str, actor_ty
             '      "name": "Individual Name",\n'
             '      "description": "Detailed description of their role, achievements, and influence",\n'
             '      "type": "ceo|leader|celebrity|politician|expert|influencer|founder|other",\n'
-            '      "influence_score": 1-100 (integer),\n'
             '      "parent_actor": "' + actor_name + '"\n'
             '    }\n'
             '  ],\n'
@@ -224,8 +215,6 @@ def generate_leveldown_prompts(actor_name: str, actor_description: str, actor_ty
             "- **name**: The individual's full name (real person)\n"
             "- **description**: Their role, achievements, and specific influence within/on the parent entity\n"
             "- **type**: Category (ceo, leader, celebrity, politician, expert, influencer, founder, etc.)\n"
-            "- **influence_score**: Score 1-100 based on their personal influence and impact\n"
-            f"- **parent_actor**: Must be exactly '{actor_name}'\n\n"
             
             "Rank by influence score (highest first). Focus on individuals who shape decisions, "
             "represent the entity publicly, or have significant impact on its direction.\n\n"
@@ -247,7 +236,6 @@ def generate_leveldown_prompts(actor_name: str, actor_description: str, actor_ty
             '      "name": "Movement/Trend/Phenomenon Name",\n'
             '      "description": "Detailed description of the social/cultural phenomenon and its influence",\n'
             '      "type": "movement|trend|phenomenon|campaign|community|culture|activism|other",\n'
-            '      "influence_score": 1-100 (integer),\n'
             '      "parent_actor": "' + actor_name + '"\n'
             '    }\n'
             '  ],\n'
@@ -272,8 +260,6 @@ def generate_leveldown_prompts(actor_name: str, actor_description: str, actor_ty
             "- **name**: The name of the movement, trend, or phenomenon\n"
             "- **description**: Their social/cultural impact and influence within/on the parent entity\n"
             "- **type**: Category (movement, trend, phenomenon, campaign, community, culture, activism, etc.)\n"
-            "- **influence_score**: Score 1-100 based on their social and cultural influence\n"
-            f"- **parent_actor**: Must be exactly '{actor_name}'\n\n"
             
             "Rank by influence score (highest first). Focus on phenomena that shape public opinion, "
             "cultural direction, and social change within the parent entity's sphere.\n\n"
@@ -295,7 +281,6 @@ def generate_leveldown_prompts(actor_name: str, actor_description: str, actor_ty
             '      "name": "Sub-Actor Name",\n'
             '      "description": "Detailed description of their role and influence within the parent actor",\n'
             '      "type": "administration|company|movement|individual|department|institution|faction|other",\n'
-            '      "influence_score": 1-100 (integer),\n'
             '      "parent_actor": "' + actor_name + '"\n'
             '    }\n'
             '  ],\n'
@@ -318,8 +303,6 @@ def generate_leveldown_prompts(actor_name: str, actor_description: str, actor_ty
             "- **name**: The specific name of the sub-actor\n"
             "- **description**: A detailed explanation of their role, influence, and importance within the parent actor\n"
             "- **type**: The category of sub-actor (be specific based on context)\n"
-            "- **influence_score**: A score from 1-100 based on their influence within the parent actor's context\n"
-            f"- **parent_actor**: Must be exactly '{actor_name}'\n\n"
             
             "Rank them by influence score within the parent actor's context (highest first). "
             "Focus on the most powerful and influential components that shape the main actor's behavior and decisions.\n\n"

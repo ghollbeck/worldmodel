@@ -1,0 +1,87 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T09:26:35.378945",
+    "run_folder": "run_2025-07-16_4",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "num_actors_requested": 5,
+    "num_actors_generated": 5,
+    "script_version": "2.0.0",
+    "generation_method": "LLM-based",
+    "level": 0,
+    "cost_tracking": {
+      "total_cost": 0.012064000000000002,
+      "api_calls": 1,
+      "providers": {
+        "anthropic": {
+          "cost": 0.012064000000000002,
+          "calls": 1,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.012064000000000002,
+              "calls": 1,
+              "tokens": {
+                "input": 491,
+                "output": 339,
+                "total": 830
+              }
+            }
+          },
+          "tokens": {
+            "input": 491,
+            "output": 339,
+            "total": 830
+          }
+        }
+      },
+      "session_start": "2025-07-16T09:26:27.468492",
+      "tokens_used": {
+        "input_tokens": 491,
+        "output_tokens": 339,
+        "total_tokens": 830
+      },
+      "session_duration_seconds": 7.91044,
+      "session_duration_str": "0:00:07.910440",
+      "average_cost_per_call": 0.012064000000000002,
+      "cost_per_1k_tokens": 0.014534939759036147
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with dominant military, economic, technological, and cultural influence. Leader in international diplomacy, innovation, and financial markets.",
+      "type": "country",
+      "influence_score": 95,
+      "level": 1
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "Rising superpower with world's largest population, second-largest economy, growing military capabilities, and expanding global infrastructure initiatives.",
+      "type": "country",
+      "influence_score": 90,
+      "level": 1
+    },
+    {
+      "name": "European Union",
+      "description": "Powerful economic and political union of 27 states, representing significant trade bloc, regulatory influence, and diplomatic weight.",
+      "type": "alliance",
+      "influence_score": 85,
+      "level": 1
+    },
+    {
+      "name": "Meta Platforms (formerly Facebook)",
+      "description": "Controls dominant social media platforms affecting billions of users, shapes global information flow, digital economy, and social discourse.",
+      "type": "company",
+      "influence_score": 82,
+      "level": 1
+    },
+    {
+      "name": "United Nations",
+      "description": "Premier international organization for global governance, peacekeeping, humanitarian aid, and international law framework.",
+      "type": "organization",
+      "influence_score": 80,
+      "level": 1
+    }
+  ],
+  "total_count": 5
+}

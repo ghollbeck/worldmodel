@@ -2,6 +2,109 @@
 
 ## Latest Changes
 
+### 2025-01-20: Complete World Model Generation - Unified Script
+
+**Overview:** Created a comprehensive unified script `actors_complete.py` that combines both initial actor generation (Level 0) and hierarchical level-down generation (Levels 1-N) into one seamless system.
+
+**Key Features:**
+- **Unified Generation**: Single script handles all levels from 0 to target depth automatically
+- **Sequential Processing**: Automatically generates Level 0, then Level 1, then Level 2, etc.
+- **Comprehensive Error Handling**: Enhanced error logging with success/info/error indicators
+- **Cost Tracking**: Session-wide cost tracking across all levels
+- **Flexible Configuration**: Command-line arguments for all parameters
+- **Modular Design**: Uses existing `prompts.py` module for all prompt generation
+
+**Script Architecture:**
+
+1. **Combined Data Models**: 
+   - `Actor`, `ActorList` (Level 0)
+   - `SubActor`, `SubActorList` (Level N)  
+   - `EnhancedActor` (with nested sub-actors)
+
+2. **Unified Functions**:
+   - `generate_level_0_actors()` - Initial world actors
+   - `generate_level_n_actors()` - Hierarchical sub-actors
+   - `generate_complete_world_model()` - Main orchestration function
+
+3. **Enhanced File Management**:
+   - Automatic run folder creation with date/time stamps
+   - Sequential JSON file generation (`Features_level_0.json`, `Features_level_1.json`, etc.)
+   - Comprehensive metadata tracking across all levels
+
+**Usage Examples:**
+```bash
+# Generate 3 levels with default settings
+python actors_complete.py anthropic claude-3-5-sonnet-latest 10 8 3 true
+
+# Generate 2 levels with custom settings
+python actors_complete.py openai gpt-4 20 6 2 false
+
+# Minimal example (uses defaults)
+python actors_complete.py
+```
+
+**Command-Line Arguments:**
+1. `provider` - LLM provider (anthropic/openai) - default: "anthropic"
+2. `model` - Model name - default: "claude-3-5-sonnet-latest"
+3. `num_actors` - Initial actors for Level 0 - default: 10
+4. `num_subactors` - Sub-actors per actor for each level - default: 8
+5. `target_depth` - Maximum depth to generate - default: 2
+6. `skip_errors` - Skip failed actors vs abort - default: true
+
+**Generated Structure:**
+- **Level 0**: 10 initial world actors
+- **Level 1**: 80 sub-actors (10 × 8)
+- **Level 2**: 640 sub-sub-actors (80 × 8)
+- **Level 3**: 5,120 sub-sub-sub-actors (640 × 8)
+- **Total for Level 3**: 5,850 total actors across all levels
+
+**Enhanced Logging:**
+- **Info Messages**: 🌍 ℹ️ Blue info indicators for major steps
+- **Success Messages**: ✅ Green checkmarks for completed levels
+- **Error Messages**: ❌ Red crosses with detailed error information
+- **Progress Tracking**: Real-time status updates during generation
+
+**Cost Tracking:**
+- Session-wide cost accumulation across all levels
+- Cost breakdown by level and provider
+- Final cost summary at completion
+- Cost metadata saved in each level's JSON file
+
+**Technical Benefits:**
+- **Simplified Workflow**: One command generates entire hierarchy
+- **Consistent Data**: All levels use same run folder and metadata
+- **Robust Error Handling**: Graceful failure handling with detailed logging
+- **Performance Optimized**: Efficient processing with cost tracking
+- **Maintainable Code**: Clean separation of concerns and modular design
+
+**Files Created:**
+- `worldmodel/backend/routes/initializationroute/actors_complete.py` - New unified script (691 lines)
+- Uses existing `prompts.py` module for all prompt generation
+- Integrates with existing `llm.py` cost tracking system
+
+**Integration Points:**
+- **Prompts Module**: Uses `generate_initial_actor_prompts()` and `generate_leveldown_prompts()`
+- **LLM Module**: Uses `call_llm_api()`, `get_cost_session()`, `reset_cost_session()`, `print_cost_summary()`
+- **File System**: Automatic run folder management with date-based organization
+- **Error Handling**: Comprehensive error categorization and logging
+
+**Example Output Structure:**
+```
+worldmodel/backend/init_logs/
+└── run_2025-01-20_3/
+    ├── Features_level_0.json  (10 actors)
+    ├── Features_level_1.json  (10 actors + 80 sub-actors)
+    ├── Features_level_2.json  (10 actors + 80 sub-actors + 640 sub-sub-actors)
+    └── Features_level_3.json  (full hierarchy with 5,850 total actors)
+```
+
+**Impact:**
+- Streamlines world model generation workflow from multiple scripts to single command
+- Provides comprehensive hierarchical actor generation with full cost tracking
+- Establishes foundation for complex world modeling scenarios
+- Enables easy scaling to deeper hierarchical levels
+- Professional-grade error handling and logging throughout the process
+
 ### 2025-01-20: Refactored Prompts - Extracted to Separate Module
 
 **Overview:** Refactored the prompt generation logic in both `actors_init.py` and `actors_leveldown.py` by extracting all prompt templates into a centralized `prompts.py` module for better code organization and maintainability.
@@ -44,9 +147,9 @@
 - **Performance**: No performance impact - same functionality with cleaner code
 
 **Files Modified:**
-- `worldmodel/backend/routes/1_initialization_route/prompts.py` - New centralized prompt module
-- `worldmodel/backend/routes/1_initialization_route/actors_init.py` - Updated to use prompts module
-- `worldmodel/backend/routes/1_initialization_route/actors_leveldown.py` - Updated to use prompts module
+- `worldmodel/backend/routes/initializationroute/prompts.py` - New centralized prompt module
+- `worldmodel/backend/routes/initializationroute/actors_init.py` - Updated to use prompts module
+- `worldmodel/backend/routes/initializationroute/actors_leveldown.py` - Updated to use prompts module
 
 **Migration Impact:**
 - All existing functionality preserved
@@ -783,29 +886,15 @@ worldmodel/
 ## Current Status
 
 The World Model system now provides:
-- **Complete Cost Transparency:** Full visibility into API usage costs with real-time tracking
-- **Robust Actor Generation:** Multi-provider support with intelligent retry logic
-- **Professional UI:** Clean interface with proper branding and responsive design
-- **Comprehensive Logging:** Visual feedback throughout the process with emoji indicators
-- **Automatic Persistence:** JSON files with complete metadata and error handling
-- **Enhanced Error Handling:** Specific error types with actionable suggestions
-- **Production-Ready Cost Tracking:** Comprehensive cost analysis and session management
+- **Unified Generation System**: Single script for complete hierarchical world model generation
+- **Complete Documentation**: Professional README with comprehensive world modeling explanation
+- **Complete Cost Transparency**: Full visibility into API usage costs with real-time tracking
+- **Robust Actor Generation**: Multi-provider support with intelligent retry logic
+- **Professional UI**: Clean interface with proper branding and responsive design
+- **Comprehensive Logging**: Visual feedback throughout the process
+- **Automatic Persistence**: JSON files with complete metadata in organized date-based folders
+- **Enhanced Error Handling**: Specific error types with actionable suggestions
+- **Streamlined Operation**: Anthropic-only configuration for clean execution
+- **Modular Architecture**: Centralized prompt management with reusable components
 
-✅ **FULLY IMPLEMENTED AND TESTED** - The cost tracking system is now fully operational with:
-- Real-time cost calculation per API call
-- Provider-specific pricing tables (OpenAI & Anthropic)
-- Session-wide cost accumulation and analysis
-- Visual terminal display with detailed breakdowns
-- Cost warnings for high usage scenarios
-- Multi-model support with automatic detection
-- Comprehensive statistics and averages
-
-The system is ready for production use with comprehensive cost tracking, robust error handling, and professional presentation.
-
-## Next Steps
-
-1. **API Key Configuration:** Set up OPENAI_API_KEY and/or ANTHROPIC_API_KEY environment variables
-2. **Testing:** Run the system to generate actors and monitor costs
-3. **Optimization:** Use cost data to optimize model selection and usage
-4. **Expansion:** Add additional providers or models as needed
-5. **Integration:** Connect with other system components as they're developed 
+The system now supports complete world model generation from a single command, with professional documentation, comprehensive cost tracking, and scalable hierarchical actor generation suitable for complex world modeling scenarios. 

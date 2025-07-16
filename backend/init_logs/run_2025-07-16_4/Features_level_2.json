@@ -1,0 +1,152 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T09:27:06.419538",
+    "run_folder": "run_2025-07-16_4",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "script_version": "2.0.0",
+    "level": 2,
+    "parent_file": "Features_level_1.json",
+    "original_metadata": {
+      "timestamp": "2025-07-16T09:26:35.378945",
+      "run_folder": "run_2025-07-16_4",
+      "model_provider": "anthropic",
+      "model_name": "claude-3-5-sonnet-latest",
+      "num_actors_requested": 5,
+      "num_actors_generated": 5,
+      "script_version": "2.0.0",
+      "generation_method": "LLM-based",
+      "level": 0,
+      "cost_tracking": {
+        "total_cost": 0.012064000000000002,
+        "api_calls": 1,
+        "providers": {
+          "anthropic": {
+            "cost": 0.012064000000000002,
+            "calls": 1,
+            "models": {
+              "claude-3-5-sonnet-latest": {
+                "cost": 0.012064000000000002,
+                "calls": 1,
+                "tokens": {
+                  "input": 491,
+                  "output": 339,
+                  "total": 830
+                }
+              }
+            },
+            "tokens": {
+              "input": 491,
+              "output": 339,
+              "total": 830
+            }
+          }
+        },
+        "session_start": "2025-07-16T09:26:27.468492",
+        "tokens_used": {
+          "input_tokens": 491,
+          "output_tokens": 339,
+          "total_tokens": 830
+        },
+        "session_duration_seconds": 7.91044,
+        "session_duration_str": "0:00:07.910440",
+        "average_cost_per_call": 0.012064000000000002,
+        "cost_per_1k_tokens": 0.014534939759036147
+      }
+    },
+    "generation_stats": {
+      "total_main_actors": 5,
+      "total_subactors": 0,
+      "actors_with_subactors": 0,
+      "avg_subactors_per_actor": 0.0,
+      "successful_actors": 0,
+      "failed_actors": 0
+    },
+    "cost_tracking": {
+      "total_cost": 0.065808,
+      "api_calls": 6,
+      "providers": {
+        "anthropic": {
+          "cost": 0.065808,
+          "calls": 6,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.065808,
+              "calls": 6,
+              "tokens": {
+                "input": 2829,
+                "output": 1799,
+                "total": 4628
+              }
+            }
+          },
+          "tokens": {
+            "input": 2829,
+            "output": 1799,
+            "total": 4628
+          }
+        }
+      },
+      "session_start": "2025-07-16T09:26:27.468492",
+      "tokens_used": {
+        "input_tokens": 2829,
+        "output_tokens": 1799,
+        "total_tokens": 4628
+      },
+      "session_duration_seconds": 38.951043,
+      "session_duration_str": "0:00:38.951043",
+      "average_cost_per_call": 0.010968,
+      "cost_per_1k_tokens": 0.014219533275713053
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with dominant military, economic, technological, and cultural influence. Leader in international diplomacy, innovation, and financial markets.",
+      "type": "country",
+      "influence_score": 95,
+      "sub_actors": [],
+      "sub_actors_count": 0,
+      "level": 1
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "Rising superpower with world's largest population, second-largest economy, growing military capabilities, and expanding global infrastructure initiatives.",
+      "type": "country",
+      "influence_score": 90,
+      "sub_actors": [],
+      "sub_actors_count": 0,
+      "level": 1
+    },
+    {
+      "name": "European Union",
+      "description": "Powerful economic and political union of 27 states, representing significant trade bloc, regulatory influence, and diplomatic weight.",
+      "type": "alliance",
+      "influence_score": 85,
+      "sub_actors": [],
+      "sub_actors_count": 0,
+      "level": 1
+    },
+    {
+      "name": "Meta Platforms (formerly Facebook)",
+      "description": "Controls dominant social media platforms affecting billions of users, shapes global information flow, digital economy, and social discourse.",
+      "type": "company",
+      "influence_score": 82,
+      "sub_actors": [],
+      "sub_actors_count": 0,
+      "level": 1
+    },
+    {
+      "name": "United Nations",
+      "description": "Premier international organization for global governance, peacekeeping, humanitarian aid, and international law framework.",
+      "type": "organization",
+      "influence_score": 80,
+      "sub_actors": [],
+      "sub_actors_count": 0,
+      "level": 1
+    }
+  ],
+  "total_main_actors": 5,
+  "total_subactors": 0,
+  "level": 2
+}

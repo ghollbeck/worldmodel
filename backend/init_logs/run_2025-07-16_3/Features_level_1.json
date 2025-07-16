@@ -1,0 +1,287 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T09:12:28.497518",
+    "run_folder": "run_2025-07-16_3",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "script_version": "2.0.0",
+    "level": 1,
+    "parent_file": "Features_level_0.json",
+    "original_metadata": {
+      "timestamp": "2025-07-16T09:12:02.097048",
+      "run_folder": "run_2025-07-16_3",
+      "model_provider": "anthropic",
+      "model_name": "claude-3-5-sonnet-latest",
+      "num_actors_requested": 5,
+      "num_actors_generated": 5,
+      "script_version": "2.0.0",
+      "generation_method": "LLM-based",
+      "level": 0,
+      "cost_tracking": {
+        "total_cost": 0.012591999999999999,
+        "api_calls": 1,
+        "providers": {
+          "anthropic": {
+            "cost": 0.012591999999999999,
+            "calls": 1,
+            "models": {
+              "claude-3-5-sonnet-latest": {
+                "cost": 0.012591999999999999,
+                "calls": 1,
+                "tokens": {
+                  "input": 491,
+                  "output": 361,
+                  "total": 852
+                }
+              }
+            },
+            "tokens": {
+              "input": 491,
+              "output": 361,
+              "total": 852
+            }
+          }
+        },
+        "session_start": "2025-07-16T09:11:55.809675",
+        "tokens_used": {
+          "input_tokens": 491,
+          "output_tokens": 361,
+          "total_tokens": 852
+        },
+        "session_duration_seconds": 6.287367,
+        "session_duration_str": "0:00:06.287367",
+        "average_cost_per_call": 0.012591999999999999,
+        "cost_per_1k_tokens": 0.014779342723004693
+      }
+    },
+    "generation_stats": {
+      "total_main_actors": 5,
+      "total_subactors": 15,
+      "actors_with_subactors": 5,
+      "avg_subactors_per_actor": 3.0,
+      "successful_actors": 5,
+      "failed_actors": 0
+    },
+    "cost_tracking": {
+      "total_cost": 0.06747199999999999,
+      "api_calls": 6,
+      "providers": {
+        "anthropic": {
+          "cost": 0.06747199999999999,
+          "calls": 6,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.06747199999999999,
+              "calls": 6,
+              "tokens": {
+                "input": 2857,
+                "output": 1859,
+                "total": 4716
+              }
+            }
+          },
+          "tokens": {
+            "input": 2857,
+            "output": 1859,
+            "total": 4716
+          }
+        }
+      },
+      "session_start": "2025-07-16T09:11:55.809675",
+      "tokens_used": {
+        "input_tokens": 2857,
+        "output_tokens": 1859,
+        "total_tokens": 4716
+      },
+      "session_duration_seconds": 32.687832,
+      "session_duration_str": "0:00:32.687832",
+      "average_cost_per_call": 0.011245333333333331,
+      "cost_per_1k_tokens": 0.01430703986429177
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with dominant military, economic, technological, and cultural influence. Controls global financial systems, leads technological innovation, and maintains extensive diplomatic networks.",
+      "type": "country",
+      "influence_score": 95,
+      "sub_actors": [
+        {
+          "name": "Executive Office of the President",
+          "description": "Core executive branch leadership including the President, cabinet, and key advisory bodies. Controls federal policy, foreign relations, military command, and executive orders. Primary driver of national agenda and international diplomacy.",
+          "type": "government",
+          "influence_score": 95,
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Federal Reserve System",
+          "description": "Central bank controlling monetary policy, interest rates, and financial stability. Regulates banking system and manages currency. Critical influence over economy and global markets.",
+          "type": "institution",
+          "influence_score": 90,
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Department of Defense",
+          "description": "Controls world's largest military force, manages defense policy, overseas operations, and military intelligence. Oversees massive budget and defense industrial complex.",
+          "type": "ministry",
+          "influence_score": 88,
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        }
+      ],
+      "sub_actors_count": 3
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "Rising superpower with world's largest population, second-largest economy, expanding military capabilities, and growing technological and diplomatic influence across Asia and globally.",
+      "type": "country",
+      "influence_score": 89,
+      "sub_actors": [
+        {
+          "name": "Chinese Communist Party (CCP)",
+          "description": "Ruling political party that controls all aspects of governance, sets national policy direction, and maintains supreme authority over state institutions. Leadership core makes final decisions on major political, economic, and military matters.",
+          "type": "party",
+          "influence_score": 98,
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Central Military Commission (CMC)",
+          "description": "Supreme military command organization that controls the People's Liberation Army, nuclear forces, and military policy. Directly oversees national defense and military modernization programs.",
+          "type": "military",
+          "influence_score": 90,
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "State Council",
+          "description": "Chief administrative authority and highest executive organ of state power, responsible for implementing CCP policies, managing economy, and overseeing government ministries and agencies.",
+          "type": "government",
+          "influence_score": 85,
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        }
+      ],
+      "sub_actors_count": 3
+    },
+    {
+      "name": "European Union",
+      "description": "Powerful economic and political alliance of 27 states, representing the world's largest trading bloc and a major regulatory force in global markets and international standards.",
+      "type": "alliance",
+      "influence_score": 82,
+      "sub_actors": [
+        {
+          "name": "European Commission",
+          "description": "Executive branch of the EU that proposes legislation, implements decisions, upholds treaties, and manages day-to-day business. Acts as the primary policy initiator and enforcer of EU regulations.",
+          "type": "government",
+          "influence_score": 95,
+          "parent_actor": "European Union",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "European Central Bank",
+          "description": "Central banking institution managing the euro and implementing EU monetary policy. Controls monetary supply, sets interest rates, and supervises banking systems across the Eurozone.",
+          "type": "institution",
+          "influence_score": 90,
+          "parent_actor": "European Union",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "European Parliament",
+          "description": "Directly elected parliamentary body that represents EU citizens, passes EU laws jointly with Council, and approves EU budget. Primary legislative and democratic oversight institution.",
+          "type": "government",
+          "influence_score": 85,
+          "parent_actor": "European Union",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        }
+      ],
+      "sub_actors_count": 3
+    },
+    {
+      "name": "Big Tech Consortium (MANGA)",
+      "description": "Coalition of dominant tech giants (Meta, Amazon, Netflix, Google, Apple) controlling global digital infrastructure, data, and technological innovation.",
+      "type": "company",
+      "influence_score": 78,
+      "sub_actors": [
+        {
+          "name": "Digital Policy Council",
+          "description": "Supreme governing body composed of MANGA CEOs that sets consortium-wide strategic direction, technology standards, and data governance policies. Controls major infrastructure and platform decisions.",
+          "type": "institution",
+          "influence_score": 95,
+          "parent_actor": "Big Tech Consortium (MANGA)",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Technology Standards & Compliance Authority",
+          "description": "Regulatory body establishing technical protocols, interoperability standards, and compliance requirements across MANGA platforms. Enforces consortium-wide technology policies.",
+          "type": "agency",
+          "influence_score": 87,
+          "parent_actor": "Big Tech Consortium (MANGA)",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Digital Infrastructure Command",
+          "description": "Centralized authority managing shared cloud infrastructure, data centers, and network systems across MANGA companies. Controls critical technical assets and operations.",
+          "type": "institution",
+          "influence_score": 82,
+          "parent_actor": "Big Tech Consortium (MANGA)",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        }
+      ],
+      "sub_actors_count": 3
+    },
+    {
+      "name": "Federal Reserve System",
+      "description": "US central bank with unprecedented influence over global financial markets, monetary policy, and international economic stability.",
+      "type": "organization",
+      "influence_score": 75,
+      "sub_actors": [
+        {
+          "name": "Federal Open Market Committee (FOMC)",
+          "description": "Principal monetary policymaking body of the Federal Reserve that sets key interest rates, determines open market operations, and directs U.S. monetary policy implementation",
+          "type": "institution",
+          "influence_score": 95,
+          "parent_actor": "Federal Reserve System",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Board of Governors",
+          "description": "Seven-member governing body that guides overall Fed policy, supervises Federal Reserve Banks, and exercises broad regulatory authority over the U.S. banking system",
+          "type": "institution",
+          "influence_score": 90,
+          "parent_actor": "Federal Reserve System",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Federal Reserve Bank of New York",
+          "description": "Most influential of the 12 Reserve Banks, conducts open market operations, serves as main contact with foreign central banks, and supervises largest financial institutions",
+          "type": "institution",
+          "influence_score": 85,
+          "parent_actor": "Federal Reserve System",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        }
+      ],
+      "sub_actors_count": 3
+    }
+  ],
+  "total_main_actors": 5,
+  "total_subactors": 15,
+  "level": 1
+}

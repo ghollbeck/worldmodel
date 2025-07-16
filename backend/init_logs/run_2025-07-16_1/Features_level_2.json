@@ -1,0 +1,1714 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T08:57:07.318627",
+    "run_folder": "run_2025-07-16_1",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "script_version": "1.0.0",
+    "level": 2,
+    "parent_file": "Features_level_1.json",
+    "original_metadata": {
+      "timestamp": "2025-07-16T02:41:40.492382",
+      "run_folder": "run_2025-07-16_1",
+      "model_provider": "anthropic",
+      "model_name": "claude-3-5-sonnet-latest",
+      "num_actors_requested": 10,
+      "num_actors_generated": 10,
+      "script_version": "1.0.0",
+      "generation_method": "LLM-based",
+      "cost_tracking": {
+        "total_cost": 0.018472,
+        "api_calls": 1,
+        "providers": {
+          "anthropic": {
+            "cost": 0.018472,
+            "calls": 1,
+            "models": {
+              "claude-3-5-sonnet-latest": {
+                "cost": 0.018472,
+                "calls": 1,
+                "tokens": {
+                  "input": 491,
+                  "output": 606,
+                  "total": 1097
+                }
+              }
+            },
+            "tokens": {
+              "input": 491,
+              "output": 606,
+              "total": 1097
+            }
+          }
+        },
+        "session_start": "2025-07-16T02:41:31.542197",
+        "tokens_used": {
+          "input_tokens": 491,
+          "output_tokens": 606,
+          "total_tokens": 1097
+        },
+        "session_duration_seconds": 8.95018,
+        "session_duration_str": "0:00:08.950180",
+        "average_cost_per_call": 0.018472,
+        "cost_per_1k_tokens": 0.016838650865998176
+      }
+    },
+    "generation_stats": {
+      "total_main_actors": 10,
+      "total_subactors": 80,
+      "actors_with_subactors": 10,
+      "avg_subactors_per_actor": 8.0
+    },
+    "cost_tracking": {
+      "total_cost": 0.5684000000000001,
+      "api_calls": 80,
+      "providers": {
+        "anthropic": {
+          "cost": 0.5684000000000001,
+          "calls": 80,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.5684000000000001,
+              "calls": 80,
+              "tokens": {
+                "input": 37090,
+                "output": 11320,
+                "total": 48410
+              }
+            }
+          },
+          "tokens": {
+            "input": 37090,
+            "output": 11320,
+            "total": 48410
+          }
+        }
+      },
+      "session_start": "2025-07-16T08:52:02.455806",
+      "tokens_used": {
+        "input_tokens": 37090,
+        "output_tokens": 11320,
+        "total_tokens": 48410
+      },
+      "session_duration_seconds": 304.862815,
+      "session_duration_str": "0:05:04.862815",
+      "average_cost_per_call": 0.007105000000000002,
+      "cost_per_1k_tokens": 0.011741375748812233
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with dominant military, economic, technological, and cultural influence. Leader in innovation, finance, and international diplomacy.",
+      "type": "country",
+      "influence_score": 95,
+      "sub_actors": [
+        {
+          "name": "Executive Office of the President",
+          "description": "Core executive branch leadership including the President, cabinet, and key advisors. Primary source of national policy direction and federal executive authority.",
+          "type": "government",
+          "influence_score": 95,
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "Lockheed Martin Corporation",
+              "description": "Leading global defense contractor and aerospace company that works extensively with the Executive Office through military contracts, national security initiatives, and space exploration programs. Major influence on defense policy, military procurement, and strategic technology development.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Executive Office of the President",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "United States Congress",
+          "description": "Federal legislative branch comprising Senate and House of Representatives. Controls federal budget, legislation, and oversight of executive branch.",
+          "type": "government",
+          "influence_score": 90,
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "Amazon.com, Inc.",
+              "description": "Tech and e-commerce giant with extensive lobbying presence, major federal contracts, and significant influence on digital commerce, cloud computing (AWS), and labor policies. Heavy investment in congressional lobbying, particularly on tech regulation, antitrust issues, and federal procurement.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "United States Congress",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Federal Reserve System",
+          "description": "Central bank managing national monetary policy, banking supervision, and financial stability. Controls interest rates and money supply.",
+          "type": "institution",
+          "influence_score": 88,
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "JPMorgan Chase & Co.",
+              "description": "Largest U.S. bank by assets, primary dealer of U.S. Treasury securities, and major participant in Federal Reserve operations. Significant influence on monetary policy implementation, financial markets, and banking sector stability. Key player in Fed's discount window operations and payment systems.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Federal Reserve System",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Department of Defense",
+          "description": "Manages all military forces and national defense policy. Largest department by budget with extensive global presence and strategic influence.",
+          "type": "ministry",
+          "influence_score": 85,
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "Lockheed Martin Corporation",
+              "description": "Leading global defense contractor and aerospace company, providing advanced technology systems, aircraft, missiles, and military platforms. Primary supplier for F-35 fighter jets and numerous critical defense systems. Largest defense contractor by revenue with extensive R&D capabilities and strategic importance to national security.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Department of Defense",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Supreme Court of the United States",
+          "description": "Highest federal court and constitutional interpreter. Final arbiter of federal law and constitutional questions.",
+          "type": "government",
+          "influence_score": 82,
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "Thomson Reuters Westlaw",
+              "description": "Premier legal research and technology company providing essential legal databases, analytics, and tools used extensively by Supreme Court justices, clerks, and legal professionals. Their systems are critical for case research, legal document preparation, and precedent analysis at the Supreme Court level.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Supreme Court of the United States",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Department of State",
+          "description": "Lead foreign affairs agency conducting diplomacy and international relations. Shapes global policy and manages foreign service.",
+          "type": "ministry",
+          "influence_score": 80,
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "Diplomatic Security Global Solutions (DSGS)",
+              "description": "Major contractor providing security, logistics, training and technical support services to US diplomatic missions worldwide. Critical partner in embassy operations, diplomatic security, and overseas facility management.",
+              "type": "corporation",
+              "influence_score": 89,
+              "parent_actor": "Department of State",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "National Security Council",
+          "description": "Principal forum for national security policy decisions and coordination between military, intelligence, and diplomatic agencies.",
+          "type": "agency",
+          "influence_score": 78,
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "Lockheed Martin Corporation",
+              "description": "Leading global defense contractor providing advanced technology systems, aerospace products, and security solutions directly supporting NSC strategic capabilities. Primary supplier of military aircraft, missile systems, and cybersecurity infrastructure critical to national security operations.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "National Security Council",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Department of the Treasury",
+          "description": "Manages federal finances, tax collection, public debt, and financial intelligence. Key economic policy advisor to President.",
+          "type": "ministry",
+          "influence_score": 75,
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "Federal Reserve Bank of New York",
+              "description": "The largest and most influential of the 12 Federal Reserve Banks, executing monetary policy operations, supervising financial institutions, and serving as the U.S. government's primary dealer in securities. Manages the System Open Market Account for the Federal Reserve System and operates critical payment and settlement systems.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Department of the Treasury",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "Rising superpower with world's largest population, second-largest economy, growing military capabilities, and extensive global infrastructure initiatives.",
+      "type": "country",
+      "influence_score": 90,
+      "sub_actors": [
+        {
+          "name": "Chinese Communist Party (CCP)",
+          "description": "Ruling political party that controls all aspects of governance, sets national policy, and maintains absolute leadership over state, military, and society",
+          "type": "party",
+          "influence_score": 100,
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [
+            {
+              "name": "Sinopec Group",
+              "description": "China's largest oil and gas producer and supplier, state-owned energy and chemical conglomerate that controls significant portions of China's energy infrastructure and overseas energy investments. Critical to national energy security and economic development.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Chinese Communist Party (CCP)",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Central Military Commission",
+          "description": "Supreme military command organization that controls the People's Liberation Army, nuclear forces, and military policy",
+          "type": "military",
+          "influence_score": 95,
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [
+            {
+              "name": "Norinco Group",
+              "description": "China's largest state-owned defense corporation and a global leader in military equipment manufacturing. Produces tanks, ammunition, firearms, and military technology. Key supplier to PLA and major international defense exporter with significant R&D capabilities.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Central Military Commission",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "State Council",
+          "description": "Chief administrative authority of China, executing laws and managing daily governance of the nation",
+          "type": "government",
+          "influence_score": 90,
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [
+            {
+              "name": "Sinopec Group",
+              "description": "China's largest oil and petrochemical company, state-owned enterprise that controls significant portions of China's energy sector. Major global player in oil refining and production, with extensive downstream operations and retail networks across China. Critical to national energy security and economic development.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "State Council",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Politburo Standing Committee",
+          "description": "Top decision-making body within the CCP, comprising 7 most powerful leaders who shape all major national policies",
+          "type": "party",
+          "influence_score": 88,
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [
+            {
+              "name": "State Grid Corporation of China",
+              "description": "World's largest utility company and state-owned enterprise, controlling China's national power grid. Critical to national infrastructure and energy security, serving over 1.1 billion people. Direct operational oversight from Politburo Standing Committee with massive influence on industrial policy and economic planning.",
+              "type": "corporation",
+              "influence_score": 98,
+              "parent_actor": "Politburo Standing Committee",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "People's Bank of China",
+          "description": "Central bank controlling monetary policy, currency management, and financial system regulation",
+          "type": "institution",
+          "influence_score": 85,
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [
+            {
+              "name": "China UnionPay",
+              "description": "China's largest card payment organization and a critical financial infrastructure provider, processing the majority of domestic card transactions and connecting nearly all banks in China. As a state-owned financial services corporation established under PBOC's authority, it plays a vital role in China's payment system and international payment network expansion.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "People's Bank of China",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Ministry of State Security",
+          "description": "Principal intelligence and security agency handling domestic and foreign intelligence operations",
+          "type": "agency",
+          "influence_score": 82,
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [
+            {
+              "name": "China Electronics Technology Group Corporation (CETC)",
+              "description": "State-owned enterprise specializing in electronic and information technology systems, providing critical surveillance and security technology to the Ministry of State Security. Develops advanced intelligence gathering equipment, cybersecurity systems, and communication networks essential for national security operations.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Ministry of State Security",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "National Development and Reform Commission",
+          "description": "Macroeconomic management agency that controls economic planning, reforms, and strategic projects",
+          "type": "agency",
+          "influence_score": 80,
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [
+            {
+              "name": "State Grid Corporation of China",
+              "description": "World's largest utility company and state-owned enterprise, responsible for power transmission and distribution across 26 Chinese provinces. Controls China's main power grid infrastructure and plays a crucial role in national energy policy implementation and development.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "National Development and Reform Commission",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Central Commission for Discipline Inspection",
+          "description": "Chief anti-corruption agency with broad powers to investigate party members and government officials",
+          "type": "agency",
+          "influence_score": 78,
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [
+            {
+              "name": "China Discipline Inspection Daily",
+              "description": "Official state-owned media outlet and publishing house of the CCDI, responsible for disseminating disciplinary news, investigation reports, and anti-corruption content. Plays a crucial role in shaping public perception and communicating CCDI's activities.",
+              "type": "enterprise",
+              "influence_score": 85,
+              "parent_actor": "Central Commission for Discipline Inspection",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "European Union",
+      "description": "Powerful economic and political union of 27 states, representing significant trade bloc and regulatory influence.",
+      "type": "alliance",
+      "influence_score": 85,
+      "sub_actors": [
+        {
+          "name": "European Commission",
+          "description": "Executive branch of the EU, proposes legislation, implements decisions, upholds treaties, and represents EU internationally. Led by Commission President.",
+          "type": "government",
+          "influence_score": 95,
+          "parent_actor": "European Union",
+          "sub_actors": [
+            {
+              "name": "TotalEnergies SE",
+              "description": "Major French multinational energy company with significant influence on EU energy policy, infrastructure development, and climate initiatives. Key stakeholder in European energy markets and strategic partnerships with the Commission on green transition policies.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "European Commission",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "European Council",
+          "description": "Comprises heads of state/government of member states, sets EU's political direction and priorities at highest level.",
+          "type": "government",
+          "influence_score": 90,
+          "parent_actor": "European Union",
+          "sub_actors": [
+            {
+              "name": "BusinessEurope",
+              "description": "The largest and most influential business lobbying organization in the EU, representing 40 national business federations from 35 countries and actively shaping EU policy decisions through direct engagement with the European Council. Acts as the primary voice of enterprises across Europe, representing over 20 million companies.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "European Council",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "European Parliament",
+          "description": "Directly elected legislative body that passes EU laws jointly with Council, supervises institutions, and adopts EU budgets.",
+          "type": "government",
+          "influence_score": 85,
+          "parent_actor": "European Union",
+          "sub_actors": [
+            {
+              "name": "BusinessEurope",
+              "description": "The largest and most influential business lobbying organization in the EU, representing over 40 national business federations from 35 countries. Directly shapes EU legislation through extensive lobbying efforts, policy proposals, and close relationships with EU lawmakers. Represents interests of major European corporations across all sectors.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "European Parliament",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "European Central Bank",
+          "description": "Controls EU monetary policy, manages euro, and supervises banking system across eurozone.",
+          "type": "institution",
+          "influence_score": 82,
+          "parent_actor": "European Union",
+          "sub_actors": [
+            {
+              "name": "Deutsche Bank AG",
+              "description": "Germany's largest bank and one of Europe's most systemically important financial institutions. Key participant in ECB monetary operations, primary dealer in government securities, and major provider of financial services across the Eurozone. Significant influence on European financial markets and monetary policy implementation.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "European Central Bank",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Council of the European Union",
+          "description": "Voice of EU member governments, adopts laws and coordinates policies. Different ministers meet based on policy area.",
+          "type": "government",
+          "influence_score": 80,
+          "parent_actor": "European Union",
+          "sub_actors": [
+            {
+              "name": "BusinessEurope",
+              "description": "The largest and most influential business lobbying organization in the EU, representing over 40 national business federations from 35 countries. Directly influences EU policy-making, particularly in areas of trade, competition, industrial strategy and environmental regulations. Has significant impact on Council decisions through coordinated industry positions.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Council of the European Union",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Court of Justice of the European Union",
+          "description": "Ensures EU law is interpreted and applied uniformly across member states, resolves legal disputes.",
+          "type": "institution",
+          "influence_score": 75,
+          "parent_actor": "European Union",
+          "sub_actors": [
+            {
+              "name": "Wolters Kluwer Legal & Regulatory",
+              "description": "Leading global provider of legal research solutions, case law databases, and compliance tools extensively used by the CJEU and legal practitioners across the EU. Their legal information systems and publications are critical for accessing and analyzing EU case law and legal documentation.",
+              "type": "corporation",
+              "influence_score": 85,
+              "parent_actor": "Court of Justice of the European Union",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "European External Action Service",
+          "description": "EU's diplomatic service, implements foreign and security policy, manages diplomatic relations and strategic partnerships.",
+          "type": "agency",
+          "influence_score": 70,
+          "parent_actor": "European Union",
+          "sub_actors": [
+            {
+              "name": "Airbus Defence and Space",
+              "description": "Major aerospace and defense contractor providing satellite communications, security systems, and defense technology to EEAS. Critical supplier for EU's diplomatic and security infrastructure, including the Galileo satellite program and border security systems.",
+              "type": "corporation",
+              "influence_score": 85,
+              "parent_actor": "European External Action Service",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "European Banking Authority",
+          "description": "Regulatory agency ensuring effective banking supervision across EU, creates banking standards and stress tests.",
+          "type": "agency",
+          "influence_score": 65,
+          "parent_actor": "European Union",
+          "sub_actors": [
+            {
+              "name": "BNP Paribas",
+              "description": "Largest bank in the European Union by total assets, heavily involved in EBA stress tests and regulatory compliance. Significant influence on EU banking policy and implementation of Basel standards. Major contributor to banking sector consultations and regulatory frameworks.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "European Banking Authority",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "Meta Platforms",
+      "description": "Controls dominant social media platforms affecting global communication, information flow, and public discourse for billions.",
+      "type": "company",
+      "influence_score": 82,
+      "sub_actors": [
+        {
+          "name": "Meta Board of Directors",
+          "description": "Highest governing body providing strategic oversight, major policy decisions, and corporate governance. Controls company direction and executive accountability.",
+          "type": "government",
+          "influence_score": 95,
+          "parent_actor": "Meta Platforms",
+          "sub_actors": [
+            {
+              "name": "Meta Platforms Inc.",
+              "description": "Global social media and technology conglomerate operating Facebook, Instagram, WhatsApp, and Reality Labs. Primary operating company controlled by the board, managing core social networking platforms, metaverse development, and digital advertising business.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Meta Board of Directors",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Meta Executive Leadership Team",
+          "description": "C-suite executives led by CEO Mark Zuckerberg, responsible for day-to-day operations, product strategy, and company-wide policy implementation.",
+          "type": "government",
+          "influence_score": 90,
+          "parent_actor": "Meta Platforms",
+          "sub_actors": [
+            {
+              "name": "Instagram",
+              "description": "Major social media platform subsidiary acquired by Meta (formerly Facebook) in 2012. Key revenue generator through advertising, with over 2 billion monthly active users. Drives significant portion of Meta's growth and social media market dominance.",
+              "type": "subsidiary",
+              "influence_score": 95,
+              "parent_actor": "Meta Executive Leadership Team",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Meta Oversight Board",
+          "description": "Independent content moderation body making binding decisions on platform governance, content policies, and user appeals.",
+          "type": "institution",
+          "influence_score": 85,
+          "parent_actor": "Meta Platforms",
+          "sub_actors": [
+            {
+              "name": "Meta Platforms, Inc.",
+              "description": "Parent company that established and funds the Oversight Board, operating major social platforms including Facebook, Instagram, and WhatsApp. While the Board is independent, Meta remains its primary stakeholder and implementation partner for content moderation decisions.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Meta Oversight Board",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Meta Policy and Communications",
+          "description": "Division managing regulatory affairs, public policy, government relations, and external communications strategy globally.",
+          "type": "agency",
+          "influence_score": 80,
+          "parent_actor": "Meta Platforms",
+          "sub_actors": [
+            {
+              "name": "Facebook Ireland Limited",
+              "description": "Primary operational entity for Meta's European operations, handling policy compliance, GDPR regulations, and government relations across the EU region. Critical for managing Meta's regulatory affairs and communications strategy in one of its largest markets.",
+              "type": "subsidiary",
+              "influence_score": 95,
+              "parent_actor": "Meta Policy and Communications",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Meta Security Operations",
+          "description": "Department responsible for platform integrity, security protocols, and protecting against threats to company infrastructure and user data.",
+          "type": "agency",
+          "influence_score": 75,
+          "parent_actor": "Meta Platforms",
+          "sub_actors": [
+            {
+              "name": "Crowdstrike",
+              "description": "Leading cybersecurity provider partnering with Meta for advanced threat detection, incident response, and security infrastructure protection. Provides critical endpoint security solutions and AI-driven threat intelligence to safeguard Meta's global digital assets and user data.",
+              "type": "corporation",
+              "influence_score": 85,
+              "parent_actor": "Meta Security Operations",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Meta Product Development",
+          "description": "Division controlling product roadmap, feature development, and technical implementation across all Meta platforms.",
+          "type": "institution",
+          "influence_score": 70,
+          "parent_actor": "Meta Platforms",
+          "sub_actors": [
+            {
+              "name": "Instagram LLC",
+              "description": "Key subsidiary responsible for the Instagram platform development, user experience innovation, and feature integration within Meta's ecosystem. Drives significant user engagement and advertising revenue through continuous product evolution and social media innovation.",
+              "type": "subsidiary",
+              "influence_score": 92,
+              "parent_actor": "Meta Product Development",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Meta AI Research (FAIR)",
+          "description": "Research division developing artificial intelligence technologies that influence platform algorithms and future capabilities.",
+          "type": "institution",
+          "influence_score": 65,
+          "parent_actor": "Meta Platforms",
+          "sub_actors": [
+            {
+              "name": "PyTorch Foundation",
+              "description": "Leading open-source machine learning framework originally developed by FAIR, now an independent entity under Linux Foundation. Powers major AI research and development across industry and academia, serving as the primary framework for Meta's AI initiatives and research publications.",
+              "type": "subsidiary",
+              "influence_score": 95,
+              "parent_actor": "Meta AI Research (FAIR)",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Meta Reality Labs",
+          "description": "Division focusing on metaverse development, VR/AR technologies, and next-generation platform evolution.",
+          "type": "institution",
+          "influence_score": 60,
+          "parent_actor": "Meta Platforms",
+          "sub_actors": [
+            {
+              "name": "Oculus VR",
+              "description": "Leading VR hardware and software subsidiary acquired by Meta, responsible for developing the Quest VR headset line and core VR technologies that power Meta's metaverse ambitions. Primary driver of Reality Labs' consumer products and platform development.",
+              "type": "subsidiary",
+              "influence_score": 95,
+              "parent_actor": "Meta Reality Labs",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "United Nations",
+      "description": "Primary international organization for global governance, peace-keeping, and humanitarian coordination.",
+      "type": "organization",
+      "influence_score": 80,
+      "sub_actors": [
+        {
+          "name": "UN Security Council",
+          "description": "Primary decision-making body for international peace and security, with power to issue binding resolutions and authorize military action",
+          "type": "government",
+          "influence_score": 95,
+          "parent_actor": "United Nations",
+          "sub_actors": [
+            {
+              "name": "Lockheed Martin Corporation",
+              "description": "Global aerospace and defense corporation that significantly influences UN Security Council decisions through its role as a major military contractor. Supplies advanced weapons systems, aircraft, and defense technology to multiple permanent Security Council members, particularly the United States. Their products and services directly impact international security policies and military interventions.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "UN Security Council",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "UN General Assembly",
+          "description": "Main deliberative body where all member states have equal representation, sets policies and budget",
+          "type": "government",
+          "influence_score": 85,
+          "parent_actor": "United Nations",
+          "sub_actors": [
+            {
+              "name": "Microsoft Corporation",
+              "description": "Global technology leader providing critical digital infrastructure and services to UN operations, including cloud computing, productivity software, and digital transformation solutions. Major partner in UN initiatives for sustainable development, digital inclusion, and technological capacity building across member states.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "UN General Assembly",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "UN Secretariat",
+          "description": "Executive arm led by Secretary-General, manages operations and implements policies",
+          "type": "institution",
+          "influence_score": 80,
+          "parent_actor": "United Nations",
+          "sub_actors": [
+            {
+              "name": "Microsoft Corporation",
+              "description": "Strategic technology partner providing digital infrastructure, cloud services, and software solutions for UN operations. Major contributor to UN's digital transformation initiatives and sustainable development goals through technology partnerships.",
+              "type": "corporation",
+              "influence_score": 89,
+              "parent_actor": "UN Secretariat",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "UN Economic and Social Council",
+          "description": "Coordinates economic, social, and environmental work of UN agencies and bodies",
+          "type": "institution",
+          "influence_score": 75,
+          "parent_actor": "United Nations",
+          "sub_actors": [
+            {
+              "name": "McKinsey & Company",
+              "description": "Global management consulting firm that frequently advises ECOSOC and its subsidiary bodies on economic policy, sustainable development, and organizational strategy. Significant influence through policy recommendations, research publications, and direct consultation with member states.",
+              "type": "corporation",
+              "influence_score": 89,
+              "parent_actor": "UN Economic and Social Council",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "UN Department of Peacekeeping Operations",
+          "description": "Plans, prepares, manages, and directs UN peacekeeping operations worldwide",
+          "type": "agency",
+          "influence_score": 70,
+          "parent_actor": "United Nations",
+          "sub_actors": [
+            {
+              "name": "PAE Applied Technologies",
+              "description": "Major defense contractor providing logistics, training, and operational support services to UN peacekeeping missions worldwide. Manages base operations, supplies critical equipment, and delivers specialized training to peacekeeping forces across multiple conflict zones.",
+              "type": "corporation",
+              "influence_score": 85,
+              "parent_actor": "UN Department of Peacekeeping Operations",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "International Court of Justice",
+          "description": "Principal judicial organ of the UN, settles legal disputes between states",
+          "type": "institution",
+          "influence_score": 65,
+          "parent_actor": "United Nations",
+          "sub_actors": [
+            {
+              "name": "LexisNexis Legal & Professional",
+              "description": "Global provider of legal research and analytics tools used extensively by the ICJ and legal professionals worldwide. Their databases and case management systems are crucial for international law proceedings and documentation at the ICJ.",
+              "type": "corporation",
+              "influence_score": 85,
+              "parent_actor": "International Court of Justice",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "UN Human Rights Council",
+          "description": "Inter-governmental body responsible for promoting and protecting human rights worldwide",
+          "type": "agency",
+          "influence_score": 60,
+          "parent_actor": "United Nations",
+          "sub_actors": [
+            {
+              "name": "Microsoft Corporation",
+              "description": "Major technology partner providing digital infrastructure, AI solutions, and cybersecurity services to the UNHRC. Significantly influences human rights policies in digital spaces and contributes expertise on technology's impact on human rights. Partners in multiple UNHRC initiatives focused on digital rights and accessibility.",
+              "type": "corporation",
+              "influence_score": 89,
+              "parent_actor": "UN Human Rights Council",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "UN Development Programme",
+          "description": "Global development network focusing on poverty reduction and sustainable development",
+          "type": "agency",
+          "influence_score": 55,
+          "parent_actor": "United Nations",
+          "sub_actors": [
+            {
+              "name": "Microsoft Corporation",
+              "description": "Key technology partner for UNDP's digital transformation initiatives, providing cloud infrastructure, software solutions, and technical expertise for development projects. Major contributor to UNDP's Digital Strategy through partnerships in AI, data analytics, and digital governance solutions.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "UN Development Programme",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "NATO",
+      "description": "Powerful military alliance ensuring collective defense and security cooperation among 31 North American and European nations.",
+      "type": "organization",
+      "influence_score": 78,
+      "sub_actors": [
+        {
+          "name": "North Atlantic Council (NAC)",
+          "description": "Principal political decision-making body of NATO where each member nation has a seat. Makes major strategic and policy decisions requiring unanimous consent.",
+          "type": "government",
+          "influence_score": 95,
+          "parent_actor": "NATO",
+          "sub_actors": [
+            {
+              "name": "Lockheed Martin Corporation",
+              "description": "Premier global defense and aerospace corporation that provides critical military hardware, systems, and technology to NATO member states. Primary contractor for NATO's major defense systems including F-35 fighter jets, missile defense systems, and military communications infrastructure. Their technologies and systems are integral to NATO's collective defense capabilities and interoperability standards.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "North Atlantic Council (NAC)",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Military Committee (MC)",
+          "description": "Senior military authority providing strategic advice to NAC and directing NATO's military operations through Strategic Commands.",
+          "type": "military",
+          "influence_score": 90,
+          "parent_actor": "NATO",
+          "sub_actors": [
+            {
+              "name": "Lockheed Martin Corporation",
+              "description": "Leading global defense contractor providing advanced military technology, aircraft, missile systems, and combat vehicles to NATO forces. Primary supplier of F-35 fighters and other critical military hardware to NATO member states, with significant influence on military procurement decisions and strategic capabilities.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Military Committee (MC)",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Supreme Allied Commander Europe (SACEUR)",
+          "description": "Commands all NATO military operations and oversees strategic planning for Alliance military activities.",
+          "type": "military",
+          "influence_score": 85,
+          "parent_actor": "NATO",
+          "sub_actors": [
+            {
+              "name": "Lockheed Martin Corporation",
+              "description": "Leading global defense contractor providing advanced military systems, aircraft, missiles, and command & control solutions to NATO forces. Primary supplier of F-35 fighter jets and critical military technology to SACEUR-commanded operations. Deeply integrated with NATO's military infrastructure and strategic planning.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Supreme Allied Commander Europe (SACEUR)",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "NATO Secretary General Office",
+          "description": "Chief spokesperson and principal political leader of NATO, chairs the NAC and oversees strategic direction.",
+          "type": "government",
+          "influence_score": 82,
+          "parent_actor": "NATO",
+          "sub_actors": [
+            {
+              "name": "BAE Systems",
+              "description": "Leading global defense, aerospace, and security company that supplies NATO with advanced military equipment, cybersecurity solutions, and defense technology. Key contractor for NATO's military modernization programs and strategic defense capabilities.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "NATO Secretary General Office",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Allied Command Operations (ACO)",
+          "description": "Responsible for planning and executing all NATO military operations, headquartered at SHAPE in Belgium.",
+          "type": "military",
+          "influence_score": 80,
+          "parent_actor": "NATO",
+          "sub_actors": [
+            {
+              "name": "Thales Group",
+              "description": "Major defense and aerospace corporation providing critical command & control systems, radar systems, and cybersecurity solutions to NATO operations. Key contractor for ACO's technological infrastructure and communications systems at SHAPE headquarters.",
+              "type": "corporation",
+              "influence_score": 87,
+              "parent_actor": "Allied Command Operations (ACO)",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "NATO Intelligence and Security Division",
+          "description": "Provides strategic intelligence analysis and security risk assessments to support NATO decision-making.",
+          "type": "agency",
+          "influence_score": 75,
+          "parent_actor": "NATO",
+          "sub_actors": [
+            {
+              "name": "Thales Group",
+              "description": "Major defense and security multinational providing critical intelligence systems, cybersecurity solutions, and advanced technology platforms to NATO's Intelligence Division. Key supplier of secure communications infrastructure and data analysis tools used in NATO intelligence operations.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "NATO Intelligence and Security Division",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Nuclear Planning Group (NPG)",
+          "description": "High-level body responsible for nuclear policy and planning within the Alliance framework.",
+          "type": "government",
+          "influence_score": 70,
+          "parent_actor": "NATO",
+          "sub_actors": [
+            {
+              "name": "Lockheed Martin Corporation",
+              "description": "Leading global defense contractor providing advanced nuclear weapons systems, missile technology, and strategic deterrence solutions to NATO members. Key supplier of nuclear-capable delivery systems and technical consulting for NPG nuclear planning initiatives.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Nuclear Planning Group (NPG)",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Science and Technology Organization (STO)",
+          "description": "NATO's principal organization for science and technology research, fostering innovation in defense capabilities.",
+          "type": "institution",
+          "influence_score": 65,
+          "parent_actor": "NATO",
+          "sub_actors": [
+            {
+              "name": "Thales Group",
+              "description": "Major defense and aerospace corporation heavily involved in NATO's technology initiatives, providing advanced electronics, cybersecurity solutions, and defense systems. Key contributor to STO research programs and technical demonstrations, particularly in C4I systems and military communications.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Science and Technology Organization (STO)",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "Apple Inc.",
+      "description": "Tech giant with massive market influence, setting global standards in technology, consumer behavior, and digital ecosystems.",
+      "type": "company",
+      "influence_score": 77,
+      "sub_actors": [
+        {
+          "name": "Apple Executive Team",
+          "description": "Top-level leadership team headed by CEO, making strategic decisions and setting company direction across all divisions and products",
+          "type": "institution",
+          "influence_score": 95,
+          "parent_actor": "Apple Inc.",
+          "sub_actors": [
+            {
+              "name": "Apple Inc.",
+              "description": "World's most valuable technology company and parent corporation, designing and manufacturing consumer electronics, software, and services including iPhone, Mac, iPad, and Apple Services. Primary entity controlled and directed by the executive team.",
+              "type": "corporation",
+              "influence_score": 100,
+              "parent_actor": "Apple Executive Team",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Board of Directors",
+          "description": "Governing body providing oversight, strategic guidance, and major corporate decisions approval",
+          "type": "institution",
+          "influence_score": 90,
+          "parent_actor": "Apple Inc.",
+          "sub_actors": [
+            {
+              "name": "BlackRock, Inc.",
+              "description": "World's largest asset management firm with significant board representation across major corporations, influencing corporate governance, voting decisions, and strategic direction through its massive shareholdings and proxy voting power",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Board of Directors",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Product Development Division",
+          "description": "Core division responsible for iPhone, iPad, Mac and other flagship product development and innovation",
+          "type": "agency",
+          "influence_score": 85,
+          "parent_actor": "Apple Inc.",
+          "sub_actors": [
+            {
+              "name": "Foxconn Technology Group",
+              "description": "World's largest electronics manufacturer and Apple's primary assembly partner for iPhones, iPads, and other flagship products. Operates massive production facilities and employs hundreds of thousands of workers. Critical to product development through manufacturing expertise and supply chain innovation.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Product Development Division",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Software Engineering Division",
+          "description": "Controls iOS, macOS development and ecosystem integration, critical for product functionality and user experience",
+          "type": "agency",
+          "influence_score": 80,
+          "parent_actor": "Apple Inc.",
+          "sub_actors": [
+            {
+              "name": "Apple Software Development LLC",
+              "description": "Core software development unit responsible for iOS and macOS platforms, managing thousands of engineers and billions in development resources. Controls platform architecture, API development, and ecosystem integration standards.",
+              "type": "subsidiary",
+              "influence_score": 95,
+              "parent_actor": "Software Engineering Division",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Operations and Supply Chain",
+          "description": "Manages global manufacturing, logistics, and supply chain operations essential for product delivery",
+          "type": "agency",
+          "influence_score": 75,
+          "parent_actor": "Apple Inc.",
+          "sub_actors": [
+            {
+              "name": "Amazon.com, Inc.",
+              "description": "Global e-commerce and technology leader with revolutionary logistics and supply chain operations, operating the world's most sophisticated fulfillment network. Pioneer in warehouse automation, last-mile delivery innovation, and inventory management systems.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Operations and Supply Chain",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Services Division",
+          "description": "Manages Apple's growing services ecosystem including App Store, Apple Music, iCloud, and other digital services",
+          "type": "agency",
+          "influence_score": 70,
+          "parent_actor": "Apple Inc.",
+          "sub_actors": [
+            {
+              "name": "Apple Services LLC",
+              "description": "Core operational entity managing Apple's digital services ecosystem including App Store, Apple Music, Apple TV+, iCloud, Apple Arcade, and Apple News+. Handles content distribution, developer relationships, and subscription services generating over $50B in annual revenue.",
+              "type": "subsidiary",
+              "influence_score": 95,
+              "parent_actor": "Services Division",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Legal and Global Security",
+          "description": "Handles legal compliance, intellectual property, security, and regulatory affairs worldwide",
+          "type": "agency",
+          "influence_score": 65,
+          "parent_actor": "Apple Inc.",
+          "sub_actors": [
+            {
+              "name": "Thomson Reuters",
+              "description": "Global leader in legal information services, compliance solutions, and security intelligence. Provides critical data, research tools, and regulatory compliance platforms to legal professionals and security firms worldwide. Major influence on legal technology and information systems.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Legal and Global Security",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Marketing and Communications",
+          "description": "Controls brand messaging, product launches, and global marketing strategies",
+          "type": "agency",
+          "influence_score": 60,
+          "parent_actor": "Apple Inc.",
+          "sub_actors": [
+            {
+              "name": "WPP plc",
+              "description": "World's largest advertising and communications holding company, operating major agencies like Ogilvy, GroupM, and VMLY&R. Controls significant portion of global advertising spend and shapes international marketing trends.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Marketing and Communications",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "Russian Federation",
+      "description": "Major military power with significant energy resources, nuclear capabilities, and geopolitical influence.",
+      "type": "country",
+      "influence_score": 75,
+      "sub_actors": [
+        {
+          "name": "Office of the President",
+          "description": "Executive office holding supreme authority over state affairs, military command, and foreign policy, with extensive constitutional powers and direct control over security services",
+          "type": "government",
+          "influence_score": 98,
+          "parent_actor": "Russian Federation",
+          "sub_actors": [
+            {
+              "name": "Presidential Business Operations Corporation",
+              "description": "State-owned enterprise managing presidential properties, facilities, and business operations. Oversees government assets, presidential security infrastructure, and executive office operations. Controls significant government contracts and procurement for the executive branch.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Office of the President",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Security Council of Russia",
+          "description": "Presidential advisory body coordinating national security policy, military doctrine, and strategic planning with key government and security leaders",
+          "type": "government",
+          "influence_score": 90,
+          "parent_actor": "Russian Federation",
+          "sub_actors": [
+            {
+              "name": "Rostec",
+              "description": "State-owned defense conglomerate controlling Russia's military-industrial complex, aerospace technology, and advanced manufacturing. Produces everything from military equipment to civilian products, employing over 500,000 people across 700 subsidiaries. Critical supplier to Russian armed forces and major export revenue generator.",
+              "type": "conglomerate",
+              "influence_score": 95,
+              "parent_actor": "Security Council of Russia",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Federal Security Service (FSB)",
+          "description": "Primary security agency handling counter-intelligence, internal security, and border protection with extensive domestic surveillance capabilities",
+          "type": "agency",
+          "influence_score": 87,
+          "parent_actor": "Russian Federation",
+          "sub_actors": [
+            {
+              "name": "Kaspersky Lab",
+              "description": "Major cybersecurity company with close ties to FSB, providing security software and intelligence. Known for antivirus products and threat detection systems, the company has faced international scrutiny over alleged collaboration with Russian security services.",
+              "type": "corporation",
+              "influence_score": 85,
+              "parent_actor": "Federal Security Service (FSB)",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Russian Armed Forces",
+          "description": "Unified military command structure controlling all military branches, nuclear forces, and conducting military operations domestically and abroad",
+          "type": "military",
+          "influence_score": 85,
+          "parent_actor": "Russian Federation",
+          "sub_actors": [
+            {
+              "name": "Rostec",
+              "description": "State-owned defense conglomerate that develops, produces and exports high-tech industrial products for civil and military use. Controls over 700 organizations including key military manufacturers like United Aircraft Corporation, Russian Helicopters, and Kalashnikov Concern. Produces aircraft, weapons, electronic warfare systems and military equipment.",
+              "type": "conglomerate",
+              "influence_score": 95,
+              "parent_actor": "Russian Armed Forces",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "United Russia Party",
+          "description": "Dominant political party holding constitutional majority in parliament, implementing presidential policies and maintaining political control",
+          "type": "party",
+          "influence_score": 82,
+          "parent_actor": "Russian Federation",
+          "sub_actors": [
+            {
+              "name": "Gazprom",
+              "description": "State-controlled energy corporation and largest natural gas company in Russia. Significant contributor to state budget and key instrument of Russian energy policy. Close ties to United Russia Party leadership and crucial role in implementing state economic strategies.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "United Russia Party",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Ministry of Defense",
+          "description": "Controls military budget, defense procurement, and military strategy implementation, directly oversees armed forces operations",
+          "type": "ministry",
+          "influence_score": 80,
+          "parent_actor": "Russian Federation",
+          "sub_actors": [
+            {
+              "name": "Lockheed Martin Corporation",
+              "description": "Global aerospace, defense, and security company that is one of the largest defense contractors worldwide. Primary supplier of advanced military aircraft, missile systems, and military technology. Critical partner in numerous defense programs and strategic capabilities development.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Ministry of Defense",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Central Bank of Russia",
+          "description": "National financial regulator controlling monetary policy, currency operations, and banking sector oversight",
+          "type": "institution",
+          "influence_score": 75,
+          "parent_actor": "Russian Federation",
+          "sub_actors": [
+            {
+              "name": "Sberbank",
+              "description": "Russia's largest state-owned bank controlling about one-third of all banking assets in Russia. Provides comprehensive financial services, digital ecosystem solutions, and plays a crucial role in implementing CBR's monetary policies. Major player in retail and corporate banking with extensive national coverage.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Central Bank of Russia",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Gazprom",
+          "description": "State-controlled energy corporation wielding significant economic influence through control of natural gas resources and export infrastructure",
+          "type": "other",
+          "influence_score": 73,
+          "parent_actor": "Russian Federation",
+          "sub_actors": [
+            {
+              "name": "Gazprom Neft",
+              "description": "Major oil subsidiary of Gazprom focused on oil exploration, production, and refining. One of Russia's largest oil producers, operating key refineries and extensive retail network of filling stations. Controls significant upstream and downstream operations across Russia and internationally.",
+              "type": "subsidiary",
+              "influence_score": 85,
+              "parent_actor": "Gazprom",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "International Monetary Fund",
+      "description": "Key institution in global financial system, influencing international monetary policies and economic stability.",
+      "type": "organization",
+      "influence_score": 73,
+      "sub_actors": [
+        {
+          "name": "Executive Board",
+          "description": "Primary decision-making body that exercises most powers of the IMF Board of Governors, consisting of 24 Directors representing member countries or groups of countries",
+          "type": "institution",
+          "influence_score": 95,
+          "parent_actor": "International Monetary Fund",
+          "sub_actors": [
+            {
+              "name": "Goldman Sachs",
+              "description": "Global investment banking firm with significant influence on IMF policy through advisory roles, financial consulting, and former executives in key positions. Provides crucial economic analysis and financial market expertise to the Executive Board's decision-making process.",
+              "type": "corporation",
+              "influence_score": 89,
+              "parent_actor": "Executive Board",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Board of Governors",
+          "description": "Highest decision-making body consisting of one governor and one alternate governor for each member country, typically finance ministers or central bank heads",
+          "type": "institution",
+          "influence_score": 90,
+          "parent_actor": "International Monetary Fund",
+          "sub_actors": [
+            {
+              "name": "Goldman Sachs Group",
+              "description": "Global investment banking and securities firm that significantly influences monetary policy through research, advisory roles, and former executives in government positions. Provides critical financial analysis and recommendations that inform Board of Governors' decisions.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Board of Governors",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Managing Director's Office",
+          "description": "Leadership office headed by the Managing Director who oversees the IMF's operations, policy direction, and serves as chair of the Executive Board",
+          "type": "institution",
+          "influence_score": 88,
+          "parent_actor": "International Monetary Fund",
+          "sub_actors": [
+            {
+              "name": "JP Morgan Chase",
+              "description": "Global financial services firm that frequently interacts with and advises the IMF Managing Director's Office on international financial markets, monetary policy, and global economic trends. Provides critical market intelligence and serves as a key implementation partner for various IMF initiatives.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Managing Director's Office",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Strategy, Policy, and Review Department",
+          "description": "Central department responsible for developing IMF policies and ensuring consistency in IMF policy advice and lending practices",
+          "type": "department",
+          "influence_score": 85,
+          "parent_actor": "International Monetary Fund",
+          "sub_actors": [
+            {
+              "name": "McKinsey & Company",
+              "description": "Global management consulting firm that frequently advises the IMF's Strategy, Policy, and Review Department on organizational strategy, policy implementation, and economic analysis. Provides critical consulting services for policy framework development and institutional reforms.",
+              "type": "corporation",
+              "influence_score": 85,
+              "parent_actor": "Strategy, Policy, and Review Department",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Research Department",
+          "description": "Produces key economic analysis and research that underpins IMF policy advice and global economic surveillance",
+          "type": "department",
+          "influence_score": 82,
+          "parent_actor": "International Monetary Fund",
+          "sub_actors": [
+            {
+              "name": "Bloomberg L.P.",
+              "description": "Global financial data and media company providing critical economic data, analysis tools, and financial software that the Research Department heavily relies on for global economic monitoring and research. Their terminals and databases are essential for tracking real-time economic indicators and market movements.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Research Department",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "International Monetary and Financial Committee",
+          "description": "Advisory body that provides strategic direction to the work and policies of the IMF",
+          "type": "institution",
+          "influence_score": 80,
+          "parent_actor": "International Monetary Fund",
+          "sub_actors": [
+            {
+              "name": "BlackRock, Inc.",
+              "description": "World's largest asset management firm with significant influence on global financial markets and monetary policy. Provides advisory services and research to central banks and international financial institutions, including those involved with the IMFC. Their analysis and investment decisions can significantly impact international monetary policies.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "International Monetary and Financial Committee",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Area Departments",
+          "description": "Regional divisions responsible for country-specific policy implementation and monitoring across different geographical regions",
+          "type": "department",
+          "influence_score": 78,
+          "parent_actor": "International Monetary Fund",
+          "sub_actors": [
+            {
+              "name": "Regional Development Corporation",
+              "description": "Leading multinational consulting and development firm specializing in regional economic planning, policy implementation, and infrastructure development across geographical zones. Partners with governments to execute area-specific development strategies and monitors policy effectiveness.",
+              "type": "corporation",
+              "influence_score": 85,
+              "parent_actor": "Area Departments",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Finance Department",
+          "description": "Manages the IMF's financial resources and operations, including lending policies and quota system",
+          "type": "department",
+          "influence_score": 75,
+          "parent_actor": "International Monetary Fund",
+          "sub_actors": [
+            {
+              "name": "BlackRock",
+              "description": "World's largest asset management firm providing crucial financial advisory services and investment management expertise to the Finance Department, particularly in areas of sovereign debt management and global market analysis. Their risk assessment tools and market intelligence significantly influence IMF's financial decision-making processes.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Finance Department",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "Alphabet Inc.",
+      "description": "Parent company of Google, controlling crucial digital infrastructure, information access, and technological innovation.",
+      "type": "company",
+      "influence_score": 72,
+      "sub_actors": [
+        {
+          "name": "Google LLC",
+          "description": "Core subsidiary managing search, advertising, cloud services, and primary revenue streams. Controls key digital infrastructure and technology development.",
+          "type": "institution",
+          "influence_score": 95,
+          "parent_actor": "Alphabet Inc.",
+          "sub_actors": [
+            {
+              "name": "YouTube, LLC",
+              "description": "World's largest video sharing platform and streaming service. Critical revenue generator through advertising, subscriptions, and content monetization. Drives massive user engagement and cultural influence globally.",
+              "type": "subsidiary",
+              "influence_score": 95,
+              "parent_actor": "Google LLC",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Alphabet Board of Directors",
+          "description": "Supreme governing body making final decisions on company strategy, acquisitions, and leadership appointments.",
+          "type": "government",
+          "influence_score": 90,
+          "parent_actor": "Alphabet Inc.",
+          "sub_actors": [
+            {
+              "name": "Google LLC",
+              "description": "Primary revenue generator for Alphabet, operating the world's dominant search engine, digital advertising platform, and numerous internet services. Controls key technology infrastructure including Android OS, Chrome browser, and Google Cloud. Generates over 80% of Alphabet's total revenue.",
+              "type": "subsidiary",
+              "influence_score": 95,
+              "parent_actor": "Alphabet Board of Directors",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Google AI/DeepMind",
+          "description": "Leads artificial intelligence research and development, shaping future technology capabilities and strategic direction.",
+          "type": "institution",
+          "influence_score": 85,
+          "parent_actor": "Alphabet Inc.",
+          "sub_actors": [
+            {
+              "name": "Isomorphic Labs",
+              "description": "A DeepMind spin-off company focused on using AI for drug discovery and development. Leverages DeepMind's AI technology and expertise to revolutionize the pharmaceutical industry through computational approaches to drug design and molecular modeling.",
+              "type": "subsidiary",
+              "influence_score": 85,
+              "parent_actor": "Google AI/DeepMind",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Google Cloud",
+          "description": "Manages cloud computing infrastructure and enterprise services, critical for revenue growth and market expansion.",
+          "type": "institution",
+          "influence_score": 80,
+          "parent_actor": "Alphabet Inc.",
+          "sub_actors": [
+            {
+              "name": "Kubernetes",
+              "description": "Open-source container orchestration platform originally developed by Google, now managed by CNCF. Critical to Google Cloud's infrastructure and cloud-native solutions, driving widespread adoption of containerization and microservices architecture across the industry.",
+              "type": "subsidiary",
+              "influence_score": 95,
+              "parent_actor": "Google Cloud",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "YouTube",
+          "description": "Controls global video distribution platform, influencing content policies and digital advertising.",
+          "type": "institution",
+          "influence_score": 75,
+          "parent_actor": "Alphabet Inc.",
+          "sub_actors": [
+            {
+              "name": "Google Advertising",
+              "description": "Primary advertising and monetization engine for YouTube, controlling the platform's revenue generation, ad placement algorithms, and creator monetization policies. Manages multi-billion dollar advertising ecosystem and determines commercial viability of content.",
+              "type": "subsidiary",
+              "influence_score": 95,
+              "parent_actor": "YouTube",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "X Development LLC",
+          "description": "Research facility for moonshot technologies, directing long-term innovation strategy and future ventures.",
+          "type": "institution",
+          "influence_score": 70,
+          "parent_actor": "Alphabet Inc.",
+          "sub_actors": [
+            {
+              "name": "Google Research",
+              "description": "Primary research and development arm providing technological foundations, AI expertise, and innovative solutions that power X Development's moonshot projects. Contributes essential machine learning capabilities, computational resources, and technical talent.",
+              "type": "subsidiary",
+              "influence_score": 95,
+              "parent_actor": "X Development LLC",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Android Division",
+          "description": "Manages mobile operating system development, controlling smartphone ecosystem and app distribution.",
+          "type": "institution",
+          "influence_score": 65,
+          "parent_actor": "Alphabet Inc.",
+          "sub_actors": [
+            {
+              "name": "Samsung Electronics",
+              "description": "Largest Android device manufacturer globally, wielding significant influence over Android's development direction through market dominance and strategic partnership with Google. Controls major share of Android smartphone market and drives hardware innovation standards.",
+              "type": "corporation",
+              "influence_score": 92,
+              "parent_actor": "Android Division",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        },
+        {
+          "name": "Waymo",
+          "description": "Autonomous vehicle technology division, leading development in self-driving transportation systems.",
+          "type": "institution",
+          "influence_score": 60,
+          "parent_actor": "Alphabet Inc.",
+          "sub_actors": [
+            {
+              "name": "Alphabet Inc.",
+              "description": "Parent company of Waymo, providing strategic direction, financial backing, and technological resources. As one of the world's most valuable companies, Alphabet's support has been crucial in Waymo's development of autonomous vehicle technology and market expansion.",
+              "type": "corporation",
+              "influence_score": 95,
+              "parent_actor": "Waymo",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 1
+        }
+      ],
+      "sub_actors_count": 8
+    }
+  ],
+  "total_main_actors": 10,
+  "total_subactors": 80,
+  "level": 2
+}

@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T09:42:21.626995",
+    "run_folder": "run_2025-07-16_6",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "num_actors_requested": 5,
+    "num_actors_generated": 5,
+    "script_version": "2.0.0",
+    "generation_method": "LLM-based",
+    "level": 0,
+    "cost_tracking": {
+      "total_cost": 0.012400000000000001,
+      "api_calls": 1,
+      "providers": {
+        "anthropic": {
+          "cost": 0.012400000000000001,
+          "calls": 1,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.012400000000000001,
+              "calls": 1,
+              "tokens": {
+                "input": 491,
+                "output": 353,
+                "total": 844
+              }
+            }
+          },
+          "tokens": {
+            "input": 491,
+            "output": 353,
+            "total": 844
+          }
+        }
+      },
+      "session_start": "2025-07-16T09:42:12.372259",
+      "tokens_used": {
+        "input_tokens": 491,
+        "output_tokens": 353,
+        "total_tokens": 844
+      },
+      "session_duration_seconds": 9.25473,
+      "session_duration_str": "0:00:09.254730",
+      "average_cost_per_call": 0.012400000000000001,
+      "cost_per_1k_tokens": 0.014691943127962088
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with dominant military, economic, technological, and cultural influence. Controls global financial systems, leads innovation, and shapes international policy.",
+      "type": "country",
+      "influence_score": 95
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "Rising superpower with world's largest population, second-largest economy, growing military power, and expanding global infrastructure initiatives like Belt and Road.",
+      "type": "country",
+      "influence_score": 89
+    },
+    {
+      "name": "European Union",
+      "description": "Powerful economic and political alliance of 27 states, representing significant trade bloc, regulatory influence, and diplomatic power.",
+      "type": "alliance",
+      "influence_score": 82
+    },
+    {
+      "name": "Big Tech Consortium (Meta, Apple, Microsoft, Google, Amazon)",
+      "description": "Collective tech giants controlling global digital infrastructure, data, AI development, and online platforms that shape modern society.",
+      "type": "company",
+      "influence_score": 78
+    },
+    {
+      "name": "Federal Reserve System",
+      "description": "US central bank with enormous influence over global financial markets, monetary policy, and international economic stability.",
+      "type": "organization",
+      "influence_score": 75
+    }
+  ],
+  "total_count": 5
+}
