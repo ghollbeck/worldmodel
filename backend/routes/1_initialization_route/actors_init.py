@@ -16,6 +16,7 @@ if __name__ == "__main__":
     sys.path.insert(0, parent_dir)
 
 from worldmodel.backend.llm.llm import call_llm_api, get_cost_session, reset_cost_session, print_cost_summary
+from worldmodel.backend.routes.1_initialization_route.prompts import generate_initial_actor_prompts
 
 def log_error(error_type, error_message, details=None, exception=None):
     """
@@ -215,57 +216,9 @@ def get_worldmodel_actors_via_llm(model_provider="anthropic", model_name="claude
         - File saving errors are logged but don't prevent function completion
     """
     
-    system_context = (
-        "You are an expert in geopolitics, international relations, and global power dynamics. "
-        "Your task is to identify and rank the most influential actors that shape our world today. "
-        "These actors should be the ones with the greatest impact on global economics, politics, "
-        "technology, culture, and society. Focus on entities that have the power to influence "
-        "international relations, global markets, and major world events.\n\n"
-        
-        "Return ONLY a valid JSON object with the following structure:\n"
-        "{\n"
-        '  "actors": [\n'
-        '    {\n'
-        '      "name": "Actor Name",\n'
-        '      "description": "Brief description of their influence and role",\n'
-        '      "type": "country|company|organization|individual|alliance",\n'
-        '      "influence_score": 1-100 (integer)\n'
-        '    }\n'
-        '  ],\n'
-        '  "total_count": number_of_actors\n'
-        "}\n\n"
-        "Do not include any explanation or text outside the JSON.\n\n"
-    )
-
-    user_context = (
-        f"Generate a list of the {num_actors} most influential actors in the world today. "
-        "These should be the entities that have the greatest power to shape global dynamics. "
-        "Consider the following categories and prioritize the most impactful:\n\n"
-        
-        "**Countries**: Major world powers, economic superpowers, regional hegemons\n"
-        "**Companies**: Multinational corporations, tech giants, financial institutions, energy companies\n"
-        "**Organizations**: International bodies (UN, IMF, WTO), military alliances (NATO), economic blocs (EU, G7, G20)\n"
-        "**Individuals**: World leaders, tech moguls, financial leaders, influential figures\n"
-        "**Alliances**: Political, economic, or military partnerships\n\n"
-        
-        "For each actor, provide:\n"
-        "- **name**: The official name of the actor\n"
-        "- **description**: A concise explanation of their influence and global impact\n"
-        "- **type**: One of: country, company, organization, individual, alliance\n"
-        "- **influence_score**: A score from 1-100 based on their global influence (100 = maximum global impact)\n\n"
-        
-        "Rank them by influence score (highest first). Consider factors like:\n"
-        "- Economic power and market capitalization\n"
-        "- Political influence and diplomatic reach\n"
-        "- Military capabilities and strategic importance\n"
-        "- Technological innovation and control\n"
-        "- Cultural and social influence\n"
-        "- Resource control and energy influence\n"
-        "- Population and demographic impact\n\n"
-        
-        f"Return exactly {num_actors} actors in the JSON format specified above."
-    )
-
+    # Generate prompts using the centralized prompts module
+    system_context, user_context = generate_initial_actor_prompts(num_actors)
+    
     # Combine system and user contexts into a single prompt
     full_prompt = system_context + user_context
 
