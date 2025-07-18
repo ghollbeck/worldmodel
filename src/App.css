@@ -1042,3 +1042,58 @@ body {
     width: 100%;
   }
 } 
+
+/* ===== Collapsible JSON Viewer ===== */
+.collapsible-json-viewer {
+  margin-top: 20px;
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px;
+  max-height: 60vh;
+  overflow-y: auto;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8rem;
+  overflow-x: auto; /* allow horizontal scroll */
+}
+
+.json-node-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  background: #f0f0f0;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin: 2px 0;
+  white-space: pre; /* prevent line wrapping */
+  overflow-x: auto; /* individual scroll if needed */
+  width: 100%; /* occupy full available width */
+  box-sizing: border-box;
+}
+
+.toggle-icon {
+  width: 1rem;
+}
+
+.json-key {
+  font-weight: 600;
+}
+
+.json-leaf {
+  margin: 2px 0;
+  white-space: pre; /* prevent line wrapping */
+  overflow-x: auto; /* individual scroll if needed */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.json-value {
+  color: #005a9c;
+}
+
+/* make long strings break */
+.collapsible-json-viewer {
+  word-break: break-all;
+} 

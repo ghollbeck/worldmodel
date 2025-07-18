@@ -824,7 +824,9 @@ async def generate_complete_world_model_async(model_provider: str = "anthropic",
                                             model_name: str = "claude-3-5-sonnet-latest",
                                             target_depth: int = 3,
                                             level_counts: Optional[List[int]] = None,
-                                            skip_on_error: bool = True) -> Optional[Path]:
+                                            skip_on_error: bool = True,
+                                            num_actors: Optional[int] = None,
+                                            num_subactors: Optional[int] = None) -> Optional[Path]:
     """
     Generate a complete world model with all levels from 0 to target_depth (async version)
     
@@ -833,8 +835,11 @@ async def generate_complete_world_model_async(model_provider: str = "anthropic",
         model_name: Specific model name
         target_depth: Maximum depth to generate (0 = only initial actors)
         level_counts: List of four integers specifying the number of actors/sub-actors
-                      for each level (L0, L1, L2, L3).
+                      for each level (L0, L1, L2, L3). If None, will be constructed from
+                      num_actors and num_subactors.
         skip_on_error: Whether to skip actors that fail generation
+        num_actors: Number of initial actors (Level 0). Alternative to level_counts.
+        num_subactors: Number of sub-actors per actor (Level 1+). Alternative to level_counts.
         
     Returns:
         Path to the run folder containing all generated files
@@ -843,8 +848,16 @@ async def generate_complete_world_model_async(model_provider: str = "anthropic",
     print(f"🌍 STARTING COMPLETE WORLD MODEL GENERATION (ASYNC)")
     print(f"🔧 Provider: {model_provider}")
     print(f"🤖 Model: {model_name}")
+    
+    # Handle parameter conversion: if num_actors/num_subactors provided, convert to level_counts
     if level_counts is None:
-        level_counts = [10, 8, 0, 0]  # sensible defaults if none supplied
+        if num_actors is not None or num_subactors is not None:
+            # Use provided values or defaults
+            actors = num_actors if num_actors is not None else 10
+            subactors = num_subactors if num_subactors is not None else 8
+            level_counts = [actors, subactors, 0, 0]  # Only generate L0 and L1 by default
+        else:
+            level_counts = [10, 8, 0, 0]  # sensible defaults if none supplied
 
     # Ensure exactly 4 elements
     if len(level_counts) < 4:
@@ -943,7 +956,9 @@ def generate_complete_world_model(model_provider: str = "anthropic",
                                  model_name: str = "claude-3-5-sonnet-latest",
                                  target_depth: int = 3,
                                  level_counts: Optional[List[int]] = None,
-                                 skip_on_error: bool = True) -> Optional[Path]:
+                                 skip_on_error: bool = True,
+                                 num_actors: Optional[int] = None,
+                                 num_subactors: Optional[int] = None) -> Optional[Path]:
     """
     Synchronous wrapper for the async world model generation
     """
@@ -952,7 +967,9 @@ def generate_complete_world_model(model_provider: str = "anthropic",
         model_name=model_name,
         target_depth=target_depth,
         level_counts=level_counts,
-        skip_on_error=skip_on_error
+        skip_on_error=skip_on_error,
+        num_actors=num_actors,
+        num_subactors=num_subactors
     ))
 
 # ==================== MAIN EXECUTION ====================

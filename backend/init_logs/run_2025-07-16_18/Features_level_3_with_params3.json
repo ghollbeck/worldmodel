@@ -1,0 +1,1766 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T15:54:24.333621",
+    "run_folder": "run_2025-07-16_18",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "script_version": "2.0.0",
+    "level": 3,
+    "parent_file": "Features_level_2.json",
+    "original_metadata": {
+      "timestamp": "2025-07-16T15:53:33.318878",
+      "run_folder": "run_2025-07-16_18",
+      "model_provider": "anthropic",
+      "model_name": "claude-3-5-sonnet-latest",
+      "num_actors_requested": 2,
+      "num_actors_generated": 2,
+      "script_version": "2.0.0",
+      "generation_method": "LLM-based",
+      "level": 0,
+      "cost_tracking": {
+        "total_cost": 0.0076159999999999995,
+        "api_calls": 1,
+        "providers": {
+          "anthropic": {
+            "cost": 0.0076159999999999995,
+            "calls": 1,
+            "models": {
+              "claude-3-5-sonnet-latest": {
+                "cost": 0.0076159999999999995,
+                "calls": 1,
+                "tokens": {
+                  "input": 448,
+                  "output": 168,
+                  "total": 616
+                }
+              }
+            },
+            "tokens": {
+              "input": 448,
+              "output": 168,
+              "total": 616
+            }
+          }
+        },
+        "session_start": "2025-07-16T15:53:28.267418",
+        "tokens_used": {
+          "input_tokens": 448,
+          "output_tokens": 168,
+          "total_tokens": 616
+        },
+        "session_duration_seconds": 5.051455,
+        "session_duration_str": "0:00:05.051455",
+        "average_cost_per_call": 0.0076159999999999995,
+        "cost_per_1k_tokens": 0.012363636363636363
+      }
+    },
+    "parallelization": {
+      "enabled": true,
+      "max_concurrent_threads": 5,
+      "total_parallel_tasks": 12
+    },
+    "generation_stats": {
+      "total_main_actors": 2,
+      "total_subactors": 24,
+      "actors_with_subactors": 2,
+      "avg_subactors_per_actor": 12.0,
+      "successful_actors": 12,
+      "failed_actors": 0
+    },
+    "cost_tracking": {
+      "total_cost": 0.185864,
+      "api_calls": 19,
+      "providers": {
+        "anthropic": {
+          "cost": 0.185864,
+          "calls": 19,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.185864,
+              "calls": 19,
+              "tokens": {
+                "input": 8458,
+                "output": 4925,
+                "total": 13383
+              }
+            }
+          },
+          "tokens": {
+            "input": 8458,
+            "output": 4925,
+            "total": 13383
+          }
+        }
+      },
+      "session_start": "2025-07-16T15:53:28.267418",
+      "tokens_used": {
+        "input_tokens": 8458,
+        "output_tokens": 4925,
+        "total_tokens": 13383
+      },
+      "session_duration_seconds": 56.066196,
+      "session_duration_str": "0:00:56.066196",
+      "average_cost_per_call": 0.009782315789473684,
+      "cost_per_1k_tokens": 0.013888066950608983
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with unmatched military capabilities, largest economy by GDP, dominant financial system (USD), technological leadership, and extensive diplomatic influence across all continents. Controls key international institutions and maintains significant cultural soft power.",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Executive Office of the President",
+          "description": "Core executive branch led by POTUS with supreme executive authority, commander-in-chief powers, and extensive policy/regulatory control via executive orders. Houses National Security Council, controls federal agencies, and shapes foreign policy. Most powerful single institution in US governance.",
+          "type": "government",
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "Lockheed Martin Corporation",
+              "description": "Leading defense contractor and aerospace company with extensive government contracts, particularly in military hardware, security systems, and classified technology development. Major influence on defense policy and national security decisions through lobbying and strategic partnerships.",
+              "type": "corporation",
+              "parent_actor": "Executive Office of the President",
+              "sub_actors": [
+                {
+                  "name": "James D. Taiclet",
+                  "description": "President and CEO of Lockheed Martin since 2020. Led company through major defense contracts and technological innovations in F-35 program, hypersonic weapons, and space systems. Former U.S. Air Force pilot with extensive aerospace industry experience. Drives strategic vision and relationships with government stakeholders.",
+                  "type": "ceo",
+                  "parent_actor": "Lockheed Martin Corporation",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "military_background_years",
+                      "name": "Military Service Years",
+                      "description": "Years of active military service experience, particularly relevant for defense industry leadership and stakeholder relationships.",
+                      "type": "integer",
+                      "expected_value": "5-20"
+                    },
+                    {
+                      "code_name": "defense_contract_influence",
+                      "name": "Defense Contract Influence Score",
+                      "description": "Measure of ability to secure and manage major defense contracts based on relationships and track record.",
+                      "type": "float",
+                      "expected_value": "0.0 - 1.0"
+                    },
+                    {
+                      "code_name": "tech_innovation_focus",
+                      "name": "Technology Innovation Priority",
+                      "description": "Level of emphasis placed on technological advancement and R&D initiatives in company strategy.",
+                      "type": "float",
+                      "expected_value": "0.0 - 1.0"
+                    },
+                    {
+                      "code_name": "govt_relations_strength",
+                      "name": "Government Relations Strength",
+                      "description": "Effectiveness in maintaining and leveraging relationships with government stakeholders and defense departments.",
+                      "type": "float",
+                      "expected_value": "0.0 - 1.0"
+                    }
+                  ]
+                },
+                {
+                  "name": "Marillyn Hewson",
+                  "description": "Former CEO (2013-2020) and current Strategic Advisor to the CEO. Named most powerful woman in business by Fortune multiple times. Transformed company's portfolio, led major acquisitions including Sikorsky Aircraft, and strengthened international presence. Continues to influence company strategy and government relations.",
+                  "type": "leader",
+                  "parent_actor": "Lockheed Martin Corporation",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "strategic_influence_score",
+                      "name": "Strategic Influence Score",
+                      "description": "Measure of ability to shape company direction and policy through advisory role and relationships",
+                      "type": "float",
+                      "expected_value": "0.0 - 1.0"
+                    },
+                    {
+                      "code_name": "govt_relations_strength",
+                      "name": "Government Relations Strength",
+                      "description": "Level of effectiveness in managing relationships with government stakeholders and securing contracts",
+                      "type": "integer",
+                      "expected_value": "1-10"
+                    },
+                    {
+                      "code_name": "acquisition_success_rate",
+                      "name": "Acquisition Success Rate",
+                      "description": "Historical success rate in identifying, executing, and integrating major corporate acquisitions",
+                      "type": "float",
+                      "expected_value": "0.0 - 1.0"
+                    },
+                    {
+                      "code_name": "international_expansion_focus",
+                      "name": "International Expansion Focus",
+                      "description": "Degree of emphasis on international market growth and global partnerships in strategy recommendations",
+                      "type": "float",
+                      "expected_value": "0.0 - 1.0"
+                    }
+                  ]
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "defense_contracts_value",
+                  "name": "Defense Contract Portfolio Value",
+                  "description": "Total annual value of active defense contracts with government entities in billions USD. Key indicator of company's market position and influence.",
+                  "type": "float",
+                  "expected_value": "30.0 - 70.0"
+                },
+                {
+                  "code_name": "rd_investment_ratio",
+                  "name": "R&D Investment Ratio",
+                  "description": "Percentage of annual revenue invested in research and development of new military and aerospace technologies. Reflects innovation capacity and future capabilities.",
+                  "type": "float",
+                  "expected_value": "0.05 - 0.15"
+                },
+                {
+                  "code_name": "security_clearance_level",
+                  "name": "Security Clearance Level",
+                  "description": "Highest level of government security clearance held by the corporation for classified projects. Determines access to sensitive contracts and information.",
+                  "type": "string",
+                  "expected_value": "['SECRET', 'TOP SECRET', 'TS/SCI']"
+                },
+                {
+                  "code_name": "lobbying_influence_score",
+                  "name": "Lobbying Influence Score",
+                  "description": "Composite score measuring effectiveness of political lobbying activities and influence on defense policy decisions. Based on spending, successful contract awards, and policy impacts.",
+                  "type": "float",
+                  "expected_value": "0.0 - 10.0"
+                }
+              ]
+            },
+            {
+              "name": "Boeing Company",
+              "description": "Major aerospace and defense corporation with significant government contracts, including Air Force One and military aircraft. Substantial influence on aviation policy, defense procurement, and international trade relations through high-level government engagement.",
+              "type": "corporation",
+              "parent_actor": "Executive Office of the President",
+              "sub_actors": [
+                {
+                  "name": "Dave Calhoun",
+                  "description": "President and CEO of Boeing since January 2020. Leading Boeing through major challenges including the 737 MAX crisis and COVID-19 impact. Previously served as Boeing's Chairman of the Board. Has overseen significant corporate restructuring and safety protocol overhaul while managing relationships with regulators, airlines, and government officials.",
+                  "type": "ceo",
+                  "parent_actor": "Boeing Company",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "crisis_management_score",
+                      "name": "Crisis Management Effectiveness",
+                      "description": "Measure of effectiveness in handling major corporate crises and safety incidents, based on response time, resolution success, and stakeholder satisfaction.",
+                      "type": "float",
+                      "expected_value": "0.0 - 10.0"
+                    },
+                    {
+                      "code_name": "regulatory_relationship_strength",
+                      "name": "Regulatory Authority Relationship Index",
+                      "description": "Strength of working relationships with aviation regulators like FAA, measured through approval rates and communication effectiveness.",
+                      "type": "float",
+                      "expected_value": "1.0 - 5.0"
+                    },
+                    {
+                      "code_name": "safety_compliance_priority",
+                      "name": "Safety Protocol Implementation Priority",
+                      "description": "Level of emphasis placed on implementing and maintaining safety protocols and standards across the organization.",
+                      "type": "integer",
+                      "expected_value": "1 - 100"
+                    },
+                    {
+                      "code_name": "restructuring_experience",
+                      "name": "Corporate Restructuring Experience",
+                      "description": "Years of experience in managing major corporate restructuring and organizational change initiatives at executive level.",
+                      "type": "integer",
+                      "expected_value": "0 - 40"
+                    }
+                  ]
+                },
+                {
+                  "name": "William Boeing",
+                  "description": "Founder of The Boeing Company in 1916. Pioneered the aviation industry and transformed a small airplane manufacturing business into one of the world's largest aerospace companies. His legacy continues to influence the company's culture and direction. Inducted into the Aviation Hall of Fame and recipient of multiple industry honors.",
+                  "type": "founder",
+                  "parent_actor": "Boeing Company",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "aviation_expertise",
+                      "name": "Aviation Industry Expertise",
+                      "description": "Level of technical and business knowledge in aviation, combining engineering understanding and industry vision.",
+                      "type": "float",
+                      "expected_value": "0.0 - 1.0"
+                    },
+                    {
+                      "code_name": "innovation_mindset",
+                      "name": "Innovation Leadership Score",
+                      "description": "Measure of ability to drive technological advancement and organizational innovation in aerospace manufacturing.",
+                      "type": "float",
+                      "expected_value": "0.85 - 0.95"
+                    },
+                    {
+                      "code_name": "company_growth_rate",
+                      "name": "Annual Company Growth Rate",
+                      "description": "Average yearly growth rate of Boeing under William Boeing's leadership, reflecting business expansion and market penetration.",
+                      "type": "float",
+                      "expected_value": "15.0 - 30.0"
+                    },
+                    {
+                      "code_name": "industry_influence",
+                      "name": "Industry Influence Factor",
+                      "description": "Quantified measure of impact on aviation industry standards, policies, and development based on achievements and recognition.",
+                      "type": "float",
+                      "expected_value": "0.8 - 1.0"
+                    }
+                  ]
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "defense_contract_value",
+                  "name": "Defense Contract Portfolio Value",
+                  "description": "Total value of active defense contracts with government entities in billions USD, indicating influence and commitment level in military sector.",
+                  "type": "float",
+                  "expected_value": "20.0 - 100.0"
+                },
+                {
+                  "code_name": "aircraft_deliveries",
+                  "name": "Annual Aircraft Deliveries",
+                  "description": "Number of commercial and military aircraft delivered per year, representing production capacity and market performance.",
+                  "type": "integer",
+                  "expected_value": "300 - 800"
+                },
+                {
+                  "code_name": "lobbying_expenditure",
+                  "name": "Annual Lobbying Expenditure",
+                  "description": "Amount spent on government lobbying activities annually in millions USD, measuring political influence efforts.",
+                  "type": "float",
+                  "expected_value": "10.0 - 25.0"
+                },
+                {
+                  "code_name": "safety_rating",
+                  "name": "Safety Compliance Rating",
+                  "description": "Composite score of safety compliance and incident metrics, affecting regulatory standing and public trust.",
+                  "type": "float",
+                  "expected_value": "0.0 - 1.0"
+                }
+              ]
+            },
+            {
+              "name": "Palantir Technologies",
+              "description": "Data analytics and software company with deep ties to government intelligence and defense agencies. Provides critical technology infrastructure and data analysis capabilities to various executive branch departments, influencing decision-making processes and policy implementation.",
+              "type": "corporation",
+              "parent_actor": "Executive Office of the President",
+              "sub_actors": [
+                {
+                  "name": "Peter Thiel",
+                  "description": "Co-founder of Palantir Technologies and influential tech entrepreneur. Early Facebook investor and PayPal co-founder who helped shape Palantir's mission and strategic direction. Maintains significant influence through board membership and continues to be a key strategic advisor. Known for his political influence and connections to government agencies.",
+                  "type": "founder",
+                  "parent_actor": "Palantir Technologies",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "strategic_influence_level",
+                      "name": "Strategic Influence Level",
+                      "description": "Measure of direct influence on company strategy and decision-making through board position and advisory role. Reflects ability to shape major company directions.",
+                      "type": "float",
+                      "expected_value": "0.0 - 1.0"
+                    },
+                    {
+                      "code_name": "government_connection_strength",
+                      "name": "Government Connection Strength",
+                      "description": "Level of access and relationships with government agencies and political figures. Important for Palantir's government contracts and regulatory navigation.",
+                      "type": "integer",
+                      "expected_value": "1-10"
+                    },
+                    {
+                      "code_name": "ownership_stake_percentage",
+                      "name": "Ownership Stake Percentage",
+                      "description": "Percentage of company ownership through direct shares and investment vehicles. Critical for determining voting power and financial influence.",
+                      "type": "float",
+                      "expected_value": "0.0 - 100.0"
+                    },
+                    {
+                      "code_name": "tech_industry_credibility",
+                      "name": "Tech Industry Credibility",
+                      "description": "Reputation and influence level within the broader technology industry based on past successes and current positions. Affects ability to attract partnerships and talent.",
+                      "type": "float",
+                      "expected_value": "0.0 - 10.0"
+                    }
+                  ]
+                },
+                {
+                  "name": "Alex Karp",
+                  "description": "CEO and co-founder of Palantir Technologies since 2004. Has led the company's growth from startup to public company, securing major government contracts and expanding into commercial markets. Known for his unique leadership style and strong advocacy for Palantir's role in national security and defense.",
+                  "type": "ceo",
+                  "parent_actor": "Palantir Technologies",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "risk_tolerance",
+                      "name": "Risk Tolerance Level",
+                      "description": "Measure of willingness to pursue high-risk government contracts and controversial projects, reflecting leadership style in sensitive domains.",
+                      "type": "float",
+                      "expected_value": "0.8 - 0.95"
+                    },
+                    {
+                      "code_name": "govt_contract_influence",
+                      "name": "Government Contract Influence",
+                      "description": "Ability to secure and maintain major government contracts, measured as a success rate in contract negotiations.",
+                      "type": "float",
+                      "expected_value": "0.7 - 0.9"
+                    },
+                    {
+                      "code_name": "tech_vision_alignment",
+                      "name": "Technology Vision Alignment",
+                      "description": "Degree of alignment between CEO's strategic vision and current technology/market trends for data analytics and AI.",
+                      "type": "float",
+                      "expected_value": "0.6 - 0.9"
+                    },
+                    {
+                      "code_name": "public_controversy_count",
+                      "name": "Public Controversy Incidents",
+                      "description": "Number of significant public controversies or debates initiated or engaged in regarding company policies and national security stance per year.",
+                      "type": "integer",
+                      "expected_value": "3 - 8"
+                    }
+                  ]
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "govt_contract_value",
+                  "name": "Government Contract Value",
+                  "description": "Total annual value of active government contracts and partnerships in billions USD, indicating level of public sector influence.",
+                  "type": "float",
+                  "expected_value": "1.0 - 5.0"
+                },
+                {
+                  "code_name": "classified_access_level",
+                  "name": "Security Clearance Level",
+                  "description": "Highest level of government security clearance held by the organization for accessing sensitive data.",
+                  "type": "string",
+                  "expected_value": "['SECRET', 'TOP_SECRET', 'TS/SCI']"
+                },
+                {
+                  "code_name": "data_processing_capacity",
+                  "name": "Data Processing Capacity",
+                  "description": "Daily volume of data that can be processed and analyzed across all platforms in petabytes.",
+                  "type": "float",
+                  "expected_value": "10.0 - 100.0"
+                },
+                {
+                  "code_name": "agency_integration_count",
+                  "name": "Agency Integration Count",
+                  "description": "Number of different government agencies and departments actively using Palantir's software platforms.",
+                  "type": "integer",
+                  "expected_value": "20 - 100"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "depth": 2,
+          "parameters": [
+            {
+              "code_name": "executive_order_count",
+              "name": "Executive Orders Issued",
+              "description": "Number of executive orders issued by the administration in the current year, indicating direct policy impact and use of executive authority.",
+              "type": "integer",
+              "expected_value": "0-100"
+            },
+            {
+              "code_name": "approval_rating",
+              "name": "Presidential Approval Rating",
+              "description": "Current public approval rating of the President, which influences political capital and ability to implement agenda.",
+              "type": "float",
+              "expected_value": "0.0 - 100.0"
+            },
+            {
+              "code_name": "foreign_policy_stance",
+              "name": "Foreign Policy Orientation",
+              "description": "Current administration's general approach to international relations, ranging from isolationist to interventionist.",
+              "type": "string",
+              "expected_value": "['isolationist', 'moderate', 'interventionist']"
+            },
+            {
+              "code_name": "wartime_status",
+              "name": "Active Military Engagement",
+              "description": "Whether the US is currently engaged in significant military operations under commander-in-chief powers.",
+              "type": "boolean",
+              "expected_value": "true/false"
+            }
+          ]
+        },
+        {
+          "name": "Federal Reserve System",
+          "description": "Central bank controlling US monetary policy, interest rates, and financial stability. Immense influence over global markets through USD management, banking regulation, and economic policy. Semi-independent institution with vast economic power.",
+          "type": "institution",
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "JPMorgan Chase & Co.",
+              "description": "Largest U.S. bank by assets, primary dealer of U.S. Treasury securities, major participant in Federal Reserve operations and monetary policy transmission. Key player in Fed's payment systems and significant influence on banking policy.",
+              "type": "corporation",
+              "parent_actor": "Federal Reserve System",
+              "sub_actors": [
+                {
+                  "name": "Jamie Dimon",
+                  "description": "Chairman and CEO of JPMorgan Chase since 2005. Led the company through the 2008 financial crisis, oversaw major acquisitions including Bear Stearns, and transformed JPMorgan into the largest U.S. bank by assets. Known for his influential voice on financial policy and economic matters.",
+                  "type": "ceo",
+                  "parent_actor": "JPMorgan Chase & Co.",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "risk_tolerance",
+                      "name": "Risk Tolerance Level",
+                      "description": "Measures willingness to take calculated financial and business risks, particularly during market uncertainties or acquisition opportunities.",
+                      "type": "float",
+                      "expected_value": "0.7 - 0.9"
+                    },
+                    {
+                      "code_name": "market_influence_score",
+                      "name": "Market Influence Score",
+                      "description": "Quantifies ability to impact market sentiment and policy decisions through public statements and actions.",
+                      "type": "float",
+                      "expected_value": "0.8 - 1.0"
+                    },
+                    {
+                      "code_name": "years_as_ceo",
+                      "name": "Years as CEO",
+                      "description": "Duration of tenure as CEO, indicating experience level and institutional knowledge depth.",
+                      "type": "integer",
+                      "expected_value": "18"
+                    },
+                    {
+                      "code_name": "crisis_management_rating",
+                      "name": "Crisis Management Rating",
+                      "description": "Assessment of effectiveness in handling major corporate and economic crises based on historical performance.",
+                      "type": "float",
+                      "expected_value": "0.85 - 0.95"
+                    }
+                  ]
+                },
+                {
+                  "name": "J.P. Morgan",
+                  "description": "Legendary financier and founder who established J.P. Morgan & Co., the predecessor to modern JPMorgan Chase. Dominated corporate finance and industrial consolidation in the Gilded Age, stabilized financial markets during the 1907 panic, and built the foundation of today's banking giant.",
+                  "type": "founder",
+                  "parent_actor": "JPMorgan Chase & Co.",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "market_influence_score",
+                      "name": "Market Influence Score",
+                      "description": "Measure of ability to influence financial markets and coordinate other banking institutions during crises. Reflects power to stabilize or direct market movements.",
+                      "type": "float",
+                      "expected_value": "0.0 - 1.0"
+                    },
+                    {
+                      "code_name": "controlled_assets_usd",
+                      "name": "Controlled Assets in USD",
+                      "description": "Total value of financial assets under direct control or influence, adjusted to modern USD equivalent. Represents financial leverage and scope of operations.",
+                      "type": "float",
+                      "expected_value": "50000000000 - 100000000000"
+                    },
+                    {
+                      "code_name": "industrial_consolidations",
+                      "name": "Industrial Consolidations",
+                      "description": "Number of major corporate mergers and industrial consolidations orchestrated. Indicates scope of influence in shaping American industrial landscape.",
+                      "type": "integer",
+                      "expected_value": "0 - 100"
+                    },
+                    {
+                      "code_name": "trust_network_strength",
+                      "name": "Trust Network Strength",
+                      "description": "Measure of relationships and influence with other major financial institutions and industrialists. Represents ability to coordinate collective action and mobilize resources.",
+                      "type": "float",
+                      "expected_value": "0.0 - 1.0"
+                    }
+                  ]
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "total_assets",
+                  "name": "Total Assets Under Management",
+                  "description": "Total value of assets controlled by the bank, a key measure of institutional size and market influence.",
+                  "type": "float",
+                  "expected_value": "2.5T - 4.0T USD"
+                },
+                {
+                  "code_name": "tier1_capital_ratio",
+                  "name": "Tier 1 Capital Ratio",
+                  "description": "Core measure of bank's financial strength and stability, expressing core capital as percentage of risk-weighted assets.",
+                  "type": "float",
+                  "expected_value": "12.0 - 15.0"
+                },
+                {
+                  "code_name": "treasury_holdings",
+                  "name": "U.S. Treasury Securities Holdings",
+                  "description": "Value of U.S. Treasury securities held by the bank, indicating its role in government debt markets and monetary policy.",
+                  "type": "float",
+                  "expected_value": "200B - 500B USD"
+                },
+                {
+                  "code_name": "fed_funds_exposure",
+                  "name": "Federal Funds Market Exposure",
+                  "description": "Bank's level of participation in overnight lending markets, crucial for monetary policy transmission.",
+                  "type": "float",
+                  "expected_value": "50B - 150B USD"
+                }
+              ]
+            },
+            {
+              "name": "Goldman Sachs Group",
+              "description": "Premier investment bank and primary dealer, crucial role in Fed's market operations and policy implementation. Significant influence on monetary policy through market making and financial advisory services to the Federal Reserve.",
+              "type": "corporation",
+              "parent_actor": "Federal Reserve System",
+              "sub_actors": [
+                {
+                  "name": "David Solomon",
+                  "description": "CEO of Goldman Sachs since 2018, leading the firm's strategic direction and digital transformation. Known for modernizing the bank's operations, expanding consumer banking initiatives, and navigating the firm through market volatility. Also serves on the Board of Directors of the Federal Reserve Bank of New York.",
+                  "type": "ceo",
+                  "parent_actor": "Goldman Sachs Group",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "years_as_ceo",
+                      "name": "Years of CEO Tenure",
+                      "description": "Number of years serving as CEO of Goldman Sachs, indicating experience and influence in the role.",
+                      "type": "float",
+                      "expected_value": "5.5"
+                    },
+                    {
+                      "code_name": "digital_transformation_index",
+                      "name": "Digital Transformation Score",
+                      "description": "Metric representing progress and success in implementing digital initiatives and technological modernization at the firm.",
+                      "type": "float",
+                      "expected_value": "0.0 - 1.0"
+                    },
+                    {
+                      "code_name": "market_influence_score",
+                      "name": "Market Influence Rating",
+                      "description": "Measure of CEO's impact and authority in global financial markets, considering Fed position and industry leadership.",
+                      "type": "float",
+                      "expected_value": "1.0 - 10.0"
+                    },
+                    {
+                      "code_name": "strategic_pivot_count",
+                      "name": "Strategic Initiative Count",
+                      "description": "Number of major strategic initiatives launched under leadership, including consumer banking expansion and operational changes.",
+                      "type": "integer",
+                      "expected_value": "0 - 20"
+                    }
+                  ]
+                },
+                {
+                  "name": "Lloyd Blankfein",
+                  "description": "Former CEO and Chairman (2006-2018) who led Goldman Sachs through the 2008 financial crisis. Transformed the firm into a bank holding company and strengthened its position as a global financial powerhouse. Remains influential in financial policy discussions and market commentary.",
+                  "type": "leader",
+                  "parent_actor": "Goldman Sachs Group",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "crisis_management_score",
+                      "name": "Crisis Management Effectiveness",
+                      "description": "Measure of leadership effectiveness during major financial crises and market turbulence, based on historical performance and outcomes.",
+                      "type": "float",
+                      "expected_value": "0.0 - 1.0"
+                    },
+                    {
+                      "code_name": "regulatory_influence",
+                      "name": "Regulatory Policy Influence",
+                      "description": "Level of influence and effectiveness in shaping financial regulatory policies and maintaining relationships with regulators.",
+                      "type": "integer",
+                      "expected_value": "1-10"
+                    },
+                    {
+                      "code_name": "market_sentiment_impact",
+                      "name": "Market Sentiment Impact",
+                      "description": "The degree to which their public statements and commentary affect market sentiment and trading behavior.",
+                      "type": "float",
+                      "expected_value": "-1.0 to 1.0"
+                    },
+                    {
+                      "code_name": "wall_street_network",
+                      "name": "Wall Street Network Strength",
+                      "description": "Measure of professional connections and influence within major financial institutions and Wall Street decision-makers.",
+                      "type": "integer",
+                      "expected_value": "0-100"
+                    }
+                  ]
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "market_making_volume",
+                  "name": "Daily Market Making Volume",
+                  "description": "Total daily trading volume as primary dealer in Treasury securities and other Fed-related market operations, in billions USD.",
+                  "type": "float",
+                  "expected_value": "50.0 - 500.0"
+                },
+                {
+                  "code_name": "fed_relationship_score",
+                  "name": "Federal Reserve Relationship Score",
+                  "description": "Composite score indicating strength and quality of relationship with Federal Reserve, based on transaction volume, policy input frequency, and advisory role significance.",
+                  "type": "float",
+                  "expected_value": "0.0 - 1.0"
+                },
+                {
+                  "code_name": "assets_under_management",
+                  "name": "Assets Under Management",
+                  "description": "Total value of assets managed by Goldman Sachs across all divisions, in billions USD.",
+                  "type": "float",
+                  "expected_value": "1000.0 - 3000.0"
+                },
+                {
+                  "code_name": "regulatory_status",
+                  "name": "Primary Dealer Status",
+                  "description": "Current standing as primary dealer with Federal Reserve, crucial for market operations and policy implementation.",
+                  "type": "boolean",
+                  "expected_value": "true"
+                }
+              ]
+            },
+            {
+              "name": "BlackRock, Inc.",
+              "description": "World's largest asset manager, selected by Fed for managing emergency corporate bond purchase programs. Critical partner in implementing monetary policy and market operations during financial crises.",
+              "type": "corporation",
+              "parent_actor": "Federal Reserve System",
+              "sub_actors": [
+                {
+                  "name": "Larry Fink",
+                  "description": "Co-founder, Chairman and CEO of BlackRock since 1988. Under his leadership, BlackRock grew to become the world's largest asset manager with over $9 trillion in assets under management. Known for his influential annual letters to CEOs and significant role in shaping global financial markets and corporate governance standards.",
+                  "type": "ceo",
+                  "parent_actor": "BlackRock, Inc.",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "aum_influence",
+                      "name": "Assets Under Management Influence",
+                      "description": "The total value of assets under management/influence, representing direct financial power and market impact capability.",
+                      "type": "float",
+                      "expected_value": "8.0 - 10.0 (trillion USD)"
+                    },
+                    {
+                      "code_name": "esg_focus_level",
+                      "name": "ESG Leadership Score",
+                      "description": "Measure of commitment and influence in Environmental, Social, and Governance initiatives in corporate leadership.",
+                      "type": "float",
+                      "expected_value": "0.0 - 1.0"
+                    },
+                    {
+                      "code_name": "market_sentiment_impact",
+                      "name": "Market Sentiment Impact",
+                      "description": "The degree to which public statements and annual letters influence global market sentiment and corporate behavior.",
+                      "type": "float",
+                      "expected_value": "0.7 - 1.0"
+                    },
+                    {
+                      "code_name": "tenure_years",
+                      "name": "Leadership Tenure",
+                      "description": "Number of years as CEO of BlackRock, indicating experience and established influence in the financial industry.",
+                      "type": "integer",
+                      "expected_value": "35"
+                    }
+                  ]
+                },
+                {
+                  "name": "Robert S. Kapito",
+                  "description": "Co-founder and President of BlackRock since 1988, working alongside Larry Fink. Instrumental in developing and implementing BlackRock's risk management and advisory platforms, including the Aladdin system. Oversees day-to-day operations and strategic initiatives of the firm.",
+                  "type": "leader",
+                  "parent_actor": "BlackRock, Inc.",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "assets_under_management",
+                      "name": "Assets Under Management Oversight",
+                      "description": "The total value of assets under management that Kapito oversees at BlackRock, reflecting his scope of influence and responsibility.",
+                      "type": "float",
+                      "expected_value": "8.0 - 10.0 trillion USD"
+                    },
+                    {
+                      "code_name": "risk_management_expertise",
+                      "name": "Risk Management Proficiency",
+                      "description": "Score representing expertise in risk assessment and management, particularly related to the development and implementation of the Aladdin system.",
+                      "type": "float",
+                      "expected_value": "0.85 - 0.95"
+                    },
+                    {
+                      "code_name": "leadership_tenure",
+                      "name": "Leadership Experience",
+                      "description": "Years of executive leadership experience at BlackRock, indicating depth of institutional knowledge and industry expertise.",
+                      "type": "integer",
+                      "expected_value": "35"
+                    },
+                    {
+                      "code_name": "strategic_decision_influence",
+                      "name": "Strategic Decision-Making Power",
+                      "description": "Measure of influence in major corporate decisions and strategic initiatives at BlackRock, considering his role as President and co-founder.",
+                      "type": "float",
+                      "expected_value": "0.8 - 0.9"
+                    }
+                  ]
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "aum_total",
+                  "name": "Assets Under Management",
+                  "description": "Total value of assets managed by BlackRock across all portfolios and investment vehicles, measured in billions USD.",
+                  "type": "float",
+                  "expected_value": "8000.0 - 10000.0"
+                },
+                {
+                  "code_name": "fed_program_allocation",
+                  "name": "Federal Reserve Program Allocation",
+                  "description": "Amount of Federal Reserve emergency funding programs currently being managed by BlackRock in billions USD.",
+                  "type": "float",
+                  "expected_value": "0.0 - 750.0"
+                },
+                {
+                  "code_name": "market_influence_score",
+                  "name": "Market Influence Score",
+                  "description": "Composite score representing BlackRock's ability to influence market movements and policy decisions based on size, connections, and strategic position.",
+                  "type": "float",
+                  "expected_value": "0.8 - 1.0"
+                },
+                {
+                  "code_name": "institutional_client_count",
+                  "name": "Institutional Client Count",
+                  "description": "Number of major institutional clients (pension funds, sovereign wealth funds, central banks) with holdings over $1 billion.",
+                  "type": "integer",
+                  "expected_value": "500 - 2000"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "depth": 2,
+          "parameters": [
+            {
+              "code_name": "fed_funds_rate",
+              "name": "Federal Funds Rate",
+              "description": "The target interest rate at which commercial banks borrow and lend their excess reserves to each other overnight. Key monetary policy tool affecting broader economy.",
+              "type": "float",
+              "expected_value": "0.0 - 10.0"
+            },
+            {
+              "code_name": "balance_sheet_size",
+              "name": "Balance Sheet Total Assets",
+              "description": "Total size of the Federal Reserve's balance sheet in trillions of USD, reflecting quantitative easing/tightening activities and overall monetary stance.",
+              "type": "float",
+              "expected_value": "4.0 - 9.0"
+            },
+            {
+              "code_name": "inflation_target",
+              "name": "Inflation Target Rate",
+              "description": "The Federal Reserve's target rate for annual inflation as measured by PCE (Personal Consumption Expenditures).",
+              "type": "float",
+              "expected_value": "2.0"
+            },
+            {
+              "code_name": "hawkish_stance",
+              "name": "Hawkish Policy Stance",
+              "description": "Indicates whether the Fed's current monetary policy stance is hawkish (focusing on controlling inflation) versus dovish (focusing on economic growth).",
+              "type": "boolean",
+              "expected_value": "true/false"
+            }
+          ]
+        }
+      ],
+      "sub_actors_count": 2,
+      "depth": 1,
+      "parameters": [
+        {
+          "code_name": "gdp_nominal",
+          "name": "GDP Nominal",
+          "description": "Total annual economic output in current US dollars, representing economic power and market size.",
+          "type": "float",
+          "expected_value": "20-25 trillion USD"
+        },
+        {
+          "code_name": "military_spending",
+          "name": "Military Spending",
+          "description": "Annual defense budget indicating military capability and global power projection ability.",
+          "type": "float",
+          "expected_value": "700-900 billion USD"
+        },
+        {
+          "code_name": "diplomatic_influence_score",
+          "name": "Diplomatic Influence Score",
+          "description": "Composite measure of diplomatic, economic and cultural influence across international institutions and bilateral relationships.",
+          "type": "float",
+          "expected_value": "0.8 - 1.0"
+        },
+        {
+          "code_name": "tech_innovation_index",
+          "name": "Technology Innovation Index",
+          "description": "Measure of technological leadership based on R&D spending, patents, and advanced industry output.",
+          "type": "float",
+          "expected_value": "0.85 - 0.95"
+        }
+      ]
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "Second largest economy, rising military power, largest population, dominant manufacturing base, growing technological capabilities, massive infrastructure investments (Belt and Road), and increasing diplomatic influence, especially in developing nations.",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Chinese Communist Party (CCP)",
+          "description": "The ruling party and supreme political authority in China, controlling all aspects of governance, military, economy, and society. Led by the Politburo Standing Committee and General Secretary, it sets national policy, ideology, and strategic direction through parallel party-state structures at all levels.",
+          "type": "party",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [
+            {
+              "name": "Sinopec Group",
+              "description": "China's largest oil and gas company, state-owned enterprise that dominates the nation's petrochemical sector. Critical to China's energy security and economic development, with extensive international operations and massive influence on global energy markets.",
+              "type": "corporation",
+              "parent_actor": "Chinese Communist Party (CCP)",
+              "sub_actors": [
+                {
+                  "name": "Ma Yongsheng",
+                  "description": "Chairman of Sinopec Group since 2021 and current President. As CEO of China's largest oil refiner, he leads strategic initiatives in energy transition, overseas expansion, and technological innovation. Under his leadership, Sinopec has advanced its hydrogen energy development and carbon neutrality goals while maintaining its position as a global energy giant.",
+                  "type": "ceo",
+                  "parent_actor": "Sinopec Group",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "green_energy_investment_pct",
+                      "name": "Green Energy Investment Percentage",
+                      "description": "Percentage of annual budget allocated to renewable energy and carbon reduction initiatives, reflecting leadership commitment to energy transition.",
+                      "type": "float",
+                      "expected_value": "10.0 - 30.0"
+                    },
+                    {
+                      "code_name": "international_expansion_score",
+                      "name": "International Expansion Score",
+                      "description": "Metric indicating the level of overseas market development and international partnership success.",
+                      "type": "float",
+                      "expected_value": "0.0 - 10.0"
+                    },
+                    {
+                      "code_name": "innovation_projects_count",
+                      "name": "Active Innovation Projects",
+                      "description": "Number of major technological innovation initiatives currently under development across the company.",
+                      "type": "integer",
+                      "expected_value": "20 - 100"
+                    },
+                    {
+                      "code_name": "carbon_reduction_target",
+                      "name": "Annual Carbon Reduction Target",
+                      "description": "Annual percentage target for reducing carbon emissions across Sinopec operations.",
+                      "type": "float",
+                      "expected_value": "2.0 - 5.0"
+                    }
+                  ]
+                },
+                {
+                  "name": "Zhang Yuzhuo",
+                  "description": "Former Chairman of Sinopec Group (2020-2021) and influential figure in China's energy sector. Notable for driving Sinopec's digital transformation and green development strategy. His tenure marked significant advancement in the company's clean energy initiatives and technological modernization programs.",
+                  "type": "leader",
+                  "parent_actor": "Sinopec Group",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "green_energy_commitment",
+                      "name": "Green Energy Investment Ratio",
+                      "description": "Percentage of total investment portfolio dedicated to renewable and clean energy initiatives under leadership.",
+                      "type": "float",
+                      "expected_value": "0.15 - 0.35"
+                    },
+                    {
+                      "code_name": "digital_transformation_score",
+                      "name": "Digital Transformation Index",
+                      "description": "Composite score measuring the progress and effectiveness of digital transformation initiatives in operations and management.",
+                      "type": "float",
+                      "expected_value": "0.0 - 10.0"
+                    },
+                    {
+                      "code_name": "state_alignment",
+                      "name": "State Policy Alignment",
+                      "description": "Degree of alignment with Chinese state energy policies and national strategic objectives.",
+                      "type": "float",
+                      "expected_value": "0.7 - 1.0"
+                    },
+                    {
+                      "code_name": "innovation_projects",
+                      "name": "Active Innovation Projects",
+                      "description": "Number of major technological modernization and innovation projects actively under development.",
+                      "type": "integer",
+                      "expected_value": "5 - 30"
+                    }
+                  ]
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "daily_oil_production",
+                  "name": "Daily Oil Production",
+                  "description": "Total barrels of oil produced per day across all operations, a key metric of operational capacity and market influence.",
+                  "type": "integer",
+                  "expected_value": "3000000 - 5000000"
+                },
+                {
+                  "code_name": "state_ownership_pct",
+                  "name": "State Ownership Percentage",
+                  "description": "Percentage of company owned by Chinese government, indicating level of state control and policy alignment.",
+                  "type": "float",
+                  "expected_value": "70.0 - 100.0"
+                },
+                {
+                  "code_name": "refining_capacity",
+                  "name": "Refining Capacity",
+                  "description": "Total petroleum refining capacity in barrels per day, representing downstream processing capabilities.",
+                  "type": "integer",
+                  "expected_value": "5000000 - 6000000"
+                },
+                {
+                  "code_name": "international_presence",
+                  "name": "International Market Presence",
+                  "description": "Number of countries where Sinopec maintains significant operations or major investments.",
+                  "type": "integer",
+                  "expected_value": "30 - 50"
+                }
+              ]
+            },
+            {
+              "name": "State Grid Corporation of China",
+              "description": "World's largest utility company, controlling China's electrical grid and power distribution. Strategic state-owned enterprise essential to national infrastructure and energy policy implementation, serving over 1.1 billion customers.",
+              "type": "corporation",
+              "parent_actor": "Chinese Communist Party (CCP)",
+              "sub_actors": [
+                {
+                  "name": "Xin Baoan",
+                  "description": "Current Chairman and Party Secretary of State Grid Corporation of China since 2023. Previously served as President of State Grid. Oversees the world's largest utility company and plays a crucial role in implementing China's energy transition and power infrastructure development policies.",
+                  "type": "ceo",
+                  "parent_actor": "State Grid Corporation of China",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "grid_investment_bn",
+                      "name": "Grid Investment Billions",
+                      "description": "Annual investment in power grid infrastructure and development in billions of USD, reflecting strategic infrastructure priorities and expansion plans.",
+                      "type": "float",
+                      "expected_value": "50.0 - 100.0"
+                    },
+                    {
+                      "code_name": "renewable_integration_rate",
+                      "name": "Renewable Integration Rate",
+                      "description": "Percentage of renewable energy sources successfully integrated into the State Grid network, indicating progress on energy transition goals.",
+                      "type": "float",
+                      "expected_value": "0.20 - 0.40"
+                    },
+                    {
+                      "code_name": "policy_alignment_score",
+                      "name": "Party Policy Alignment Score",
+                      "description": "Measure of alignment with central government energy policies and directives, reflecting political influence and compliance.",
+                      "type": "float",
+                      "expected_value": "0.7 - 1.0"
+                    },
+                    {
+                      "code_name": "operational_reliability",
+                      "name": "Grid Operational Reliability",
+                      "description": "System average interruption duration index (SAIDI) in minutes per customer per year, measuring grid reliability and performance.",
+                      "type": "float",
+                      "expected_value": "5.0 - 30.0"
+                    }
+                  ]
+                },
+                {
+                  "name": "Liu Zhenya",
+                  "description": "Former Chairman of State Grid Corporation (2004-2016) who transformed the company into a global leader in ultra-high voltage power transmission. Architect of China's smart grid strategy and key figure in modernizing China's power infrastructure. Currently serves as Chairman of Global Energy Interconnection Development and Cooperation Organization.",
+                  "type": "leader",
+                  "parent_actor": "State Grid Corporation of China",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "grid_modernization_influence",
+                      "name": "Grid Modernization Influence Score",
+                      "description": "Measure of leader's effectiveness in implementing power grid modernization initiatives and technological upgrades.",
+                      "type": "float",
+                      "expected_value": "0.0 - 1.0"
+                    },
+                    {
+                      "code_name": "international_cooperation_strength",
+                      "name": "International Cooperation Level",
+                      "description": "Degree of success in establishing international partnerships and cross-border power grid initiatives.",
+                      "type": "integer",
+                      "expected_value": "1-10"
+                    },
+                    {
+                      "code_name": "uhv_expertise_level",
+                      "name": "Ultra-High Voltage Expertise",
+                      "description": "Level of technical knowledge and implementation experience in UHV power transmission systems.",
+                      "type": "string",
+                      "expected_value": "['novice', 'intermediate', 'expert', 'world_authority']"
+                    },
+                    {
+                      "code_name": "policy_influence_rating",
+                      "name": "Policy Influence Rating",
+                      "description": "Measure of ability to influence national and international energy policy decisions and infrastructure development strategies.",
+                      "type": "float",
+                      "expected_value": "0.0 - 100.0"
+                    }
+                  ]
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "total_power_capacity",
+                  "name": "Total Power Generation Capacity",
+                  "description": "The total electrical power generation capacity under control of the corporation, measured in gigawatts (GW).",
+                  "type": "float",
+                  "expected_value": "1000.0 - 2000.0"
+                },
+                {
+                  "code_name": "grid_coverage_percent",
+                  "name": "Grid Coverage Percentage",
+                  "description": "Percentage of China's total population with access to power through State Grid's distribution network.",
+                  "type": "float",
+                  "expected_value": "80.0 - 95.0"
+                },
+                {
+                  "code_name": "renewable_energy_ratio",
+                  "name": "Renewable Energy Ratio",
+                  "description": "Proportion of total power distribution that comes from renewable energy sources, reflecting alignment with national energy transition goals.",
+                  "type": "float",
+                  "expected_value": "20.0 - 40.0"
+                },
+                {
+                  "code_name": "infrastructure_investment",
+                  "name": "Annual Infrastructure Investment",
+                  "description": "Annual investment in grid infrastructure and modernization projects, in billions of USD.",
+                  "type": "float",
+                  "expected_value": "50.0 - 100.0"
+                }
+              ]
+            },
+            {
+              "name": "China National Petroleum Corporation (CNPC)",
+              "description": "Major state-owned oil and gas producer and supplier, parent company of PetroChina. Controls significant portion of China's oil and gas production, exploration, and import activities, with extensive international operations and strategic partnerships.",
+              "type": "corporation",
+              "parent_actor": "Chinese Communist Party (CCP)",
+              "sub_actors": [
+                {
+                  "name": "Dai Houliang",
+                  "description": "Chairman of CNPC and Chairman of PetroChina since 2020. Previously served as Chairman of Sinopec. Key decision-maker in China's energy sector, leading CNPC's global expansion and domestic energy security initiatives. Influential in implementing China's energy policies and international oil partnerships.",
+                  "type": "ceo",
+                  "parent_actor": "China National Petroleum Corporation (CNPC)",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "intl_influence_score",
+                      "name": "International Influence Score",
+                      "description": "Measure of influence and effectiveness in establishing international energy partnerships and deals",
+                      "type": "float",
+                      "expected_value": "0.0 - 10.0"
+                    },
+                    {
+                      "code_name": "state_alignment",
+                      "name": "State Policy Alignment",
+                      "description": "Degree of alignment with Chinese government's energy policies and strategic objectives",
+                      "type": "float",
+                      "expected_value": "0.0 - 1.0"
+                    },
+                    {
+                      "code_name": "investment_risk_tolerance",
+                      "name": "Investment Risk Tolerance",
+                      "description": "Willingness to pursue high-risk/high-reward investments in global energy markets",
+                      "type": "float",
+                      "expected_value": "0.1 - 0.9"
+                    },
+                    {
+                      "code_name": "domestic_market_control",
+                      "name": "Domestic Market Control",
+                      "description": "Level of control and influence over China's domestic energy market through CNPC and PetroChina",
+                      "type": "float",
+                      "expected_value": "0.0 - 1.0"
+                    }
+                  ]
+                },
+                {
+                  "name": "Huang Yongzhang",
+                  "description": "President of CNPC and Vice Chairman of PetroChina. Oversees daily operations and implementation of corporate strategy. Significant influence in operational decisions and international partnerships. Key figure in CNPC's technological advancement and sustainable development initiatives.",
+                  "type": "ceo",
+                  "parent_actor": "China National Petroleum Corporation (CNPC)",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "strategic_risk_tolerance",
+                      "name": "Strategic Risk Tolerance",
+                      "description": "Measures the CEO's willingness to pursue high-risk/high-reward ventures, particularly in international partnerships and new technology investments.",
+                      "type": "float",
+                      "expected_value": "0.1 - 0.9"
+                    },
+                    {
+                      "code_name": "sustainability_focus",
+                      "name": "Sustainability Initiative Priority",
+                      "description": "Indicates the level of emphasis placed on environmental and sustainable development projects in corporate strategy and resource allocation.",
+                      "type": "float",
+                      "expected_value": "0.3 - 0.8"
+                    },
+                    {
+                      "code_name": "tech_investment_ratio",
+                      "name": "Technology Investment Ratio",
+                      "description": "Percentage of annual budget allocated to technological advancement and digital transformation initiatives.",
+                      "type": "float",
+                      "expected_value": "0.05 - 0.25"
+                    },
+                    {
+                      "code_name": "international_influence_score",
+                      "name": "International Influence Score",
+                      "description": "Composite score representing effectiveness in establishing and maintaining international partnerships and diplomatic relations in the energy sector.",
+                      "type": "float",
+                      "expected_value": "0.4 - 0.9"
+                    }
+                  ]
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "daily_oil_production",
+                  "name": "Daily Oil Production",
+                  "description": "Total daily crude oil production capacity across all operations in barrels per day.",
+                  "type": "integer",
+                  "expected_value": "2,500,000 - 4,000,000"
+                },
+                {
+                  "code_name": "state_ownership_pct",
+                  "name": "State Ownership Percentage",
+                  "description": "Percentage of company owned by Chinese government entities, indicating level of state control and influence.",
+                  "type": "float",
+                  "expected_value": "80.0 - 100.0"
+                },
+                {
+                  "code_name": "international_presence",
+                  "name": "International Operations Count",
+                  "description": "Number of countries where CNPC maintains active exploration, production, or distribution operations.",
+                  "type": "integer",
+                  "expected_value": "30 - 50"
+                },
+                {
+                  "code_name": "strategic_reserve_control",
+                  "name": "Strategic Reserve Control",
+                  "description": "Percentage of China's strategic petroleum reserves under CNPC's management and control.",
+                  "type": "float",
+                  "expected_value": "25.0 - 40.0"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "depth": 2,
+          "parameters": [
+            {
+              "code_name": "party_control_index",
+              "name": "Party Control Index",
+              "description": "Measure of CCP's effective control and influence across key sectors including government, military, economy, and media. Composite score reflecting degree of party penetration and authority.",
+              "type": "float",
+              "expected_value": "0.0 - 1.0"
+            },
+            {
+              "code_name": "party_membership",
+              "name": "Party Membership",
+              "description": "Total number of registered CCP members, indicating the party's organizational strength and reach into society. Key metric for party influence and mobilization capacity.",
+              "type": "integer",
+              "expected_value": "90000000 - 100000000"
+            },
+            {
+              "code_name": "ideological_conformity",
+              "name": "Ideological Conformity Score",
+              "description": "Degree of alignment with current party ideology and leadership directives across party organs and society. Measures effectiveness of propaganda and political education efforts.",
+              "type": "float",
+              "expected_value": "0.0 - 1.0"
+            },
+            {
+              "code_name": "economic_policy_direction",
+              "name": "Economic Policy Direction",
+              "description": "Current balance between state control and market forces in economic policy, as directed by party leadership. Reflects degree of state intervention vs market liberalization.",
+              "type": "float",
+              "expected_value": "-1.0 (full state control) to 1.0 (market-oriented)"
+            }
+          ]
+        },
+        {
+          "name": "Central Military Commission (CMC)",
+          "description": "Supreme military command organization overseeing the People's Liberation Army (PLA), responsible for national defense policy and military strategy. Controls world's largest military force and reports directly to CCP leadership, wielding significant influence in national security decisions.",
+          "type": "military",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [
+            {
+              "name": "China North Industries Group Corporation (Norinco)",
+              "description": "China's largest state-owned defense contractor, specializing in military equipment, vehicles, and weapons systems. Primary supplier to PLA, generates over $70 billion in annual revenue and controls majority of domestic military equipment production.",
+              "type": "corporation",
+              "parent_actor": "Central Military Commission (CMC)",
+              "sub_actors": [
+                {
+                  "name": "Liu Shiquan",
+                  "description": "Chairman and Executive Director of Norinco since 2020. As the top executive, he oversees the corporation's vast defense manufacturing operations, international trade relationships, and strategic development. Under his leadership, Norinco has expanded its global market presence and strengthened its position as China's premier defense contractor.",
+                  "type": "ceo",
+                  "parent_actor": "China North Industries Group Corporation (Norinco)",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "global_trade_influence",
+                      "name": "Global Trade Influence Score",
+                      "description": "Measure of ability to secure and maintain international defense contracts and partnerships, considering diplomatic relationships and trade restrictions.",
+                      "type": "float",
+                      "expected_value": "0.0 - 10.0"
+                    },
+                    {
+                      "code_name": "strategic_decision_authority",
+                      "name": "Strategic Decision Authority",
+                      "description": "Level of autonomy in making major corporate decisions versus requiring government or board approval.",
+                      "type": "float",
+                      "expected_value": "0.3 - 0.8"
+                    },
+                    {
+                      "code_name": "defense_industry_expertise",
+                      "name": "Defense Industry Expertise",
+                      "description": "Years of experience and depth of knowledge in defense manufacturing and military technology sectors.",
+                      "type": "integer",
+                      "expected_value": "15 - 40"
+                    },
+                    {
+                      "code_name": "state_alignment_index",
+                      "name": "State Policy Alignment Index",
+                      "description": "Measure of how closely executive decisions align with Chinese state defense and industrial policies.",
+                      "type": "float",
+                      "expected_value": "0.7 - 1.0"
+                    }
+                  ]
+                },
+                {
+                  "name": "Zhang Guoqing",
+                  "description": "Former Chairman of Norinco (2013-2016) who dramatically expanded the company's operations and international presence. Currently serves as Mayor of Beijing and maintains significant influence over Norinco's strategic direction through his political connections and defense industry expertise.",
+                  "type": "politician",
+                  "parent_actor": "China North Industries Group Corporation (Norinco)",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "defense_industry_influence",
+                      "name": "Defense Industry Influence Score",
+                      "description": "Measure of ability to influence defense industry decisions and contracts through political connections and past experience at Norinco.",
+                      "type": "float",
+                      "expected_value": "0.0 - 1.0"
+                    },
+                    {
+                      "code_name": "international_trade_network",
+                      "name": "International Trade Network Size",
+                      "description": "Number of significant international business relationships and trade agreements established during Norinco leadership that remain active.",
+                      "type": "integer",
+                      "expected_value": "10 - 100"
+                    },
+                    {
+                      "code_name": "political_rank_level",
+                      "name": "Political Rank Level",
+                      "description": "Current administrative level in Chinese political hierarchy, affecting decision-making authority and policy influence.",
+                      "type": "string",
+                      "expected_value": "['Provincial/Ministerial', 'Sub-National', 'National']"
+                    },
+                    {
+                      "code_name": "military_tech_expertise",
+                      "name": "Military Technology Expertise",
+                      "description": "Level of technical knowledge and experience in military equipment and defense systems from Norinco tenure.",
+                      "type": "float",
+                      "expected_value": "0.0 - 10.0"
+                    }
+                  ]
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "annual_defense_revenue",
+                  "name": "Annual Defense Revenue",
+                  "description": "Total annual revenue from defense-related products and services in billions USD.",
+                  "type": "float",
+                  "expected_value": "60.0 - 80.0"
+                },
+                {
+                  "code_name": "pla_supply_share",
+                  "name": "PLA Supply Share",
+                  "description": "Percentage of PLA's total military equipment supplied by Norinco.",
+                  "type": "float",
+                  "expected_value": "0.4 - 0.7"
+                },
+                {
+                  "code_name": "export_restriction_level",
+                  "name": "Export Restriction Level",
+                  "description": "Level of international export restrictions faced by the company due to sanctions and controls.",
+                  "type": "integer",
+                  "expected_value": "0 - 5"
+                },
+                {
+                  "code_name": "rd_project_count",
+                  "name": "Active R&D Projects",
+                  "description": "Number of major research and development projects currently in progress for new military technologies and systems.",
+                  "type": "integer",
+                  "expected_value": "50 - 200"
+                }
+              ]
+            },
+            {
+              "name": "Aviation Industry Corporation of China (AVIC)",
+              "description": "State-owned aerospace and defense conglomerate developing military aircraft, engines, and aviation systems. Key developer of China's fighter jets, helicopters, and military drones with significant R&D capabilities.",
+              "type": "corporation",
+              "parent_actor": "Central Military Commission (CMC)",
+              "sub_actors": [
+                {
+                  "name": "Chen Yuanxian",
+                  "description": "Executive Vice President and Board Member of AVIC who oversees major military aviation projects including the J-20 stealth fighter development. He has been instrumental in modernizing AVIC's R&D capabilities and expanding international partnerships.",
+                  "type": "ceo",
+                  "parent_actor": "Aviation Industry Corporation of China (AVIC)",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "military_projects_portfolio",
+                      "name": "Military Projects Portfolio Size",
+                      "description": "Number of active military aviation projects under direct oversight, indicating scope of strategic influence",
+                      "type": "integer",
+                      "expected_value": "5-15"
+                    },
+                    {
+                      "code_name": "rd_investment_ratio",
+                      "name": "R&D Investment Ratio",
+                      "description": "Percentage of annual budget allocated to research and development initiatives relative to total operational budget",
+                      "type": "float",
+                      "expected_value": "0.15-0.35"
+                    },
+                    {
+                      "code_name": "intl_partnership_count",
+                      "name": "International Partnership Count",
+                      "description": "Number of active international technological partnerships and joint ventures managed",
+                      "type": "integer",
+                      "expected_value": "10-30"
+                    },
+                    {
+                      "code_name": "tech_modernization_score",
+                      "name": "Technology Modernization Score",
+                      "description": "Composite score measuring success in implementing advanced technologies and modernization initiatives across AVIC projects",
+                      "type": "float",
+                      "expected_value": "0.0-1.0"
+                    }
+                  ]
+                },
+                {
+                  "name": "Tang Changhong",
+                  "description": "Chief Designer of the J-20 stealth fighter program at AVIC and academician of the Chinese Academy of Engineering. He leads the technical development of China's most advanced military aircraft and has received multiple national science and technology awards.",
+                  "type": "expert",
+                  "parent_actor": "Aviation Industry Corporation of China (AVIC)",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "technical_expertise_level",
+                      "name": "Technical Expertise Level",
+                      "description": "Numerical rating representing depth of aerospace engineering knowledge and stealth aircraft design expertise.",
+                      "type": "float",
+                      "expected_value": "9.2 - 10.0"
+                    },
+                    {
+                      "code_name": "project_leadership_years",
+                      "name": "Years in Project Leadership",
+                      "description": "Number of years leading major military aircraft development programs like the J-20.",
+                      "type": "integer",
+                      "expected_value": "15 - 30"
+                    },
+                    {
+                      "code_name": "innovation_patents",
+                      "name": "Innovation Patents Count",
+                      "description": "Number of aerospace and stealth technology patents registered under their leadership or direct contribution.",
+                      "type": "integer",
+                      "expected_value": "20 - 100"
+                    },
+                    {
+                      "code_name": "security_clearance_level",
+                      "name": "Security Clearance Level",
+                      "description": "Level of access to classified military technology and aerospace development programs in China.",
+                      "type": "string",
+                      "expected_value": "\"Top Secret\" or \"Special Access\""
+                    }
+                  ]
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "annual_rd_budget",
+                  "name": "Annual R&D Budget",
+                  "description": "Total yearly research and development spending in aerospace and defense projects, indicating technological advancement capacity.",
+                  "type": "float",
+                  "expected_value": "15.0 - 25.0 billion USD"
+                },
+                {
+                  "code_name": "military_aircraft_production",
+                  "name": "Military Aircraft Production Rate",
+                  "description": "Number of military aircraft (fighters, trainers, helicopters) produced annually.",
+                  "type": "integer",
+                  "expected_value": "100 - 300 units"
+                },
+                {
+                  "code_name": "advanced_tech_patents",
+                  "name": "Advanced Technology Patents",
+                  "description": "Number of active patents related to advanced aerospace and defense technologies, representing innovation capability.",
+                  "type": "integer",
+                  "expected_value": "5000 - 15000"
+                },
+                {
+                  "code_name": "international_sanctions_level",
+                  "name": "International Sanctions Level",
+                  "description": "Degree of international trade restrictions and sanctions affecting operations and technology access.",
+                  "type": "float",
+                  "expected_value": "0.0 - 1.0"
+                }
+              ]
+            },
+            {
+              "name": "China Electronics Technology Group Corporation (CETC)",
+              "description": "Leading developer of military electronics, radar systems, and cybersecurity technologies. Provides critical communications infrastructure and electronic warfare capabilities to PLA across all service branches.",
+              "type": "corporation",
+              "parent_actor": "Central Military Commission (CMC)",
+              "sub_actors": [
+                {
+                  "name": "Chen Zhaoxiong",
+                  "description": "Chairman and Party Secretary of CETC since 2020. Previously served as Vice Minister of Industry and Information Technology. Oversees CETC's strategic direction in military electronics and leads major defense technology initiatives. Key figure in advancing China's domestic semiconductor and electronic warfare capabilities.",
+                  "type": "ceo",
+                  "parent_actor": "China Electronics Technology Group Corporation (CETC)",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "defense_tech_expertise",
+                      "name": "Defense Technology Expertise Level",
+                      "description": "Level of experience and capability in military electronics and defense systems development, rated on a scale of 1-10.",
+                      "type": "float",
+                      "expected_value": "8.5 - 9.5"
+                    },
+                    {
+                      "code_name": "party_influence",
+                      "name": "Party Influence Score",
+                      "description": "Measure of political influence and connection strength within Chinese Communist Party hierarchy, particularly in technology and defense sectors.",
+                      "type": "integer",
+                      "expected_value": "80 - 95"
+                    },
+                    {
+                      "code_name": "semiconductor_strategy",
+                      "name": "Semiconductor Development Priority",
+                      "description": "Strategic focus level on domestic semiconductor capability development, representing resource allocation and priority level.",
+                      "type": "float",
+                      "expected_value": "0.7 - 0.9"
+                    },
+                    {
+                      "code_name": "military_contracts_volume",
+                      "name": "Military Contracts Volume",
+                      "description": "Annual volume of military-related contracts and projects under management at CETC, in billions of yuan.",
+                      "type": "float",
+                      "expected_value": "50.0 - 150.0"
+                    }
+                  ]
+                },
+                {
+                  "name": "Wu Manqing",
+                  "description": "Chief Technology Officer and Senior Technical Expert at CETC. Leading researcher in quantum communications and cybersecurity. Instrumental in developing CETC's advanced radar systems and military communications technologies. Member of Chinese Academy of Engineering.",
+                  "type": "expert",
+                  "parent_actor": "China Electronics Technology Group Corporation (CETC)",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4,
+                  "parameters": [
+                    {
+                      "code_name": "quantum_expertise_level",
+                      "name": "Quantum Communications Expertise",
+                      "description": "Level of expertise and capability in quantum communications technology development, based on research contributions and project leadership.",
+                      "type": "float",
+                      "expected_value": "0.0 - 1.0"
+                    },
+                    {
+                      "code_name": "military_tech_clearance",
+                      "name": "Military Technology Access Level",
+                      "description": "Security clearance level and access to sensitive military communications and radar technology development.",
+                      "type": "integer",
+                      "expected_value": "1-5"
+                    },
+                    {
+                      "code_name": "research_publications",
+                      "name": "Research Publication Count",
+                      "description": "Number of published research papers and technical documents in quantum communications and cybersecurity fields.",
+                      "type": "integer",
+                      "expected_value": "50-200"
+                    },
+                    {
+                      "code_name": "cetc_influence_score",
+                      "name": "CETC Influence Rating",
+                      "description": "Measure of decision-making influence and technical direction authority within CETC's research and development programs.",
+                      "type": "float",
+                      "expected_value": "0.0 - 1.0"
+                    }
+                  ]
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "rd_budget_usd",
+                  "name": "R&D Budget in USD",
+                  "description": "Annual research and development budget in billions of USD, indicating technological innovation capacity and scale of military electronics development.",
+                  "type": "float",
+                  "expected_value": "8.0 - 15.0"
+                },
+                {
+                  "code_name": "military_contracts_ratio",
+                  "name": "Military Contracts Ratio",
+                  "description": "Proportion of total revenue derived from military/defense contracts versus civilian projects.",
+                  "type": "float",
+                  "expected_value": "0.65 - 0.85"
+                },
+                {
+                  "code_name": "tech_domains_count",
+                  "name": "Technology Domain Count",
+                  "description": "Number of distinct military technology domains (radar, EW, cybersecurity, etc.) where CETC maintains leading capabilities.",
+                  "type": "integer",
+                  "expected_value": "10 - 15"
+                },
+                {
+                  "code_name": "pla_integration_level",
+                  "name": "PLA Integration Level",
+                  "description": "Measure of how deeply integrated CETC's systems are with PLA operations and infrastructure, scaled from 1-10.",
+                  "type": "integer",
+                  "expected_value": "8 - 10"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "depth": 2,
+          "parameters": [
+            {
+              "code_name": "military_readiness_index",
+              "name": "Military Readiness Index",
+              "description": "Composite score indicating overall combat readiness and operational capability of PLA forces under CMC control.",
+              "type": "float",
+              "expected_value": "0.0 - 1.0"
+            },
+            {
+              "code_name": "defense_budget_usd_billions",
+              "name": "Defense Budget",
+              "description": "Annual military budget allocated to PLA and approved by CMC, expressed in billions of USD.",
+              "type": "float",
+              "expected_value": "200.0 - 300.0"
+            },
+            {
+              "code_name": "political_alignment_score",
+              "name": "CCP Political Alignment Score",
+              "description": "Measure of CMC's current alignment with and adherence to CCP central leadership directives and policies.",
+              "type": "float",
+              "expected_value": "0.7 - 1.0"
+            },
+            {
+              "code_name": "active_military_personnel",
+              "name": "Active Military Personnel",
+              "description": "Total number of active-duty personnel under CMC command across all PLA branches.",
+              "type": "integer",
+              "expected_value": "1800000 - 2200000"
+            }
+          ]
+        }
+      ],
+      "sub_actors_count": 2,
+      "depth": 1,
+      "parameters": [
+        {
+          "code_name": "gdp_trillion_usd",
+          "name": "GDP in Trillion USD",
+          "description": "Annual Gross Domestic Product in trillion US dollars, representing economic output and market size.",
+          "type": "float",
+          "expected_value": "15.0 - 20.0"
+        },
+        {
+          "code_name": "manufacturing_share",
+          "name": "Global Manufacturing Share",
+          "description": "Percentage of global manufacturing output produced in China, indicating industrial capacity and economic influence.",
+          "type": "float",
+          "expected_value": "25.0 - 35.0"
+        },
+        {
+          "code_name": "military_budget_billion",
+          "name": "Military Budget in Billion USD",
+          "description": "Annual defense spending in billion US dollars, reflecting military capabilities and global power projection.",
+          "type": "float",
+          "expected_value": "200.0 - 300.0"
+        },
+        {
+          "code_name": "bri_investment_billion",
+          "name": "Belt and Road Investment",
+          "description": "Cumulative investment in Belt and Road Initiative projects in billion USD, measuring international economic influence and infrastructure development.",
+          "type": "float",
+          "expected_value": "800.0 - 1200.0"
+        }
+      ]
+    }
+  ],
+  "total_main_actors": 2,
+  "total_subactors": 24,
+  "level": 3
+}

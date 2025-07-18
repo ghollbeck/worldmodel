@@ -308,10 +308,49 @@ async def get_run_data(level: int):
     if not run_folder:
         raise HTTPException(status_code=404, detail="No runs found")
     
-    file_path = run_folder / f"Features_level_{level}.json"
+    # FORCE load the _with_params version for debugging
+    file_path = run_folder / f"Features_level_{level}_with_params.json"
+    
+    # Add logging to show which file is being served
+    print(f"🔍 Backend serving file: {file_path}")
+    print(f"📁 File exists: {file_path.exists()}")
+    
+    if not file_path.exists():
+        print(f"⚠️  _with_params file not found, falling back to regular file")
+        file_path = run_folder / f"Features_level_{level}.json"
+        print(f"🔍 Backend serving fallback file: {file_path}")
+        print(f"📁 Fallback file exists: {file_path.exists()}")
     
     if not file_path.exists():
         raise HTTPException(status_code=404, detail=f"Level {level} data not found")
+    
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        print(f"✅ Successfully loaded {file_path.name}")
+        print(f"📊 Data contains {len(data.get('actors', []))} actors")
+        if data.get('actors'):
+            actor_keys = list(data['actors'][0].keys())
+            print(f"🔑 First actor keys: {actor_keys}")
+            print(f"📋 Has parameters: {'parameters' in actor_keys}")
+        return data
+    except Exception as e:
+        print(f"❌ Error loading {file_path.name}: {e}")
+        raise HTTPException(status_code=500, detail=f"Error reading data: {str(e)}")
+
+
+@app.get("/api/runs/data/{level_str}")
+async def get_run_data_with_suffix(level_str: str):
+    """Get data from a specific level with optional suffix (e.g., '3_with_params')"""
+    run_folder = get_latest_run_folder()
+    
+    if not run_folder:
+        raise HTTPException(status_code=404, detail="No runs found")
+    
+    file_path = run_folder / f"Features_level_{level_str}.json"
+    
+    if not file_path.exists():
+        raise HTTPException(status_code=404, detail=f"Level {level_str} data not found")
     
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -320,7 +359,7 @@ async def get_run_data(level: int):
     except Exception as e:
         log_error(
             error_type="DATA_LOAD_ERROR",
-            error_message=f"Failed to load level {level} data",
+            error_message=f"Failed to load level {level_str} data",
             details=f"File: {file_path}",
             exception=e
         )
@@ -347,6 +386,38 @@ async def get_all_runs():
         runs.append(run_info)
     
     return {"runs": runs, "total": len(runs)}
+
+
+@app.get("/api/test/params")
+async def test_params():
+    """Test endpoint to check if _with_params file is loaded correctly"""
+    run_folder = get_latest_run_folder()
+    
+    if not run_folder:
+        return {"error": "No runs found"}
+    
+    # Test both files
+    regular_file = run_folder / "Features_level_3.json"
+    params_file = run_folder / "Features_level_3_with_params.json"
+    
+    result = {
+        "regular_file_exists": regular_file.exists(),
+        "params_file_exists": params_file.exists(),
+        "regular_file_size": regular_file.stat().st_size if regular_file.exists() else 0,
+        "params_file_size": params_file.stat().st_size if params_file.exists() else 0,
+    }
+    
+    # Try to load params file
+    if params_file.exists():
+        try:
+            with open(params_file, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            result["params_file_has_parameters"] = "parameters" in str(data)
+            result["params_file_actor_keys"] = list(data.get("actors", [{}])[0].keys()) if data.get("actors") else []
+        except Exception as e:
+            result["params_file_error"] = str(e)
+    
+    return result
 
 
 if __name__ == "__main__":

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import './App.css';
+import CollapsibleJson from './CollapsibleJson';
 
 type InputMode = 'dropdown' | 'freetext';
 type Phase = 'initialization' | 'training';
@@ -228,9 +229,33 @@ const App: React.FC = () => {
       
       // Fetch actor data if available
       if (info.status === 'found' && info.total_levels > 0) {
-        const dataResponse = await fetch('http://localhost:8000/api/runs/data/0');
-        const data = await dataResponse.json();
-        setActorData(data);
+        // Try to fetch level 2 first (which has parameters), then level 3, then fall back to deepest level
+        let targetLevel = 2;
+        let dataResponse = await fetch(`http://localhost:8000/api/runs/data/${targetLevel}`);
+        
+        if (!dataResponse.ok) {
+          // If level 2 doesn't exist, try level 3
+          targetLevel = 3;
+          dataResponse = await fetch(`http://localhost:8000/api/runs/data/${targetLevel}`);
+          
+          if (!dataResponse.ok) {
+            // If level 3 doesn't exist, fall back to deepest available level
+            targetLevel = info.total_levels - 1;
+            dataResponse = await fetch(`http://localhost:8000/api/runs/data/${targetLevel}`);
+          }
+        }
+        
+        // Add logging to show what's being fetched
+        console.log(`🔍 Frontend fetching: /api/runs/data/${targetLevel}`);
+        console.log(`📊 Response status: ${dataResponse.status}`);
+        
+        if (dataResponse.ok) {
+          const data = await dataResponse.json();
+          console.log(`✅ Frontend received data with keys:`, Object.keys(data));
+          console.log(`📝 Data preview:`, data);
+          
+          setActorData(data);
+        }
       }
     } catch (error) {
       console.error('Failed to fetch run info:', error);
@@ -757,6 +782,13 @@ const App: React.FC = () => {
                         </div>
                       )}
                     </div>
+                  </div>
+                )}
+                {/* NEW: full JSON viewer */}
+                {actorData && (
+                  <div className="json-viewer">
+                    <h3>📂 Full JSON Data</h3>
+                    <CollapsibleJson data={actorData} />
                   </div>
                 )}
               </div>

@@ -1,0 +1,818 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T15:53:45.749048",
+    "run_folder": "run_2025-07-16_18",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "script_version": "2.0.0",
+    "level": 2,
+    "parent_file": "Features_level_1.json",
+    "original_metadata": {
+      "timestamp": "2025-07-16T15:53:33.318878",
+      "run_folder": "run_2025-07-16_18",
+      "model_provider": "anthropic",
+      "model_name": "claude-3-5-sonnet-latest",
+      "num_actors_requested": 2,
+      "num_actors_generated": 2,
+      "script_version": "2.0.0",
+      "generation_method": "LLM-based",
+      "level": 0,
+      "cost_tracking": {
+        "total_cost": 0.0076159999999999995,
+        "api_calls": 1,
+        "providers": {
+          "anthropic": {
+            "cost": 0.0076159999999999995,
+            "calls": 1,
+            "models": {
+              "claude-3-5-sonnet-latest": {
+                "cost": 0.0076159999999999995,
+                "calls": 1,
+                "tokens": {
+                  "input": 448,
+                  "output": 168,
+                  "total": 616
+                }
+              }
+            },
+            "tokens": {
+              "input": 448,
+              "output": 168,
+              "total": 616
+            }
+          }
+        },
+        "session_start": "2025-07-16T15:53:28.267418",
+        "tokens_used": {
+          "input_tokens": 448,
+          "output_tokens": 168,
+          "total_tokens": 616
+        },
+        "session_duration_seconds": 5.051455,
+        "session_duration_str": "0:00:05.051455",
+        "average_cost_per_call": 0.0076159999999999995,
+        "cost_per_1k_tokens": 0.012363636363636363
+      }
+    },
+    "parallelization": {
+      "enabled": true,
+      "max_concurrent_threads": 5,
+      "total_parallel_tasks": 4
+    },
+    "generation_stats": {
+      "total_main_actors": 2,
+      "total_subactors": 12,
+      "actors_with_subactors": 2,
+      "avg_subactors_per_actor": 6.0,
+      "successful_actors": 4,
+      "failed_actors": 0
+    },
+    "cost_tracking": {
+      "total_cost": 0.06892799999999999,
+      "api_calls": 7,
+      "providers": {
+        "anthropic": {
+          "cost": 0.06892799999999999,
+          "calls": 7,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.06892799999999999,
+              "calls": 7,
+              "tokens": {
+                "input": 3099,
+                "output": 1839,
+                "total": 4938
+              }
+            }
+          },
+          "tokens": {
+            "input": 3099,
+            "output": 1839,
+            "total": 4938
+          }
+        }
+      },
+      "session_start": "2025-07-16T15:53:28.267418",
+      "tokens_used": {
+        "input_tokens": 3099,
+        "output_tokens": 1839,
+        "total_tokens": 4938
+      },
+      "session_duration_seconds": 17.481614,
+      "session_duration_str": "0:00:17.481614",
+      "average_cost_per_call": 0.009846857142857142,
+      "cost_per_1k_tokens": 0.013958687727825029
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with unmatched military capabilities, largest economy by GDP, dominant financial system (USD), technological leadership, and extensive diplomatic influence across all continents. Controls key international institutions and maintains significant cultural soft power.",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Executive Office of the President",
+          "description": "Core executive branch led by POTUS with supreme executive authority, commander-in-chief powers, and extensive policy/regulatory control via executive orders. Houses National Security Council, controls federal agencies, and shapes foreign policy. Most powerful single institution in US governance.",
+          "type": "government",
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "Lockheed Martin Corporation",
+              "description": "Leading defense contractor and aerospace company with extensive government contracts, particularly in military hardware, security systems, and classified technology development. Major influence on defense policy and national security decisions through lobbying and strategic partnerships.",
+              "type": "corporation",
+              "parent_actor": "Executive Office of the President",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "annual_defense_contracts",
+                  "name": "Defense Contract Value",
+                  "description": "Total value of annual defense contracts awarded by government agencies in billions USD. Key indicator of company's market position and influence.",
+                  "type": "float",
+                  "expected_value": "30.0 - 60.0"
+                },
+                {
+                  "code_name": "rd_investment_ratio",
+                  "name": "R&D Investment Ratio",
+                  "description": "Percentage of annual revenue invested in research and development of new military and aerospace technologies. Reflects innovation capacity and future competitiveness.",
+                  "type": "float",
+                  "expected_value": "0.05 - 0.15"
+                },
+                {
+                  "code_name": "security_clearance_level",
+                  "name": "Security Clearance Level",
+                  "description": "Highest level of government security clearance held by the corporation for classified projects. Determines access to sensitive contracts and information.",
+                  "type": "string",
+                  "expected_value": "['Secret', 'Top Secret', 'TS/SCI']"
+                },
+                {
+                  "code_name": "lobbying_expenditure",
+                  "name": "Annual Lobbying Expenditure",
+                  "description": "Annual spending on political lobbying and policy influence activities in millions USD. Indicates political influence capability.",
+                  "type": "float",
+                  "expected_value": "10.0 - 25.0"
+                }
+              ]
+            },
+            {
+              "name": "Boeing Company",
+              "description": "Major aerospace and defense corporation with significant government contracts, including Air Force One and military aircraft. Substantial influence on aviation policy, defense procurement, and international trade relations through high-level government engagement.",
+              "type": "corporation",
+              "parent_actor": "Executive Office of the President",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "defense_contract_value",
+                  "name": "Defense Contract Portfolio Value",
+                  "description": "Total value of active defense contracts with government entities in billions USD, indicating level of military-industrial involvement and dependency.",
+                  "type": "float",
+                  "expected_value": "20.0 - 100.0"
+                },
+                {
+                  "code_name": "regulatory_compliance_score",
+                  "name": "Aviation Safety Compliance Score",
+                  "description": "Composite score reflecting compliance with FAA regulations and safety standards across commercial aircraft programs.",
+                  "type": "float",
+                  "expected_value": "0.0 - 1.0"
+                },
+                {
+                  "code_name": "aircraft_backlog",
+                  "name": "Commercial Aircraft Order Backlog",
+                  "description": "Number of unfulfilled commercial aircraft orders, a key indicator of market position and future revenue streams.",
+                  "type": "integer",
+                  "expected_value": "3000 - 6000"
+                },
+                {
+                  "code_name": "lobbying_expenditure",
+                  "name": "Annual Lobbying Expenditure",
+                  "description": "Annual spending on government lobbying activities in millions USD, reflecting political influence and policy engagement.",
+                  "type": "float",
+                  "expected_value": "10.0 - 25.0"
+                }
+              ]
+            },
+            {
+              "name": "Palantir Technologies",
+              "description": "Data analytics and software company with deep ties to government intelligence and defense agencies. Provides critical technology infrastructure and data analysis capabilities to various executive branch departments, influencing decision-making processes and policy implementation.",
+              "type": "corporation",
+              "parent_actor": "Executive Office of the President",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "govt_contract_value",
+                  "name": "Government Contract Value",
+                  "description": "Total annual value of active government contracts and partnerships in USD millions. Key indicator of influence and market penetration in public sector.",
+                  "type": "float",
+                  "expected_value": "500.0 - 2000.0"
+                },
+                {
+                  "code_name": "clearance_level",
+                  "name": "Security Clearance Level",
+                  "description": "Highest level of government security clearance held by the organization for accessing classified information and systems.",
+                  "type": "string",
+                  "expected_value": "['SECRET', 'TOP SECRET', 'TS/SCI']"
+                },
+                {
+                  "code_name": "data_processing_capacity",
+                  "name": "Data Processing Capacity",
+                  "description": "Daily volume of data that can be processed and analyzed across all platforms in terabytes. Represents operational capability and technical infrastructure scale.",
+                  "type": "integer",
+                  "expected_value": "1000 - 5000"
+                },
+                {
+                  "code_name": "agency_integration_score",
+                  "name": "Agency Integration Score",
+                  "description": "Metric representing the degree of integration with various government agencies' systems and workflows. Combines number of integrated agencies and depth of integration.",
+                  "type": "float",
+                  "expected_value": "0.0 - 1.0"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "depth": 2,
+          "parameters": [
+            {
+              "code_name": "executive_order_rate",
+              "name": "Executive Order Frequency",
+              "description": "Average number of executive orders issued per month, indicating level of unilateral executive action.",
+              "type": "float",
+              "expected_value": "2.0 - 8.0"
+            },
+            {
+              "code_name": "congressional_alignment",
+              "name": "Congressional Alignment Score",
+              "description": "Measure of political alignment between Executive branch and Congressional majority, affecting policy implementation success.",
+              "type": "float",
+              "expected_value": "-1.0 to 1.0"
+            },
+            {
+              "code_name": "approval_rating",
+              "name": "Presidential Approval Rating",
+              "description": "Current public approval rating of the President, influencing political capital and policy leverage.",
+              "type": "float",
+              "expected_value": "0.0 - 100.0"
+            },
+            {
+              "code_name": "national_security_threat_level",
+              "name": "National Security Threat Level",
+              "description": "Current assessment of national security risk level, affecting executive decision-making and resource allocation.",
+              "type": "integer",
+              "expected_value": "1 - 5"
+            }
+          ]
+        },
+        {
+          "name": "Federal Reserve System",
+          "description": "Central bank controlling US monetary policy, interest rates, and financial stability. Immense influence over global markets through USD management, banking regulation, and economic policy. Semi-independent institution with vast economic power.",
+          "type": "institution",
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "JPMorgan Chase & Co.",
+              "description": "Largest U.S. bank by assets, primary dealer of U.S. Treasury securities, major participant in Federal Reserve operations and monetary policy transmission. Key player in Fed's payment systems and significant influence on banking policy.",
+              "type": "corporation",
+              "parent_actor": "Federal Reserve System",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "total_assets",
+                  "name": "Total Assets Under Management",
+                  "description": "Total value of assets controlled by JPMorgan Chase, a key indicator of bank size and market influence.",
+                  "type": "float",
+                  "expected_value": "2.5T - 4.0T USD"
+                },
+                {
+                  "code_name": "treasury_holdings",
+                  "name": "U.S. Treasury Securities Holdings",
+                  "description": "Value of U.S. Treasury securities held by the bank, reflecting its role as primary dealer and monetary policy participant.",
+                  "type": "float",
+                  "expected_value": "200B - 500B USD"
+                },
+                {
+                  "code_name": "fed_funds_volume",
+                  "name": "Federal Funds Transaction Volume",
+                  "description": "Daily volume of overnight lending in the federal funds market, indicating the bank's role in monetary policy transmission.",
+                  "type": "float",
+                  "expected_value": "50B - 150B USD"
+                },
+                {
+                  "code_name": "regulatory_capital_ratio",
+                  "name": "Tier 1 Capital Ratio",
+                  "description": "Core measure of bank's financial strength, expressing tier 1 capital as percentage of risk-weighted assets.",
+                  "type": "float",
+                  "expected_value": "0.12 - 0.15"
+                }
+              ]
+            },
+            {
+              "name": "Goldman Sachs Group",
+              "description": "Premier investment bank and primary dealer, crucial role in Fed's market operations and policy implementation. Significant influence on monetary policy through market making and financial advisory services to the Federal Reserve.",
+              "type": "corporation",
+              "parent_actor": "Federal Reserve System",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "trading_volume_daily",
+                  "name": "Daily Trading Volume",
+                  "description": "Total daily trading volume across all securities and asset classes, indicating market making activity and liquidity provision.",
+                  "type": "float",
+                  "expected_value": "50.0B - 200.0B USD"
+                },
+                {
+                  "code_name": "primary_dealer_status",
+                  "name": "Primary Dealer Status",
+                  "description": "Current standing as a primary dealer with the Federal Reserve, affecting ability to participate in Treasury auctions and open market operations.",
+                  "type": "boolean",
+                  "expected_value": "true"
+                },
+                {
+                  "code_name": "regulatory_capital_ratio",
+                  "name": "Regulatory Capital Ratio",
+                  "description": "Tier 1 capital ratio measuring bank's core capital against risk-weighted assets, key indicator of financial stability.",
+                  "type": "float",
+                  "expected_value": "12.0 - 15.0 percent"
+                },
+                {
+                  "code_name": "fed_advisory_influence",
+                  "name": "Federal Reserve Advisory Influence",
+                  "description": "Measure of influence in Federal Reserve policy decisions through advisory roles and market intelligence provision.",
+                  "type": "integer",
+                  "expected_value": "1-10 scale"
+                }
+              ]
+            },
+            {
+              "name": "BlackRock, Inc.",
+              "description": "World's largest asset manager, selected by Fed for managing emergency corporate bond purchase programs. Critical partner in implementing monetary policy and market operations during financial crises.",
+              "type": "corporation",
+              "parent_actor": "Federal Reserve System",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "aum_trillion_usd",
+                  "name": "Assets Under Management",
+                  "description": "Total value of assets managed by BlackRock in trillion USD, reflecting their market influence and financial capacity.",
+                  "type": "float",
+                  "expected_value": "8.0 - 12.0"
+                },
+                {
+                  "code_name": "fed_program_participation",
+                  "name": "Federal Reserve Program Participation",
+                  "description": "Number of active Federal Reserve emergency programs where BlackRock serves as primary dealer or manager.",
+                  "type": "integer",
+                  "expected_value": "0 - 5"
+                },
+                {
+                  "code_name": "market_maker_score",
+                  "name": "Market Making Influence",
+                  "description": "Composite score representing BlackRock's ability to influence market prices and liquidity through trading activities.",
+                  "type": "float",
+                  "expected_value": "0.0 - 1.0"
+                },
+                {
+                  "code_name": "systemic_risk_rating",
+                  "name": "Systemic Risk Rating",
+                  "description": "Regulatory assessment of BlackRock's importance to financial system stability and potential impact of failure.",
+                  "type": "string",
+                  "expected_value": "['LOW', 'MEDIUM', 'HIGH', 'CRITICAL']"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "depth": 2,
+          "parameters": [
+            {
+              "code_name": "fed_funds_rate",
+              "name": "Federal Funds Rate",
+              "description": "The key interest rate set by the Fed that influences borrowing costs throughout the economy. Primary tool for monetary policy implementation.",
+              "type": "float",
+              "expected_value": "0.0 - 10.0"
+            },
+            {
+              "code_name": "balance_sheet_size",
+              "name": "Balance Sheet Total Assets",
+              "description": "Total size of the Fed's balance sheet in trillions of USD, reflecting quantitative easing/tightening activities and monetary operations.",
+              "type": "float",
+              "expected_value": "4.0 - 9.0"
+            },
+            {
+              "code_name": "inflation_target",
+              "name": "Inflation Target Rate",
+              "description": "The Fed's target for annual inflation rate as measured by PCE (Personal Consumption Expenditures).",
+              "type": "float",
+              "expected_value": "2.0"
+            },
+            {
+              "code_name": "bank_reserve_ratio",
+              "name": "Bank Reserve Requirement Ratio",
+              "description": "Percentage of deposits that banks must hold as reserves, affecting money supply and lending capacity.",
+              "type": "float",
+              "expected_value": "0.0 - 0.1"
+            }
+          ]
+        }
+      ],
+      "sub_actors_count": 2,
+      "depth": 1,
+      "parameters": [
+        {
+          "code_name": "gdp_nominal",
+          "name": "GDP (Nominal)",
+          "description": "Annual Gross Domestic Product in nominal US dollars, representing total economic output and financial capacity.",
+          "type": "float",
+          "expected_value": "20.0 - 25.0 trillion USD"
+        },
+        {
+          "code_name": "military_spending",
+          "name": "Military Spending",
+          "description": "Annual defense budget including all military expenditures, research, and operations.",
+          "type": "float",
+          "expected_value": "700 - 850 billion USD"
+        },
+        {
+          "code_name": "diplomatic_influence_score",
+          "name": "Diplomatic Influence Score",
+          "description": "Composite measure of diplomatic, economic and cultural influence across other nations, including military alliances and trade agreements.",
+          "type": "float",
+          "expected_value": "0.85 - 1.0"
+        },
+        {
+          "code_name": "tech_leadership_index",
+          "name": "Technology Leadership Index",
+          "description": "Aggregate score measuring technological capabilities across AI, semiconductors, aerospace, and other critical sectors relative to global competitors.",
+          "type": "float",
+          "expected_value": "0.8 - 0.95"
+        }
+      ]
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "Second largest economy, rising military power, largest population, dominant manufacturing base, growing technological capabilities, massive infrastructure investments (Belt and Road), and increasing diplomatic influence, especially in developing nations.",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Chinese Communist Party (CCP)",
+          "description": "The ruling party and supreme political authority in China, controlling all aspects of governance, military, economy, and society. Led by the Politburo Standing Committee and General Secretary, it sets national policy, ideology, and strategic direction through parallel party-state structures at all levels.",
+          "type": "party",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [
+            {
+              "name": "Sinopec Group",
+              "description": "China's largest oil and gas company, state-owned enterprise that dominates the nation's petrochemical sector. Critical to China's energy security and economic development, with extensive international operations and massive influence on global energy markets.",
+              "type": "corporation",
+              "parent_actor": "Chinese Communist Party (CCP)",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "daily_oil_production",
+                  "name": "Daily Oil Production",
+                  "description": "Total barrels of oil produced per day across all operations, a key metric for operational scale and market influence.",
+                  "type": "integer",
+                  "expected_value": "3000000 - 5000000"
+                },
+                {
+                  "code_name": "state_ownership_pct",
+                  "name": "State Ownership Percentage",
+                  "description": "Percentage of company owned by Chinese government, indicating level of state control and policy alignment.",
+                  "type": "float",
+                  "expected_value": "70.0 - 100.0"
+                },
+                {
+                  "code_name": "refining_capacity",
+                  "name": "Refining Capacity",
+                  "description": "Total petroleum refining capacity in barrels per day, representing downstream processing capabilities.",
+                  "type": "integer",
+                  "expected_value": "5000000 - 6000000"
+                },
+                {
+                  "code_name": "international_presence",
+                  "name": "International Market Presence",
+                  "description": "Number of countries where Sinopec maintains significant operations or major investments.",
+                  "type": "integer",
+                  "expected_value": "30 - 50"
+                }
+              ]
+            },
+            {
+              "name": "State Grid Corporation of China",
+              "description": "World's largest utility company, controlling China's electrical grid and power distribution. Strategic state-owned enterprise essential to national infrastructure and energy policy implementation, serving over 1.1 billion customers.",
+              "type": "corporation",
+              "parent_actor": "Chinese Communist Party (CCP)",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "power_distribution_capacity",
+                  "name": "Power Distribution Capacity",
+                  "description": "Total electrical power distribution capacity in gigawatts, indicating the corporation's ability to deliver electricity across its network.",
+                  "type": "float",
+                  "expected_value": "800.0 - 1200.0"
+                },
+                {
+                  "code_name": "grid_coverage_percentage",
+                  "name": "Grid Coverage Percentage",
+                  "description": "Percentage of China's total territory covered by State Grid's power distribution network, representing market dominance and infrastructure reach.",
+                  "type": "float",
+                  "expected_value": "70.0 - 90.0"
+                },
+                {
+                  "code_name": "renewable_energy_ratio",
+                  "name": "Renewable Energy Ratio",
+                  "description": "Proportion of total distributed power derived from renewable energy sources, reflecting alignment with national environmental policies.",
+                  "type": "float",
+                  "expected_value": "20.0 - 40.0"
+                },
+                {
+                  "code_name": "infrastructure_investment",
+                  "name": "Annual Infrastructure Investment",
+                  "description": "Annual investment in grid infrastructure and modernization in billions of USD, indicating expansion and upgrade capacity.",
+                  "type": "float",
+                  "expected_value": "50.0 - 100.0"
+                }
+              ]
+            },
+            {
+              "name": "China National Petroleum Corporation (CNPC)",
+              "description": "Major state-owned oil and gas producer and supplier, parent company of PetroChina. Controls significant portion of China's oil and gas production, exploration, and import activities, with extensive international operations and strategic partnerships.",
+              "type": "corporation",
+              "parent_actor": "Chinese Communist Party (CCP)",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "daily_oil_production",
+                  "name": "Daily Oil Production",
+                  "description": "Total daily crude oil production capacity across all operations in millions of barrels per day (MBPD).",
+                  "type": "float",
+                  "expected_value": "2.5 - 4.0"
+                },
+                {
+                  "code_name": "state_ownership_pct",
+                  "name": "State Ownership Percentage",
+                  "description": "Percentage of company owned by Chinese government, affecting decision-making and strategic priorities.",
+                  "type": "float",
+                  "expected_value": "80.0 - 100.0"
+                },
+                {
+                  "code_name": "international_projects",
+                  "name": "International Project Count",
+                  "description": "Number of active international exploration and production projects outside China.",
+                  "type": "integer",
+                  "expected_value": "20 - 50"
+                },
+                {
+                  "code_name": "strategic_reserve_control",
+                  "name": "Strategic Reserve Control",
+                  "description": "Percentage of China's strategic petroleum reserves under CNPC's management and control.",
+                  "type": "float",
+                  "expected_value": "30.0 - 45.0"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "depth": 2,
+          "parameters": [
+            {
+              "code_name": "membership_size",
+              "name": "Party Membership Size",
+              "description": "Total number of registered CCP members, indicating the party's organizational reach and control capacity.",
+              "type": "integer",
+              "expected_value": "90000000 - 100000000"
+            },
+            {
+              "code_name": "ideological_orthodoxy",
+              "name": "Ideological Orthodoxy Level",
+              "description": "Measure of how strictly the party adheres to and enforces official ideology and party doctrine.",
+              "type": "float",
+              "expected_value": "0.0 - 1.0"
+            },
+            {
+              "code_name": "control_effectiveness",
+              "name": "Political Control Effectiveness",
+              "description": "Index of the party's effectiveness in maintaining control over state institutions and society through its parallel party-state structure.",
+              "type": "float",
+              "expected_value": "0.0 - 1.0"
+            },
+            {
+              "code_name": "policy_direction",
+              "name": "Policy Direction",
+              "description": "Current dominant policy orientation of the party leadership, ranging from reformist/market-oriented to conservative/state-control.",
+              "type": "float",
+              "expected_value": "-1.0 (reformist) to 1.0 (conservative)"
+            }
+          ]
+        },
+        {
+          "name": "Central Military Commission (CMC)",
+          "description": "Supreme military command organization overseeing the People's Liberation Army (PLA), responsible for national defense policy and military strategy. Controls world's largest military force and reports directly to CCP leadership, wielding significant influence in national security decisions.",
+          "type": "military",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [
+            {
+              "name": "China North Industries Group Corporation (Norinco)",
+              "description": "China's largest state-owned defense contractor, specializing in military equipment, vehicles, and weapons systems. Primary supplier to PLA, generates over $70 billion in annual revenue and controls majority of domestic military equipment production.",
+              "type": "corporation",
+              "parent_actor": "Central Military Commission (CMC)",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "annual_revenue_usd",
+                  "name": "Annual Revenue (USD)",
+                  "description": "Total annual revenue in US dollars, representing the company's financial scale and market dominance.",
+                  "type": "float",
+                  "expected_value": "70000000000 - 80000000000"
+                },
+                {
+                  "code_name": "pla_supply_share",
+                  "name": "PLA Supply Share",
+                  "description": "Percentage of PLA's total military equipment supplied by Norinco, indicating market control and strategic importance.",
+                  "type": "float",
+                  "expected_value": "0.40 - 0.65"
+                },
+                {
+                  "code_name": "product_categories",
+                  "name": "Product Categories",
+                  "description": "List of major military equipment categories produced, showing technological capabilities and production scope.",
+                  "type": "document",
+                  "expected_value": "['armored vehicles', 'artillery systems', 'small arms', 'ammunition', 'missiles', 'anti-tank weapons']"
+                },
+                {
+                  "code_name": "state_control_level",
+                  "name": "State Control Level",
+                  "description": "Degree of direct Chinese government control and oversight in company operations and strategic decisions.",
+                  "type": "float",
+                  "expected_value": "0.85 - 1.0"
+                }
+              ]
+            },
+            {
+              "name": "Aviation Industry Corporation of China (AVIC)",
+              "description": "State-owned aerospace and defense conglomerate developing military aircraft, engines, and aviation systems. Key developer of China's fighter jets, helicopters, and military drones with significant R&D capabilities.",
+              "type": "corporation",
+              "parent_actor": "Central Military Commission (CMC)",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "annual_rd_budget",
+                  "name": "Annual R&D Budget",
+                  "description": "Total yearly research and development spending in billions of USD, indicating technological innovation capacity and new military aircraft development capabilities.",
+                  "type": "float",
+                  "expected_value": "3.0 - 8.0"
+                },
+                {
+                  "code_name": "military_aircraft_models",
+                  "name": "Active Military Aircraft Models",
+                  "description": "Number of distinct military aircraft models currently in production or active development, including fighters, transporters, and drones.",
+                  "type": "integer",
+                  "expected_value": "10 - 30"
+                },
+                {
+                  "code_name": "state_alignment_index",
+                  "name": "State Strategic Alignment Index",
+                  "description": "Measure of how closely the corporation's activities align with Chinese state military and aerospace objectives, affecting project prioritization and resource allocation.",
+                  "type": "float",
+                  "expected_value": "0.7 - 1.0"
+                },
+                {
+                  "code_name": "tech_capability_level",
+                  "name": "Technological Capability Level",
+                  "description": "Composite score representing overall technological sophistication in aerospace manufacturing and systems integration relative to global competitors.",
+                  "type": "float",
+                  "expected_value": "0.6 - 0.9"
+                }
+              ]
+            },
+            {
+              "name": "China Electronics Technology Group Corporation (CETC)",
+              "description": "Leading developer of military electronics, radar systems, and cybersecurity technologies. Provides critical communications infrastructure and electronic warfare capabilities to PLA across all service branches.",
+              "type": "corporation",
+              "parent_actor": "Central Military Commission (CMC)",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3,
+              "parameters": [
+                {
+                  "code_name": "rd_budget_usd_bn",
+                  "name": "R&D Budget in USD Billions",
+                  "description": "Annual research and development spending focused on military electronics and defense systems development.",
+                  "type": "float",
+                  "expected_value": "5.0 - 15.0"
+                },
+                {
+                  "code_name": "military_contracts_ratio",
+                  "name": "Military Contracts Ratio",
+                  "description": "Proportion of total revenue derived from military and defense contracts versus civilian business.",
+                  "type": "float",
+                  "expected_value": "0.6 - 0.9"
+                },
+                {
+                  "code_name": "tech_capability_level",
+                  "name": "Technology Capability Level",
+                  "description": "Assessment of technological sophistication in key military electronics domains relative to global competitors.",
+                  "type": "integer",
+                  "expected_value": "1-10"
+                },
+                {
+                  "code_name": "pla_integration_score",
+                  "name": "PLA Integration Score",
+                  "description": "Measure of how deeply integrated CETC's systems and technologies are across PLA branches and commands.",
+                  "type": "float",
+                  "expected_value": "0.0 - 1.0"
+                }
+              ]
+            }
+          ],
+          "sub_actors_count": 3,
+          "depth": 2,
+          "parameters": [
+            {
+              "code_name": "military_budget_pct_gdp",
+              "name": "Military Budget as % of GDP",
+              "description": "Annual defense spending as a percentage of national GDP, indicating resource allocation and military prioritization.",
+              "type": "float",
+              "expected_value": "1.5 - 3.0"
+            },
+            {
+              "code_name": "command_centralization",
+              "name": "Command Centralization Index",
+              "description": "Measure of how centralized military decision-making is within the CMC structure, affecting response time and operational flexibility.",
+              "type": "float",
+              "expected_value": "0.7 - 1.0"
+            },
+            {
+              "code_name": "active_personnel_count",
+              "name": "Active Military Personnel",
+              "description": "Total number of active-duty military personnel under CMC command across all service branches.",
+              "type": "integer",
+              "expected_value": "1900000 - 2300000"
+            },
+            {
+              "code_name": "modernization_level",
+              "name": "Military Modernization Level",
+              "description": "Assessment of military technology, equipment, and doctrine modernization progress relative to strategic goals.",
+              "type": "float",
+              "expected_value": "0.0 - 1.0"
+            }
+          ]
+        }
+      ],
+      "sub_actors_count": 2,
+      "depth": 1,
+      "parameters": [
+        {
+          "code_name": "gdp_trillion_usd",
+          "name": "GDP in Trillion USD",
+          "description": "Annual Gross Domestic Product in trillion US dollars, reflecting economic output and market size.",
+          "type": "float",
+          "expected_value": "15.0 - 20.0"
+        },
+        {
+          "code_name": "manufacturing_share",
+          "name": "Global Manufacturing Share",
+          "description": "Percentage of global manufacturing output produced in China, indicating industrial capacity and economic influence.",
+          "type": "float",
+          "expected_value": "25.0 - 35.0"
+        },
+        {
+          "code_name": "military_spending_billion",
+          "name": "Military Spending in Billion USD",
+          "description": "Annual defense budget in billion US dollars, representing military capabilities and global power projection.",
+          "type": "float",
+          "expected_value": "200.0 - 300.0"
+        },
+        {
+          "code_name": "belt_road_investments",
+          "name": "Belt and Road Initiative Investments",
+          "description": "Cumulative investments in billions USD in the Belt and Road Initiative, showing international economic influence and infrastructure development.",
+          "type": "float",
+          "expected_value": "500.0 - 1000.0"
+        }
+      ]
+    }
+  ],
+  "total_main_actors": 2,
+  "total_subactors": 12,
+  "level": 2
+}

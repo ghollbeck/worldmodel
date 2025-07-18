@@ -22,6 +22,13 @@ from .utils import (
 )
 from .llm.llm import call_llm_api, get_cost_session, reset_cost_session
 from .routes.initializationroute.prompts import generate_initial_actor_prompts, generate_leveldown_prompts
+# Import functions from the prepared parameter generation script
+from .routes.initializationroute.generate_parameters_for_actors import (
+    generate_parameters_for_actor, 
+    add_parameters_recursively,
+    count_actors_recursively,
+    find_latest_deepest_json
+)
 
 
 class GenerationService:
@@ -444,65 +451,60 @@ class GenerationService:
 
     async def generate_parameters_async(self, provider: str, model: str, 
                                       num_params: int) -> Optional[Path]:
-        """Generate parameters for existing actors"""
+        """Generate parameters for existing actors using the prepared script"""
         
         self.update_parameter_status("running", "Starting parameter generation", 0)
         
         try:
-            # Find latest run
-            run_folder = get_latest_run_folder()
-            if not run_folder:
+            # Find latest deepest JSON file using the prepared script's function
+            init_logs_dir = get_latest_run_folder().parent if get_latest_run_folder() else None
+            if not init_logs_dir:
                 self.update_parameter_status("failed", "No actor data found", 
                                            error="No previous runs found")
                 return None
-            
-            # Find latest features file
-            latest_file = None
-            level = 0
-            while True:
-                file_path = run_folder / f"Features_level_{level}.json"
-                if not file_path.exists():
-                    break
-                latest_file = file_path
-                level += 1
-            
-            if not latest_file:
+                
+            try:
+                features_json_path = find_latest_deepest_json(init_logs_dir)
+            except FileNotFoundError as e:
                 self.update_parameter_status("failed", "No features file found", 
-                                           error="No Features_level_N.json files found")
+                                           error=str(e))
                 return None
             
-            self.update_parameter_status("running", "Loading actor data", 20)
+            self.update_parameter_status("running", "Loading actor data", 10)
             
-            # Load data
-            with open(latest_file, 'r', encoding='utf-8') as f:
+            # Load data using the prepared script's approach
+            with open(features_json_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
             
-            # Generate parameters for all actors
+            # Count total actors first using the prepared script's function
             actors = data.get('actors', [])
-            total_actors = len(actors)
+            total_actors = sum(count_actors_recursively(actor) for actor in actors)
             
-            for i, actor in enumerate(actors):
-                progress = 20 + (i * 60) / total_actors
-                self.update_parameter_status("running", 
-                                           f"Generating parameters for {actor['name']}", 
-                                           progress)
-                
-                # Generate parameters for this actor
-                actor_params = await self._generate_parameters_for_actor(
+            log_info(
+                "Parameter generation started",
+                f"Total actors to process: {total_actors}, Parameters per actor: {num_params}"
+            )
+            
+            self.update_parameter_status("running", f"Processing {total_actors} actors", 20)
+            
+            # Process each main actor using the prepared script's recursive function
+            processed_actors = 0
+            for actor in actors:
+                # Use the prepared script's recursive function
+                await self._add_parameters_recursively_async(
                     actor, num_params, provider, model
                 )
-                actor['parameters'] = actor_params
                 
-                # Recursively process sub-actors
-                if 'sub_actors' in actor:
-                    await self._add_parameters_recursively(
-                        actor['sub_actors'], num_params, provider, model
-                    )
+                processed_actors += count_actors_recursively(actor)
+                progress = 20 + (processed_actors * 70) / total_actors
+                self.update_parameter_status("running", 
+                                           f"Processed {processed_actors}/{total_actors} actors", 
+                                           progress)
             
             # Save updated data
             self.update_parameter_status("running", "Saving results", 90)
             
-            out_path = latest_file.parent / (latest_file.stem + "_with_params.json")
+            out_path = features_json_path.parent / (features_json_path.stem + "_with_params.json")
             with open(out_path, 'w', encoding='utf-8') as f:
                 json.dump(data, f, indent=2, ensure_ascii=False)
             
@@ -525,69 +527,22 @@ class GenerationService:
             )
             return None
 
-    async def _generate_parameters_for_actor(self, actor: Dict[str, Any], 
-                                           num_params: int, provider: str, 
-                                           model: str) -> List[Dict[str, Any]]:
-        """Generate parameters for a single actor"""
+    async def _add_parameters_recursively_async(self, actor: Dict[str, Any], 
+                                               num_params: int, provider: str, model: str):
+        """Add parameters to this actor and all sub-actors recursively using async calls"""
         
-        prompt = f"""
-You are an expert in world modeling and data schema design. For the following actor, generate a list of {num_params} important and relevant parameters that would be most useful for simulation, analytics, or AI reasoning.
-
-Actor type: {actor.get('type')}
-Actor name: {actor.get('name')}
-Actor description: {actor.get('description')}
-
-Return a JSON array of exactly {num_params} objects with these fields:
-- code_name (short, snake_case, suitable for coding)
-- name (human-readable)
-- description (1-2 sentences)
-- type (string, integer, float, boolean, document, etc.)
-- expected_value (example value or range)
-"""
+        # Generate parameters for this actor using the prepared script's function
+        actor_params = await call_llm_api_async(
+            generate_parameters_for_actor,
+            actor, num_params, provider, model
+        )
+        actor['parameters'] = actor_params
         
-        try:
-            response = await call_llm_api_async(
-                call_llm_api,
-                prompt=prompt,
-                model_provider=provider,
-                model_name=model,
-                max_tokens=2000,
-                temperature=0.3
-            )
-            
-            try:
-                params = json.loads(response)
-                if isinstance(params, list):
-                    return params[:num_params]
-                else:
-                    return []
-            except json.JSONDecodeError:
-                log_error(
-                    error_type="PARAMETER_PARSE_ERROR",
-                    error_message=f"Failed to parse parameters for {actor.get('name')}"
-                )
-                return []
-                
-        except Exception as e:
-            log_error(
-                error_type="PARAMETER_GENERATION_ERROR",
-                error_message=f"Failed to generate parameters for {actor.get('name')}",
-                exception=e
-            )
-            return []
-
-    async def _add_parameters_recursively(self, sub_actors: List[Dict[str, Any]], 
-                                        num_params: int, provider: str, model: str):
-        """Add parameters to sub-actors recursively"""
-        for sub_actor in sub_actors:
-            sub_actor['parameters'] = await self._generate_parameters_for_actor(
-                sub_actor, num_params, provider, model
-            )
-            
-            # Recursively process nested sub-actors
-            if 'sub_actors' in sub_actor and isinstance(sub_actor['sub_actors'], list):
-                await self._add_parameters_recursively(
-                    sub_actor['sub_actors'], num_params, provider, model
+        # Recursively process sub-actors
+        if 'sub_actors' in actor and isinstance(actor['sub_actors'], list):
+            for sub_actor in actor['sub_actors']:
+                await self._add_parameters_recursively_async(
+                    sub_actor, num_params, provider, model
                 )
 
 
