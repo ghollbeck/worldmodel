@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T13:56:56.663399",
+    "run_folder": "run_2025-07-16_12",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "num_actors_requested": 4,
+    "num_actors_generated": 4,
+    "script_version": "3.0.0",
+    "generation_method": "LLM-based",
+    "level": 0,
+    "cost_tracking": {
+      "total_cost": 0.01016,
+      "api_calls": 1,
+      "providers": {
+        "anthropic": {
+          "cost": 0.01016,
+          "calls": 1,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.01016,
+              "calls": 1,
+              "tokens": {
+                "input": 448,
+                "output": 274,
+                "total": 722
+              }
+            }
+          },
+          "tokens": {
+            "input": 448,
+            "output": 274,
+            "total": 722
+          }
+        }
+      },
+      "session_start": "2025-07-16T13:56:50.573624",
+      "tokens_used": {
+        "input_tokens": 448,
+        "output_tokens": 274,
+        "total_tokens": 722
+      },
+      "session_duration_seconds": 6.08977,
+      "session_duration_str": "0:00:06.089770",
+      "average_cost_per_call": 0.01016,
+      "cost_per_1k_tokens": 0.014072022160664822
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with unmatched military strength, largest economy by GDP, dominant financial system (USD), technological leadership, and extensive diplomatic influence across all continents",
+      "type": "country"
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "World's largest population, second-largest economy, rising military power, dominant manufacturing base, growing technological capability, and increasing global diplomatic presence through Belt and Road Initiative",
+      "type": "country"
+    },
+    {
+      "name": "Apple Inc.",
+      "description": "Most valuable public company globally, massive influence on global technology standards, consumer behavior, supply chains, and digital ecosystem with over 2 billion active devices worldwide",
+      "type": "company"
+    },
+    {
+      "name": "European Union",
+      "description": "Largest trading bloc, significant regulatory power ('Brussels Effect'), major diplomatic force, influential environmental policies, and world's third-largest economy as a collective",
+      "type": "alliance"
+    }
+  ],
+  "total_count": 4
+}

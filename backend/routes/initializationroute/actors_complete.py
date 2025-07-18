@@ -7,11 +7,18 @@ level-down generation (Levels 1-N) into one unified system. It automatically
 generates all levels from 0 to the specified target depth.
 
 Usage:
-    python actors_complete.py [provider] [model] [num_actors] [num_subactors] [target_depth] [skip_errors]
+    python actors_complete.py <provider> <model> <target_depth> <level_counts> [skip_errors]
+
+Where:
+    <target_depth>   : Depth of hierarchy to generate (0–3). 0 means only top-level actors.
+    <level_counts>   : Comma-separated list of FOUR integers giving the number of
+                       actors/sub-actors for each level (Level 0 → Level 3).
+                       Example: "5,3,5,0" generates 5 top-level actors, 3 sub-actors
+                       per actor at depth-1, 5 at depth-2, and no generation at depth-3.
 
 Examples:
-    python actors_complete.py anthropic claude-3-5-sonnet-latest 10 8 3 true
-    python actors_complete.py openai gpt-4 20 6 2 false
+    python actors_complete.py anthropic claude-3-5-sonnet-latest 3 "5,3,5,0" true
+    python actors_complete.py openai gpt-4 2 100,10,5,3 false
 """
 
 import json
@@ -114,6 +121,7 @@ class Actor(BaseModel):
     name: str = Field(..., description="The name of the actor")
     description: str = Field(..., description="A short description of the actor's role and influence")
     type: str = Field(..., description="The type of actor")
+    depth: int = Field(default=1, description="The depth level of the actor (1=top-level, up to 4)")
 
 class ActorList(BaseModel):
     """Container for a list of actors"""
@@ -128,6 +136,7 @@ class SubActor(BaseModel):
     parent_actor: str = Field(..., description="The name of the parent actor")
     sub_actors: List['SubActor'] = Field(default=[], description="List of nested sub-actors")
     sub_actors_count: int = Field(default=0, description="Number of nested sub-actors")
+    depth: int = Field(default=0, description="The depth level of the sub-actor (2=first sub-level, up to 4)")
 
 class SubActorList(BaseModel):
     """Container for a list of sub-actors"""
@@ -142,6 +151,7 @@ class EnhancedActor(BaseModel):
     type: str = Field(..., description="The type of actor")
     sub_actors: List[SubActor] = Field(default=[], description="List of sub-actors")
     sub_actors_count: int = Field(default=0, description="Number of sub-actors")
+    depth: int = Field(default=1, description="The depth level of the actor (1=top-level, up to 4)")
 
 # Resolve forward reference for recursive SubActor model
 SubActor.model_rebuild()
@@ -225,18 +235,21 @@ def generate_level_0_actors(model_provider: str, model_name: str, num_actors: in
         # Try to parse the JSON and validate with Pydantic
         try:
             raw_data = json.loads(response)
+            # Add depth=1 to all top-level actors
+            for actor in raw_data.get("actors", []):
+                actor["depth"] = 1
             actors_list = ActorList(**raw_data)
-            
+
             # Pretty print the validated data
             print("=" * 80)
             for i, actor in enumerate(actors_list.actors, 1):
                 print(f"✅ {i:2d}. {actor.name} ({actor.type})")
                 print(f"    📝 Description: {actor.description}")
                 print()
-            
+
             # Get current cost session data
             cost_data = get_cost_session()
-            
+
             # Prepare the data to save with metadata
             output_data = {
                 "metadata": {
@@ -254,15 +267,15 @@ def generate_level_0_actors(model_provider: str, model_name: str, num_actors: in
                 "actors": [actor.model_dump() for actor in actors_list.actors],
                 "total_count": actors_list.total_count
             }
-            
+
             # Save the results to JSON file
             save_level_data(output_data, 0, run_folder)
-            
+
             log_success(
                 f"Level 0 complete! Generated {actors_list.total_count} actors",
                 f"Provider: {model_provider}\nModel: {model_name}\nActors: {actors_list.total_count}"
             )
-            
+
             return actors_list
             
         except json.JSONDecodeError as e:
@@ -352,6 +365,9 @@ async def generate_subactors_for_actor_async(actor_data: Dict[str, Any], model_p
         # Parse and validate the response
         try:
             raw_data = json.loads(response)
+            # Inject depth before validation
+            for sa in raw_data.get("sub_actors", []):
+                sa.setdefault("depth", current_level + 1)
             sub_actors_list = SubActorList(**raw_data)
             
             print(f"✅ [{actor_index+1}] Generated {sub_actors_list.total_count} sub-actors for {actor_name}")
@@ -415,6 +431,8 @@ def generate_subactors_for_actor(actor_data: Dict[str, Any], model_provider: str
         # Parse and validate the response
         try:
             raw_data = json.loads(response)
+            for sa in raw_data.get("sub_actors", []):
+                sa.setdefault("depth", current_level + 1)
             sub_actors_list = SubActorList(**raw_data)
             
             print(f"✅ Generated {sub_actors_list.total_count} sub-actors for {actor_name}")
@@ -485,137 +503,109 @@ async def generate_level_n_actors_async(source_level: int, target_level: int, mo
                                                                source_data.get("metadata", {}))
     
     if source_level == 0:
-        # Level 0->1: Process main actors in parallel
+        # Level 1: Process main actors in parallel
         tasks = []
         actors_to_process = []
-        
+
         for i, actor_data in enumerate(parent_actors):
             if actor_data.get("sub_actors"):
                 # Already has sub-actors – keep them
-                enhanced_actors.append(EnhancedActor(**actor_data))
+                enhanced_actors.append(EnhancedActor(**actor_data, depth=1))
                 continue
-            
+
             # Create async task for this actor
             task = generate_subactors_for_actor_async(
                 actor_data, model_provider, model_name, num_subactors, target_level, i
             )
             tasks.append(task)
             actors_to_process.append(actor_data)
-        
+
         # Execute all tasks concurrently
         if tasks:
             print(f"🚀 Starting parallel generation for {len(tasks)} actors...")
             try:
                 results = await asyncio.gather(*tasks, return_exceptions=True)
-                
+
                 # Process results
                 for i, (actor_data, result) in enumerate(zip(actors_to_process, results)):
                     if isinstance(result, Exception):
                         failed_actors += 1
                         if skip_on_error:
                             print(f"❌ [{i+1}] Skipping {actor_data['name']} due to error")
-                            enhanced_actors.append(EnhancedActor(**actor_data))
+                            enhanced_actors.append(EnhancedActor(**actor_data, depth=1))
                         else:
                             raise result
                     else:
+                        # Set depth=2 for all sub-actors
+                        for sub in result.sub_actors:
+                            sub.depth = 2
                         enhanced_actors.append(EnhancedActor(
                             name=actor_data["name"],
                             description=actor_data["description"],
                             type=actor_data["type"],
                             sub_actors=result.sub_actors,
                             sub_actors_count=result.total_count,
+                            depth=1
                         ))
                         total_subactors += result.total_count
                         successful_actors += 1
-                        
+
             except Exception as e:
                 if not skip_on_error:
                     raise
-                
+
     else:
-        # Level N->N+1: Process sub-actors from previous level in parallel
+        # Level N->N+1: Recursively process all leaf nodes at depth==target_level
+        leaf_nodes: List[Dict[str, Any]] = []
+
+        def collect_leaves(nodes: List[Dict[str, Any]]):
+            for n in nodes:
+                # If this node is at the depth we're expanding and has no sub-actors yet → generate
+                if n.get("depth") == target_level and (not n.get("sub_actors")):
+                    leaf_nodes.append(n)
+                # Recurse deeper if there are existing sub-actors
+                if n.get("sub_actors"):
+                    collect_leaves(n["sub_actors"])
+
+        # Collect all leaves eligible for generation
+        collect_leaves(parent_actors)
+
+        # Create tasks for each leaf node
         tasks = []
-        task_metadata = []  # To track which main actor and sub-actor each task belongs to
-        
-        for main_actor_idx, main_actor in enumerate(parent_actors):
-            for sub_actor_idx, sub_actor in enumerate(main_actor.get("sub_actors", [])):
-                if sub_actor.get("sub_actors"):
-                    # Sub-actor already has sub-actors – skip
-                    continue
-                
-                # Create async task for this sub-actor
-                task = generate_subactors_for_actor_async(
-                    sub_actor, model_provider, model_name, num_subactors, target_level, 
-                    len(tasks)
-                )
-                tasks.append(task)
-                task_metadata.append((main_actor_idx, sub_actor_idx))
-        
-        # Execute all tasks concurrently
+        for idx, leaf in enumerate(leaf_nodes):
+            task = generate_subactors_for_actor_async(
+                leaf, model_provider, model_name, num_subactors, target_level, idx
+            )
+            tasks.append(task)
+
+        # Execute tasks
         if tasks:
-            print(f"🚀 Starting parallel generation for {len(tasks)} sub-actors...")
-            try:
-                results = await asyncio.gather(*tasks, return_exceptions=True)
-                
-                # Create a mapping of results back to their parent actors
-                result_map = {}
-                for i, ((main_idx, sub_idx), result) in enumerate(zip(task_metadata, results)):
-                    if main_idx not in result_map:
-                        result_map[main_idx] = {}
-                    result_map[main_idx][sub_idx] = result
-                
-                # Process results and build enhanced actors
-                for main_actor_idx, main_actor in enumerate(parent_actors):
-                    updated_sub_actors = []
-                    
-                    for sub_actor_idx, sub_actor in enumerate(main_actor.get("sub_actors", [])):
-                        if sub_actor.get("sub_actors"):
-                            # Sub-actor already has sub-actors – keep them
-                            updated_sub_actors.append(SubActor(**sub_actor))
-                            continue
-                        
-                        # Check if we have a result for this sub-actor
-                        if (main_actor_idx in result_map and 
-                            sub_actor_idx in result_map[main_actor_idx]):
-                            
-                            result = result_map[main_actor_idx][sub_actor_idx]
-                            
-                            if isinstance(result, Exception):
-                                failed_actors += 1
-                                if skip_on_error:
-                                    print(f"❌ Skipping {sub_actor['name']} due to error")
-                                    updated_sub_actors.append(SubActor(**sub_actor))
-                                else:
-                                    raise result
-                            else:
-                                updated_sub_actor = SubActor(
-                                    name=sub_actor["name"],
-                                    description=sub_actor["description"],
-                                    type=sub_actor["type"],
-                                    parent_actor=sub_actor["parent_actor"],
-                                    sub_actors=result.sub_actors,
-                                    sub_actors_count=result.total_count
-                                )
-                                updated_sub_actors.append(updated_sub_actor)
-                                total_subactors += result.total_count
-                                successful_actors += 1
-                        else:
-                            # No task was created for this sub-actor, keep as is
-                            updated_sub_actors.append(SubActor(**sub_actor))
-                    
-                    # Create enhanced main actor with updated sub-actors
-                    enhanced_actors.append(EnhancedActor(
-                        name=main_actor["name"],
-                        description=main_actor["description"],
-                        type=main_actor["type"],
-                        sub_actors=updated_sub_actors,
-                        sub_actors_count=len(updated_sub_actors)
-                    ))
-                    
-            except Exception as e:
-                if not skip_on_error:
-                    raise
-    
+            print(f"🚀 Starting parallel generation for {len(tasks)} leaf nodes at depth {target_level}...")
+            results = await asyncio.gather(*tasks, return_exceptions=True)
+
+            for leaf, res in zip(leaf_nodes, results):
+                if isinstance(res, Exception):
+                    failed_actors += 1
+                    if not skip_on_error:
+                        raise res
+                    continue
+
+                # Assign depth to newly generated sub-actors
+                for sub in res.sub_actors:
+                    sub.depth = target_level + 1
+
+                leaf["sub_actors"] = [sub.model_dump() for sub in res.sub_actors]
+                leaf["sub_actors_count"] = res.total_count
+                total_subactors += res.total_count
+                successful_actors += 1
+
+        # After updates, convert the top-level actors back to EnhancedActor models
+        enhanced_actors = [EnhancedActor(**actor) for actor in parent_actors]
+        total_main_actors = len(enhanced_actors)
+        actors_with_subactors = sum(1 for a in enhanced_actors if a.sub_actors_count > 0)
+        avg_subactors_per_actor = total_subactors / total_main_actors if total_main_actors else 0
+        # Note: above stats recalculated, override previous quick counts
+ 
     # Calculate statistics
     total_main_actors = len(enhanced_actors)
     actors_with_subactors = sum(1 for actor in enhanced_actors if actor.sub_actors_count > 0)
@@ -712,7 +702,7 @@ def generate_level_n_actors(source_level: int, target_level: int, model_provider
             actor_name = actor_data["name"]
             if actor_data.get("sub_actors"):
                 # Already has sub-actors – keep them
-                enhanced_actors.append(EnhancedActor(**actor_data))
+                enhanced_actors.append(EnhancedActor(**actor_data, depth=1))
                 continue
 
             try:
@@ -724,13 +714,14 @@ def generate_level_n_actors(source_level: int, target_level: int, model_provider
                     type=actor_data["type"],
                     sub_actors=sub_list.sub_actors,
                     sub_actors_count=sub_list.total_count,
+                    depth=1
                 ))
                 total_subactors += sub_list.total_count
                 successful_actors += 1
             except Exception as e:
                 failed_actors += 1
                 if skip_on_error:
-                    enhanced_actors.append(EnhancedActor(**actor_data))
+                    enhanced_actors.append(EnhancedActor(**actor_data, depth=1))
                 else:
                     raise
     else:
@@ -740,7 +731,7 @@ def generate_level_n_actors(source_level: int, target_level: int, model_provider
             for sub_actor in main_actor.get("sub_actors", []):
                 if sub_actor.get("sub_actors"):
                     # Sub-actor already has sub-actors – keep them
-                    updated_sub_actors.append(SubActor(**sub_actor))
+                    updated_sub_actors.append(SubActor(**sub_actor, depth=target_level))
                     continue
                 
                 try:
@@ -752,7 +743,8 @@ def generate_level_n_actors(source_level: int, target_level: int, model_provider
                         type=sub_actor["type"],
                         parent_actor=sub_actor["parent_actor"],
                         sub_actors=sub_list.sub_actors,
-                        sub_actors_count=sub_list.total_count
+                        sub_actors_count=sub_list.total_count,
+                        depth=target_level
                     )
                     updated_sub_actors.append(updated_sub_actor)
                     total_subactors += sub_list.total_count
@@ -760,7 +752,7 @@ def generate_level_n_actors(source_level: int, target_level: int, model_provider
                 except Exception as e:
                     failed_actors += 1
                     if skip_on_error:
-                        updated_sub_actors.append(SubActor(**sub_actor))
+                        updated_sub_actors.append(SubActor(**sub_actor, depth=target_level))
                     else:
                         raise
             
@@ -770,7 +762,8 @@ def generate_level_n_actors(source_level: int, target_level: int, model_provider
                 description=main_actor["description"],
                 type=main_actor["type"],
                 sub_actors=updated_sub_actors,
-                sub_actors_count=len(updated_sub_actors)
+                sub_actors_count=len(updated_sub_actors),
+                depth=main_actor.get("depth", max(1, target_level-1))
             ))
     
     # Calculate statistics
@@ -829,9 +822,8 @@ def generate_level_n_actors(source_level: int, target_level: int, model_provider
 
 async def generate_complete_world_model_async(model_provider: str = "anthropic", 
                                             model_name: str = "claude-3-5-sonnet-latest",
-                                            num_actors: int = 10,
-                                            num_subactors: int = 8,
-                                            target_depth: int = 2,
+                                            target_depth: int = 3,
+                                            level_counts: Optional[List[int]] = None,
                                             skip_on_error: bool = True) -> Optional[Path]:
     """
     Generate a complete world model with all levels from 0 to target_depth (async version)
@@ -839,9 +831,9 @@ async def generate_complete_world_model_async(model_provider: str = "anthropic",
     Args:
         model_provider: LLM provider to use
         model_name: Specific model name
-        num_actors: Number of initial actors to generate (Level 0)
-        num_subactors: Number of sub-actors per actor for each level
         target_depth: Maximum depth to generate (0 = only initial actors)
+        level_counts: List of four integers specifying the number of actors/sub-actors
+                      for each level (L0, L1, L2, L3).
         skip_on_error: Whether to skip actors that fail generation
         
     Returns:
@@ -851,8 +843,18 @@ async def generate_complete_world_model_async(model_provider: str = "anthropic",
     print(f"🌍 STARTING COMPLETE WORLD MODEL GENERATION (ASYNC)")
     print(f"🔧 Provider: {model_provider}")
     print(f"🤖 Model: {model_name}")
-    print(f"📊 Initial actors: {num_actors}")
-    print(f"📊 Sub-actors per actor: {num_subactors}")
+    if level_counts is None:
+        level_counts = [10, 8, 0, 0]  # sensible defaults if none supplied
+
+    # Ensure exactly 4 elements
+    if len(level_counts) < 4:
+        level_counts = level_counts + [0] * (4 - len(level_counts))
+    elif len(level_counts) > 4:
+        level_counts = level_counts[:4]
+
+    num_actors = level_counts[0]
+
+    print(f"📊 Level counts (L0-L3): {level_counts}")
     print(f"🔢 Target depth: {target_depth}")
     print(f"🔀 Parallel threads: 5")
     print(f"⚠️  Skip on error: {skip_on_error}")
@@ -866,7 +868,7 @@ async def generate_complete_world_model_async(model_provider: str = "anthropic",
     
     try:
         # Generate Level 0 (Initial actors) - still synchronous as it's usually just one request
-        log_info(f"Starting Level 0 generation", 
+        log_info("Starting Level 0 generation", 
                 f"Generating {num_actors} initial world actors")
         
         level_0_actors = generate_level_0_actors(model_provider, model_name, num_actors, run_folder)
@@ -882,15 +884,27 @@ async def generate_complete_world_model_async(model_provider: str = "anthropic",
         # Generate additional levels if requested (using async parallelization)
         if target_depth > 0:
             for level in range(1, target_depth + 1):
-                log_info(f"Starting Level {level} generation (parallel)", 
-                        f"Generating sub-actors from Level {level-1}")
-                
+                # Determine how many sub-actors to generate at this depth
+                level_subactors = level_counts[level] if level < len(level_counts) else 0
+
+                if level_subactors <= 0:
+                    log_info(
+                        f"Skipping Level {level} generation – sub-actor count is 0",
+                        f"Provided level_counts: {level_counts}"
+                    )
+                    break
+
+                log_info(
+                    f"Starting Level {level} generation (parallel)",
+                    f"Generating {level_subactors} sub-actors from Level {level-1}"
+                )
+
                 enhanced_actors = await generate_level_n_actors_async(
                     source_level=level-1,
                     target_level=level,
                     model_provider=model_provider,
                     model_name=model_name,
-                    num_subactors=num_subactors,
+                    num_subactors=level_subactors,
                     run_folder=run_folder,
                     skip_on_error=skip_on_error
                 )
@@ -927,9 +941,8 @@ async def generate_complete_world_model_async(model_provider: str = "anthropic",
 # Synchronous wrapper for backward compatibility
 def generate_complete_world_model(model_provider: str = "anthropic", 
                                  model_name: str = "claude-3-5-sonnet-latest",
-                                 num_actors: int = 10,
-                                 num_subactors: int = 8,
-                                 target_depth: int = 2,
+                                 target_depth: int = 3,
+                                 level_counts: Optional[List[int]] = None,
                                  skip_on_error: bool = True) -> Optional[Path]:
     """
     Synchronous wrapper for the async world model generation
@@ -937,9 +950,8 @@ def generate_complete_world_model(model_provider: str = "anthropic",
     return asyncio.run(generate_complete_world_model_async(
         model_provider=model_provider,
         model_name=model_name,
-        num_actors=num_actors,
-        num_subactors=num_subactors,
         target_depth=target_depth,
+        level_counts=level_counts,
         skip_on_error=skip_on_error
     ))
 
@@ -949,51 +961,58 @@ if __name__ == "__main__":
     # Default values
     provider = "anthropic"
     model = "claude-3-5-sonnet-latest"
-    num_actors = 10
-    num_subactors = 8
-    target_depth = 2
+    target_depth = 3
+    level_counts: List[int] = [10, 8, 0, 0]
     skip_errors = True
-    
-    # Parse command line arguments
-    if len(sys.argv) > 1:
-        provider = sys.argv[1]
-    if len(sys.argv) > 2:
-        model = sys.argv[2]
-    if len(sys.argv) > 3:
+
+    # Parse command line arguments (see docstring for expected order)
+    args = sys.argv
+
+    if len(args) > 1:
+        provider = args[1]
+    if len(args) > 2:
+        model = args[2]
+    if len(args) > 3:
         try:
-            num_actors = int(sys.argv[3])
-            if num_actors < 1 or num_actors > 200:
-                print(f"⚠️ Warning: Number of actors should be between 1-200. Got {num_actors}, using 10")
-                num_actors = 10
+            target_depth = int(args[3])
+            if target_depth < 0 or target_depth > 3:
+                print("⚠️ Warning: target_depth must be between 0-3. Using 3.")
+                target_depth = min(max(target_depth, 0), 3)
         except ValueError:
-            print(f"⚠️ Warning: Invalid actors argument: '{sys.argv[3]}', using 10")
-    if len(sys.argv) > 4:
+            print(f"⚠️ Warning: Invalid target_depth: '{args[3]}', using 3")
+
+    # Level counts parsing
+    if len(args) > 4:
+        counts_arg = args[4]
         try:
-            num_subactors = int(sys.argv[4])
-            if num_subactors < 1 or num_subactors > 20:
-                print(f"⚠️ Warning: Number of sub-actors should be between 1-20. Got {num_subactors}, using 8")
-                num_subactors = 8
+            if "," in counts_arg:
+                level_counts = [int(x.strip()) for x in counts_arg.split(",")]
+            else:
+                # Accept space-separated counts after target_depth
+                level_counts = []
+                idx = 4
+                while idx < len(args) and len(level_counts) < 4:
+                    level_counts.append(int(args[idx]))
+                    idx += 1
+            # Normalise to exactly 4 ints
+            if len(level_counts) < 4:
+                level_counts += [0] * (4 - len(level_counts))
+            elif len(level_counts) > 4:
+                level_counts = level_counts[:4]
         except ValueError:
-            print(f"⚠️ Warning: Invalid sub-actors argument: '{sys.argv[4]}', using 8")
-    if len(sys.argv) > 5:
-        try:
-            target_depth = int(sys.argv[5])
-            if target_depth < 0 or target_depth > 10:
-                print(f"⚠️ Warning: Target depth should be between 0-10. Got {target_depth}, using 2")
-                target_depth = 2
-        except ValueError:
-            print(f"⚠️ Warning: Invalid target depth: '{sys.argv[5]}', using 2")
-    if len(sys.argv) > 6:
-        skip_errors = sys.argv[6].lower() in ['true', '1', 'yes', 'on']
-    
+            print(f"⚠️ Warning: Invalid level_counts argument: '{counts_arg}', using default [10,8,0,0]")
+            level_counts = [10, 8, 0, 0]
+
+    # skip_errors flag (last arg)
+    if len(args) > 5 and args[-1].lower() in ['true', 'false', '1', '0', 'yes', 'no', 'on', 'off']:
+        skip_errors = args[-1].lower() in ['true', '1', 'yes', 'on']
+ 
     try:
-        # Use the async version
         result = asyncio.run(generate_complete_world_model_async(
             model_provider=provider,
             model_name=model,
-            num_actors=num_actors,
-            num_subactors=num_subactors,
             target_depth=target_depth,
+            level_counts=level_counts,
             skip_on_error=skip_errors
         ))
         
@@ -1001,8 +1020,9 @@ if __name__ == "__main__":
             print(f"\n🎉 SUCCESS! World model generation completed! (with parallelization)")
             print(f"📁 Results saved in: {result}")
             print(f"🔢 Generated levels: 0 to {target_depth}")
-            print(f"📊 Total actors: {num_actors}")
-            print(f"📊 Sub-actors per level: {num_subactors}")
+            print(f"📊 Level counts (L0-L3): {level_counts}")
+            print(f"📊 Total actors: {level_counts[0]}")
+            print(f"📊 Sub-actors per level: {level_counts[1:]}")
             print(f"🔀 Parallel threads: 5")
         else:
             print(f"\n❌ FAILED! World model generation failed.")
@@ -1015,8 +1035,28 @@ if __name__ == "__main__":
         log_error(
             error_type="UNEXPECTED_ERROR",
             error_message="Unexpected error during world model generation",
-            details=f"Provider: {provider}, Model: {model}, Actors: {num_actors}, "
-                   f"Sub-actors: {num_subactors}, Depth: {target_depth}",
+            details=f"Provider: {provider}, Model: {model}, Level counts: {level_counts}, "
+                   f"Depth: {target_depth}",
             exception=e
         )
         sys.exit(1) 
+
+
+
+        # How to run this script with all parameters from the terminal:
+        #
+        # Usage:
+        #   python actors_complete.py <provider> <model> <target_depth> "<l0,l1,l2,l3>" <skip_errors>
+        #
+        # Arguments:
+        #   <provider>      : The model provider to use (e.g., "openai", "anthropic")
+        #   <model>         : The model name (e.g., "gpt-4", "claude-3-5-sonnet-latest")
+        #   <level_counts>  : Comma-separated list of FOUR ints – number of actors at each level
+        #   <target_depth>  : How many levels deep to generate (0-3)
+        #   <skip_errors>   : Whether to skip errors and continue (true/false/1/0/yes/no)
+        #
+        # Example:
+        #   python actors_complete.py anthropic claude-3-5-sonnet-latest 3 "5,3,5,0" true
+        #
+        # This will generate a world model using the Anthropic Claude 3.5 Sonnet model,
+        # with 5 top-level actors, 3 sub-actors at depth-1, 5 at depth-2, and no generation at depth-3.

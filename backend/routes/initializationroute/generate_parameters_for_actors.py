@@ -20,22 +20,16 @@ def count_actors_recursively(actor: Dict[str, Any]) -> int:
             count += count_actors_recursively(sub)
     return count
 
-def find_latest_features_json(init_logs_dir: Path) -> Path:
-    """
-    Find the latest Features_level_N.json file in the most recent run folder.
-    Returns the Path to the file.
-    """
+def find_latest_deepest_json(init_logs_dir: Path) -> Path:
+    """Return the **deepest** Features_level_N.json (highest N) in the most recent run folder."""
     run_folders = [d for d in init_logs_dir.iterdir() if d.is_dir() and d.name.startswith("run_")]
     if not run_folders:
         raise FileNotFoundError("No run folders found in init_logs.")
     run_folders.sort(key=lambda x: x.stat().st_ctime, reverse=True)
     run_folder = run_folders[0]
-    # Find the deepest Features_level_N.json
+
     n = 0
-    while True:
-        f = run_folder / f"Features_level_{n}.json"
-        if not f.exists():
-            break
+    while (run_folder / f"Features_level_{n}.json").exists():
         n += 1
     if n == 0:
         raise FileNotFoundError("No Features_level_N.json files found in latest run folder.")
@@ -101,13 +95,13 @@ def add_parameters_recursively(actor: Dict[str, Any], num_params: int, model_pro
         for sub in actor['sub_actors']:
             add_parameters_recursively(sub, num_params, model_provider, model_name, pbar)
 
-def main(model_provider="anthropic", model_name="claude-3-5-sonnet-latest", num_params=20):
+def main(model_provider="anthropic", model_name="claude-3-5-sonnet-latest", num_params=4):
     # Clamp num_params
     num_params = max(1, min(100, num_params))
     script_dir = Path(__file__).parent
     backend_dir = script_dir.parent.parent
     init_logs_dir = backend_dir / "init_logs"
-    features_json_path = find_latest_features_json(init_logs_dir)
+    features_json_path = find_latest_deepest_json(init_logs_dir)
     print(f"📄 Loading: {features_json_path}")
     with open(features_json_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
@@ -139,6 +133,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate parameters for all actors and sub-actors in the latest Features_level_N.json.")
     parser.add_argument('--provider', type=str, default='anthropic')
     parser.add_argument('--model', type=str, default='claude-3-5-sonnet-latest')
-    parser.add_argument('--num_params', type=int, default=20, help='Number of parameters per actor (1-100)')
+    parser.add_argument('--num_params', type=int, default=4, help='Number of parameters per actor (1-100)')
     args = parser.parse_args()
     main(args.provider, args.model, args.num_params) 

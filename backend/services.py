@@ -87,77 +87,120 @@ class GenerationService:
         # Update status
         self.update_actor_status("running", "Starting actor generation", 0)
         
+        # --- Delegated generation using actors_complete script ---
+        from worldmodel.backend.routes.initializationroute import actors_complete as ac
         try:
-            # Reset cost session
-            reset_cost_session()
-            
-            # Create run folder
-            run_folder = get_run_folder_path()
-            
-            log_info(
-                f"Starting complete world model generation",
-                f"Provider: {provider}, Model: {model}, Actors: {num_actors}, "
-                f"Sub-actors: {num_subactors}, Depth: {target_depth}"
+            run_folder = await ac.generate_complete_world_model_async(
+                model_provider=provider,
+                model_name=model,
+                num_actors=num_actors,
+                num_subactors=num_subactors,
+                target_depth=target_depth,
+                skip_on_error=skip_on_error
             )
-            
-            # Generate Level 0 (Initial actors)
-            self.update_actor_status("running", "Generating initial actors", 10)
-            
-            level_0_actors = await self._generate_level_0_actors(
-                provider, model, num_actors, run_folder
-            )
-            
-            if not level_0_actors:
-                self.update_actor_status("failed", "Failed to generate initial actors", 
-                                       error="Level 0 generation failed")
-                return None
-            
-            # Generate additional levels if requested
-            if target_depth > 0:
-                for level in range(1, target_depth + 1):
-                    progress = 10 + (level * 80) / target_depth
-                    self.update_actor_status("running", 
-                                           f"Generating level {level} sub-actors", 
-                                           progress)
-                    
-                    enhanced_actors = await self._generate_level_n_actors_async(
-                        source_level=level-1,
-                        target_level=level,
-                        provider=provider,
-                        model=model,
-                        num_subactors=num_subactors,
-                        run_folder=run_folder,
-                        skip_on_error=skip_on_error
-                    )
-                    
-                    if not enhanced_actors:
-                        self.update_actor_status("failed", 
-                                               f"Failed to generate level {level} actors",
-                                               error=f"Level {level} generation failed")
-                        return None
-            
-            # Complete
-            self.update_actor_status("completed", 
-                                   f"Successfully generated {target_depth + 1} levels", 
-                                   100,
-                                   {"run_folder": run_folder.name, "levels": target_depth + 1})
-            
-            log_success(
-                f"World model generation complete",
-                f"Run folder: {run_folder.name}, Levels: 0-{target_depth}"
-            )
-            
+            print(f"🔧 Run OG script complete")
+            if run_folder:
+                self.update_actor_status(
+                    "completed",
+                    f"Successfully generated {target_depth + 1} levels (delegated)",
+                    100,
+                    {"run_folder": run_folder.name, "levels": target_depth + 1}
+                )
+                log_success(
+                    "World model generation complete (delegated to actors_complete)",
+                    f"Run folder: {run_folder.name}, Levels: 0-{target_depth}"
+                )
+            else:
+                self.update_actor_status(
+                    "failed",
+                    "actors_complete script failed",
+                    error="Delegated script returned no result"
+                )
             return run_folder
-            
         except Exception as e:
-            self.update_actor_status("failed", "Generation failed", 
-                                   error=str(e))
+            self.update_actor_status("failed", "Generation failed", error=str(e))
             log_error(
                 error_type="GENERATION_FAILED",
-                error_message="Complete world model generation failed",
+                error_message="Delegated world model generation failed",
                 exception=e
             )
             return None
+        # -------------------------------------------------------------------
+        
+        # The original in-house generation logic is retained below for reference
+        # but will not be executed because of the early return above.
+        
+        # try:
+        #     # Reset cost session
+        #     reset_cost_session()
+            
+        #     # Create run folder
+        #     run_folder = get_run_folder_path()
+            
+        #     log_info(
+        #         f"Starting complete world model generation",
+        #         f"Provider: {provider}, Model: {model}, Actors: {num_actors}, "
+        #         f"Sub-actors: {num_subactors}, Depth: {target_depth}"
+        #     )
+            
+        #     # Generate Level 0 (Initial actors)
+        #     self.update_actor_status("running", "Generating initial actors", 10)
+            
+        #     level_0_actors = await self._generate_level_0_actors(
+        #         provider, model, num_actors, run_folder
+        #     )
+            
+        #     if not level_0_actors:
+        #         self.update_actor_status("failed", "Failed to generate initial actors", 
+        #                                error="Level 0 generation failed")
+        #         return None
+            
+        #     # Generate additional levels if requested
+        #     if target_depth > 0:
+        #         for level in range(1, target_depth + 1):
+        #             progress = 10 + (level * 80) / target_depth
+        #             self.update_actor_status("running", 
+        #                                    f"Generating level {level} sub-actors", 
+        #                                    progress)
+                    
+        #             enhanced_actors = await self._generate_level_n_actors_async(
+        #                 source_level=level-1,
+        #                 target_level=level,
+        #                 provider=provider,
+        #                 model=model,
+        #                 num_subactors=num_subactors,
+        #                 run_folder=run_folder,
+        #                 skip_on_error=skip_on_error
+        #             )
+                    
+        #             if not enhanced_actors:
+        #                 self.update_actor_status("failed", 
+        #                                        f"Failed to generate level {level} actors",
+        #                                        error=f"Level {level} generation failed")
+        #                 return None
+            
+        #     # Complete
+        #     self.update_actor_status("completed", 
+        #                            f"Successfully generated {target_depth + 1} levels", 
+        #                            100,
+        #                            {"run_folder": run_folder.name, "levels": target_depth + 1})
+            
+        #     log_success(
+        #         f"World model generation complete",
+        #         f"Run folder: {run_folder.name}, Levels: 0-{target_depth}"
+        #     )
+            
+        #     return run_folder
+            
+        # except Exception as e:
+        #     self.update_actor_status("failed", "Generation failed", 
+        #                            error=str(e))
+        #     log_error(
+        #         error_type="GENERATION_FAILED",
+        #         error_message="Complete world model generation failed",
+        #         exception=e
+        #     )
+        #     return None
 
     async def _generate_level_0_actors(self, provider: str, model: str, 
                                      num_actors: int, run_folder: Path) -> Optional[ActorList]:

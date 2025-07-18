@@ -1,0 +1,272 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T14:21:27.684954",
+    "run_folder": "run_2025-07-16_15",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "script_version": "2.0.0",
+    "level": 1,
+    "parent_file": "Features_level_0.json",
+    "original_metadata": {
+      "timestamp": "2025-07-16T14:21:18.934745",
+      "run_folder": "run_2025-07-16_15",
+      "model_provider": "anthropic",
+      "model_name": "claude-3-5-sonnet-latest",
+      "num_actors_requested": 5,
+      "num_actors_generated": 5,
+      "script_version": "2.0.0",
+      "generation_method": "LLM-based",
+      "level": 0,
+      "cost_tracking": {
+        "total_cost": 0.012152,
+        "api_calls": 1,
+        "providers": {
+          "anthropic": {
+            "cost": 0.012152,
+            "calls": 1,
+            "models": {
+              "claude-3-5-sonnet-latest": {
+                "cost": 0.012152,
+                "calls": 1,
+                "tokens": {
+                  "input": 448,
+                  "output": 357,
+                  "total": 805
+                }
+              }
+            },
+            "tokens": {
+              "input": 448,
+              "output": 357,
+              "total": 805
+            }
+          }
+        },
+        "session_start": "2025-07-16T14:21:08.385707",
+        "tokens_used": {
+          "input_tokens": 448,
+          "output_tokens": 357,
+          "total_tokens": 805
+        },
+        "session_duration_seconds": 10.549021,
+        "session_duration_str": "0:00:10.549021",
+        "average_cost_per_call": 0.012152,
+        "cost_per_1k_tokens": 0.015095652173913041
+      }
+    },
+    "parallelization": {
+      "enabled": true,
+      "max_concurrent_threads": 5,
+      "total_parallel_tasks": 5
+    },
+    "generation_stats": {
+      "total_main_actors": 5,
+      "total_subactors": 15,
+      "actors_with_subactors": 5,
+      "avg_subactors_per_actor": 3.0,
+      "successful_actors": 5,
+      "failed_actors": 0
+    },
+    "cost_tracking": {
+      "total_cost": 0.065936,
+      "api_calls": 6,
+      "providers": {
+        "anthropic": {
+          "cost": 0.065936,
+          "calls": 6,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.065936,
+              "calls": 6,
+              "tokens": {
+                "input": 2611,
+                "output": 1877,
+                "total": 4488
+              }
+            }
+          },
+          "tokens": {
+            "input": 2611,
+            "output": 1877,
+            "total": 4488
+          }
+        }
+      },
+      "session_start": "2025-07-16T14:21:08.385707",
+      "tokens_used": {
+        "input_tokens": 2611,
+        "output_tokens": 1877,
+        "total_tokens": 4488
+      },
+      "session_duration_seconds": 19.299241,
+      "session_duration_str": "0:00:19.299241",
+      "average_cost_per_call": 0.010989333333333332,
+      "cost_per_1k_tokens": 0.014691622103386807
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with unmatched military, economic, technological, and cultural influence. Controls world's reserve currency, leads in innovation, and maintains extensive diplomatic and military alliances.",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Executive Office of the President",
+          "description": "Core of executive power, led by POTUS. Controls federal agencies, shapes foreign/domestic policy, commands military, issues executive orders, and nominates federal officials. Most concentrated decision-making authority in US government.",
+          "type": "government",
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Federal Reserve System",
+          "description": "Central bank controlling monetary policy, interest rates, and financial stability. Massive influence over US/global economy through monetary tools, bank regulation, and dollar management. Independent from executive branch.",
+          "type": "institution",
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Department of Defense",
+          "description": "Manages world's largest military force, oversees $700B+ budget, coordinates national security, maintains global force projection, develops military technology. Key driver of foreign policy implementation.",
+          "type": "ministry",
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        }
+      ],
+      "sub_actors_count": 3
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "World's second-largest economy, rising military power, technological competitor to US. Dominant in global supply chains, massive domestic market, growing international influence through Belt and Road Initiative.",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Chinese Communist Party",
+          "description": "Ruling political party and ultimate source of political power in China. Controls all major state institutions, military, and policy direction. Led by the Politburo Standing Committee and Central Committee. Determines national strategy and ideology.",
+          "type": "party",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Central Military Commission",
+          "description": "Supreme military command organization that controls and directs the People's Liberation Army (PLA). Oversees national defense policy, military strategy, and modernization. Direct authority over all armed forces.",
+          "type": "military",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "State Council",
+          "description": "Chief administrative authority and highest executive organ of state power. Implements national policies, manages economy, oversees state bureaucracy. Led by the Premier and includes key ministries and commissions.",
+          "type": "government",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        }
+      ],
+      "sub_actors_count": 3
+    },
+    {
+      "name": "European Union",
+      "description": "World's largest trading bloc, significant regulatory power ('Brussels Effect'), major diplomatic force. Combined economic might of 27 member states, influential in setting global standards and policies.",
+      "type": "alliance",
+      "sub_actors": [
+        {
+          "name": "European Commission",
+          "description": "Executive branch of the EU, proposes legislation, enforces EU law, manages policies and international trade agreements. Led by Commission President, it has exclusive right to initiate EU legislation and serves as the EU's principal executive body.",
+          "type": "government",
+          "parent_actor": "European Union",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "European Central Bank",
+          "description": "Central bank for the euro and administers monetary policy within the Eurozone. Controls money supply, sets key interest rates, and ensures price stability across the currency union. Highly influential in European economic policy.",
+          "type": "institution",
+          "parent_actor": "European Union",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "European Parliament",
+          "description": "Directly elected legislative body of the EU. Passes EU laws jointly with Council, approves EU budget, provides democratic oversight, and elects Commission President. Represents EU citizens in the decision-making process.",
+          "type": "government",
+          "parent_actor": "European Union",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        }
+      ],
+      "sub_actors_count": 3
+    },
+    {
+      "name": "Big Tech Giants (MAMAA - Meta, Apple, Microsoft, Amazon, Alphabet)",
+      "description": "Collectively control global digital infrastructure, social media, cloud computing, and e-commerce. Massive market capitalization and technological influence over daily life worldwide.",
+      "type": "company",
+      "sub_actors": [
+        {
+          "name": "Executive Leadership Councils",
+          "description": "Comprised of CEOs and top executives who set strategic direction, make major acquisitions, and determine corporate policy. Includes figures like Mark Zuckerberg, Tim Cook, Satya Nadella, Andy Jassy, and Sundar Pichai who wield enormous influence over their respective companies and the tech industry.",
+          "type": "institution",
+          "parent_actor": "Big Tech Giants (MAMAA - Meta, Apple, Microsoft, Amazon, Alphabet)",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Board of Directors",
+          "description": "Corporate governance bodies that oversee management, approve major strategic decisions, and represent shareholder interests. Have ultimate authority over company direction and leadership selection.",
+          "type": "institution",
+          "parent_actor": "Big Tech Giants (MAMAA - Meta, Apple, Microsoft, Amazon, Alphabet)",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Public Policy & Government Relations Divisions",
+          "description": "Specialized departments that manage relationships with governments, influence legislation/regulation, and coordinate lobbying efforts. Shape policy outcomes affecting tech industry through extensive government engagement and advocacy.",
+          "type": "agency",
+          "parent_actor": "Big Tech Giants (MAMAA - Meta, Apple, Microsoft, Amazon, Alphabet)",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        }
+      ],
+      "sub_actors_count": 3
+    },
+    {
+      "name": "Federal Reserve System",
+      "description": "US central bank whose monetary policies and dollar management affect global markets, international trade, and world economic stability. Decisions impact global financial conditions.",
+      "type": "organization",
+      "sub_actors": [
+        {
+          "name": "Federal Open Market Committee (FOMC)",
+          "description": "Principal monetary policymaking body of the Federal Reserve that sets key interest rates, conducts open market operations, and determines US monetary policy direction. Their decisions directly impact global financial markets and economic conditions.",
+          "type": "institution",
+          "parent_actor": "Federal Reserve System",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Board of Governors",
+          "description": "Seven-member governing body that guides overall Fed policy, supervises Federal Reserve Banks, and implements banking regulations. Appointed by the President and confirmed by Senate for 14-year terms.",
+          "type": "government",
+          "parent_actor": "Federal Reserve System",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Federal Reserve Banks",
+          "description": "Network of 12 regional Reserve Banks that implement monetary policy, supervise commercial banks, and provide financial services in their districts. Act as the operating arms of the central bank system.",
+          "type": "institution",
+          "parent_actor": "Federal Reserve System",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        }
+      ],
+      "sub_actors_count": 3
+    }
+  ],
+  "total_main_actors": 5,
+  "total_subactors": 15,
+  "level": 1
+}

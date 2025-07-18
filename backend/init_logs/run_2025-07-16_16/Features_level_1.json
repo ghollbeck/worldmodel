@@ -1,0 +1,160 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T14:22:54.820431",
+    "run_folder": "run_2025-07-16_16",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "script_version": "2.0.0",
+    "level": 1,
+    "parent_file": "Features_level_0.json",
+    "original_metadata": {
+      "timestamp": "2025-07-16T14:22:48.533055",
+      "run_folder": "run_2025-07-16_16",
+      "model_provider": "anthropic",
+      "model_name": "claude-3-5-sonnet-latest",
+      "num_actors_requested": 2,
+      "num_actors_generated": 2,
+      "script_version": "2.0.0",
+      "generation_method": "LLM-based",
+      "level": 0,
+      "cost_tracking": {
+        "total_cost": 0.007568,
+        "api_calls": 1,
+        "providers": {
+          "anthropic": {
+            "cost": 0.007568,
+            "calls": 1,
+            "models": {
+              "claude-3-5-sonnet-latest": {
+                "cost": 0.007568,
+                "calls": 1,
+                "tokens": {
+                  "input": 448,
+                  "output": 166,
+                  "total": 614
+                }
+              }
+            },
+            "tokens": {
+              "input": 448,
+              "output": 166,
+              "total": 614
+            }
+          }
+        },
+        "session_start": "2025-07-16T14:22:42.498918",
+        "tokens_used": {
+          "input_tokens": 448,
+          "output_tokens": 166,
+          "total_tokens": 614
+        },
+        "session_duration_seconds": 6.034127,
+        "session_duration_str": "0:00:06.034127",
+        "average_cost_per_call": 0.007568,
+        "cost_per_1k_tokens": 0.012325732899022801
+      }
+    },
+    "parallelization": {
+      "enabled": true,
+      "max_concurrent_threads": 5,
+      "total_parallel_tasks": 2
+    },
+    "generation_stats": {
+      "total_main_actors": 2,
+      "total_subactors": 4,
+      "actors_with_subactors": 2,
+      "avg_subactors_per_actor": 2.0,
+      "successful_actors": 2,
+      "failed_actors": 0
+    },
+    "cost_tracking": {
+      "total_cost": 0.024800000000000003,
+      "api_calls": 3,
+      "providers": {
+        "anthropic": {
+          "cost": 0.024800000000000003,
+          "calls": 3,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.024800000000000003,
+              "calls": 3,
+              "tokens": {
+                "input": 1306,
+                "output": 598,
+                "total": 1904
+              }
+            }
+          },
+          "tokens": {
+            "input": 1306,
+            "output": 598,
+            "total": 1904
+          }
+        }
+      },
+      "session_start": "2025-07-16T14:22:42.498918",
+      "tokens_used": {
+        "input_tokens": 1306,
+        "output_tokens": 598,
+        "total_tokens": 1904
+      },
+      "session_duration_seconds": 12.321493,
+      "session_duration_str": "0:00:12.321493",
+      "average_cost_per_call": 0.008266666666666667,
+      "cost_per_1k_tokens": 0.013025210084033616
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with unmatched military strength, largest economy by GDP, dominant financial system (USD), technological leadership, and extensive diplomatic influence. Controls key international institutions and maintains significant cultural soft power through media and entertainment.",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Executive Office of the President",
+          "description": "Core executive branch leadership headed by the President, wielding extensive executive authority over federal policy, national security, foreign relations, and military command. Controls federal agencies, issues executive orders, and shapes national agenda through veto power and administrative actions.",
+          "type": "government",
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Federal Reserve System",
+          "description": "Central bank of the United States that controls monetary policy, regulates banking system, and manages currency stability. Immense influence over global financial markets through interest rate decisions and dollar policy, directly impacting US and world economies.",
+          "type": "institution",
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        }
+      ],
+      "sub_actors_count": 2
+    },
+    {
+      "name": "China",
+      "description": "Second largest economy, rising military power, largest population, dominant manufacturing base, increasing technological capabilities, major infrastructure investments (Belt and Road), and growing diplomatic influence across Asia, Africa, and beyond.",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Chinese Communist Party (CCP)",
+          "description": "The ruling political party and ultimate power center of China, controlling all aspects of governance, military, economy and society through its Politburo Standing Committee and extensive party apparatus. Sets national policy direction and strategy at all levels.",
+          "type": "party",
+          "parent_actor": "China",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "State Council of the People's Republic of China",
+          "description": "China's chief administrative authority and highest executive organ of state power, responsible for implementing CCP policies, managing the economy, overseeing state bureaucracy, and coordinating between ministries and provinces.",
+          "type": "government",
+          "parent_actor": "China",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        }
+      ],
+      "sub_actors_count": 2
+    }
+  ],
+  "total_main_actors": 2,
+  "total_subactors": 4,
+  "level": 1
+}

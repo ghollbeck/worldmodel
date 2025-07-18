@@ -1,0 +1,348 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T15:53:33.318878",
+    "run_folder": "run_2025-07-16_18",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "num_actors_requested": 2,
+    "num_actors_generated": 2,
+    "script_version": "2.0.0",
+    "generation_method": "LLM-based",
+    "level": 0,
+    "cost_tracking": {
+      "total_cost": 0.0076159999999999995,
+      "api_calls": 1,
+      "providers": {
+        "anthropic": {
+          "cost": 0.0076159999999999995,
+          "calls": 1,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.0076159999999999995,
+              "calls": 1,
+              "tokens": {
+                "input": 448,
+                "output": 168,
+                "total": 616
+              }
+            }
+          },
+          "tokens": {
+            "input": 448,
+            "output": 168,
+            "total": 616
+          }
+        }
+      },
+      "session_start": "2025-07-16T15:53:28.267418",
+      "tokens_used": {
+        "input_tokens": 448,
+        "output_tokens": 168,
+        "total_tokens": 616
+      },
+      "session_duration_seconds": 5.051455,
+      "session_duration_str": "0:00:05.051455",
+      "average_cost_per_call": 0.0076159999999999995,
+      "cost_per_1k_tokens": 0.012363636363636363
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with unmatched military capabilities, largest economy by GDP, dominant financial system (USD), technological leadership, and extensive diplomatic influence across all continents. Controls key international institutions and maintains significant cultural soft power.",
+      "type": "country",
+      "depth": 1,
+      "parameters": [
+        {
+          "code_name": "gdp_nominal",
+          "name": "Nominal GDP",
+          "description": "Total annual Gross Domestic Product in current US dollars.",
+          "type": "float",
+          "expected_value": "20-25 trillion USD"
+        },
+        {
+          "code_name": "military_budget",
+          "name": "Military Budget",
+          "description": "Annual defense spending including all military branches and operations.",
+          "type": "float",
+          "expected_value": "700-800 billion USD"
+        },
+        {
+          "code_name": "population",
+          "name": "Total Population",
+          "description": "Current total number of residents and citizens.",
+          "type": "integer",
+          "expected_value": "330-340 million"
+        },
+        {
+          "code_name": "nuclear_warheads",
+          "name": "Nuclear Warhead Count",
+          "description": "Total number of operational nuclear weapons in arsenal.",
+          "type": "integer",
+          "expected_value": "5000-6000"
+        },
+        {
+          "code_name": "veto_power_un",
+          "name": "UN Security Council Veto Power",
+          "description": "Permanent member status with veto power in UN Security Council.",
+          "type": "boolean",
+          "expected_value": "true"
+        },
+        {
+          "code_name": "global_reserve_currency_share",
+          "name": "Global Reserve Currency Share",
+          "description": "Percentage of global foreign exchange reserves held in USD.",
+          "type": "float",
+          "expected_value": "55-65%"
+        },
+        {
+          "code_name": "diplomatic_missions",
+          "name": "Diplomatic Mission Count",
+          "description": "Number of embassies, consulates, and diplomatic offices worldwide.",
+          "type": "integer",
+          "expected_value": "250-300"
+        },
+        {
+          "code_name": "tech_companies_market_cap",
+          "name": "Tech Companies Market Cap",
+          "description": "Combined market capitalization of top tech companies.",
+          "type": "float",
+          "expected_value": "8-12 trillion USD"
+        },
+        {
+          "code_name": "higher_education_rank",
+          "name": "Higher Education Ranking",
+          "description": "Global ranking in higher education system quality and research output.",
+          "type": "integer",
+          "expected_value": "1-3"
+        },
+        {
+          "code_name": "aircraft_carriers",
+          "name": "Aircraft Carrier Count",
+          "description": "Number of operational aircraft carriers in naval fleet.",
+          "type": "integer",
+          "expected_value": "11-12"
+        },
+        {
+          "code_name": "nato_contribution",
+          "name": "NATO Defense Contribution",
+          "description": "Percentage of total NATO defense spending.",
+          "type": "float",
+          "expected_value": "65-75%"
+        },
+        {
+          "code_name": "patents_filed",
+          "name": "Annual Patents Filed",
+          "description": "Number of patents filed annually within the country.",
+          "type": "integer",
+          "expected_value": "500000-600000"
+        },
+        {
+          "code_name": "trade_volume",
+          "name": "International Trade Volume",
+          "description": "Total annual import and export value.",
+          "type": "float",
+          "expected_value": "4-5 trillion USD"
+        },
+        {
+          "code_name": "foreign_aid_budget",
+          "name": "Foreign Aid Budget",
+          "description": "Annual foreign assistance and development aid spending.",
+          "type": "float",
+          "expected_value": "35-45 billion USD"
+        },
+        {
+          "code_name": "gdp_per_capita",
+          "name": "GDP per Capita",
+          "description": "Average GDP per person in current US dollars.",
+          "type": "float",
+          "expected_value": "60000-70000 USD"
+        },
+        {
+          "code_name": "internet_penetration",
+          "name": "Internet Penetration Rate",
+          "description": "Percentage of population with internet access.",
+          "type": "float",
+          "expected_value": "85-95%"
+        },
+        {
+          "code_name": "r_and_d_spending",
+          "name": "R&D Spending",
+          "description": "Annual research and development expenditure as percentage of GDP.",
+          "type": "float",
+          "expected_value": "2.5-3.5%"
+        },
+        {
+          "code_name": "soft_power_index",
+          "name": "Soft Power Index",
+          "description": "Measure of non-coercive international influence through culture, values, and policies.",
+          "type": "float",
+          "expected_value": "0.8-1.0"
+        },
+        {
+          "code_name": "military_personnel",
+          "name": "Active Military Personnel",
+          "description": "Total number of active duty military personnel.",
+          "type": "integer",
+          "expected_value": "1.3-1.4 million"
+        },
+        {
+          "code_name": "debt_to_gdp",
+          "name": "Debt to GDP Ratio",
+          "description": "National debt as a percentage of GDP.",
+          "type": "float",
+          "expected_value": "120-140%"
+        }
+      ]
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "Second largest economy, rising military power, largest population, dominant manufacturing base, growing technological capabilities, massive infrastructure investments (Belt and Road), and increasing diplomatic influence, especially in developing nations.",
+      "type": "country",
+      "depth": 1,
+      "parameters": [
+        {
+          "code_name": "gdp_nominal",
+          "name": "GDP (Nominal)",
+          "description": "Total annual Gross Domestic Product in current USD.",
+          "type": "float",
+          "expected_value": "12-18 trillion USD"
+        },
+        {
+          "code_name": "population",
+          "name": "Total Population",
+          "description": "Total number of permanent residents in the country.",
+          "type": "integer",
+          "expected_value": "1.3-1.4 billion"
+        },
+        {
+          "code_name": "military_spending",
+          "name": "Military Expenditure",
+          "description": "Annual defense budget and military-related spending.",
+          "type": "float",
+          "expected_value": "200-300 billion USD"
+        },
+        {
+          "code_name": "manufacturing_output",
+          "name": "Manufacturing Output",
+          "description": "Annual total manufacturing production value.",
+          "type": "float",
+          "expected_value": "3-5 trillion USD"
+        },
+        {
+          "code_name": "foreign_reserves",
+          "name": "Foreign Exchange Reserves",
+          "description": "Total value of foreign currency reserves held by central bank.",
+          "type": "float",
+          "expected_value": "3-4 trillion USD"
+        },
+        {
+          "code_name": "belt_road_investment",
+          "name": "Belt and Road Investment",
+          "description": "Cumulative investment in Belt and Road Initiative projects.",
+          "type": "float",
+          "expected_value": "500-1000 billion USD"
+        },
+        {
+          "code_name": "rd_spending",
+          "name": "R&D Spending",
+          "description": "Annual spending on research and development across all sectors.",
+          "type": "float",
+          "expected_value": "300-500 billion USD"
+        },
+        {
+          "code_name": "urbanization_rate",
+          "name": "Urbanization Rate",
+          "description": "Percentage of population living in urban areas.",
+          "type": "float",
+          "expected_value": "60-65%"
+        },
+        {
+          "code_name": "energy_consumption",
+          "name": "Energy Consumption",
+          "description": "Total annual energy consumption in million tonnes of oil equivalent.",
+          "type": "float",
+          "expected_value": "3000-3500 MTOE"
+        },
+        {
+          "code_name": "export_value",
+          "name": "Export Value",
+          "description": "Total annual value of exports.",
+          "type": "float",
+          "expected_value": "2.5-3 trillion USD"
+        },
+        {
+          "code_name": "tech_patents",
+          "name": "Technology Patents",
+          "description": "Number of technology patents filed annually.",
+          "type": "integer",
+          "expected_value": "1.3-1.6 million"
+        },
+        {
+          "code_name": "diplomatic_missions",
+          "name": "Diplomatic Missions",
+          "description": "Number of diplomatic missions and consulates worldwide.",
+          "type": "integer",
+          "expected_value": "160-180"
+        },
+        {
+          "code_name": "internet_users",
+          "name": "Internet Users",
+          "description": "Number of active internet users in the country.",
+          "type": "integer",
+          "expected_value": "800-900 million"
+        },
+        {
+          "code_name": "co2_emissions",
+          "name": "CO2 Emissions",
+          "description": "Annual carbon dioxide emissions in metric tons.",
+          "type": "float",
+          "expected_value": "9-11 billion metric tons"
+        },
+        {
+          "code_name": "high_speed_rail",
+          "name": "High-Speed Rail Network",
+          "description": "Total length of high-speed rail network in kilometers.",
+          "type": "float",
+          "expected_value": "35000-40000 km"
+        },
+        {
+          "code_name": "university_count",
+          "name": "Universities",
+          "description": "Number of higher education institutions.",
+          "type": "integer",
+          "expected_value": "2800-3000"
+        },
+        {
+          "code_name": "military_personnel",
+          "name": "Active Military Personnel",
+          "description": "Number of active duty military personnel.",
+          "type": "integer",
+          "expected_value": "2-2.2 million"
+        },
+        {
+          "code_name": "trade_partners",
+          "name": "Major Trade Partners",
+          "description": "Number of countries with significant bilateral trade relationships.",
+          "type": "integer",
+          "expected_value": "120-140"
+        },
+        {
+          "code_name": "debt_to_gdp",
+          "name": "Debt to GDP Ratio",
+          "description": "Total government debt as percentage of GDP.",
+          "type": "float",
+          "expected_value": "250-300%"
+        },
+        {
+          "code_name": "soft_power_index",
+          "name": "Soft Power Index",
+          "description": "Composite score measuring cultural, diplomatic, and economic influence globally.",
+          "type": "float",
+          "expected_value": "60-80 out of 100"
+        }
+      ]
+    }
+  ],
+  "total_count": 2
+}

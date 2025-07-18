@@ -1,0 +1,832 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T14:03:51.178367",
+    "run_folder": "run_2025-07-16_14",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "script_version": "2.0.0",
+    "level": 1,
+    "parent_file": "Features_level_0.json",
+    "original_metadata": {
+      "timestamp": "2025-07-16T14:03:26.321273",
+      "run_folder": "run_2025-07-16_14",
+      "model_provider": "anthropic",
+      "model_name": "claude-3-5-sonnet-latest",
+      "num_actors_requested": 10,
+      "num_actors_generated": 10,
+      "script_version": "2.0.0",
+      "generation_method": "LLM-based",
+      "level": 0,
+      "cost_tracking": {
+        "total_cost": 0.016087999999999998,
+        "api_calls": 1,
+        "providers": {
+          "anthropic": {
+            "cost": 0.016087999999999998,
+            "calls": 1,
+            "models": {
+              "claude-3-5-sonnet-latest": {
+                "cost": 0.016087999999999998,
+                "calls": 1,
+                "tokens": {
+                  "input": 448,
+                  "output": 521,
+                  "total": 969
+                }
+              }
+            },
+            "tokens": {
+              "input": 448,
+              "output": 521,
+              "total": 969
+            }
+          }
+        },
+        "session_start": "2025-07-16T14:03:15.456904",
+        "tokens_used": {
+          "input_tokens": 448,
+          "output_tokens": 521,
+          "total_tokens": 969
+        },
+        "session_duration_seconds": 10.86436,
+        "session_duration_str": "0:00:10.864360",
+        "average_cost_per_call": 0.016087999999999998,
+        "cost_per_1k_tokens": 0.01660268317853457
+      }
+    },
+    "parallelization": {
+      "enabled": true,
+      "max_concurrent_threads": 5,
+      "total_parallel_tasks": 10
+    },
+    "generation_stats": {
+      "total_main_actors": 10,
+      "total_subactors": 80,
+      "actors_with_subactors": 10,
+      "avg_subactors_per_actor": 8.0,
+      "successful_actors": 10,
+      "failed_actors": 0
+    },
+    "cost_tracking": {
+      "total_cost": 0.183496,
+      "api_calls": 11,
+      "providers": {
+        "anthropic": {
+          "cost": 0.183496,
+          "calls": 11,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.183496,
+              "calls": 11,
+              "tokens": {
+                "input": 4529,
+                "output": 6136,
+                "total": 10665
+              }
+            }
+          },
+          "tokens": {
+            "input": 4529,
+            "output": 6136,
+            "total": 10665
+          }
+        }
+      },
+      "session_start": "2025-07-16T14:03:15.456904",
+      "tokens_used": {
+        "input_tokens": 4529,
+        "output_tokens": 6136,
+        "total_tokens": 10665
+      },
+      "session_duration_seconds": 35.721454,
+      "session_duration_str": "0:00:35.721454",
+      "average_cost_per_call": 0.016681454545454544,
+      "cost_per_1k_tokens": 0.01720543834974215
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with dominant military, economic, technological, and cultural influence. Leader in innovation, global finance, and international diplomacy.",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Executive Office of the President",
+          "description": "Core executive leadership headed by the President, responsible for implementing federal laws, conducting foreign policy, and serving as Commander in Chief of armed forces. Houses key advisory bodies including National Security Council.",
+          "type": "government",
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "United States Congress",
+          "description": "Federal legislative branch consisting of Senate and House of Representatives. Holds constitutional authority for lawmaking, federal budget, declarations of war, and oversight of executive branch.",
+          "type": "government",
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Supreme Court of the United States",
+          "description": "Highest court in the federal judiciary, providing final interpretation of the Constitution and federal law. Shapes national policy through judicial review and constitutional interpretation.",
+          "type": "government",
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Department of Defense",
+          "description": "Manages all military branches and national security policy. Largest employer in the world, controlling vast resources and implementing U.S. military strategy globally.",
+          "type": "ministry",
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Federal Reserve System",
+          "description": "Central banking system of the US, controls monetary policy, regulates financial institutions, and maintains stability of the financial system. Critical influence on global economy.",
+          "type": "institution",
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Department of State",
+          "description": "Lead foreign affairs agency, conducting diplomacy and managing international relations. Implements foreign policy and oversees diplomatic missions worldwide.",
+          "type": "ministry",
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Central Intelligence Agency",
+          "description": "Premier foreign intelligence service, gathering and analyzing national security information. Conducts covert operations and informs strategic decision-making.",
+          "type": "agency",
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Department of the Treasury",
+          "description": "Manages federal finances, tax collection, public debt, and financial intelligence. Controls economic sanctions and oversees critical financial regulatory functions.",
+          "type": "ministry",
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "World's largest population, second-largest economy, rising military power, and dominant manufacturing hub. Key player in global trade and technology.",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Chinese Communist Party (CCP)",
+          "description": "Ruling political party that controls all aspects of governance, sets national policy direction, and maintains supreme authority over state institutions and military",
+          "type": "party",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "State Council",
+          "description": "Chief administrative authority of China, responsible for implementing national policies, managing economy, and overseeing government ministries",
+          "type": "government",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Central Military Commission",
+          "description": "Supreme military command organization that controls and directs the People's Liberation Army, responsible for national defense policy",
+          "type": "military",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "National People's Congress",
+          "description": "China's national legislature, formally highest organ of state power, responsible for passing laws and supervising government operations",
+          "type": "government",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "People's Bank of China",
+          "description": "Central bank controlling monetary policy, managing currency, and regulating financial institutions",
+          "type": "institution",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Ministry of State Security",
+          "description": "Principal intelligence and security agency responsible for counter-intelligence, foreign intelligence, and internal security",
+          "type": "agency",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Central Commission for Discipline Inspection",
+          "description": "Chief anti-corruption agency that enforces internal rules and regulations within the CCP",
+          "type": "agency",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "National Development and Reform Commission",
+          "description": "Macroeconomic management agency responsible for strategic economic planning, reform policies, and resource allocation",
+          "type": "ministry",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "European Union",
+      "description": "Powerful economic bloc and regulatory influencer, world's largest trading entity, and significant diplomatic force shaping global standards.",
+      "type": "alliance",
+      "sub_actors": [
+        {
+          "name": "European Commission",
+          "description": "Executive branch of the EU that proposes legislation, implements decisions, upholds treaties, and manages day-to-day business. Primary driver of EU policy and regulation.",
+          "type": "government",
+          "parent_actor": "European Union",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "European Parliament",
+          "description": "Directly elected legislative body that passes EU laws jointly with Council, supervises EU institutions, and adopts the EU budget.",
+          "type": "government",
+          "parent_actor": "European Union",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Council of the European Union",
+          "description": "Voice of EU member governments, adopts EU laws and coordinates policies. Primary decision-making body where national ministers meet.",
+          "type": "government",
+          "parent_actor": "European Union",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "European Central Bank",
+          "description": "Central bank for the euro and administers EU monetary policy. Controls inflation and maintains financial stability in the Eurozone.",
+          "type": "institution",
+          "parent_actor": "European Union",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Court of Justice of the European Union",
+          "description": "Ensures EU law is interpreted and applied uniformly across member states. Final arbiter in disputes between EU institutions and members.",
+          "type": "institution",
+          "parent_actor": "European Union",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "European Council",
+          "description": "Comprises heads of state/government of member states, defines EU's overall political direction and priorities.",
+          "type": "government",
+          "parent_actor": "European Union",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "European External Action Service",
+          "description": "EU's diplomatic service implementing foreign and security policy, managing diplomatic relations and strategic partnerships.",
+          "type": "agency",
+          "parent_actor": "European Union",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "European Banking Authority",
+          "description": "Regulatory agency ensuring effective banking supervision across EU financial sector, developing banking standards and stress tests.",
+          "type": "agency",
+          "parent_actor": "European Union",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "Apple Inc.",
+      "description": "Tech giant with unprecedented market value, driving global technological innovation and consumer behavior, with significant influence on digital economy.",
+      "type": "company",
+      "sub_actors": [
+        {
+          "name": "Apple Board of Directors",
+          "description": "Highest governing body that oversees corporate strategy, major decisions, and shareholder interests. Approves key executive appointments and major strategic initiatives.",
+          "type": "government",
+          "parent_actor": "Apple Inc.",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Executive Leadership Team",
+          "description": "C-suite executives led by CEO Tim Cook who manage day-to-day operations and implement strategic vision across all business units.",
+          "type": "government",
+          "parent_actor": "Apple Inc.",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Product Development Division",
+          "description": "Core innovation unit responsible for designing and developing Apple's flagship products, including iPhone, iPad, and Mac lines.",
+          "type": "agency",
+          "parent_actor": "Apple Inc.",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Software Engineering Division",
+          "description": "Controls development of iOS, macOS, and other critical software platforms that power Apple's ecosystem.",
+          "type": "agency",
+          "parent_actor": "Apple Inc.",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Operations and Supply Chain",
+          "description": "Manages global manufacturing, logistics, and supplier relationships critical to Apple's production capabilities.",
+          "type": "agency",
+          "parent_actor": "Apple Inc.",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Services Division",
+          "description": "Oversees growing services ecosystem including App Store, Apple Music, iCloud, and other digital services revenue streams.",
+          "type": "agency",
+          "parent_actor": "Apple Inc.",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Legal and Global Security",
+          "description": "Handles regulatory compliance, intellectual property protection, and security across global operations.",
+          "type": "institution",
+          "parent_actor": "Apple Inc.",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Machine Learning and AI Division",
+          "description": "Drives artificial intelligence strategy and implementation across products and services, including Siri and CoreML frameworks.",
+          "type": "agency",
+          "parent_actor": "Apple Inc.",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "NATO",
+      "description": "Dominant military alliance ensuring Western security, shaping global military dynamics and international security policy.",
+      "type": "organization",
+      "sub_actors": [
+        {
+          "name": "North Atlantic Council (NAC)",
+          "description": "Principal political decision-making body of NATO, consisting of permanent representatives from all member states. Makes consensus decisions on major policy issues and strategic direction.",
+          "type": "institution",
+          "parent_actor": "NATO",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Supreme Allied Commander Europe (SACEUR)",
+          "description": "Top military commander responsible for all NATO military operations, leads Allied Command Operations (ACO), and serves as strategic military leader for the alliance.",
+          "type": "military",
+          "parent_actor": "NATO",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Military Committee",
+          "description": "Senior military authority composed of Chiefs of Defense from member nations, providing military advice to NAC and strategic direction to NATO military commanders.",
+          "type": "military",
+          "parent_actor": "NATO",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Secretary General's Office",
+          "description": "Principal spokesperson and chief executive of NATO, responsible for steering decision-making and representing the alliance internationally.",
+          "type": "institution",
+          "parent_actor": "NATO",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "NATO Defense Planning Committee",
+          "description": "Oversees alliance military planning, capability development, and defense policy coordination among member states.",
+          "type": "military",
+          "parent_actor": "NATO",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Allied Command Transformation (ACT)",
+          "description": "Strategic command responsible for NATO's military transformation, capability development, and future military readiness.",
+          "type": "military",
+          "parent_actor": "NATO",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "NATO Intelligence and Security Division",
+          "description": "Provides strategic intelligence analysis and security assessments to support alliance decision-making and operations.",
+          "type": "agency",
+          "parent_actor": "NATO",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "NATO Parliamentary Assembly",
+          "description": "Interparliamentary organization linking national parliaments of member states, providing democratic oversight and policy recommendations.",
+          "type": "institution",
+          "parent_actor": "NATO",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "Microsoft Corporation",
+      "description": "Technology leader controlling crucial digital infrastructure, cloud computing, and enterprise software globally.",
+      "type": "company",
+      "sub_actors": [
+        {
+          "name": "Microsoft Board of Directors",
+          "description": "Highest governing body providing strategic oversight, major corporate decisions, and shareholder representation. Oversees executive leadership and long-term company direction.",
+          "type": "government",
+          "parent_actor": "Microsoft Corporation",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Executive Leadership Team",
+          "description": "C-suite executives led by CEO Satya Nadella, responsible for day-to-day operations, strategy execution, and corporate policy-making across all divisions.",
+          "type": "government",
+          "parent_actor": "Microsoft Corporation",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Cloud + AI Division",
+          "description": "Controls Azure cloud platform and AI development, representing Microsoft's largest revenue stream and strategic future direction.",
+          "type": "agency",
+          "parent_actor": "Microsoft Corporation",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Microsoft Office Division",
+          "description": "Manages Office 365 and productivity software ecosystem, crucial for enterprise relationships and recurring revenue streams.",
+          "type": "agency",
+          "parent_actor": "Microsoft Corporation",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Windows + Devices Group",
+          "description": "Oversees Windows OS development and hardware initiatives, maintaining Microsoft's core platform dominance.",
+          "type": "agency",
+          "parent_actor": "Microsoft Corporation",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Corporate Legal Affairs",
+          "description": "Handles regulatory compliance, intellectual property, government relations, and legal strategy affecting global operations.",
+          "type": "institution",
+          "parent_actor": "Microsoft Corporation",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Microsoft Research",
+          "description": "Advanced technology research division driving innovation and future product development across all company sectors.",
+          "type": "institution",
+          "parent_actor": "Microsoft Corporation",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Corporate Strategy Group",
+          "description": "Responsible for M&A activities, strategic partnerships, and long-term corporate development initiatives.",
+          "type": "agency",
+          "parent_actor": "Microsoft Corporation",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "Russian Federation",
+      "description": "Major military power with vast natural resources, significant geopolitical influence, and strategic importance in global affairs.",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Office of the President of Russia",
+          "description": "Supreme executive authority headed by the President, wielding extensive constitutional powers over domestic and foreign policy, military command, and federal appointments",
+          "type": "government",
+          "parent_actor": "Russian Federation",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Security Council of Russia",
+          "description": "Presidential advisory body coordinating national security policy, defense strategy, and internal security matters, comprising key military and intelligence leaders",
+          "type": "government",
+          "parent_actor": "Russian Federation",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Federal Security Service (FSB)",
+          "description": "Primary security and intelligence agency responsible for internal security, counterintelligence, and border protection with significant political influence",
+          "type": "agency",
+          "parent_actor": "Russian Federation",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "United Russia Party",
+          "description": "Dominant political party holding constitutional majority in parliament, closely aligned with presidential administration and implementing government policies",
+          "type": "party",
+          "parent_actor": "Russian Federation",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Russian Armed Forces General Staff",
+          "description": "Central military command structure controlling all military branches, strategic planning, and military operations",
+          "type": "military",
+          "parent_actor": "Russian Federation",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Central Bank of Russia",
+          "description": "National financial regulator controlling monetary policy, currency operations, and banking system supervision",
+          "type": "institution",
+          "parent_actor": "Russian Federation",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "State Duma",
+          "description": "Lower house of Federal Assembly serving as primary legislative body, passing federal laws and approving state budget",
+          "type": "government",
+          "parent_actor": "Russian Federation",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Ministry of Defense",
+          "description": "Federal ministry overseeing military forces, defense policy, and military-industrial complex",
+          "type": "ministry",
+          "parent_actor": "Russian Federation",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "World Bank Group",
+      "description": "Crucial international financial institution shaping global development policy and economic governance.",
+      "type": "organization",
+      "sub_actors": [
+        {
+          "name": "International Bank for Reconstruction and Development (IBRD)",
+          "description": "The largest and original institution of the World Bank Group, providing loans, guarantees, and technical assistance to middle-income countries for sustainable development projects",
+          "type": "institution",
+          "parent_actor": "World Bank Group",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "International Development Association (IDA)",
+          "description": "Offers concessional loans and grants to the world's poorest countries, focusing on reducing poverty through economic growth, reduced inequalities, and improved living conditions",
+          "type": "institution",
+          "parent_actor": "World Bank Group",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Executive Board of Directors",
+          "description": "Primary decision-making body representing 189 member countries, responsible for approving loans, policies, and strategic decisions for the World Bank Group",
+          "type": "government",
+          "parent_actor": "World Bank Group",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "International Finance Corporation (IFC)",
+          "description": "Focuses on private sector development in developing countries through investment and advisory services to build sustainable businesses",
+          "type": "institution",
+          "parent_actor": "World Bank Group",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Development Committee",
+          "description": "Joint ministerial committee advising the Boards of Governors on critical development issues and financial resources required to promote economic development",
+          "type": "agency",
+          "parent_actor": "World Bank Group",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Multilateral Investment Guarantee Agency (MIGA)",
+          "description": "Promotes foreign direct investment in developing countries by providing political risk insurance to investors and lenders",
+          "type": "institution",
+          "parent_actor": "World Bank Group",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "International Centre for Settlement of Investment Disputes (ICSID)",
+          "description": "Provides international facilities for conciliation and arbitration of investment disputes between foreign investors and host countries",
+          "type": "institution",
+          "parent_actor": "World Bank Group",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Independent Evaluation Group (IEG)",
+          "description": "Conducts independent evaluations of World Bank Group activities to ensure accountability and improve development effectiveness",
+          "type": "agency",
+          "parent_actor": "World Bank Group",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "Alphabet Inc.",
+      "description": "Parent company of Google, controlling global information flow, digital advertising, and advancing AI technology.",
+      "type": "company",
+      "sub_actors": [
+        {
+          "name": "Google LLC",
+          "description": "Core subsidiary handling search, advertising, cloud computing, and primary revenue generation. Controls majority of global search market and digital ad infrastructure.",
+          "type": "institution",
+          "parent_actor": "Alphabet Inc.",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Google AI/DeepMind",
+          "description": "Leading AI research and development division driving company's artificial intelligence strategy and innovations across all products.",
+          "type": "institution",
+          "parent_actor": "Alphabet Inc.",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Alphabet Executive Leadership",
+          "description": "C-suite executives and board of directors setting overall corporate strategy, governance, and resource allocation.",
+          "type": "institution",
+          "parent_actor": "Alphabet Inc.",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Google Cloud",
+          "description": "Enterprise-focused division providing cloud computing services, competing with AWS and Azure for global cloud infrastructure.",
+          "type": "institution",
+          "parent_actor": "Alphabet Inc.",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "YouTube",
+          "description": "Video platform subsidiary controlling global video content distribution and monetization systems.",
+          "type": "institution",
+          "parent_actor": "Alphabet Inc.",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Android/Google Mobile",
+          "description": "Division managing mobile operating system and ecosystem, controlling majority of global smartphone software platform.",
+          "type": "institution",
+          "parent_actor": "Alphabet Inc.",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "X Development LLC",
+          "description": "Research and development facility for moonshot technologies and long-term innovative projects.",
+          "type": "institution",
+          "parent_actor": "Alphabet Inc.",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Google Platforms & Ecosystems",
+          "description": "Division overseeing core platforms including Chrome, Maps, and integrated software ecosystems.",
+          "type": "institution",
+          "parent_actor": "Alphabet Inc.",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        }
+      ],
+      "sub_actors_count": 8
+    },
+    {
+      "name": "United Nations",
+      "description": "Principal international organization for global governance, peace-keeping, and international cooperation.",
+      "type": "organization",
+      "sub_actors": [
+        {
+          "name": "UN Security Council",
+          "description": "Primary organ responsible for maintaining international peace and security, with power to impose sanctions and authorize military action. Five permanent members have veto power.",
+          "type": "institution",
+          "parent_actor": "United Nations",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "UN General Assembly",
+          "description": "Main deliberative body where all 193 member states have equal representation, adopts resolutions on global issues and approves UN budget.",
+          "type": "institution",
+          "parent_actor": "United Nations",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "UN Secretariat",
+          "description": "Executive arm led by Secretary-General, manages UN operations, implements policies, and mediates international disputes.",
+          "type": "institution",
+          "parent_actor": "United Nations",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "Economic and Social Council (ECOSOC)",
+          "description": "Coordinates economic, social, and environmental work of UN agencies, promotes sustainable development and policy coherence.",
+          "type": "institution",
+          "parent_actor": "United Nations",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "International Court of Justice",
+          "description": "Principal judicial organ of UN, settles legal disputes between states and provides advisory opinions on legal questions.",
+          "type": "institution",
+          "parent_actor": "United Nations",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "UN Peacekeeping Operations",
+          "description": "Deploys military and civilian personnel globally to maintain peace, protect civilians, and support political processes.",
+          "type": "military",
+          "parent_actor": "United Nations",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "UN Human Rights Council",
+          "description": "Inter-governmental body responsible for promoting and protecting human rights worldwide, conducts Universal Periodic Review.",
+          "type": "institution",
+          "parent_actor": "United Nations",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        },
+        {
+          "name": "UN Development Programme (UNDP)",
+          "description": "Global development agency working in 170 countries to eradicate poverty and reduce inequalities through sustainable development.",
+          "type": "agency",
+          "parent_actor": "United Nations",
+          "sub_actors": [],
+          "sub_actors_count": 0
+        }
+      ],
+      "sub_actors_count": 8
+    }
+  ],
+  "total_main_actors": 10,
+  "total_subactors": 80,
+  "level": 1
+}

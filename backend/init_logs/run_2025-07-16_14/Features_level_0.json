@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T14:03:26.321273",
+    "run_folder": "run_2025-07-16_14",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "num_actors_requested": 10,
+    "num_actors_generated": 10,
+    "script_version": "2.0.0",
+    "generation_method": "LLM-based",
+    "level": 0,
+    "cost_tracking": {
+      "total_cost": 0.016087999999999998,
+      "api_calls": 1,
+      "providers": {
+        "anthropic": {
+          "cost": 0.016087999999999998,
+          "calls": 1,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.016087999999999998,
+              "calls": 1,
+              "tokens": {
+                "input": 448,
+                "output": 521,
+                "total": 969
+              }
+            }
+          },
+          "tokens": {
+            "input": 448,
+            "output": 521,
+            "total": 969
+          }
+        }
+      },
+      "session_start": "2025-07-16T14:03:15.456904",
+      "tokens_used": {
+        "input_tokens": 448,
+        "output_tokens": 521,
+        "total_tokens": 969
+      },
+      "session_duration_seconds": 10.86436,
+      "session_duration_str": "0:00:10.864360",
+      "average_cost_per_call": 0.016087999999999998,
+      "cost_per_1k_tokens": 0.01660268317853457
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with dominant military, economic, technological, and cultural influence. Leader in innovation, global finance, and international diplomacy.",
+      "type": "country"
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "World's largest population, second-largest economy, rising military power, and dominant manufacturing hub. Key player in global trade and technology.",
+      "type": "country"
+    },
+    {
+      "name": "European Union",
+      "description": "Powerful economic bloc and regulatory influencer, world's largest trading entity, and significant diplomatic force shaping global standards.",
+      "type": "alliance"
+    },
+    {
+      "name": "Apple Inc.",
+      "description": "Tech giant with unprecedented market value, driving global technological innovation and consumer behavior, with significant influence on digital economy.",
+      "type": "company"
+    },
+    {
+      "name": "NATO",
+      "description": "Dominant military alliance ensuring Western security, shaping global military dynamics and international security policy.",
+      "type": "organization"
+    },
+    {
+      "name": "Microsoft Corporation",
+      "description": "Technology leader controlling crucial digital infrastructure, cloud computing, and enterprise software globally.",
+      "type": "company"
+    },
+    {
+      "name": "Russian Federation",
+      "description": "Major military power with vast natural resources, significant geopolitical influence, and strategic importance in global affairs.",
+      "type": "country"
+    },
+    {
+      "name": "World Bank Group",
+      "description": "Crucial international financial institution shaping global development policy and economic governance.",
+      "type": "organization"
+    },
+    {
+      "name": "Alphabet Inc.",
+      "description": "Parent company of Google, controlling global information flow, digital advertising, and advancing AI technology.",
+      "type": "company"
+    },
+    {
+      "name": "United Nations",
+      "description": "Principal international organization for global governance, peace-keeping, and international cooperation.",
+      "type": "organization"
+    }
+  ],
+  "total_count": 10
+}

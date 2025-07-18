@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T14:21:18.934745",
+    "run_folder": "run_2025-07-16_15",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "num_actors_requested": 5,
+    "num_actors_generated": 5,
+    "script_version": "2.0.0",
+    "generation_method": "LLM-based",
+    "level": 0,
+    "cost_tracking": {
+      "total_cost": 0.012152,
+      "api_calls": 1,
+      "providers": {
+        "anthropic": {
+          "cost": 0.012152,
+          "calls": 1,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.012152,
+              "calls": 1,
+              "tokens": {
+                "input": 448,
+                "output": 357,
+                "total": 805
+              }
+            }
+          },
+          "tokens": {
+            "input": 448,
+            "output": 357,
+            "total": 805
+          }
+        }
+      },
+      "session_start": "2025-07-16T14:21:08.385707",
+      "tokens_used": {
+        "input_tokens": 448,
+        "output_tokens": 357,
+        "total_tokens": 805
+      },
+      "session_duration_seconds": 10.549021,
+      "session_duration_str": "0:00:10.549021",
+      "average_cost_per_call": 0.012152,
+      "cost_per_1k_tokens": 0.015095652173913041
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with unmatched military, economic, technological, and cultural influence. Controls world's reserve currency, leads in innovation, and maintains extensive diplomatic and military alliances.",
+      "type": "country"
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "World's second-largest economy, rising military power, technological competitor to US. Dominant in global supply chains, massive domestic market, growing international influence through Belt and Road Initiative.",
+      "type": "country"
+    },
+    {
+      "name": "European Union",
+      "description": "World's largest trading bloc, significant regulatory power ('Brussels Effect'), major diplomatic force. Combined economic might of 27 member states, influential in setting global standards and policies.",
+      "type": "alliance"
+    },
+    {
+      "name": "Big Tech Giants (MAMAA - Meta, Apple, Microsoft, Amazon, Alphabet)",
+      "description": "Collectively control global digital infrastructure, social media, cloud computing, and e-commerce. Massive market capitalization and technological influence over daily life worldwide.",
+      "type": "company"
+    },
+    {
+      "name": "Federal Reserve System",
+      "description": "US central bank whose monetary policies and dollar management affect global markets, international trade, and world economic stability. Decisions impact global financial conditions.",
+      "type": "organization"
+    }
+  ],
+  "total_count": 5
+}

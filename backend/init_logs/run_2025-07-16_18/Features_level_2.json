@@ -1,0 +1,278 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T15:53:45.749048",
+    "run_folder": "run_2025-07-16_18",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "script_version": "2.0.0",
+    "level": 2,
+    "parent_file": "Features_level_1.json",
+    "original_metadata": {
+      "timestamp": "2025-07-16T15:53:33.318878",
+      "run_folder": "run_2025-07-16_18",
+      "model_provider": "anthropic",
+      "model_name": "claude-3-5-sonnet-latest",
+      "num_actors_requested": 2,
+      "num_actors_generated": 2,
+      "script_version": "2.0.0",
+      "generation_method": "LLM-based",
+      "level": 0,
+      "cost_tracking": {
+        "total_cost": 0.0076159999999999995,
+        "api_calls": 1,
+        "providers": {
+          "anthropic": {
+            "cost": 0.0076159999999999995,
+            "calls": 1,
+            "models": {
+              "claude-3-5-sonnet-latest": {
+                "cost": 0.0076159999999999995,
+                "calls": 1,
+                "tokens": {
+                  "input": 448,
+                  "output": 168,
+                  "total": 616
+                }
+              }
+            },
+            "tokens": {
+              "input": 448,
+              "output": 168,
+              "total": 616
+            }
+          }
+        },
+        "session_start": "2025-07-16T15:53:28.267418",
+        "tokens_used": {
+          "input_tokens": 448,
+          "output_tokens": 168,
+          "total_tokens": 616
+        },
+        "session_duration_seconds": 5.051455,
+        "session_duration_str": "0:00:05.051455",
+        "average_cost_per_call": 0.0076159999999999995,
+        "cost_per_1k_tokens": 0.012363636363636363
+      }
+    },
+    "parallelization": {
+      "enabled": true,
+      "max_concurrent_threads": 5,
+      "total_parallel_tasks": 4
+    },
+    "generation_stats": {
+      "total_main_actors": 2,
+      "total_subactors": 12,
+      "actors_with_subactors": 2,
+      "avg_subactors_per_actor": 6.0,
+      "successful_actors": 4,
+      "failed_actors": 0
+    },
+    "cost_tracking": {
+      "total_cost": 0.06892799999999999,
+      "api_calls": 7,
+      "providers": {
+        "anthropic": {
+          "cost": 0.06892799999999999,
+          "calls": 7,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.06892799999999999,
+              "calls": 7,
+              "tokens": {
+                "input": 3099,
+                "output": 1839,
+                "total": 4938
+              }
+            }
+          },
+          "tokens": {
+            "input": 3099,
+            "output": 1839,
+            "total": 4938
+          }
+        }
+      },
+      "session_start": "2025-07-16T15:53:28.267418",
+      "tokens_used": {
+        "input_tokens": 3099,
+        "output_tokens": 1839,
+        "total_tokens": 4938
+      },
+      "session_duration_seconds": 17.481614,
+      "session_duration_str": "0:00:17.481614",
+      "average_cost_per_call": 0.009846857142857142,
+      "cost_per_1k_tokens": 0.013958687727825029
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with unmatched military capabilities, largest economy by GDP, dominant financial system (USD), technological leadership, and extensive diplomatic influence across all continents. Controls key international institutions and maintains significant cultural soft power.",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Executive Office of the President",
+          "description": "Core executive branch led by POTUS with supreme executive authority, commander-in-chief powers, and extensive policy/regulatory control via executive orders. Houses National Security Council, controls federal agencies, and shapes foreign policy. Most powerful single institution in US governance.",
+          "type": "government",
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "Lockheed Martin Corporation",
+              "description": "Leading defense contractor and aerospace company with extensive government contracts, particularly in military hardware, security systems, and classified technology development. Major influence on defense policy and national security decisions through lobbying and strategic partnerships.",
+              "type": "corporation",
+              "parent_actor": "Executive Office of the President",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3
+            },
+            {
+              "name": "Boeing Company",
+              "description": "Major aerospace and defense corporation with significant government contracts, including Air Force One and military aircraft. Substantial influence on aviation policy, defense procurement, and international trade relations through high-level government engagement.",
+              "type": "corporation",
+              "parent_actor": "Executive Office of the President",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3
+            },
+            {
+              "name": "Palantir Technologies",
+              "description": "Data analytics and software company with deep ties to government intelligence and defense agencies. Provides critical technology infrastructure and data analysis capabilities to various executive branch departments, influencing decision-making processes and policy implementation.",
+              "type": "corporation",
+              "parent_actor": "Executive Office of the President",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3
+            }
+          ],
+          "sub_actors_count": 3,
+          "depth": 2
+        },
+        {
+          "name": "Federal Reserve System",
+          "description": "Central bank controlling US monetary policy, interest rates, and financial stability. Immense influence over global markets through USD management, banking regulation, and economic policy. Semi-independent institution with vast economic power.",
+          "type": "institution",
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "JPMorgan Chase & Co.",
+              "description": "Largest U.S. bank by assets, primary dealer of U.S. Treasury securities, major participant in Federal Reserve operations and monetary policy transmission. Key player in Fed's payment systems and significant influence on banking policy.",
+              "type": "corporation",
+              "parent_actor": "Federal Reserve System",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3
+            },
+            {
+              "name": "Goldman Sachs Group",
+              "description": "Premier investment bank and primary dealer, crucial role in Fed's market operations and policy implementation. Significant influence on monetary policy through market making and financial advisory services to the Federal Reserve.",
+              "type": "corporation",
+              "parent_actor": "Federal Reserve System",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3
+            },
+            {
+              "name": "BlackRock, Inc.",
+              "description": "World's largest asset manager, selected by Fed for managing emergency corporate bond purchase programs. Critical partner in implementing monetary policy and market operations during financial crises.",
+              "type": "corporation",
+              "parent_actor": "Federal Reserve System",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3
+            }
+          ],
+          "sub_actors_count": 3,
+          "depth": 2
+        }
+      ],
+      "sub_actors_count": 2,
+      "depth": 1
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "Second largest economy, rising military power, largest population, dominant manufacturing base, growing technological capabilities, massive infrastructure investments (Belt and Road), and increasing diplomatic influence, especially in developing nations.",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Chinese Communist Party (CCP)",
+          "description": "The ruling party and supreme political authority in China, controlling all aspects of governance, military, economy, and society. Led by the Politburo Standing Committee and General Secretary, it sets national policy, ideology, and strategic direction through parallel party-state structures at all levels.",
+          "type": "party",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [
+            {
+              "name": "Sinopec Group",
+              "description": "China's largest oil and gas company, state-owned enterprise that dominates the nation's petrochemical sector. Critical to China's energy security and economic development, with extensive international operations and massive influence on global energy markets.",
+              "type": "corporation",
+              "parent_actor": "Chinese Communist Party (CCP)",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3
+            },
+            {
+              "name": "State Grid Corporation of China",
+              "description": "World's largest utility company, controlling China's electrical grid and power distribution. Strategic state-owned enterprise essential to national infrastructure and energy policy implementation, serving over 1.1 billion customers.",
+              "type": "corporation",
+              "parent_actor": "Chinese Communist Party (CCP)",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3
+            },
+            {
+              "name": "China National Petroleum Corporation (CNPC)",
+              "description": "Major state-owned oil and gas producer and supplier, parent company of PetroChina. Controls significant portion of China's oil and gas production, exploration, and import activities, with extensive international operations and strategic partnerships.",
+              "type": "corporation",
+              "parent_actor": "Chinese Communist Party (CCP)",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3
+            }
+          ],
+          "sub_actors_count": 3,
+          "depth": 2
+        },
+        {
+          "name": "Central Military Commission (CMC)",
+          "description": "Supreme military command organization overseeing the People's Liberation Army (PLA), responsible for national defense policy and military strategy. Controls world's largest military force and reports directly to CCP leadership, wielding significant influence in national security decisions.",
+          "type": "military",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [
+            {
+              "name": "China North Industries Group Corporation (Norinco)",
+              "description": "China's largest state-owned defense contractor, specializing in military equipment, vehicles, and weapons systems. Primary supplier to PLA, generates over $70 billion in annual revenue and controls majority of domestic military equipment production.",
+              "type": "corporation",
+              "parent_actor": "Central Military Commission (CMC)",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3
+            },
+            {
+              "name": "Aviation Industry Corporation of China (AVIC)",
+              "description": "State-owned aerospace and defense conglomerate developing military aircraft, engines, and aviation systems. Key developer of China's fighter jets, helicopters, and military drones with significant R&D capabilities.",
+              "type": "corporation",
+              "parent_actor": "Central Military Commission (CMC)",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3
+            },
+            {
+              "name": "China Electronics Technology Group Corporation (CETC)",
+              "description": "Leading developer of military electronics, radar systems, and cybersecurity technologies. Provides critical communications infrastructure and electronic warfare capabilities to PLA across all service branches.",
+              "type": "corporation",
+              "parent_actor": "Central Military Commission (CMC)",
+              "sub_actors": [],
+              "sub_actors_count": 0,
+              "depth": 3
+            }
+          ],
+          "sub_actors_count": 3,
+          "depth": 2
+        }
+      ],
+      "sub_actors_count": 2,
+      "depth": 1
+    }
+  ],
+  "total_main_actors": 2,
+  "total_subactors": 12,
+  "level": 2
+}

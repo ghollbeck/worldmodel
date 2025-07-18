@@ -1,0 +1,111 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T14:41:35.285063",
+    "run_folder": "run_2025-07-16_17",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "script_version": "2.0.0",
+    "level": 1,
+    "parent_file": "Features_level_0.json",
+    "original_metadata": {
+      "timestamp": "2025-07-16T14:41:30.719958",
+      "run_folder": "run_2025-07-16_17",
+      "model_provider": "anthropic",
+      "model_name": "claude-3-5-sonnet-latest",
+      "num_actors_requested": 2,
+      "num_actors_generated": 2,
+      "script_version": "2.0.0",
+      "generation_method": "LLM-based",
+      "level": 0,
+      "cost_tracking": {
+        "total_cost": 0.007304,
+        "api_calls": 1,
+        "providers": {
+          "anthropic": {
+            "cost": 0.007304,
+            "calls": 1,
+            "models": {
+              "claude-3-5-sonnet-latest": {
+                "cost": 0.007304,
+                "calls": 1,
+                "tokens": {
+                  "input": 448,
+                  "output": 155,
+                  "total": 603
+                }
+              }
+            },
+            "tokens": {
+              "input": 448,
+              "output": 155,
+              "total": 603
+            }
+          }
+        },
+        "session_start": "2025-07-16T14:41:27.040878",
+        "tokens_used": {
+          "input_tokens": 448,
+          "output_tokens": 155,
+          "total_tokens": 603
+        },
+        "session_duration_seconds": 3.679071,
+        "session_duration_str": "0:00:03.679071",
+        "average_cost_per_call": 0.007304,
+        "cost_per_1k_tokens": 0.012112769485903814
+      }
+    },
+    "parallelization": {
+      "enabled": true,
+      "max_concurrent_threads": 5,
+      "total_parallel_tasks": 2
+    },
+    "generation_stats": {
+      "total_main_actors": 0,
+      "total_subactors": 0,
+      "actors_with_subactors": 0,
+      "avg_subactors_per_actor": 0,
+      "successful_actors": 0,
+      "failed_actors": 1
+    },
+    "cost_tracking": {
+      "total_cost": 0.024975999999999998,
+      "api_calls": 3,
+      "providers": {
+        "anthropic": {
+          "cost": 0.024975999999999998,
+          "calls": 3,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.024975999999999998,
+              "calls": 3,
+              "tokens": {
+                "input": 1301,
+                "output": 607,
+                "total": 1908
+              }
+            }
+          },
+          "tokens": {
+            "input": 1301,
+            "output": 607,
+            "total": 1908
+          }
+        }
+      },
+      "session_start": "2025-07-16T14:41:27.040878",
+      "tokens_used": {
+        "input_tokens": 1301,
+        "output_tokens": 607,
+        "total_tokens": 1908
+      },
+      "session_duration_seconds": 8.24418,
+      "session_duration_str": "0:00:08.244180",
+      "average_cost_per_call": 0.008325333333333332,
+      "cost_per_1k_tokens": 0.013090146750524109
+    }
+  },
+  "actors": [],
+  "total_main_actors": 0,
+  "total_subactors": 0,
+  "level": 1
+}

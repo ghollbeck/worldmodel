@@ -1,0 +1,506 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T15:54:24.333621",
+    "run_folder": "run_2025-07-16_18",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "script_version": "2.0.0",
+    "level": 3,
+    "parent_file": "Features_level_2.json",
+    "original_metadata": {
+      "timestamp": "2025-07-16T15:53:33.318878",
+      "run_folder": "run_2025-07-16_18",
+      "model_provider": "anthropic",
+      "model_name": "claude-3-5-sonnet-latest",
+      "num_actors_requested": 2,
+      "num_actors_generated": 2,
+      "script_version": "2.0.0",
+      "generation_method": "LLM-based",
+      "level": 0,
+      "cost_tracking": {
+        "total_cost": 0.0076159999999999995,
+        "api_calls": 1,
+        "providers": {
+          "anthropic": {
+            "cost": 0.0076159999999999995,
+            "calls": 1,
+            "models": {
+              "claude-3-5-sonnet-latest": {
+                "cost": 0.0076159999999999995,
+                "calls": 1,
+                "tokens": {
+                  "input": 448,
+                  "output": 168,
+                  "total": 616
+                }
+              }
+            },
+            "tokens": {
+              "input": 448,
+              "output": 168,
+              "total": 616
+            }
+          }
+        },
+        "session_start": "2025-07-16T15:53:28.267418",
+        "tokens_used": {
+          "input_tokens": 448,
+          "output_tokens": 168,
+          "total_tokens": 616
+        },
+        "session_duration_seconds": 5.051455,
+        "session_duration_str": "0:00:05.051455",
+        "average_cost_per_call": 0.0076159999999999995,
+        "cost_per_1k_tokens": 0.012363636363636363
+      }
+    },
+    "parallelization": {
+      "enabled": true,
+      "max_concurrent_threads": 5,
+      "total_parallel_tasks": 12
+    },
+    "generation_stats": {
+      "total_main_actors": 2,
+      "total_subactors": 24,
+      "actors_with_subactors": 2,
+      "avg_subactors_per_actor": 12.0,
+      "successful_actors": 12,
+      "failed_actors": 0
+    },
+    "cost_tracking": {
+      "total_cost": 0.185864,
+      "api_calls": 19,
+      "providers": {
+        "anthropic": {
+          "cost": 0.185864,
+          "calls": 19,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.185864,
+              "calls": 19,
+              "tokens": {
+                "input": 8458,
+                "output": 4925,
+                "total": 13383
+              }
+            }
+          },
+          "tokens": {
+            "input": 8458,
+            "output": 4925,
+            "total": 13383
+          }
+        }
+      },
+      "session_start": "2025-07-16T15:53:28.267418",
+      "tokens_used": {
+        "input_tokens": 8458,
+        "output_tokens": 4925,
+        "total_tokens": 13383
+      },
+      "session_duration_seconds": 56.066196,
+      "session_duration_str": "0:00:56.066196",
+      "average_cost_per_call": 0.009782315789473684,
+      "cost_per_1k_tokens": 0.013888066950608983
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with unmatched military capabilities, largest economy by GDP, dominant financial system (USD), technological leadership, and extensive diplomatic influence across all continents. Controls key international institutions and maintains significant cultural soft power.",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Executive Office of the President",
+          "description": "Core executive branch led by POTUS with supreme executive authority, commander-in-chief powers, and extensive policy/regulatory control via executive orders. Houses National Security Council, controls federal agencies, and shapes foreign policy. Most powerful single institution in US governance.",
+          "type": "government",
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "Lockheed Martin Corporation",
+              "description": "Leading defense contractor and aerospace company with extensive government contracts, particularly in military hardware, security systems, and classified technology development. Major influence on defense policy and national security decisions through lobbying and strategic partnerships.",
+              "type": "corporation",
+              "parent_actor": "Executive Office of the President",
+              "sub_actors": [
+                {
+                  "name": "James D. Taiclet",
+                  "description": "President and CEO of Lockheed Martin since 2020. Led company through major defense contracts and technological innovations in F-35 program, hypersonic weapons, and space systems. Former U.S. Air Force pilot with extensive aerospace industry experience. Drives strategic vision and relationships with government stakeholders.",
+                  "type": "ceo",
+                  "parent_actor": "Lockheed Martin Corporation",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                },
+                {
+                  "name": "Marillyn Hewson",
+                  "description": "Former CEO (2013-2020) and current Strategic Advisor to the CEO. Named most powerful woman in business by Fortune multiple times. Transformed company's portfolio, led major acquisitions including Sikorsky Aircraft, and strengthened international presence. Continues to influence company strategy and government relations.",
+                  "type": "leader",
+                  "parent_actor": "Lockheed Martin Corporation",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3
+            },
+            {
+              "name": "Boeing Company",
+              "description": "Major aerospace and defense corporation with significant government contracts, including Air Force One and military aircraft. Substantial influence on aviation policy, defense procurement, and international trade relations through high-level government engagement.",
+              "type": "corporation",
+              "parent_actor": "Executive Office of the President",
+              "sub_actors": [
+                {
+                  "name": "Dave Calhoun",
+                  "description": "President and CEO of Boeing since January 2020. Leading Boeing through major challenges including the 737 MAX crisis and COVID-19 impact. Previously served as Boeing's Chairman of the Board. Has overseen significant corporate restructuring and safety protocol overhaul while managing relationships with regulators, airlines, and government officials.",
+                  "type": "ceo",
+                  "parent_actor": "Boeing Company",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                },
+                {
+                  "name": "William Boeing",
+                  "description": "Founder of The Boeing Company in 1916. Pioneered the aviation industry and transformed a small airplane manufacturing business into one of the world's largest aerospace companies. His legacy continues to influence the company's culture and direction. Inducted into the Aviation Hall of Fame and recipient of multiple industry honors.",
+                  "type": "founder",
+                  "parent_actor": "Boeing Company",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3
+            },
+            {
+              "name": "Palantir Technologies",
+              "description": "Data analytics and software company with deep ties to government intelligence and defense agencies. Provides critical technology infrastructure and data analysis capabilities to various executive branch departments, influencing decision-making processes and policy implementation.",
+              "type": "corporation",
+              "parent_actor": "Executive Office of the President",
+              "sub_actors": [
+                {
+                  "name": "Peter Thiel",
+                  "description": "Co-founder of Palantir Technologies and influential tech entrepreneur. Early Facebook investor and PayPal co-founder who helped shape Palantir's mission and strategic direction. Maintains significant influence through board membership and continues to be a key strategic advisor. Known for his political influence and connections to government agencies.",
+                  "type": "founder",
+                  "parent_actor": "Palantir Technologies",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                },
+                {
+                  "name": "Alex Karp",
+                  "description": "CEO and co-founder of Palantir Technologies since 2004. Has led the company's growth from startup to public company, securing major government contracts and expanding into commercial markets. Known for his unique leadership style and strong advocacy for Palantir's role in national security and defense.",
+                  "type": "ceo",
+                  "parent_actor": "Palantir Technologies",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3
+            }
+          ],
+          "sub_actors_count": 3,
+          "depth": 2
+        },
+        {
+          "name": "Federal Reserve System",
+          "description": "Central bank controlling US monetary policy, interest rates, and financial stability. Immense influence over global markets through USD management, banking regulation, and economic policy. Semi-independent institution with vast economic power.",
+          "type": "institution",
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "JPMorgan Chase & Co.",
+              "description": "Largest U.S. bank by assets, primary dealer of U.S. Treasury securities, major participant in Federal Reserve operations and monetary policy transmission. Key player in Fed's payment systems and significant influence on banking policy.",
+              "type": "corporation",
+              "parent_actor": "Federal Reserve System",
+              "sub_actors": [
+                {
+                  "name": "Jamie Dimon",
+                  "description": "Chairman and CEO of JPMorgan Chase since 2005. Led the company through the 2008 financial crisis, oversaw major acquisitions including Bear Stearns, and transformed JPMorgan into the largest U.S. bank by assets. Known for his influential voice on financial policy and economic matters.",
+                  "type": "ceo",
+                  "parent_actor": "JPMorgan Chase & Co.",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                },
+                {
+                  "name": "J.P. Morgan",
+                  "description": "Legendary financier and founder who established J.P. Morgan & Co., the predecessor to modern JPMorgan Chase. Dominated corporate finance and industrial consolidation in the Gilded Age, stabilized financial markets during the 1907 panic, and built the foundation of today's banking giant.",
+                  "type": "founder",
+                  "parent_actor": "JPMorgan Chase & Co.",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3
+            },
+            {
+              "name": "Goldman Sachs Group",
+              "description": "Premier investment bank and primary dealer, crucial role in Fed's market operations and policy implementation. Significant influence on monetary policy through market making and financial advisory services to the Federal Reserve.",
+              "type": "corporation",
+              "parent_actor": "Federal Reserve System",
+              "sub_actors": [
+                {
+                  "name": "David Solomon",
+                  "description": "CEO of Goldman Sachs since 2018, leading the firm's strategic direction and digital transformation. Known for modernizing the bank's operations, expanding consumer banking initiatives, and navigating the firm through market volatility. Also serves on the Board of Directors of the Federal Reserve Bank of New York.",
+                  "type": "ceo",
+                  "parent_actor": "Goldman Sachs Group",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                },
+                {
+                  "name": "Lloyd Blankfein",
+                  "description": "Former CEO and Chairman (2006-2018) who led Goldman Sachs through the 2008 financial crisis. Transformed the firm into a bank holding company and strengthened its position as a global financial powerhouse. Remains influential in financial policy discussions and market commentary.",
+                  "type": "leader",
+                  "parent_actor": "Goldman Sachs Group",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3
+            },
+            {
+              "name": "BlackRock, Inc.",
+              "description": "World's largest asset manager, selected by Fed for managing emergency corporate bond purchase programs. Critical partner in implementing monetary policy and market operations during financial crises.",
+              "type": "corporation",
+              "parent_actor": "Federal Reserve System",
+              "sub_actors": [
+                {
+                  "name": "Larry Fink",
+                  "description": "Co-founder, Chairman and CEO of BlackRock since 1988. Under his leadership, BlackRock grew to become the world's largest asset manager with over $9 trillion in assets under management. Known for his influential annual letters to CEOs and significant role in shaping global financial markets and corporate governance standards.",
+                  "type": "ceo",
+                  "parent_actor": "BlackRock, Inc.",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                },
+                {
+                  "name": "Robert S. Kapito",
+                  "description": "Co-founder and President of BlackRock since 1988, working alongside Larry Fink. Instrumental in developing and implementing BlackRock's risk management and advisory platforms, including the Aladdin system. Oversees day-to-day operations and strategic initiatives of the firm.",
+                  "type": "leader",
+                  "parent_actor": "BlackRock, Inc.",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3
+            }
+          ],
+          "sub_actors_count": 3,
+          "depth": 2
+        }
+      ],
+      "sub_actors_count": 2,
+      "depth": 1
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "Second largest economy, rising military power, largest population, dominant manufacturing base, growing technological capabilities, massive infrastructure investments (Belt and Road), and increasing diplomatic influence, especially in developing nations.",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Chinese Communist Party (CCP)",
+          "description": "The ruling party and supreme political authority in China, controlling all aspects of governance, military, economy, and society. Led by the Politburo Standing Committee and General Secretary, it sets national policy, ideology, and strategic direction through parallel party-state structures at all levels.",
+          "type": "party",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [
+            {
+              "name": "Sinopec Group",
+              "description": "China's largest oil and gas company, state-owned enterprise that dominates the nation's petrochemical sector. Critical to China's energy security and economic development, with extensive international operations and massive influence on global energy markets.",
+              "type": "corporation",
+              "parent_actor": "Chinese Communist Party (CCP)",
+              "sub_actors": [
+                {
+                  "name": "Ma Yongsheng",
+                  "description": "Chairman of Sinopec Group since 2021 and current President. As CEO of China's largest oil refiner, he leads strategic initiatives in energy transition, overseas expansion, and technological innovation. Under his leadership, Sinopec has advanced its hydrogen energy development and carbon neutrality goals while maintaining its position as a global energy giant.",
+                  "type": "ceo",
+                  "parent_actor": "Sinopec Group",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                },
+                {
+                  "name": "Zhang Yuzhuo",
+                  "description": "Former Chairman of Sinopec Group (2020-2021) and influential figure in China's energy sector. Notable for driving Sinopec's digital transformation and green development strategy. His tenure marked significant advancement in the company's clean energy initiatives and technological modernization programs.",
+                  "type": "leader",
+                  "parent_actor": "Sinopec Group",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3
+            },
+            {
+              "name": "State Grid Corporation of China",
+              "description": "World's largest utility company, controlling China's electrical grid and power distribution. Strategic state-owned enterprise essential to national infrastructure and energy policy implementation, serving over 1.1 billion customers.",
+              "type": "corporation",
+              "parent_actor": "Chinese Communist Party (CCP)",
+              "sub_actors": [
+                {
+                  "name": "Xin Baoan",
+                  "description": "Current Chairman and Party Secretary of State Grid Corporation of China since 2023. Previously served as President of State Grid. Oversees the world's largest utility company and plays a crucial role in implementing China's energy transition and power infrastructure development policies.",
+                  "type": "ceo",
+                  "parent_actor": "State Grid Corporation of China",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                },
+                {
+                  "name": "Liu Zhenya",
+                  "description": "Former Chairman of State Grid Corporation (2004-2016) who transformed the company into a global leader in ultra-high voltage power transmission. Architect of China's smart grid strategy and key figure in modernizing China's power infrastructure. Currently serves as Chairman of Global Energy Interconnection Development and Cooperation Organization.",
+                  "type": "leader",
+                  "parent_actor": "State Grid Corporation of China",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3
+            },
+            {
+              "name": "China National Petroleum Corporation (CNPC)",
+              "description": "Major state-owned oil and gas producer and supplier, parent company of PetroChina. Controls significant portion of China's oil and gas production, exploration, and import activities, with extensive international operations and strategic partnerships.",
+              "type": "corporation",
+              "parent_actor": "Chinese Communist Party (CCP)",
+              "sub_actors": [
+                {
+                  "name": "Dai Houliang",
+                  "description": "Chairman of CNPC and Chairman of PetroChina since 2020. Previously served as Chairman of Sinopec. Key decision-maker in China's energy sector, leading CNPC's global expansion and domestic energy security initiatives. Influential in implementing China's energy policies and international oil partnerships.",
+                  "type": "ceo",
+                  "parent_actor": "China National Petroleum Corporation (CNPC)",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                },
+                {
+                  "name": "Huang Yongzhang",
+                  "description": "President of CNPC and Vice Chairman of PetroChina. Oversees daily operations and implementation of corporate strategy. Significant influence in operational decisions and international partnerships. Key figure in CNPC's technological advancement and sustainable development initiatives.",
+                  "type": "ceo",
+                  "parent_actor": "China National Petroleum Corporation (CNPC)",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3
+            }
+          ],
+          "sub_actors_count": 3,
+          "depth": 2
+        },
+        {
+          "name": "Central Military Commission (CMC)",
+          "description": "Supreme military command organization overseeing the People's Liberation Army (PLA), responsible for national defense policy and military strategy. Controls world's largest military force and reports directly to CCP leadership, wielding significant influence in national security decisions.",
+          "type": "military",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [
+            {
+              "name": "China North Industries Group Corporation (Norinco)",
+              "description": "China's largest state-owned defense contractor, specializing in military equipment, vehicles, and weapons systems. Primary supplier to PLA, generates over $70 billion in annual revenue and controls majority of domestic military equipment production.",
+              "type": "corporation",
+              "parent_actor": "Central Military Commission (CMC)",
+              "sub_actors": [
+                {
+                  "name": "Liu Shiquan",
+                  "description": "Chairman and Executive Director of Norinco since 2020. As the top executive, he oversees the corporation's vast defense manufacturing operations, international trade relationships, and strategic development. Under his leadership, Norinco has expanded its global market presence and strengthened its position as China's premier defense contractor.",
+                  "type": "ceo",
+                  "parent_actor": "China North Industries Group Corporation (Norinco)",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                },
+                {
+                  "name": "Zhang Guoqing",
+                  "description": "Former Chairman of Norinco (2013-2016) who dramatically expanded the company's operations and international presence. Currently serves as Mayor of Beijing and maintains significant influence over Norinco's strategic direction through his political connections and defense industry expertise.",
+                  "type": "politician",
+                  "parent_actor": "China North Industries Group Corporation (Norinco)",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3
+            },
+            {
+              "name": "Aviation Industry Corporation of China (AVIC)",
+              "description": "State-owned aerospace and defense conglomerate developing military aircraft, engines, and aviation systems. Key developer of China's fighter jets, helicopters, and military drones with significant R&D capabilities.",
+              "type": "corporation",
+              "parent_actor": "Central Military Commission (CMC)",
+              "sub_actors": [
+                {
+                  "name": "Chen Yuanxian",
+                  "description": "Executive Vice President and Board Member of AVIC who oversees major military aviation projects including the J-20 stealth fighter development. He has been instrumental in modernizing AVIC's R&D capabilities and expanding international partnerships.",
+                  "type": "ceo",
+                  "parent_actor": "Aviation Industry Corporation of China (AVIC)",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                },
+                {
+                  "name": "Tang Changhong",
+                  "description": "Chief Designer of the J-20 stealth fighter program at AVIC and academician of the Chinese Academy of Engineering. He leads the technical development of China's most advanced military aircraft and has received multiple national science and technology awards.",
+                  "type": "expert",
+                  "parent_actor": "Aviation Industry Corporation of China (AVIC)",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3
+            },
+            {
+              "name": "China Electronics Technology Group Corporation (CETC)",
+              "description": "Leading developer of military electronics, radar systems, and cybersecurity technologies. Provides critical communications infrastructure and electronic warfare capabilities to PLA across all service branches.",
+              "type": "corporation",
+              "parent_actor": "Central Military Commission (CMC)",
+              "sub_actors": [
+                {
+                  "name": "Chen Zhaoxiong",
+                  "description": "Chairman and Party Secretary of CETC since 2020. Previously served as Vice Minister of Industry and Information Technology. Oversees CETC's strategic direction in military electronics and leads major defense technology initiatives. Key figure in advancing China's domestic semiconductor and electronic warfare capabilities.",
+                  "type": "ceo",
+                  "parent_actor": "China Electronics Technology Group Corporation (CETC)",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                },
+                {
+                  "name": "Wu Manqing",
+                  "description": "Chief Technology Officer and Senior Technical Expert at CETC. Leading researcher in quantum communications and cybersecurity. Instrumental in developing CETC's advanced radar systems and military communications technologies. Member of Chinese Academy of Engineering.",
+                  "type": "expert",
+                  "parent_actor": "China Electronics Technology Group Corporation (CETC)",
+                  "sub_actors": [],
+                  "sub_actors_count": 0,
+                  "depth": 4
+                }
+              ],
+              "sub_actors_count": 2,
+              "depth": 3
+            }
+          ],
+          "sub_actors_count": 3,
+          "depth": 2
+        }
+      ],
+      "sub_actors_count": 2,
+      "depth": 1
+    }
+  ],
+  "total_main_actors": 2,
+  "total_subactors": 24,
+  "level": 3
+}

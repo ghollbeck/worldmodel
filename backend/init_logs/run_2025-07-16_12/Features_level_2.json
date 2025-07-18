@@ -1,0 +1,290 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T13:57:03.907814",
+    "run_folder": "run_2025-07-16_12",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "script_version": "3.0.0",
+    "level": 2,
+    "parent_file": "Features_level_1.json",
+    "original_metadata": {
+      "timestamp": "2025-07-16T13:56:56.663399",
+      "run_folder": "run_2025-07-16_12",
+      "model_provider": "anthropic",
+      "model_name": "claude-3-5-sonnet-latest",
+      "num_actors_requested": 4,
+      "num_actors_generated": 4,
+      "script_version": "3.0.0",
+      "generation_method": "LLM-based",
+      "level": 0,
+      "cost_tracking": {
+        "total_cost": 0.01016,
+        "api_calls": 1,
+        "providers": {
+          "anthropic": {
+            "cost": 0.01016,
+            "calls": 1,
+            "models": {
+              "claude-3-5-sonnet-latest": {
+                "cost": 0.01016,
+                "calls": 1,
+                "tokens": {
+                  "input": 448,
+                  "output": 274,
+                  "total": 722
+                }
+              }
+            },
+            "tokens": {
+              "input": 448,
+              "output": 274,
+              "total": 722
+            }
+          }
+        },
+        "session_start": "2025-07-16T13:56:50.573624",
+        "tokens_used": {
+          "input_tokens": 448,
+          "output_tokens": 274,
+          "total_tokens": 722
+        },
+        "session_duration_seconds": 6.08977,
+        "session_duration_str": "0:00:06.089770",
+        "average_cost_per_call": 0.01016,
+        "cost_per_1k_tokens": 0.014072022160664822
+      }
+    },
+    "parallelization": {
+      "enabled": true,
+      "max_concurrent_threads": 5,
+      "total_parallel_tasks": 0
+    },
+    "generation_stats": {
+      "total_main_actors": 4,
+      "total_subactors": 0,
+      "successful_actors": 0,
+      "failed_actors": 0
+    },
+    "cost_tracking": {
+      "total_cost": 0.056424,
+      "api_calls": 5,
+      "providers": {
+        "anthropic": {
+          "cost": 0.056424,
+          "calls": 5,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.056424,
+              "calls": 5,
+              "tokens": {
+                "input": 2133,
+                "output": 1640,
+                "total": 3773
+              }
+            }
+          },
+          "tokens": {
+            "input": 2133,
+            "output": 1640,
+            "total": 3773
+          }
+        }
+      },
+      "session_start": "2025-07-16T13:56:50.573624",
+      "tokens_used": {
+        "input_tokens": 2133,
+        "output_tokens": 1640,
+        "total_tokens": 3773
+      },
+      "session_duration_seconds": 13.334173,
+      "session_duration_str": "0:00:13.334173",
+      "average_cost_per_call": 0.011284800000000001,
+      "cost_per_1k_tokens": 0.014954677975086138
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with unmatched military strength, largest economy by GDP, dominant financial system (USD), technological leadership, and extensive diplomatic influence across all continents",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Executive Office of the President",
+          "description": "Core of executive power, includes POTUS and key advisory bodies like National Security Council. Sets national policy agenda, conducts foreign relations, serves as Commander in Chief of armed forces, and implements federal laws.",
+          "type": "government",
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        },
+        {
+          "name": "Federal Reserve System",
+          "description": "Central bank that controls monetary policy, regulates banking system, maintains financial stability, and manages the world's primary reserve currency (USD). Crucial influence on global markets.",
+          "type": "institution",
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        },
+        {
+          "name": "Department of Defense",
+          "description": "Manages world's largest military force, oversees national security strategy, controls nuclear arsenal, and maintains global military presence. Largest federal department by budget.",
+          "type": "ministry",
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        },
+        {
+          "name": "Congress",
+          "description": "Bicameral legislature (Senate and House) with exclusive power to pass federal laws, declare war, regulate commerce, and control federal budget. Primary check on executive power.",
+          "type": "government",
+          "parent_actor": "United States of America",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        }
+      ],
+      "sub_actors_count": 4,
+      "parameters": []
+    },
+    {
+      "name": "People's Republic of China",
+      "description": "World's largest population, second-largest economy, rising military power, dominant manufacturing base, growing technological capability, and increasing global diplomatic presence through Belt and Road Initiative",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Chinese Communist Party (CCP)",
+          "description": "The ruling political party and ultimate power center in China, controlling all aspects of state governance, military, and policy direction through the Politburo Standing Committee and extensive party apparatus",
+          "type": "party",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        },
+        {
+          "name": "State Council of the People's Republic of China",
+          "description": "China's chief administrative authority and highest executive organ of state power, responsible for implementing national policies and managing day-to-day governance of the country",
+          "type": "government",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        },
+        {
+          "name": "Central Military Commission (CMC)",
+          "description": "Supreme military command organization controlling the People's Liberation Army (PLA), responsible for national defense policy and military strategy",
+          "type": "military",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        },
+        {
+          "name": "People's Bank of China (PBOC)",
+          "description": "China's central bank, controlling monetary policy, financial stability, and currency management, with significant influence over the world's second-largest economy",
+          "type": "institution",
+          "parent_actor": "People's Republic of China",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        }
+      ],
+      "sub_actors_count": 4,
+      "parameters": []
+    },
+    {
+      "name": "Apple Inc.",
+      "description": "Most valuable public company globally, massive influence on global technology standards, consumer behavior, supply chains, and digital ecosystem with over 2 billion active devices worldwide",
+      "type": "company",
+      "sub_actors": [
+        {
+          "name": "Executive Leadership Team",
+          "description": "Highest decision-making body led by CEO Tim Cook, sets overall corporate strategy, product direction, and major organizational policies. Controls resource allocation and strategic initiatives across all divisions.",
+          "type": "institution",
+          "parent_actor": "Apple Inc.",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        },
+        {
+          "name": "Board of Directors",
+          "description": "Corporate governance body providing oversight, approving major strategic decisions, and representing shareholder interests. Guides long-term company direction and executive accountability.",
+          "type": "institution",
+          "parent_actor": "Apple Inc.",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        },
+        {
+          "name": "Product Development Division",
+          "description": "Core technical and design organization responsible for Apple's product pipeline, innovation strategy, and technology standards. Led by key SVPs across hardware and software.",
+          "type": "agency",
+          "parent_actor": "Apple Inc.",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        },
+        {
+          "name": "Operations and Supply Chain",
+          "description": "Controls global manufacturing, logistics, and supplier relationships. Critical for product delivery, quality control, and maintaining Apple's production capabilities worldwide.",
+          "type": "agency",
+          "parent_actor": "Apple Inc.",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        }
+      ],
+      "sub_actors_count": 4,
+      "parameters": []
+    },
+    {
+      "name": "European Union",
+      "description": "Largest trading bloc, significant regulatory power ('Brussels Effect'), major diplomatic force, influential environmental policies, and world's third-largest economy as a collective",
+      "type": "alliance",
+      "sub_actors": [
+        {
+          "name": "European Commission",
+          "description": "Executive branch of the EU that proposes legislation, implements decisions, upholds treaties, and manages day-to-day business. Holds significant power in policy initiation and enforcement of EU regulations.",
+          "type": "government",
+          "parent_actor": "European Union",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        },
+        {
+          "name": "European Central Bank",
+          "description": "Controls EU monetary policy, manages the euro, and supervises banking systems across the Eurozone. Vital for economic stability and financial governance of the union.",
+          "type": "institution",
+          "parent_actor": "European Union",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        },
+        {
+          "name": "European Parliament",
+          "description": "Directly elected legislative body that passes EU laws, approves budgets, and provides democratic oversight. Key institution in EU decision-making and citizen representation.",
+          "type": "government",
+          "parent_actor": "European Union",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        },
+        {
+          "name": "Council of the European Union",
+          "description": "Represents member states' governments, adopts EU laws, coordinates policies, and develops foreign/security policy. Essential for intergovernmental decision-making.",
+          "type": "government",
+          "parent_actor": "European Union",
+          "sub_actors": [],
+          "sub_actors_count": 0,
+          "parameters": []
+        }
+      ],
+      "sub_actors_count": 4,
+      "parameters": []
+    }
+  ],
+  "total_main_actors": 4,
+  "total_subactors": 0,
+  "level": 2
+}

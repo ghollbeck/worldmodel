@@ -1,0 +1,260 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-16T14:23:03.112728",
+    "run_folder": "run_2025-07-16_16",
+    "model_provider": "anthropic",
+    "model_name": "claude-3-5-sonnet-latest",
+    "script_version": "2.0.0",
+    "level": 2,
+    "parent_file": "Features_level_1.json",
+    "original_metadata": {
+      "timestamp": "2025-07-16T14:22:48.533055",
+      "run_folder": "run_2025-07-16_16",
+      "model_provider": "anthropic",
+      "model_name": "claude-3-5-sonnet-latest",
+      "num_actors_requested": 2,
+      "num_actors_generated": 2,
+      "script_version": "2.0.0",
+      "generation_method": "LLM-based",
+      "level": 0,
+      "cost_tracking": {
+        "total_cost": 0.007568,
+        "api_calls": 1,
+        "providers": {
+          "anthropic": {
+            "cost": 0.007568,
+            "calls": 1,
+            "models": {
+              "claude-3-5-sonnet-latest": {
+                "cost": 0.007568,
+                "calls": 1,
+                "tokens": {
+                  "input": 448,
+                  "output": 166,
+                  "total": 614
+                }
+              }
+            },
+            "tokens": {
+              "input": 448,
+              "output": 166,
+              "total": 614
+            }
+          }
+        },
+        "session_start": "2025-07-16T14:22:42.498918",
+        "tokens_used": {
+          "input_tokens": 448,
+          "output_tokens": 166,
+          "total_tokens": 614
+        },
+        "session_duration_seconds": 6.034127,
+        "session_duration_str": "0:00:06.034127",
+        "average_cost_per_call": 0.007568,
+        "cost_per_1k_tokens": 0.012325732899022801
+      }
+    },
+    "parallelization": {
+      "enabled": true,
+      "max_concurrent_threads": 5,
+      "total_parallel_tasks": 4
+    },
+    "generation_stats": {
+      "total_main_actors": 2,
+      "total_subactors": 12,
+      "actors_with_subactors": 2,
+      "avg_subactors_per_actor": 6.0,
+      "successful_actors": 4,
+      "failed_actors": 0
+    },
+    "cost_tracking": {
+      "total_cost": 0.06801600000000001,
+      "api_calls": 7,
+      "providers": {
+        "anthropic": {
+          "cost": 0.06801600000000001,
+          "calls": 7,
+          "models": {
+            "claude-3-5-sonnet-latest": {
+              "cost": 0.06801600000000001,
+              "calls": 7,
+              "tokens": {
+                "input": 3078,
+                "output": 1808,
+                "total": 4886
+              }
+            }
+          },
+          "tokens": {
+            "input": 3078,
+            "output": 1808,
+            "total": 4886
+          }
+        }
+      },
+      "session_start": "2025-07-16T14:22:42.498918",
+      "tokens_used": {
+        "input_tokens": 3078,
+        "output_tokens": 1808,
+        "total_tokens": 4886
+      },
+      "session_duration_seconds": 20.613796,
+      "session_duration_str": "0:00:20.613796",
+      "average_cost_per_call": 0.00971657142857143,
+      "cost_per_1k_tokens": 0.013920589439214082
+    }
+  },
+  "actors": [
+    {
+      "name": "United States of America",
+      "description": "Global superpower with unmatched military strength, largest economy by GDP, dominant financial system (USD), technological leadership, and extensive diplomatic influence. Controls key international institutions and maintains significant cultural soft power through media and entertainment.",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Executive Office of the President",
+          "description": "Core executive branch leadership headed by the President, wielding extensive executive authority over federal policy, national security, foreign relations, and military command. Controls federal agencies, issues executive orders, and shapes national agenda through veto power and administrative actions.",
+          "type": "government",
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "Lockheed Martin Corporation",
+              "description": "Leading defense contractor and aerospace company with extensive government contracts, particularly in military aircraft, missiles, and advanced technology systems. Major supplier to Department of Defense and intelligence agencies, wielding significant influence in defense policy and procurement decisions.",
+              "type": "corporation",
+              "parent_actor": "Executive Office of the President",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Amazon Web Services (AWS)",
+              "description": "Primary cloud computing provider for numerous federal agencies, including CIA and Department of Defense through JEDI and C2E contracts. Critical infrastructure provider for government operations and classified data management systems.",
+              "type": "corporation",
+              "parent_actor": "Executive Office of the President",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Palantir Technologies",
+              "description": "Data analytics and software company with deep ties to federal intelligence and defense agencies. Provides critical data integration and analysis platforms for national security, immigration enforcement, and federal decision-making processes.",
+              "type": "corporation",
+              "parent_actor": "Executive Office of the President",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 3
+        },
+        {
+          "name": "Federal Reserve System",
+          "description": "Central bank of the United States that controls monetary policy, regulates banking system, and manages currency stability. Immense influence over global financial markets through interest rate decisions and dollar policy, directly impacting US and world economies.",
+          "type": "institution",
+          "parent_actor": "United States of America",
+          "sub_actors": [
+            {
+              "name": "JPMorgan Chase & Co.",
+              "description": "Largest U.S. bank by assets, primary dealer of U.S. Treasury securities, and major participant in Federal Reserve operations. Critical role in implementing Fed monetary policy through market operations and serving as a key intermediary in the federal funds market.",
+              "type": "corporation",
+              "parent_actor": "Federal Reserve System",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "BlackRock, Inc.",
+              "description": "World's largest asset manager, serves as key advisor to the Federal Reserve for bond-buying programs and market operations. Significant influence in Fed's emergency lending facilities and implementation of monetary policy through market operations.",
+              "type": "corporation",
+              "parent_actor": "Federal Reserve System",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Goldman Sachs Group",
+              "description": "Leading global investment bank and primary dealer, crucial participant in Fed's market operations and monetary policy implementation. Major influence in financial markets and Fed's regulatory framework through executive appointments and policy advisory roles.",
+              "type": "corporation",
+              "parent_actor": "Federal Reserve System",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 3
+        }
+      ],
+      "sub_actors_count": 2
+    },
+    {
+      "name": "China",
+      "description": "Second largest economy, rising military power, largest population, dominant manufacturing base, increasing technological capabilities, major infrastructure investments (Belt and Road), and growing diplomatic influence across Asia, Africa, and beyond.",
+      "type": "country",
+      "sub_actors": [
+        {
+          "name": "Chinese Communist Party (CCP)",
+          "description": "The ruling political party and ultimate power center of China, controlling all aspects of governance, military, economy and society through its Politburo Standing Committee and extensive party apparatus. Sets national policy direction and strategy at all levels.",
+          "type": "party",
+          "parent_actor": "China",
+          "sub_actors": [
+            {
+              "name": "Sinopec Group",
+              "description": "State-owned petroleum and petrochemical enterprise group, China's largest oil refining company and second-largest oil and gas producer. Critical to China's energy security and economic development with extensive international operations.",
+              "type": "corporation",
+              "parent_actor": "Chinese Communist Party (CCP)",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "China State Construction Engineering Corporation",
+              "description": "World's largest construction company and real estate conglomerate, responsible for major infrastructure projects both domestically and internationally as part of Belt and Road Initiative. Key executor of CCP's infrastructure development strategy.",
+              "type": "corporation",
+              "parent_actor": "Chinese Communist Party (CCP)",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "Industrial and Commercial Bank of China",
+              "description": "World's largest bank by total assets, providing critical financial services and implementing CCP's monetary policies. Essential for China's economic control and international financial influence.",
+              "type": "corporation",
+              "parent_actor": "Chinese Communist Party (CCP)",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 3
+        },
+        {
+          "name": "State Council of the People's Republic of China",
+          "description": "China's chief administrative authority and highest executive organ of state power, responsible for implementing CCP policies, managing the economy, overseeing state bureaucracy, and coordinating between ministries and provinces.",
+          "type": "government",
+          "parent_actor": "China",
+          "sub_actors": [
+            {
+              "name": "Sinopec Group",
+              "description": "State-owned petroleum and petrochemical enterprise group, China's largest oil refining company and second-largest oil and gas producer. Major driver of national energy security and economic development with extensive international operations.",
+              "type": "corporation",
+              "parent_actor": "State Council of the People's Republic of China",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "State Grid Corporation of China",
+              "description": "World's largest utility company operating China's national power grid. Controls electricity transmission and distribution across 26 provinces, serving over 1.1 billion people and critical to national infrastructure.",
+              "type": "corporation",
+              "parent_actor": "State Council of the People's Republic of China",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            },
+            {
+              "name": "China National Petroleum Corporation",
+              "description": "State-owned oil and gas corporation, largest integrated energy company in China. Controls majority of China's oil and gas production and supply, with significant international presence and strategic importance to national energy security.",
+              "type": "corporation",
+              "parent_actor": "State Council of the People's Republic of China",
+              "sub_actors": [],
+              "sub_actors_count": 0
+            }
+          ],
+          "sub_actors_count": 3
+        }
+      ],
+      "sub_actors_count": 2
+    }
+  ],
+  "total_main_actors": 2,
+  "total_subactors": 12,
+  "level": 2
+}
